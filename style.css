@@ -148,13 +148,57 @@ main {
   margin-bottom: 2em;
 }
 
-.img-destaque-ajustada {
+/* FORMULÁRIO DE CONTATO */
+form {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+form label {
+  font-weight: 600;
+  color: var(--bordo-escuro);
+  margin-bottom: 0.2em;
+}
+
+form input[type="email"],
+form textarea {
   width: 100%;
-  max-width: 470px;
-  display: block;
-  margin: 0 auto 1em auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(128,0,32,0.11);
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: border-color 0.2s;
+}
+
+form input[type="email"]:focus,
+form textarea:focus {
+  border-color: var(--bordo);
+  outline: none;
+}
+
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+form button[type="submit"] {
+  background: var(--bordo);
+  color: var(--text-light);
+  font-weight: bold;
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+
+form button[type="submit"]:hover,
+form button[type="submit"]:focus {
+  background: var(--bordo-escuro);
 }
 
 /* IMAGENS COLUNAS */
@@ -244,4 +288,4 @@ main {
   .destaque article {
     padding: 1em 0.3em;
   }
-  }
+}
