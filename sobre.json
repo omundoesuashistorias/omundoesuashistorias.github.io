@@ -1,0 +1,15 @@
+{
+  "descricao": "O Mundo E Suas Histórias é um projeto dedicado a contar curiosidades históricas com leveza, carisma e conteúdo. Misturamos entretenimento e educação para transformar história em paixão.",
+  "administradores": [
+    {
+      "nome": "Rodrigo",
+      "função": "Criador de Conteúdo",
+      "email": "rodri@example.com"
+    },
+    {
+      "nome": "Dinackita",
+      "função": "Co-criadora e Roteirista",
+      "email": "dina@example.com"
+    }
+  ]
+}
