@@ -1,14 +1,65 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+  // MENU RESPONSIVO
   const menuToggle = document.querySelector('.menu-toggle');
   const navUl = document.querySelector('nav ul');
-  if(menuToggle && navUl) {
-    menuToggle.addEventListener('click', function() {
+  if (menuToggle && navUl) {
+    menuToggle.addEventListener('click', function () {
       navUl.classList.toggle('active');
     });
     navUl.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navUl.classList.remove('active');
       });
+    });
+  }
+
+  // FORMULÁRIO DE CONTATO (Formspree)
+  const form = document.querySelector('form[action*="formspree.io"]');
+  if (form) {
+    const submitButton = form.querySelector('button[type="submit"]');
+    const messageBox = document.createElement('p');
+    messageBox.className = 'form-message';
+    form.appendChild(messageBox);
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Verifica se os campos obrigatórios estão preenchidos
+      const email = form.querySelector('input[name="email"]');
+      const message = form.querySelector('textarea[name="message"]');
+
+      if (!email.value.trim() || !message.value.trim()) {
+        messageBox.textContent = 'Por favor, preencha todos os campos obrigatórios.';
+        messageBox.style.color = '#b00020';
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando...';
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' }
+        });
+
+        if (response.ok) {
+          messageBox.textContent = 'Mensagem enviada com sucesso! Obrigado pelo contato.';
+          messageBox.style.color = '#006400';
+          form.reset();
+        } else {
+          messageBox.textContent = 'Ops! Algo deu errado. Tente novamente mais tarde.';
+          messageBox.style.color = '#b00020';
+        }
+      } catch (error) {
+        messageBox.textContent = 'Erro de conexão. Verifique sua internet.';
+        messageBox.style.color = '#b00020';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Enviar';
+      }
     });
   }
 });
