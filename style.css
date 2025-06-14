@@ -146,7 +146,7 @@ main {
   box-shadow: 0 2px 8px rgba(128,0,32,0.09);
   padding: 1.5em;
   margin-bottom: 2em;
-  max-width: 850px;
+  max-width: 600px; /* Reduzido de 850px para 600px */
   margin-left: auto;
   margin-right: auto;
 }
@@ -154,7 +154,7 @@ main {
 /* IMAGEM EM DESTAQUE AJUSTADA */
 .img-destaque-ajustada {
   width: 100%;
-  max-width: 420px;
+  max-width: 420px; /* Limita largura pra imagem não ficar gigante */
   height: auto;
   display: block;
   margin: 1em auto;
