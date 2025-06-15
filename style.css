@@ -32,6 +32,10 @@ header {
   flex-wrap: wrap;
 }
 
+header h1 {
+  color: var(--text-light); /* Branco, como definido no :root */
+}
+
 .logo {
   max-height: 60px;
   margin-right: 1em;
