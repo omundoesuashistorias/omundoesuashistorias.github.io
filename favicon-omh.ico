@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Online ICO converter</title>
-<meta name="viewport" content="width=780">
-<meta name="description" content="Converts images to the ICO format.">
-<meta property="og:title" content="ICO Converter">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.icoconverter.com">
-<meta property="og:description" content="Converts images to the ICO format for your websites or applications.">
-<meta property="fb:admins" content="1219914775">
-<style type="text/css">
-body, input, select, textarea, button { font: 13pt Verdana, sans-serif; color: #333 }
-body, div, form { margin: 0; padding: 0 }
-a img { border: 0 }
+  <title>Online ICO converter</title>
+  <meta name="viewport" content="width=780">
+  <meta name="description" content="Converts images to the ICO format.">
+  <meta property="og:title" content="ICO Converter">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.icoconverter.com">
+  <meta property="og:description" content="Converts images to the ICO format for your websites or applications.">
+  <meta property="fb:admins" content="1219914775">
 
-h1 { text-align: center; font-size: 25pt }
-h1 img { vertical-align: middle; margin-right: .4em }
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon-omh.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon-omh.ico" type="image/x-icon" />
 
-#content { margin: 0 auto; width: 700px }
+  <style type="text/css">
+    body, input, select, textarea, button { font: 13pt Verdana, sans-serif; color: #333 }
+    body, div, form { margin: 0; padding: 0 }
+    a img { border: 0 }
 
-form { padding: 15px; background: #f8f8f8; border: solid 1px #ccc; border-radius: 3px }
-form h3 { margin: 20px 0 5px; border-bottom: 1px solid #eee; font-size: 13pt }
-form em { display: block; font-size: 11pt; margin: 5px 0 10px; font-style: italic; color: #555 }
-form button { margin: 5px 0 1px }
-.checkGroup label { display: block }
+    h1 { text-align: center; font-size: 25pt }
+    h1 img { vertical-align: middle; margin-right: .4em }
 
-header { margin: 4px 4px 0; height: 21px; overflow: auto }
-header > * { float: right !important; margin: 0 2px !important }
-footer { margin: 13px 80px; text-align: center; font-size: smaller }
+    #content { margin: 0 auto; width: 700px }
 
+    form { padding: 15px; background: #f8f8f8; border: solid 1px #ccc; border-radius: 3px }
+    form h3 { margin: 20px 0 5px; border-bottom: 1px solid #eee; font-size: 13pt }
+    form em { display: block; font-size: 11pt; margin: 5px 0 10px; font-style: italic; color: #555 }
+    form button { margin: 5px 0 1px }
+    .checkGroup label { display: block }
 
-@media handheld, screen and (max-width: 795px) {
-	body, input, select, textarea, button  { font-size: 22pt }
-	form h3 { font-size: 30pt }
-}
-</style>
+    header { margin: 4px 4px 0; height: 21px; overflow: auto }
+    header > * { float: right !important; margin: 0 2px !important }
+    footer { margin: 13px 80px; text-align: center; font-size: smaller }
+
+    @media handheld, screen and (max-width: 795px) {
+      body, input, select, textarea, button { font-size: 22pt }
+      form h3 { font-size: 30pt }
+    }
+  </style>
 </head>
+
 <body>
 
 
