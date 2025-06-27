@@ -274,11 +274,12 @@
 </section>
 
   </section>
-
 </main>
 
-
-
+<footer id="rodape"></footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var rodapePadrao = `
 <footer id="rodape">
   <div class="footer-container">
     <div class="footer-col">
@@ -302,7 +303,6 @@
       <h4>Redes Sociais</h4>
       <div class="social-links">
         <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook">
-          <!-- Ícone Facebook SVG -->
           <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
             <circle cx="16" cy="16" r="16" fill="#fff" />
             <path d="M20.94 16.12h-2.17v7.5h-3.08v-7.5h-1.51v-2.65h1.51v-1.53c0-1.25.59-3.2 3.2-3.2l2.35.01v2.62h-1.71c-.28 0-.67.14-.67.71v1.39h2.43l-.35 2.65z" fill="#5a0015"/>
@@ -312,11 +312,15 @@
     </div>
   </div>
 </footer>
-
-
+`;
+  var rodape = document.getElementById('rodape');
+  if(rodape){
+    rodape.outerHTML = rodapePadrao;
+  }
+});
+</script>
 
 <script src="script.js"></script>
 
 </body>
-
-  </html>
+</html>
