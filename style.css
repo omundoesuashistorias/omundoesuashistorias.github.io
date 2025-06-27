@@ -270,26 +270,68 @@ form button[type="submit"]:focus {
 
 /* FOOTER */
 #rodape {
-  background: var(--bordo);
-  font-size: 0.98em;
-  color: var(--text-light);
-  padding: 1.5em 1em;
-  text-align: center;
-  border-top: 3px solid var(--bordo-escuro);
-  margin-top: 2em;
-  box-shadow: 0 -1px 6px rgba(128,0,32,0.09);
+  background: #5a0015;
+  color: #fff;
+  padding: 40px 0 20px 0;
+  font-size: 15px;
 }
-
-#rodape a {
-  color: #fff7f7;
-  text-decoration: underline;
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+  justify-content: space-between;
+  gap: 30px;
 }
-
-#rodape a:hover,
-#rodape a:focus {
-  color: #ffe8f0;
+.footer-col {
+  flex: 1 1 220px;
+  min-width: 200px;
 }
-
+.footer-col h3,
+.footer-col h4 {
+  margin-bottom: 10px;
+  color: #ffd700;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-col ul li {
+  margin: 8px 0;
+}
+.footer-col ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover {
+  color: #ffd700;
+}
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+}
+.social-links svg {
+  vertical-align: middle;
+  transition: filter 0.2s, transform 0.2s;
+  filter: grayscale(1) brightness(1.5);
+}
+.social-links a:hover svg {
+  filter: none;
+  transform: scale(1.1);
+}
+/* Responsivo */
+@media (max-width: 700px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-col {
+    margin-bottom: 25px;
+  }
+}
 /* AJUSTES MOBILE */
 @media (max-width: 900px) {
   .imagens {
