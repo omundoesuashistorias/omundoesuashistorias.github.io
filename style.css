@@ -332,6 +332,7 @@ form button[type="submit"]:focus {
     margin-bottom: 25px;
   }
 }
+
 /* AJUSTES MOBILE */
 @media (max-width: 900px) {
   .imagens {
