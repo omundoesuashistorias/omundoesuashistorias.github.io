@@ -27,6 +27,20 @@
   <meta name="twitter:title" content="O Mundo e Suas Histórias" />
   <meta name="twitter:description" content="O Mundo E Suas Histórias - Explorando o passado com bom humor e curiosidade!" />
   <meta name="twitter:image" content="https://omundoesuashistorias.com.br/thumbnail.jpg" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'accent-teal': '#20c997',
+        }
+      }
+    }
+  }
+</script>
+
 </head>
 <body>
 <header>
@@ -45,52 +59,75 @@
 </header>
 
 <main>
-  <section class="destaque">
-    <article>
-      <h2>O dinossauro que levava a moda na cabeça: Lambeosaurus</h2>
-      <img 
-        src="destaque.jpg" 
-        alt="Ilustração do Lambeosaurus, dinossauro com crista oca em destaque" 
-        class="img-destaque-ajustada"
-      >
-      <p>
-        Ora, ora, quem temos aqui? Eu sou o Super 8 — seu arqueólogo de sofá favorito — e hoje vamos viajar 75 milhões de anos no tempo... direto pra um mundo onde existia um dinossauro que desfilava com a crista mais estilosa do Cretáceo!
-        <br><br>
-        O Lambeosaurus — ou como gosto de chamar, o “influencer cretáceo da cabeçona oca” — foi um hadrossaurídeo (grupo dos patudos comedor de planta) que desfilava pelos antigos campos do Canadá.
-        <br><br>
-        Sua marca registrada? Uma crista craniana oca em forma de... luva. Isso mesmo, o cara era literalmente cabeça de luva! Alguns cientistas acham que ele usava isso pra emitir sons, outros acham que era só pra chamar atenção mesmo. Vai saber!
-        <br><br>
-        A treta começa com a taxonomia (aquela bagunça básica de dar nome pros bichos extintos). Teve tanto juvenil sendo confundido com dino novo que parecia reunião de família: "Esse aqui é primo do outro ou filho do terceiro?"
-        <br><br>
-        O gênero foi batizado com muito glamour em 1923 por William Parks, mas os créditos vão pra Lawrence Lambe — o cara que tropeçou nos ossos originais lá em 1902. Um verdadeiro achado de sorte!
-        <br><br>
-        Hoje, só duas espécies canadenses do Lambeosaurus continuam no jogo. As outras foram pro limbo taxonômico, canceladas sem direito a reality show. Triste, né? Mas a ciência é assim: um dia você é estrela, no outro ninguém lembra do seu nome.
-        <br><br>
-        E aí, será que se o Lambeosaurus vivesse hoje ele teria um canal no YouTube chamado "CristaCast"? Ou seria só mais um influencer vendendo colágeno jurássico no Instagram?
-      </p>
-    </article>
-  </section>
+  <section class="bg-white text-gray-800 px-6 py-12 md:py-20">
+  <article class="max-w-4xl mx-auto bg-gradient-to-br from-zinc-900 via-slate-800 to-gray-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl">
+    <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight text-accent-teal">
+      O dinossauro que levava a moda na cabeça: Lambeosaurus
+    </h2>
+    <img 
+      src="destaque.jpg" 
+      alt="Ilustração do Lambeosaurus, dinossauro com crista oca em destaque" 
+      class="w-full h-auto rounded-xl mb-8 shadow-lg"
+    >
+    <p class="text-lg md:text-xl leading-relaxed space-y-6 text-gray-200">
+      <span>Ora, ora, quem temos aqui? Eu sou o Super 8 — seu arqueólogo de sofá favorito — e hoje vamos viajar 75 milhões de anos no tempo... direto pra um mundo onde existia um dinossauro que desfilava com a crista mais estilosa do Cretáceo!</span>
 
-  <section class="imagens">
-    <div class="img-coluna">
+      <span>O Lambeosaurus — ou como gosto de chamar, o “influencer cretáceo da cabeçona oca” — foi um hadrossaurídeo (grupo dos patudos comedor de planta) que desfilava pelos antigos campos do Canadá.</span>
+
+      <span>Sua marca registrada? Uma crista craniana oca em forma de... luva. Isso mesmo, o cara era literalmente cabeça de luva! Alguns cientistas acham que ele usava isso pra emitir sons, outros acham que era só pra chamar atenção mesmo. Vai saber!</span>
+
+      <span>A treta começa com a taxonomia (aquela bagunça básica de dar nome pros bichos extintos). Teve tanto juvenil sendo confundido com dino novo que parecia reunião de família: "Esse aqui é primo do outro ou filho do terceiro?"</span>
+
+      <span>O gênero foi batizado com muito glamour em 1923 por William Parks, mas os créditos vão pra Lawrence Lambe — o cara que tropeçou nos ossos originais lá em 1902. Um verdadeiro achado de sorte!</span>
+
+      <span>Hoje, só duas espécies canadenses do Lambeosaurus continuam no jogo. As outras foram pro limbo taxonômico, canceladas sem direito a reality show. Triste, né? Mas a ciência é assim: um dia você é estrela, no outro ninguém lembra do seu nome.</span>
+
+      <span>E aí, será que se o Lambeosaurus vivesse hoje ele teria um canal no YouTube chamado "CristaCast"? Ou seria só mais um influencer vendendo colágeno jurássico no Instagram?</span>
+    </p>
+  </article>
+</section>
+
+<section class="bg-gray-100 px-6 py-12 md:py-20">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    <!-- Coluna 1 -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
       <a href="https://www.facebook.com/share/p/1DchXVejJu/" target="_blank">
-        <img src="imagem1.jpg" alt="Fóssil de dinossauro exposto em museu"/>
+        <img src="imagem1.jpg" alt="Fóssil de dinossauro exposto em museu" class="w-full h-64 object-cover">
       </a>
-      <a class="botao" href="https://www.facebook.com/share/p/1DchXVejJu/" target="_blank">Leia mais</a>
+      <div class="p-4 text-center">
+        <a class="inline-block bg-accent-teal hover:bg-teal-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300" href="https://www.facebook.com/share/p/1DchXVejJu/" target="_blank">
+          Leia mais
+        </a>
+      </div>
     </div>
-    <div class="img-coluna">
+
+    <!-- Coluna 2 -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
       <a href="https://www.facebook.com/share/p/1AhBuahXWb/" target="_blank">
-        <img src="imagem2.jpg" alt="Ilustração artística de dinossauro"/>
+        <img src="imagem2.jpg" alt="Ilustração artística de dinossauro" class="w-full h-64 object-cover">
       </a>
-      <a class="botao" href="https://www.facebook.com/share/p/1AhBuahXWb/" target="_blank">Leia mais</a>
+      <div class="p-4 text-center">
+        <a class="inline-block bg-accent-teal hover:bg-teal-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300" href="https://www.facebook.com/share/p/1AhBuahXWb/" target="_blank">
+          Leia mais
+        </a>
+      </div>
     </div>
-    <div class="img-coluna">
+
+    <!-- Coluna 3 -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
       <a href="https://www.facebook.com/share/p/18n1RshbrC/" target="_blank">
-        <img src="imagem3.jpg" alt="Cientista escavando fósseis"/>
+        <img src="imagem3.jpg" alt="Cientista escavando fósseis" class="w-full h-64 object-cover">
       </a>
-      <a class="botao" href="https://www.facebook.com/share/p/18n1RshbrC/" target="_blank">Leia mais</a>
+      <div class="p-4 text-center">
+        <a class="inline-block bg-accent-teal hover:bg-teal-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300" href="https://www.facebook.com/share/p/18n1RshbrC/" target="_blank">
+          Leia mais
+        </a>
+      </div>
     </div>
-  </section>
+
+  </div>
+</section>
 </main>
 
 <footer id="rodape"></footer>
