@@ -63,3 +63,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+const btn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (btn && mobileMenu) {
+  btn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+    }
