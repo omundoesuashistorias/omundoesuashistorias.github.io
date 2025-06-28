@@ -1,15 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
   // MENU RESPONSIVO
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navUl = document.querySelector('nav ul');
-  if (menuToggle && navUl) {
-    menuToggle.addEventListener('click', function () {
-      navUl.classList.toggle('active');
-    });
-    navUl.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navUl.classList.remove('active');
-      });
+  const btn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (btn && mobileMenu) {
+    btn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
   }
 
@@ -24,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      // Verifica se os campos obrigatórios estão preenchidos
       const email = form.querySelector('input[name="email"]');
       const message = form.querySelector('textarea[name="message"]');
 
@@ -63,11 +58,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
-const btn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-
-if (btn && mobileMenu) {
-  btn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-    }
