@@ -99,33 +99,47 @@ nav.menu-desktop ul li a:focus {
 /* MENU RESPONSIVO */
 @media (max-width: 768px) {
   .menu-desktop {
-    display: none; /* Esconde o menu desktop no mobile */
+    display: none;
   }
 
   .menu-toggle {
-    display: block; /* Mostra o botão hambúrguer */
+    display: block;
   }
 
   #mobile-menu.hidden {
-    display: none; /* Esconde o menu mobile por padrão */
+    display: none;
   }
 
   #mobile-menu:not(.hidden) {
-    display: block; /* Mostra o menu mobile quando clicado */
+    display: block;
+  }
+
+  /* Ajuste para o menu mobile sobrepor a página */
+  #mobile-menu {
+    position: absolute;
+    top: 60px; /* altura do header - ajuste se necessário */
+    right: 0;
+    width: 100%;
+    max-width: 320px;
+    background: var(--bordo);
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 25;
+    border-radius: 0 0 8px 8px;
   }
 }
 
 @media (min-width: 769px) {
   .menu-toggle {
-    display: none; /* Esconde o botão no desktop */
+    display: none;
   }
 
   .menu-desktop {
-    display: block; /* Mostra o menu desktop normalmente */
+    display: block;
   }
 
   #mobile-menu {
-    display: none !important; /* Garante que o mobile nunca apareça no desktop */
+    display: none !important;
   }
 }
 
