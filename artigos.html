@@ -48,7 +48,83 @@
   </nav>
 </header>
 
-<main><section class="artigo">  <style>
+<main><section id="ia-terapeuta-section"></section>
+
+<script>
+(async () => {
+  const host = document.getElementById('ia-terapeuta-section');
+  const shadow = host.attachShadow({ mode: 'open' });
+
+  // Injeta Tailwind isolado
+  const tailwind = document.createElement('link');
+  tailwind.rel = 'stylesheet';
+  tailwind.href = 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+  shadow.appendChild(tailwind);
+
+  // Container com estilo
+  const container = document.createElement('section');
+  container.className = 'max-w-3xl mx-auto p-6 bg-white text-gray-800 shadow-xl rounded-xl mt-10 mb-10 prose prose-lg';
+  shadow.appendChild(container);
+
+  // Função simples para converter markdown básico em HTML
+  function parseMarkdown(md) {
+    return md
+      .replace(/^### (.*)$/gim, '<h3 class="text-lg font-semibold mt-6 mb-2">$1</h3>')
+      .replace(/^## (.*)$/gim, '<h2 class="text-2xl font-bold mt-8 mb-4">$1</h2>')
+      .replace(/^# (.*)$/gim, '<h1 class="text-4xl font-bold mb-6">$1</h1>')
+      .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+      .replace(/^---$/gim, '<hr class="my-6 border-gray-300">')
+      .replace(/^\- (.*)$/gim, '<li class="ml-6 list-disc">$1</li>')
+      // Quebra dupla de linha vira parágrafo
+      .split('\n\n')
+      .map(p => p.trim())
+      .filter(p => p.length > 0)
+      .map(p => {
+        if (/^<(h[1-3]|li|hr)/.test(p)) return p; // títulos, lista, hr já são tags
+        return `<p>${p}</p>`;
+      })
+      .join('');
+  }
+
+  try {
+    const res = await fetch('./ia-terapeuta.txt');
+    if (!res.ok) throw new Error('Falha ao carregar o conteúdo.');
+
+    let markdown = await res.text();
+
+    // Detecta a linha de imagem destaque e extrai a URL
+    const imgLineMatch = markdown.match(/^\[IMAGEM-DESTAQUE\]:\s*(.*)$/m);
+    let imgHTML = '';
+    if(imgLineMatch && imgLineMatch[1]) {
+      const url = imgLineMatch[1].trim();
+      imgHTML = `
+        <figure class="w-full my-6">
+          <img 
+            src="${url}" 
+            alt="Ilustração de uma inteligência artificial refletindo sobre emoções humanas" 
+            loading="lazy" 
+            class="w-full h-auto rounded-lg shadow-md"
+          />
+        </figure>
+      `;
+      // Remove a linha da imagem do markdown
+      markdown = markdown.replace(/^\[IMAGEM-DESTAQUE\]:.*$/m, '');
+    }
+
+    const html = parseMarkdown(markdown);
+
+    // Injeta o HTML com a imagem de destaque no começo
+    container.innerHTML = html.replace(/(<h1.*?<\/h1>)/, `$1${imgHTML}`);
+
+  } catch(err) {
+    container.innerHTML = `<div class="text-red-600 text-center font-semibold">Erro ao carregar conteúdo.</div>`;
+    console.error(err);
+  }
+})();
+  </script>
+  
+  <section class="artigo">  <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       background: #f9f9f9;
