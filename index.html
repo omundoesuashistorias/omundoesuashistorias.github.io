@@ -70,6 +70,36 @@
 </header>
 
 <main>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Aviso flutuante -->
+<section id="aviso-omh" class="fixed bottom-6 right-6 max-w-sm bg-yellow-500 text-black p-5 rounded-xl shadow-2xl z-50 transition-all duration-500">
+  <div class="flex justify-between items-start">
+    <div>
+      <h3 class="text-lg font-bold mb-2">🚧 Mudanças à vista!</h3>
+      <p class="text-sm leading-relaxed">
+        O site <strong>O Mundo E Suas Histórias</strong> vai passar por mudanças importantes nos próximos dias.
+        Durante as atualizações, ele poderá ficar temporariamente fora do ar por algumas horas.
+        Mas relaxa... vai vir coisa boa por aí!
+      </p>
+    </div>
+    <button id="fechar-aviso" class="ml-4 text-black hover:text-white hover:bg-black/30 rounded-full p-1 transition duration-200">
+      ✖️
+    </button>
+  </div>
+</section>
+
+<!-- Script para fechar -->
+<script>
+  document.getElementById('fechar-aviso').addEventListener('click', function () {
+    const aviso = document.getElementById('aviso-omh');
+    aviso.classList.add('opacity-0', 'translate-y-4');
+    setTimeout(() => aviso.remove(), 500);
+  });
+</script>
+
   
   <section class="bg-gradient-to-br from-zinc-900 via-slate-800 to-gray-900 text-white text-center px-6 py-24 md:py-32 rounded-b-3xl shadow-2xl">
   <div class="max-w-4xl mx-auto">
