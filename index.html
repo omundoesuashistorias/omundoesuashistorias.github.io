@@ -75,6 +75,76 @@
         <!-- Lista de posts organizados em colunas, inseridos via JS futuramente -->
       </div>
     </section>
+
+    <!-- Popup de Manutenção (com animação e persistência localStorage) -->
+<div id="popup-manutencao" style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; display: none; justify-content: center; align-items: center;">
+  <style>
+    #popup-manutencao .popup-content {
+      background: white;
+      max-width: 90%;
+      width: 500px;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      position: relative;
+      font-family: Arial, sans-serif;
+      animation: fadeInScale 0.4s ease-out;
+    }
+
+    #popup-manutencao .popup-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #555;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+
+  <div class="popup-content">
+    <button class="popup-close" id="fechar-popup">&times;</button>
+    <h2 style="margin-top: 0; font-size: 1.75rem; color: #c0392b;">🚧 Site em Manutenção</h2>
+    <p style="font-size: 1rem; color: #333; line-height: 1.5;">
+      Calma, jovem padawan! Nosso site está passando por uma manutençãozinha básica. Estamos polindo os bits e alinhando os pixels para te entregar uma experiência ainda mais insana!
+    </p>
+    <p style="font-size: 0.9rem; color: #666;">Volte em breve e traga café ☕</p>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const popup = document.getElementById("popup-manutencao");
+    const btnFechar = document.getElementById("fechar-popup");
+
+    const chaveLocal = "popupManutencaoVisto";
+
+    // Só mostra se ainda não foi visto
+    if (!localStorage.getItem(chaveLocal)) {
+      popup.style.display = "flex";
+    }
+
+    // Ao fechar, salva que já foi exibido
+    btnFechar.addEventListener("click", function () {
+      popup.style.display = "none";
+      localStorage.setItem(chaveLocal, "true");
+    });
+  })();
+</script>
+
+    
   </main>
 
   <!-- FOOTER -->
