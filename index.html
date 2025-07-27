@@ -4,233 +4,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>O Mundo E Suas Histórias</title>
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- Metadados para SEO -->
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Explorando o passado com bom humor e curiosidade!">
   <link rel="canonical" href="https://omundoesuashistorias.com.br/" />
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="O Mundo E Suas Histórias" />
-  <meta property="og:description" content="O Mundo E Suas Histórias - Explorando o passado com bom humor e curiosidade!" />
+  <meta property="og:description" content="Explorando o passado com bom humor e curiosidade!" />
   <meta property="og:url" content="https://omundoesuashistorias.com.br/" />
   <meta property="og:image" content="https://omundoesuashistorias.com.br/thumbnail.jpg" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="O Mundo e Suas Histórias" />
-  <meta name="twitter:description" content="O Mundo E Suas Histórias - Explorando o passado com bom humor e curiosidade!" />
-  <meta name="twitter:image" content="https://omundoesuashistorias.com.br/thumbnail.jpg" />
+  <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
 
   <script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          'accent-teal': '#20c997',
-        }
-      }
-    }
-  }
-</script>
+  <script src="https://kit.fontawesome.com/4f61d2cfaa.js" crossorigin="anonymous"></script>
 
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
-<body>
-<header>
-  <img src="logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" class="logo">
-  <h1>O Mundo e Suas Histórias</h1>
-  <button id="menu-btn" class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
-  <nav class="menu-desktop">
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="artigos.html">Artigos</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="galeria.html">Galeria</a></li>
-      <li><a href="contato.html">Contato</a></li>
-    </ul>
-  </nav>
+<body class="bg-[#fafafa] text-[#222] font-sans leading-relaxed">
 
-  <!-- MENU MOBILE - Cole isso logo depois do menu desktop -->
-  <nav id="mobile-menu" class="hidden bg-zinc-900 text-white px-6 py-4">
-    <ul class="flex flex-col space-y-4 text-lg font-medium">
-      <li><a href="index.html" class="block hover:text-accent-teal transition">Início</a></li>
-      <li><a href="artigos.html" class="block hover:text-accent-teal transition">Artigos</a></li>
-      <li><a href="sobre.html" class="block hover:text-accent-teal transition">Sobre</a></li>
-      <li><a href="galeria.html" class="block hover:text-accent-teal transition">Galeria</a></li>
-      <li><a href="contato.html" class="block hover:text-accent-teal transition">Contato</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-
-<!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Aviso flutuante -->
-<section id="aviso-omh" class="fixed bottom-6 right-6 max-w-sm bg-yellow-500 text-black p-5 rounded-xl shadow-2xl z-50 transition-all duration-500">
-  <div class="flex justify-between items-start">
-    <div>
-      <h3 class="text-lg font-bold mb-2">🚧 Mudanças à vista!</h3>
-      <p class="text-sm leading-relaxed">
-        O site <strong>O Mundo E Suas Histórias</strong> vai passar por mudanças importantes nos próximos dias.
-        Durante as atualizações, ele poderá ficar temporariamente fora do ar por algumas horas.
-        Mas relaxa... vai vir coisa boa por aí!
-      </p>
+  <!-- HEADER -->
+  <header class="bg-[#5a0015] text-white">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold">O Mundo E Suas Histórias</a>
+      <nav class="flex items-center space-x-6">
+        <ul class="flex space-x-6">
+          <li><a href="/" class="hover:underline">Início</a></li>
+          <li><a href="/sobre.html" class="hover:underline">Sobre</a></li>
+          <li><a href="/contato.html" class="hover:underline">Contato</a></li>
+          <li><a href="/posts/" class="hover:underline">Posts</a></li>
+        </ul>
+        <div class="flex space-x-4 ml-6">
+          <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
+          </a>
+          <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
+          </a>
+          <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
+          </a>
+        </div>
+      </nav>
     </div>
-    <button id="fechar-aviso" class="ml-4 text-black hover:text-white hover:bg-black/30 rounded-full p-1 transition duration-200">
-      ✖️
-    </button>
-  </div>
-</section>
+  </header>
 
-<!-- Script para fechar -->
-<script>
-  document.getElementById('fechar-aviso').addEventListener('click', function () {
-    const aviso = document.getElementById('aviso-omh');
-    aviso.classList.add('opacity-0', 'translate-y-4');
-    setTimeout(() => aviso.remove(), 500);
-  });
-</script>
-
-  
-  <section class="bg-gradient-to-br from-zinc-900 via-slate-800 to-gray-900 text-white text-center px-6 py-24 md:py-32 rounded-b-3xl shadow-2xl">
-  <div class="max-w-4xl mx-auto">
-    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-xl">
-      O Mundo e Suas Histórias
-    </h1>
-    <p class="mt-6 text-lg md:text-2xl text-gray-300 font-light leading-relaxed">
-      Porque história boa é aquela que dá treta! 👀<br>
-      Aqui a gente desenterra fatos, provoca teorias e te mostra que nem todo “passado” ficou pra trás.
-    </p>
-    <p class="mt-4 text-base md:text-lg text-gray-400 italic">
-      Ciência e história andam juntas. Se discordam, algo está errado.
-    </p>
-  </div>
-  </section>
-  
-  <section class="bg-white text-gray-800 px-6 py-12 md:py-20">
-  <article class="max-w-4xl mx-auto bg-gradient-to-br from-zinc-900 via-slate-800 to-gray-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl">
-    <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight text-accent-teal">
-      O dinossauro que levava a moda na cabeça: Lambeosaurus
-    </h2>
-    <img 
-      src="destaque.jpg" 
-      alt="Ilustração do Lambeosaurus, dinossauro com crista oca em destaque" 
-      class="w-full h-auto rounded-xl mb-8 shadow-lg"
-    >
-    <p class="text-lg md:text-xl leading-relaxed space-y-6 text-gray-200">
-      <span>Ora, ora, quem temos aqui? Eu sou o Super 8 — seu arqueólogo de sofá favorito — e hoje vamos viajar 75 milhões de anos no tempo... direto pra um mundo onde existia um dinossauro que desfilava com a crista mais estilosa do Cretáceo!</span>
-
-      <span>O Lambeosaurus — ou como gosto de chamar, o “influencer cretáceo da cabeçona oca” — foi um hadrossaurídeo (grupo dos patudos comedor de planta) que desfilava pelos antigos campos do Canadá.</span>
-
-      <span>Sua marca registrada? Uma crista craniana oca em forma de... luva. Isso mesmo, o cara era literalmente cabeça de luva! Alguns cientistas acham que ele usava isso pra emitir sons, outros acham que era só pra chamar atenção mesmo. Vai saber!</span>
-
-      <span>A treta começa com a taxonomia (aquela bagunça básica de dar nome pros bichos extintos). Teve tanto juvenil sendo confundido com dino novo que parecia reunião de família: "Esse aqui é primo do outro ou filho do terceiro?"</span>
-
-      <span>O gênero foi batizado com muito glamour em 1923 por William Parks, mas os créditos vão pra Lawrence Lambe — o cara que tropeçou nos ossos originais lá em 1902. Um verdadeiro achado de sorte!</span>
-
-      <span>Hoje, só duas espécies canadenses do Lambeosaurus continuam no jogo. As outras foram pro limbo taxonômico, canceladas sem direito a reality show. Triste, né? Mas a ciência é assim: um dia você é estrela, no outro ninguém lembra do seu nome.</span>
-
-      <span>E aí, será que se o Lambeosaurus vivesse hoje ele teria um canal no YouTube chamado "CristaCast"? Ou seria só mais um influencer vendendo colágeno jurássico no Instagram?</span>
-    </p>
-  </article>
-</section>
-
-<section class="bg-gray-100 px-6 py-12 md:py-20">
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- MAIN CONTENT -->
+  <main class="max-w-5xl mx-auto px-4 py-10">
     
-    <!-- Coluna 1 -->
-    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <a href="https://www.facebook.com/share/p/1DchXVejJu/" target="_blank">
-        <img src="imagem1.jpg" alt="Fóssil de dinossauro exposto em museu" class="w-full h-64 object-cover">
-      </a>
-      <div class="p-4 text-center">
-        <a class="inline-block bg-accent-teal hover:bg-teal-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300" href="https://www.facebook.com/share/p/1DchXVejJu/" target="_blank">
-          Leia mais
-        </a>
-      </div>
-    </div>
-
-    <!-- Coluna 2 -->
-    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <a href="https://www.facebook.com/share/p/1AhBuahXWb/" target="_blank">
-        <img src="imagem2.jpg" alt="Ilustração artística de dinossauro" class="w-full h-64 object-cover">
-      </a>
-      <div class="p-4 text-center">
-        <a class="inline-block bg-accent-teal hover:bg-teal-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300" href="https://www.facebook.com/share/p/1AhBuahXWb/" target="_blank">
-          Leia mais
-        </a>
-      </div>
-    </div>
-
-    <!-- Coluna 3 -->
-    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <a href="https://www.facebook.com/share/p/18n1RshbrC/" target="_blank">
-        <img src="imagem3.jpg" alt="Cientista escavando fósseis" class="w-full h-64 object-cover">
-      </a>
-      <div class="p-4 text-center">
-        <a class="inline-block bg-accent-teal hover:bg-teal-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300" href="https://www.facebook.com/share/p/18n1RshbrC/" target="_blank">
-          Leia mais
-        </a>
-      </div>
-    </div>
-
+<section class="text-center mb-10">
+  <h1 class="text-4xl font-bold text-[#800020] mb-4">Bem-vindo ao novo O Mundo E Suas Histórias</h1>
+  <p class="text-lg text-gray-700">
+    Aqui você mergulha em histórias incríveis com sarcasmo, humor ácido e verdades que ninguém tem coragem de contar.
+  </p>
+</section>
+<section class="bg-white shadow-md rounded-2xl p-6">
+  <h2 class="text-2xl font-semibold text-[#5a0015] mb-3">Últimas postagens</h2>
+  <div id="post-preview" class="grid md:grid-cols-2 gap-4">
+    <!-- Cards de posts serão inseridos via JS futuramente -->
   </div>
 </section>
-</main>
 
-<footer id="rodape"></footer>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  var rodapePadrao = `
-<footer id="rodape">
-  <div class="footer-container">
-    <div class="footer-col">
-      <h3>O Mundo e Suas Histórias</h3>
-      <p>Explorando o passado com bom humor e curiosidade!</p>
-      <p>© 2025 O Mundo e Suas Histórias</p>
-    </div>
-    <div class="footer-col">
-      <h4>Links Úteis</h4>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="artigos.html">Artigos</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="galeria.html">Galeria</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contato</h4>
-      <p><a href="mailto:omh.tube@gmail.com">omh.tube@gmail.com</a></p>
-      <h4>Redes Sociais</h4>
-      <div class="social-links">
-        <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook">
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
-            <circle cx="16" cy="16" r="16" fill="#fff" />
-            <path d="M20.94 16.12h-2.17v7.5h-3.08v-7.5h-1.51v-2.65h1.51v-1.53c0-1.25.59-3.2 3.2-3.2l2.35.01v2.62h-1.71c-.28 0-.67.14-.67.71v1.39h2.43l-.35 2.65z" fill="#5a0015"/>
-          </svg>
-        </a>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#5a0015] text-white mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-6">
+      <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+        <div class="mb-4 md:mb-0">
+          <nav class="flex space-x-6">
+            <a href="/" class="hover:underline">Início</a>
+            <a href="/sobre.html" class="hover:underline">Sobre</a>
+            <a href="/contato.html" class="hover:underline">Contato</a>
+            <a href="/posts/" class="hover:underline">Posts</a>
+          </nav>
+        </div>
+        <div class="flex space-x-4">
+          <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
+          </a>
+          <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
+          </a>
+          <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-center mt-4 text-xs">
+        &copy; 2025 O Mundo E Suas Histórias. Todos os direitos reservados.
       </div>
     </div>
-  </div>
-</footer>
-`;
-  var rodape = document.getElementById('rodape');
-  if(rodape){
-    rodape.outerHTML = rodapePadrao;
-  }
-});
-</script>
+  </footer>
 
-<script src="script.js"></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
