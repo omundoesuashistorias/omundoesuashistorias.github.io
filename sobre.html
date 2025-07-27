@@ -69,6 +69,66 @@
   <h1 class="text-3xl font-bold text-[#800020] mb-6">Sobre Nós</h1>
   <p class="mb-4">O Mundo E Suas Histórias é um projeto dedicado a explorar o passado com bom humor, curiosidade e uma pitada de ousadia.</p>
   <!-- Conteúdo sobre a página -->
+<section id="omh-section"></section>
+
+<script>
+  (function () {
+    const target = document.getElementById('omh-section');
+    const shadow = target.attachShadow({ mode: 'open' });
+
+    // Tailwind CSS via CDN
+    const tailwindCDN = document.createElement('link');
+    tailwindCDN.rel = 'stylesheet';
+    tailwindCDN.href = 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+    shadow.appendChild(tailwindCDN);
+
+    // Google Fonts (Inter)
+    const fontCDN = document.createElement('link');
+    fontCDN.rel = 'stylesheet';
+    fontCDN.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap';
+    shadow.appendChild(fontCDN);
+
+    // CSS interno para animação e fonte
+    const style = document.createElement('style');
+    style.textContent = `
+      * {
+        font-family: 'Inter', sans-serif;
+      }
+      .fade-in {
+        animation: fadeIn 0.8s ease-in-out forwards;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `;
+    shadow.appendChild(style);
+
+    // HTML estilizado com Tailwind
+    const container = document.createElement('div');
+    container.innerHTML = `
+      <div class="fade-in container mx-auto px-6 py-10 bg-white text-gray-900 rounded-lg shadow-lg">
+        <h1 class="text-4xl font-extrabold mb-6 text-indigo-700">O Mundo E Suas Histórias</h1>
+        <p class="mb-4 text-lg leading-relaxed">O projeto <strong>O Mundo E Suas Histórias</strong> nasceu em 2018 com um canal no YouTube de mesmo nome. Criado por <strong>Rodrigo Pontes</strong> e <strong>Jaqueline Longoni</strong>, dois apaixonados por histórias e curiosidades, o projeto tem como objetivo ser educativo, informativo e totalmente acessível.</p>
+        <p class="mb-4 text-lg leading-relaxed">Apesar de ter começado no YouTube, foi no <strong>Facebook</strong> que o projeto explodiu: mais de <span class="text-indigo-600 font-semibold">10 mil seguidores</span> e crescendo todos os dias. O segredo? Uma linguagem que foge do acadêmico chato e vai direto no coração da galera!</p>
+        <p class="mb-4 text-lg leading-relaxed">Foi nesse espírito que nasceu o <strong>Super 8</strong>, uma persona irreverente, sarcástica e ousada, criada por Rodrigo. E, olha... o povo se encantou. Mesmo com algumas birras da academia, que prefere textos sem sal, o Super 8 conseguiu algo raro: <span class="text-green-600 font-semibold">quebrar a barreira entre o conteúdo educativo e o público comum.</span></p>
+        <ul class="list-disc list-inside mt-6 mb-6 space-y-2 text-lg">
+          <li><strong>Fundadores:</strong> Rodrigo Pontes e Jaqueline Longoni</li>
+          <li><strong>Início:</strong> 2018, no YouTube</li>
+          <li><strong>Destaque:</strong> Facebook com +10 mil seguidores</li>
+          <li><strong>Diferencial:</strong> Humor, sarcasmo e informação de qualidade</li>
+        </ul>
+        <p class="italic text-center text-gray-600 mt-10">“Se você quer aprender rindo, senta que lá vem história... com o Super 8 na área!” 🚀</p>
+      </div>
+    `;
+    shadow.appendChild(container);
+  })();
+</script>
+  
 </section>
 
   </main>
