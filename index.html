@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Posts - O Mundo E Suas Histórias</title>
 
-  <meta name="description" content="Confira as últimas postagens e categorias do O Mundo E Suas Histórias.">
+  <meta name="description" content="Confira as últimas postagens e categorias do O Mundo E Suas Histórias." />
   <link rel="canonical" href="https://omundoesuashistorias.com.br/posts/" />
 
   <!-- Open Graph -->
@@ -15,11 +15,15 @@
   <meta property="og:url" content="https://omundoesuashistorias.com.br/posts/" />
   <meta property="og:image" content="https://omundoesuashistorias.com.br/thumbnail.jpg" />
 
-  <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon-omh.ico" type="image/x-icon" />
 
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome CDN -->
   <script src="https://kit.fontawesome.com/4f61d2cfaa.js" crossorigin="anonymous"></script>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body class="bg-[#fafafa] text-[#222] font-sans leading-relaxed">
@@ -27,22 +31,25 @@
   <!-- HEADER -->
   <header class="bg-[#5a0015] text-white">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="/" class="text-2xl font-bold">O Mundo E Suas Histórias</a>
+      <a href="/" class="flex items-center space-x-3">
+        <img src="/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" height="50" class="h-12" />
+        <span class="text-2xl font-bold">O Mundo E Suas Histórias</span>
+      </a>
       <nav class="flex items-center space-x-6">
         <ul class="flex space-x-6">
           <li><a href="/" class="hover:underline">Início</a></li>
           <li><a href="/sobre.html" class="hover:underline">Sobre</a></li>
           <li><a href="/contato.html" class="hover:underline">Contato</a></li>
-          <li><a href="/posts/" class="hover:underline">Posts</a></li>
+          <li><a href="/posts/" class="hover:underline font-semibold">Posts</a></li>
         </ul>
         <div class="flex space-x-4 ml-6">
-          <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook">
+          <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
             <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
           </a>
-          <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube">
+          <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
             <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
           </a>
-          <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram">
+          <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
             <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
           </a>
         </div>
@@ -53,12 +60,12 @@
   <!-- MAIN CONTENT -->
   <main class="max-w-5xl mx-auto px-4 py-10">
     
-<section class="max-w-5xl mx-auto">
-  <h1 class="text-3xl font-bold text-[#800020] mb-6"></h1>
-  <div class="grid md:grid-cols-3 gap-6">
-    <!-- Lista de posts organizados em colunas, inseridos via JS futuramente -->
-  </div>
-</section>
+    <section class="max-w-5xl mx-auto">
+      <h1 class="text-3xl font-bold text-[#800020] mb-6">Posts</h1>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Lista de posts organizados em colunas, inseridos via JS futuramente -->
+      </div>
+    </section>
 
   </main>
 
@@ -71,17 +78,17 @@
             <a href="/" class="hover:underline">Início</a>
             <a href="/sobre.html" class="hover:underline">Sobre</a>
             <a href="/contato.html" class="hover:underline">Contato</a>
-            <a href="/posts/" class="hover:underline">Posts</a>
+            <a href="/posts/" class="hover:underline font-semibold">Posts</a>
           </nav>
         </div>
         <div class="flex space-x-4">
-          <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook">
+          <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
             <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
           </a>
-          <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube">
+          <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
             <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
           </a>
-          <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram">
+          <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
             <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
           </a>
         </div>
