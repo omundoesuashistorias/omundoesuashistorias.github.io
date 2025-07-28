@@ -76,6 +76,171 @@
       </div>
     </section>
 
+
+    <!-- BLOCO: Apresentação do Projeto --><section class="home-section highlight">
+  <h2>O que é "O Mundo E Suas Histórias"?</h2>
+  <p>
+    Um projeto que vai além da timeline: aqui, a história ganha voz, opinião e ironia.
+    Desenterramos verdades com humor e coragem editorial. Porque história não é passatempo,
+    é identidade.
+  </p>
+</section><!-- BLOCO: Super 8 Responde --><section class="home-section quote-block">
+  <blockquote>
+    "Se o passado ensina, por que tem gente repetindo erro?"
+    <cite>– Super 8</cite>
+  </blockquote>
+</section><!-- BLOCO: Destaques Recentes (diferente dos posts) --><section class="home-section grid-featured">
+  <h2>Em Destaque</h2>
+  <div class="grid">
+    <article class="card">
+      <img src="caminho/para/imagem1.jpg" alt="Imagem de destaque 1">
+      <h3>O dia em que a história virou meme</h3>
+      <p>Você sabia que Napoleão nunca foi baixinho? Descubra o que mais te contaram errado.</p>
+      <a href="#">Leia mais</a>
+    </article>
+    <article class="card">
+      <img src="caminho/para/imagem2.jpg" alt="Imagem de destaque 2">
+      <h3>Por que odiamos filosofia sem perceber</h3>
+      <p>Talvez o problema não seja a filosofia... talvez seja quem te explicou.</p>
+      <a href="#">Leia mais</a>
+    </article>
+  </div>
+</section><!-- BLOCO: Sobre os criadores --><section class="home-section about">
+  <h2>Quem faz isso aqui?</h2>
+  <p>Rodrigo e Jackita. Ele do Rio, ela do Sul. Juntos, fazem o caos virar conteúdo histórico de qualidade.</p>
+  <a href="#">Conheça o projeto completo</a>
+</section><!-- BLOCO: Filosofia e História --><section class="home-section trivia">
+  <h2>Pílulas Históricas</h2>
+  <ul>
+    <li><strong>Nietzsche</strong> nunca disse que Deus estava morto como você pensa.</li>
+    <li><strong>Esparta</strong> não era tão gloriosa assim. A censura deles era real.</li>
+    <li><strong>O Iluminismo</strong> criou ideias lindas... mas também justificou opressões.</li>
+  </ul>
+</section><!-- BLOCO: Mito Derrubado --><section class="home-section myth-buster">
+  <h2>Derrubando Mitos</h2>
+  <div class="myth">
+    <p>"A escravidão acabou em 1888 e pronto."</p>
+    <p class="reveal">Nem tão simples. A estrutura escravocrata seguiu por décadas.</p>
+    <a href="#">Veja a análise completa</a>
+  </div>
+</section><!-- BLOCO: Redes sociais --><section class="home-section social-call">
+  <h2>Cansado de ver só bobagem no feed?</h2>
+  <p>Segue a gente nas redes sociais e faz o algoritmo trabalhar por algo que presta.</p>
+  <div class="social-icons">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+</section><!-- BLOCO: Chamada para participação --><section class="home-section contact-block">
+  <h2>Tem uma pauta que ninguém tem coragem?</h2>
+  <p>Conta pra gente. A gente escuta. E publica com contexto.</p>
+  <a href="#">Sugira um tema</a>
+</section><!-- CSS EMBUTIDO --><style>
+  .home-section {
+    padding: 3rem 1rem;
+    margin-bottom: 2rem;
+    background: #f9f9f9;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .home-section h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 1rem;
+  }
+
+  .home-section p, .home-section li {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  .quote-block blockquote {
+    font-style: italic;
+    background: #fffbe6;
+    padding: 1rem;
+    border-left: 4px solid #f0c000;
+    border-radius: 0.5rem;
+    color: #333;
+  }
+
+  .trivia ul {
+    list-style-type: disc;
+    padding-left: 1.2rem;
+  }
+
+  .myth-buster .myth {
+    background: #ffe6e6;
+    padding: 1rem;
+    border-radius: 1rem;
+    border-left: 4px solid #ff5e5e;
+  }
+
+  .myth-buster .reveal {
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+
+  .social-icons i {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: #555;
+    transition: color 0.3s;
+  }
+
+  .social-icons i:hover {
+    color: #000;
+  }
+
+  .contact-block a,
+  .about a,
+  .card a,
+  .myth a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .contact-block a:hover,
+  .about a:hover,
+  .card a:hover,
+  .myth a:hover {
+    text-decoration: underline;
+  }
+</style><!-- JS OPCIONAL (para revelações futuras) --><script>
+  // JS não interfere na base fixa, mas pode ser expandido depois
+  </script>
+
+
+
+    
+
     <!-- Popup de Manutenção (com animação e persistência localStorage) -->
 <div id="popup-manutencao" style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; display: none; justify-content: center; align-items: center;">
   <style>
