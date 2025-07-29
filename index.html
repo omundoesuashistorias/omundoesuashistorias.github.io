@@ -43,13 +43,28 @@
       </a>
      
       <!-- Menu de navegação principal -->
-      <nav class="flex items-center space-x-6">
-        <ul class="flex space-x-6">
-  <li><a href="/" class="hover:underline">Início</a></li>
-  <li><a href="/sobre.html" class="hover:underline">Sobre</a></li>
-  <li><a href="/contato.html" class="hover:underline">Contato</a></li>
-  <li><a href="/posts/" class="hover:underline font-semibold">Posts</a></li>
-</ul>
+<header class="w-full px-4 py-3 flex justify-between items-center border-b">
+  <a href="/" class="text-xl font-bold">Meu Site</a>
+
+  <!-- Botão hamburguer (visível só no mobile) -->
+  <button id="menuToggle" class="md:hidden focus:outline-none">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- Menu de navegação -->
+  <nav id="mainMenu" class="hidden md:flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
+    <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+      <li><a href="/" class="hover:underline">Início</a></li>
+      <li><a href="/sobre.html" class="hover:underline">Sobre</a></li>
+      <li><a href="/contato.html" class="hover:underline">Contato</a></li>
+      <li><a href="/posts/" class="hover:underline font-semibold">Posts</a></li>
+    </ul>
+  </nav>
+</header>
 
         <!-- Ícones das redes sociais com links e acessibilidade -->
         <div class="flex space-x-4 ml-6">
