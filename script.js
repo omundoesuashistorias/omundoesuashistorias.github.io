@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   // MENU RESPONSIVO
-  const btn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mainMenu');
 
   if (btn && mobileMenu) {
     btn.addEventListener('click', () => {
