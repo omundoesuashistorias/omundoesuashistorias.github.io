@@ -15,7 +15,8 @@ input, textarea {
 }
 
 /* Placeholder cinza */
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: #aaa;
 }
 
@@ -24,3 +25,78 @@ button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/* ------------------------------ */
+/* MENU RESPONSIVO */
+/* ------------------------------ */
+
+/* Layout do header */
+header {
+  background-color: #fff;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Link do logo/título */
+header a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Botão hamburguer */
+#menuToggle {
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Estilo dos links */
+nav a {
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Menu escondido no mobile */
+#mainMenu {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff;
+  padding-top: 1rem;
+}
+
+/* Ativa quando JS remove .hidden */
+#mainMenu.show {
+  display: flex;
+}
+
+/* Estilo para desktop */
+@media (min-width: 768px) {
+  #menuToggle {
+    display: none; /* Esconde botão hamburguer */
+  }
+
+  #mainMenu {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 1.5rem;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  }
