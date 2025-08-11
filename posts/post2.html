@@ -1,46 +1,235 @@
-<article style="font-family:system-ui, 'Segoe UI', Roboto, Arial; color:#0b2545; max-width:900px; margin:1rem auto; padding:1.2rem; border-radius:10px; background-color:#fafafa; line-height:1.7; font-size:1.1rem; box-sizing:border-box;" itemscope itemtype="https://schema.org/NewsArticle">
-  <meta itemprop="headline" content="Luna-Glob / Luna-25: a tentativa russa de pousar na Lua e a colisão que entrou para a história">
-  <meta itemprop="author" content="Rodrigo Pontes">
-  <meta itemprop="publisher" content="O Mundo E Suas Histórias">
-  <meta itemprop="datePublished" content="2025-08-11">
-  <meta itemprop="dateModified" content="2025-08-11">
-  <meta itemprop="mainEntityOfPage" content="https://omundoesuashistorias.com/posts/post2.html">
-  <meta itemprop="image" content="https://i.postimg.cc/SxyXw1pr/Maquette-Luna-Glob-Lander-b-DSC-0075.jpg">
+<!DOCTYPE html>
+<!-- Define o tipo do documento como HTML5 -->
+<html lang="pt-BR">
+<!-- Define o idioma principal da página como português do Brasil -->
 
-  <h1 style="margin:0 0 .4rem; font-size:2.2rem; font-weight:700; color:#1a237e;" itemprop="headline">
-    Luna-Glob / Luna-25: a tentativa russa de pousar na Lua e a colisão que entrou para a história
-  </h1>
-  <div style="color:#4a5b73; font-size:.95rem; margin-bottom:1.2rem;">
-    Publicado em <time datetime="2025-08-11" itemprop="datePublished" style="color:#b71c1c;">11 de agosto de 2025</time> por 
-    <span style="color:#6a1b9a;" itemprop="author">Rodrigo Pontes</span> — 
-    <span style="color:#1a237e;" itemprop="publisher">O Mundo E Suas Histórias</span>
+<head>
+  <!-- Define o conjunto de caracteres como UTF-8, suportando acentuação e símbolos -->
+  <meta charset="UTF-8" />
+  
+  <!-- Garante que a visualização seja responsiva em dispositivos móveis -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Título exibido na aba do navegador -->
+  <title>Posts - O Mundo E Suas Histórias</title>
+
+  <!-- Meta descrição para mecanismos de busca (SEO) -->
+  <meta name="description" content="Confira as últimas postagens e categorias do O Mundo E Suas Histórias." />
+  
+  <!-- Define a URL canônica para evitar conteúdo duplicado em SEO -->
+  <link rel="canonical" href="https://omundoesuashistorias.com.br/posts/post1.html" />
+
+  <!-- Meta tags para compartilhamento em redes sociais (Open Graph) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Posts - O Mundo E Suas Histórias" />
+  <meta property="og:description" content="Confira as últimas postagens e categorias do O Mundo E Suas Histórias." />
+  <meta property="og:url" content="https://omundoesuashistorias.com.br/posts/post2.html" />
+  <meta property="og:image" content="https://omundoesuashistorias.com.br/thumb-post2.jpg" />
+
+  <!-- Ícone da aba (favicon) -->
+  <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+
+  <!-- Importa o Tailwind CSS diretamente da CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+ 
+  <!-- Importa os ícones da biblioteca Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+
+  <!-- Importa o estilo personalizado da página -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body class="bg-[#fafafa] text-[#222] font-sans leading-relaxed">
+<!-- Define o corpo da página com fundo claro, texto escuro, fonte padrão e espaçamento confortável -->
+
+  <!-- HEADER -->
+  <!-- HEADER PRINCIPAL -->
+<header class="bg-[#5a0015] text-white">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+
+    <!-- LOGO E TÍTULO -->
+    <a href="/" class="flex items-center space-x-3">
+      <img src="/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" height="50" class="h-12" />
+      <span class="text-2xl font-bold">O Mundo E Suas Histórias</span>
+    </a>
+
+    <!-- MENU DESKTOP -->
+    <nav class="hidden md:flex items-center space-x-6">
+      <!-- Links do menu -->
+      <ul class="flex space-x-6">
+        <li><a href="/" class="hover:underline">Início</a></li>
+        <li><a href="/sobre.html" class="hover:underline font-semibold">Sobre</a></li>
+        <li><a href="/contato.html" class="hover:underline">Contato</a></li>
+        <li><a href="/posts/" class="hover:underline">Posts</a></li>
+      </ul>
+
+      <!-- Ícones das redes sociais (desktop) -->
+      <div class="flex space-x-4 ml-6">
+        <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
+          <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
+        </a>
+        <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
+          <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
+        </a>
+        <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
+          <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
+        </a>
+      </div>
+    </nav>
+
+    <!-- BOTÃO HAMBÚRGUER (apenas mobile) -->
+    <button id="menuToggle" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
   </div>
 
-  <figure style="margin:0 0 1.2rem; text-align:center;">
-    <img src="https://i.postimg.cc/SxyXw1pr/Maquette-Luna-Glob-Lander-b-DSC-0075.jpg" alt="Maquete do módulo Luna-Glob (Luna-25)" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.15);" itemprop="image">
-    <figcaption style="font-size:.9rem; color:#6a1b9a; margin-top:.4rem;">
-      Maquete do módulo Luna-Glob (Luna-25), projeto ambicioso da Rússia para voltar à Lua.
-    </figcaption>
-  </figure>
+  <!-- MENU MOBILE (inicialmente oculto) -->
+  <nav id="mainMenu" class="hidden px-4 pb-4 md:hidden">
+    <ul class="flex flex-col space-y-4">
+      <li><a href="/" class="hover:underline block">Início</a></li>
+      <li><a href="/sobre.html" class="hover:underline font-semibold block">Sobre</a></li>
+      <li><a href="/contato.html" class="hover:underline block">Contato</a></li>
+      <li><a href="/posts/" class="hover:underline block">Posts</a></li>
+    </ul>
 
-  <p style="margin:0 0 1rem;">A missão <strong style="color:#1a237e;">Luna-Glob</strong> — mais tarde rebatizada de <strong style="color:#b71c1c;">Luna-25</strong> — foi a cartada da Rússia para provar que ainda tinha fôlego na <strong style="color:#6a1b9a;">corrida espacial</strong>. Quase meio século após o último pouso soviético na Lua, Moscou decidiu voltar ao palco lunar. Mas em vez de um pouso triunfante, o que vimos foi um <span style="color:#b71c1c;">abraço nada delicado</span> com o solo lunar. Antes de decretar “fracasso”, é preciso entender o contexto — porque, spoiler: a história é muito mais complexa do que uma queda.</p>
+    <!-- Ícones das redes sociais (mobile) -->
+    <div class="flex space-x-4 mt-4">
+      <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
+        <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
+      </a>
+      <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
+        <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
+      </a>
+      <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
+        <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
+      </a>
+    </div>
+  </nav>
+</header>
 
-  <h2 style="margin:1.4rem 0 .6rem; font-size:1.6rem; color:#6a1b9a;">Raízes do projeto e contexto histórico</h2>
-  <p style="margin:0 0 1rem;">O nome “Luna” não é novidade: entre 1959 e 1976, o programa soviético <strong style="color:#1a237e;">Luna</strong> realizou mais de 20 missões, algumas com feitos inéditos como o primeiro impacto controlado na Lua e o envio das primeiras imagens de sua superfície. Após o <strong>Luna-24</strong> em 1976, que trouxe amostras de volta à Terra, o programa entrou em hibernação. A União Soviética estava em declínio e a prioridade deixou de ser a Lua.</p>
-  <p style="margin:0 0 1rem;">Nos anos <strong>1990</strong>, já na Rússia pós-soviética, ressurgiu a ideia: “E se tentássemos de novo?”. Assim nasceu o conceito <strong>Luna-Glob</strong>, que passou por <span style="color:#b71c1c;">décadas de atrasos</span>, cortes orçamentários e redesigns. Não era apenas um projeto científico — era uma tentativa de recuperar <strong style="color:#6a1b9a;">prestígio geopolítico</strong>.</p>
+<!-- SCRIPT PARA ABRIR E FECHAR O MENU MOBILE -->
+<script>
+  const btn = document.getElementById('menuToggle');
+  const menu = document.getElementById('mainMenu');
 
-  <h2 style="margin:1.4rem 0 .6rem; font-size:1.6rem; color:#b71c1c;">Objetivos e importância científica</h2>
-  <p style="margin:0 0 1rem;">O alvo da <span style="color:#1a237e;">Luna-25</span> era o polo sul lunar, uma região que intriga cientistas porque, em crateras permanentemente sombreadas, pode haver <span style="color:#6a1b9a;">gelo de água</span>. Essa água não serve só para beber — ela pode ser quebrada em oxigênio e hidrogênio, abastecendo foguetes e sustentando futuras colônias lunares. Em termos estratégicos, controlar esse recurso seria como ter um <span style="color:#b71c1c;">poço de petróleo espacial</span>.</p>
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+          </script>
 
-  <h2 style="margin:1.4rem 0 .6rem; font-size:1.6rem; color:#1a237e;">O voo e a tragédia</h2>
-  <p style="margin:0 0 1rem;">A missão partiu de <strong style="color:#b71c1c;">Vostochny</strong> em 10 de agosto de 2023, a bordo de um foguete <em>Soyuz-2.1b</em> com estágio <em>Fregat</em>. O cronograma indicava pouso em poucos dias, com um sistema de descida controlado. Mas, em 19 de agosto, durante a manobra crítica de órbita, um <span style="color:#b71c1c;">erro de temporização</span> fez o motor funcionar <strong style="color:#6a1b9a;">43 segundos a mais</strong> que o necessário. Isso foi suficiente para transformar um pouso suave em um impacto devastador.</p>
+  <!-- MAIN CONTENT -->
+  
+<main itemscope itemtype="https://schema.org/Article" style="font-family: Arial, sans-serif; line-height: 1.8; font-size: 18px; max-width: 900px; margin: auto; color: #222;">
+  <meta itemprop="mainEntityOfPage" content="https://omundoesuashistorias.com.br/posts/post2.html/">
+  <meta itemprop="datePublished" content="2025-08-11">
+  <meta itemprop="author" content="Rodrigo Pontes">
+  <meta itemprop="publisher" content="O Mundo E Suas Histórias">
 
-  <h2 style="margin:1.4rem 0 .6rem; font-size:1.6rem; color:#6a1b9a;">Por que o fracasso ainda importa</h2>
-  <p style="margin:0 0 1rem;">No espaço, <strong style="color:#1a237e;">fracassos não são desperdício</strong>. Cada dado coletado — desde telemetria até a resposta dos sistemas — entra no banco de conhecimento para futuras missões. O pouso malsucedido da Luna-25 gera insights para ajustes de software, protocolos de emergência e até treinamentos de equipes.</p>
-  <p style="margin:0 0 1rem;">Mais que isso: mesmo sem pousar, a missão manteve viva a presença russa na pauta espacial e lembrou ao mundo que <span style="color:#b71c1c;">a Lua está longe de ser território conquistado</span>.</p>
+  <h1 itemprop="headline" style="font-size: 2.5em; text-align: center; color: #2c3e50; margin-bottom: 20px;">
+    A Jornada da Sonda Lunar Luna-25: Sucesso, Desafios e Lições para o Futuro
+  </h1>
 
-  <footer style="margin-top:1.4rem; border-top:1px solid rgba(0,0,0,0.06); padding-top:.8rem;">
-    <p style="margin:0 0 .4rem;"><strong>Autor:</strong> <span style="color:#6a1b9a;" itemprop="author">Rodrigo Pontes</span></p>
-    <p style="margin:0;"><strong>Site:</strong> <span style="color:#1a237e;" itemprop="publisher">O Mundo E Suas Histórias</span></p>
+  <img src="https://i.postimg.cc/SxyXw1pr/Maquette-Luna-Glob-Lander-b-DSC-0075.jpg" alt="Maquete da sonda lunar Luna-25" style="width: 100%; border-radius: 12px; margin-bottom: 20px;" itemprop="image">
+
+  <p style="font-size: 1.2em; text-align: justify;">
+    Em <span style="color: red; font-weight: bold;">11 de agosto de 2025</span>, a Rússia reacendeu as chamas da exploração lunar com o lançamento da <span style="color: blue; font-weight: bold;">Luna-25</span>. Mais que um simples foguete indo em direção à Lua, a missão carregava consigo décadas de história, orgulho nacional e a esperança de colocar novamente a Rússia no topo da corrida espacial. 
+  </p>
+
+  <p style="font-size: 1.2em; text-align: justify;">
+    O objetivo? Um pouso suave no Polo Sul da Lua — região quase mítica para cientistas, rica em mistérios e com forte possibilidade de conter <span style="color: purple; font-weight: bold;">gelo de água</span>. Não estamos falando de uma curiosidade qualquer: água significa combustível, vida e permanência humana no espaço. É a chave para transformar a Lua de “ponto turístico” em “base operacional”.
+  </p>
+
+  <p style="font-size: 1.2em; text-align: justify;">
+    O lançamento a partir do Cosmódromo de Vostochny foi digno de um filme. Motores rugindo, a estrutura tremendo e um silêncio tenso entre engenheiros que só foi quebrado pelo anúncio: “Separação bem-sucedida”. A <span style="color: blue; font-weight: bold;">Luna-25</span> não estava apenas voando, estava carregando a responsabilidade de mostrar ao mundo que a Rússia ainda sabe fazer ciência de ponta.
+  </p>
+
+  <p style="font-size: 1.2em; text-align: justify;">
+    Equipamentos de última geração foram instalados: câmeras de alta resolução, espectrômetros para analisar a composição do solo, perfuradores para coletar amostras e até sensores para detectar poeira eletrostaticamente carregada — um problema que, por incrível que pareça, pode danificar sistemas inteiros. Cada componente tinha um papel crucial para responder perguntas que há décadas intrigam a comunidade científica.
+  </p>
+
+  <p style="font-size: 1.2em; text-align: justify;">
+    Mas o espaço não perdoa erros. Na fase final de aproximação, um problema nos sistemas de navegação fez a sonda sair de rota. O resultado foi um impacto que encerrou a missão antes de atingir o objetivo final. Um golpe duro para a agência espacial russa, mas longe de ser o fim da linha.
+  </p>
+
+  <p style="font-size: 1.2em; text-align: justify;">
+    Essa não é a primeira vez que uma missão lunar enfrenta problemas. Desde os anos 60, pousos malsucedidos moldaram o caminho da exploração espacial. Os Estados Unidos perderam diversas sondas antes de colocar a Apollo 11 no Mar da Tranquilidade. A <span style="color: red; font-weight: bold;">China</span> também tropeçou antes de pousar com sucesso a Chang’e 3. O espaço exige persistência, engenharia refinada e, principalmente, a coragem de tentar de novo.
+  </p>
+
+  <p style="font-size: 1.2em; text-align: justify;">
+    Para os engenheiros russos, a <span style="color: purple; font-weight: bold;">Luna-25</span> foi um laboratório em movimento. Cada sensor, cada telemetria enviada, mesmo que incompleta, será analisada para corrigir rotas futuras. A Luna-26 já está no papel, e promete superar as limitações enfrentadas nesta missão.
+  </p>
+
+  <p style="font-size: 1.2em; text-align: justify;">
+    Mais do que tecnologia, estamos falando de um símbolo. A <span style="color: blue; font-weight: bold;">corrida espacial moderna</span> não é apenas entre países, mas também entre ideias: bases lunares, mineração de asteroides, turismo espacial e até agricultura fora da Terra. Quem dominar o Polo Sul lunar pode dominar também uma nova economia espacial.
+  </p>
+
+  <p style="font-size: 1.2em; text-align: justify;">
+    No fim, a história da Luna-25 mostra que ciência não é feita só de vitórias. É feita de tentativa, erro, aprendizado e, acima de tudo, resiliência. Como disse um engenheiro envolvido no projeto: <span style="color: purple; font-weight: bold;">“Errar no espaço é caro, mas não errar é estagnar.”</span>
+  </p>
+
+  <footer style="margin-top: 40px; font-size: 1em; text-align: center; color: #555;">
+    <p>Autor: <span itemprop="author">Rodrigo Pontes</span> | Publicado em <span itemprop="datePublished">11 de agosto de 2025</span></p>
+    <p><strong>O Mundo E Suas Histórias</strong></p>
   </footer>
-</article>
+</main>
+
+
+
+
+  <footer style="font-size:0.9rem; color:#666; text-align:center; margin-top:3.5rem; border-top:1px solid #ddd; padding-top:1rem;">
+    <p>
+      Publicado em agosto de 2025 no site 
+      <a href="https://omundoesuashistorias.com.br" target="_blank" rel="noopener noreferrer" style="color:#b45f06; text-decoration:none; font-weight:600;">
+        O Mundo E Suas Histórias
+      </a> | Autor: Rodrigo Pontes
+    </p>
+  </footer>
+
+</main>
+  
+<!-- FOOTER -->
+<footer class="bg-[#5a0015] text-white mt-16">
+  <!-- Container centralizado com espaçamento interno -->
+  <div class="max-w-6xl mx-auto px-4 py-6">
+
+    <!-- Seção superior do rodapé: links e redes sociais -->
+    <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+
+      <!-- Navegação interna do site -->
+      <div class="mb-4 md:mb-0">
+        <nav class="flex space-x-6">
+          <a href="/" class="hover:underline">Início</a>
+          <a href="/sobre.html" class="hover:underline">Sobre</a>
+          <a href="/contato.html" class="hover:underline">Contato</a>
+          <a href="/posts/" class="hover:underline">Posts</a>
+        </nav>
+      </div>
+
+      <!-- Ícones de redes sociais com hover amarelo -->
+      <div class="flex space-x-4">
+        <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
+          <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
+        </a>
+        <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
+          <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
+        </a>
+        <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
+          <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Texto de direitos autorais no final do footer -->
+    <div class="text-center mt-4 text-xs">
+      &copy; 2025 O Mundo E Suas Histórias. Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- Script principal com defer para carregar após o HTML -->
+<script src="/assets/js/main.js" defer></script>
+</body>
+                                                                 </html>
