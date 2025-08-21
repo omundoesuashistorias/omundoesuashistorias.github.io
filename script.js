@@ -1,32 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
-  /* ============================= */
-  /* MENU RESPONSIVO                */
-  /* ============================= */
+document.addEventListener('DOMContentLoaded', () => {
+  /* =============================
+     MENU RESPONSIVO MOBILE
+  ============================= */
   const btn = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mainMenu');
+  const menu = document.getElementById('mainMenu');
 
-  if (btn && mobileMenu) {
-    // Alterna menu ao clicar no botão
-    const toggleMenu = () => {
-      mobileMenu.classList.toggle('show'); // usa .show conforme o CSS
-    };
-
+  if (btn && menu) {
+    // Alterna visibilidade do menu
     btn.addEventListener('click', (e) => {
-      e.stopPropagation(); // evita propagação para o document
-      toggleMenu();
+      e.stopPropagation(); // impede fechamento imediato
+      menu.classList.toggle('show');
     });
 
-    // Fecha o menu ao clicar fora dele
+    // Fecha o menu se clicar fora
     document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && !btn.contains(e.target)) {
-        mobileMenu.classList.remove('show');
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('show');
       }
     });
   }
 
-  /* ============================= */
-  /* FORMULÁRIO DE CONTATO (Formspree) */
-  /* ============================= */
+  /* =============================
+     FORMULÁRIO DE CONTATO (Formspree)
+  ============================= */
   const form = document.querySelector('form[action*="formspree.io"]');
   if (form) {
     const submitButton = form.querySelector('button[type="submit"]');
@@ -34,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     messageBox.className = 'form-message';
     form.appendChild(messageBox);
 
-    form.addEventListener('submit', async function (e) {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const email = form.querySelector('input[name="email"]');
@@ -74,4 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  /* =============================
+     FUTURAS INTERAÇÕES
+  ============================= */
 });
