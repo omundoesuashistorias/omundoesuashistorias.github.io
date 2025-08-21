@@ -67,74 +67,83 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
 
   <!-- CSS principal -->
-  <link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-[#fafafa] text-[#222] font-sans leading-relaxed">
 
   <!-- HEADER PRINCIPAL -->
-<header class="bg-[#5a0015] text-white">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+<header class="site-header">
+  <div class="header-container">
 
     <!-- LOGO E TÍTULO -->
-    <a href="/" class="flex items-center space-x-3">
-      <img src="/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" height="50" class="h-12" />
-      <span class="text-2xl font-bold">O Mundo E Suas Histórias</span>
+    <a href="/" class="logo">
+      <img src="/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" height="50" />
+      <span>O Mundo E Suas Histórias</span>
     </a>
 
     <!-- MENU DESKTOP -->
-    <nav class="hidden md:flex items-center space-x-6">
-      <!-- Links do menu -->
-      <ul class="flex space-x-6">
-        <li><a href="/" class="hover:underline">Início</a></li>
-        <li><a href="/sobre.html" class="hover:underline font-semibold">Sobre</a></li>
-        <li><a href="/contato.html" class="hover:underline">Contato</a></li>
-       </ul>
+    <nav class="menu-desktop">
+      <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/sobre.html" class="active">Sobre</a></li>
+        <li><a href="/contato.html">Contato</a></li>
+      </ul>
 
       <!-- Ícones das redes sociais (desktop) -->
-      <div class="flex space-x-4 ml-6">
+      <div class="social-icons">
         <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
-          <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
+          <i class="fab fa-facebook"></i>
         </a>
         <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
-          <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
+          <i class="fab fa-youtube"></i>
         </a>
         <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
-          <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
+          <i class="fab fa-instagram"></i>
         </a>
       </div>
     </nav>
 
     <!-- BOTÃO HAMBÚRGUER (apenas mobile) -->
-    <button id="menuToggle" class="md:hidden focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
 
   </div>
 
   <!-- MENU MOBILE (inicialmente oculto) -->
-  <nav id="mainMenu" class="hidden px-4 pb-4 md:hidden">
-    <ul class="flex flex-col space-y-4">
-      <li><a href="/" class="hover:underline block">Início</a></li>
-      <li><a href="/sobre.html" class="hover:underline font-semibold block">Sobre</a></li>
-      <li><a href="/contato.html" class="hover:underline block">Contato</a></li>
+  <nav id="mainMenu" class="menu-mobile hidden">
+    <ul>
+      <li><a href="/">Início</a></li>
+      <li><a href="/sobre.html" class="active">Sobre</a></li>
+      <li><a href="/contato.html">Contato</a></li>
     </ul>
 
     <!-- Ícones das redes sociais (mobile) -->
-    <div class="flex space-x-4 mt-4">
+    <div class="social-icons">
       <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
-        <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
+        <i class="fab fa-facebook"></i>
       </a>
       <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
-        <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
+        <i class="fab fa-youtube"></i>
       </a>
       <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
-        <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
+        <i class="fab fa-instagram"></i>
       </a>
     </div>
   </nav>
 </header>
+
+<!-- SCRIPT PARA ABRIR E FECHAR O MENU MOBILE -->
+<script>
+  const btn = document.getElementById('menuToggle');
+  const menu = document.getElementById('mainMenu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+        </script>
 
 <!-- SCRIPT PARA ABRIR E FECHAR O MENU MOBILE -->
 <script>
@@ -391,40 +400,40 @@
     
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-[#5a0015] text-white mt-16">
-    <div class="max-w-6xl mx-auto px-4 py-6">
-      <div class="flex flex-col md:flex-row justify-between items-center text-sm">
-        <div class="mb-4 md:mb-0">
-          <nav class="flex space-x-6">
-  <a href="/" class="hover:underline">Início</a>
-  <a href="/sobre.html" class="hover:underline">Sobre</a>
-  <a href="/contato.html" class="hover:underline">Contato</a>
-  </nav>
-
-        </div>
-        <div class="flex space-x-4">
-          <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
-            <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
-          </a>
-          <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
-            <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
-          </a>
-          <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
-            <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
-          </a>
-        </div>
+<!-- FOOTER -->
+<footer class="text-white mt-16" style="background-color: #5a0015;">
+  <div class="max-w-6xl mx-auto px-4 py-6">
+    <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+      <div class="mb-4 md:mb-0">
+        <nav class="flex space-x-6">
+          <a href="/" class="hover:underline">Início</a>
+          <a href="/sobre.html" class="hover:underline">Sobre</a>
+          <a href="/contato.html" class="hover:underline">Contato</a>
+        </nav>
       </div>
-      <div class="text-center mt-4 text-xs">
-        &copy; 2025 O Mundo E Suas Histórias. Todos os direitos reservados.
+      <div class="flex space-x-4">
+        <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
+          <i class="fab fa-facebook text-white hover:text-yellow-400 text-xl"></i>
+        </a>
+        <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
+          <i class="fab fa-youtube text-white hover:text-yellow-400 text-xl"></i>
+        </a>
+        <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
+          <i class="fab fa-instagram text-white hover:text-yellow-400 text-xl"></i>
+        </a>
       </div>
     </div>
-  </footer>
+    <div class="text-center mt-4 text-xs">
+      &copy; 2025 O Mundo E Suas Histórias. Todos os direitos reservados.
+    </div>
+  </div>
+            </footer>
 
   <!-- Script principal -->
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
+
 
 
 
