@@ -1,15 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // MENU RESPONSIVO
+  /* ============================= */
+  /* MENU RESPONSIVO                */
+  /* ============================= */
   const btn = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mainMenu');
 
   if (btn && mobileMenu) {
-    btn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('show'); // ajustado para combinar com o CSS
+    // Alterna menu ao clicar no botão
+    const toggleMenu = () => {
+      mobileMenu.classList.toggle('show'); // usa .show conforme o CSS
+    };
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // evita propagação para o document
+      toggleMenu();
+    });
+
+    // Fecha o menu ao clicar fora dele
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && !btn.contains(e.target)) {
+        mobileMenu.classList.remove('show');
+      }
     });
   }
 
-  // FORMULÁRIO DE CONTATO (Formspree)
+  /* ============================= */
+  /* FORMULÁRIO DE CONTATO (Formspree) */
+  /* ============================= */
   const form = document.querySelector('form[action*="formspree.io"]');
   if (form) {
     const submitButton = form.querySelector('button[type="submit"]');
@@ -57,32 +74,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
-
-  // Futuras animações ou interações aqui
 });
-// MENU RESPONSIVO - Abrir e fechar menu mobile com clique fora
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('menuToggle');
-  const menu = document.getElementById('mainMenu');
-
-  if (!btn || !menu) return;
-
-  // Função para alternar menu
-  const toggleMenu = () => {
-    menu.classList.toggle('hidden');
-  };
-
-  // Abrir/fechar ao clicar no botão
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation(); // impede que o clique "suba" para o document
-    toggleMenu();
-  });
-
-  // Fecha o menu se clicar fora dele
-  document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !btn.contains(e.target)) {
-      menu.classList.add('hidden');
-    }
-  });
-});
-
