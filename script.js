@@ -60,3 +60,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Futuras animações ou interações aqui
 });
+// MENU RESPONSIVO - Abrir e fechar menu mobile com clique fora
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('menuToggle');
+  const menu = document.getElementById('mainMenu');
+
+  if (!btn || !menu) return;
+
+  // Função para alternar menu
+  const toggleMenu = () => {
+    menu.classList.toggle('hidden');
+  };
+
+  // Abrir/fechar ao clicar no botão
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // impede que o clique "suba" para o document
+    toggleMenu();
+  });
+
+  // Fecha o menu se clicar fora dele
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+});
+
