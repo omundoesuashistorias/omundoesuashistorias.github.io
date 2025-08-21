@@ -6,419 +6,97 @@
   <title>O Mundo E Suas Histórias</title>
 
   <!-- Meta descrição para SEO -->
-<meta name="description" content="Confira as últimas postagens e categorias do O Mundo E Suas Histórias." />
-<!-- Link canonical correto para a página Home -->
-<link rel="canonical" href="https://omundoesuashistorias.com.br" />
+  <meta name="description" content="Confira as últimas postagens e categorias do O Mundo E Suas Histórias." />
+  <link rel="canonical" href="https://omundoesuashistorias.com.br" />
 
-<!-- Open Graph para redes sociais -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Site Oficial - O Mundo E Suas Histórias" />
-<meta property="og:description" content="Confira as últimas postagens e categorias do O Mundo E Suas Histórias." />
-<meta property="og:url" content="https://omundoesuashistorias.com.br" />
-<meta property="og:image" content="https://omundoesuashistorias.com.br/thumbnail.jpg" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Site Oficial - O Mundo E Suas Histórias" />
+  <meta property="og:description" content="Confira as últimas postagens e categorias do O Mundo E Suas Histórias." />
+  <meta property="og:url" content="https://omundoesuashistorias.com.br" />
+  <meta property="og:image" content="https://omundoesuashistorias.com.br/thumbnail.jpg" />
 
-<!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "O Mundo E Suas Histórias",
-    "url": "https://omundoesuashistorias.com.br",
-    "description": "Confira as últimas postagens e categorias do O Mundo E Suas Histórias.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "O Mundo E Suas Histórias",
-      "url": "https://omundoesuashistorias.com.br",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://omundoesuashistorias.com.br/logo_omh_fundo_transparente.png"
-      },
-      "sameAs": [
-        "https://facebook.com/omundoesuashistorias",
-        "https://youtube.com/omundoesuashistorias",
-        "https://instagram.com/omundoesuashistorias"
-      ]
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://omundoesuashistorias.com.br/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- Schema.org JSON-LD para a página inicial -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Página Inicial - O Mundo E Suas Histórias",
-    "url": "https://omundoesuashistorias.com.br",
-    "description": "Página inicial do projeto O Mundo E Suas Histórias com destaques, posts e informações sobre os criadores."
-  }
-  </script>
-  
   <!-- Favicon -->
   <link rel="icon" href="/favicon-omh.ico" type="image/x-icon" />
 
-  <!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-<!-- Bootstrap Icons CDN -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-<!-- CSS principal -->
-<link rel="stylesheet" href="style.css" />
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-[#fafafa] text-[#222] font-sans leading-relaxed">
-  
-  <!-- HEADER PRINCIPAL -->
-<header class="site-header">
-  <div class="header-container">
+<body>
 
-    <!-- LOGO E TÍTULO -->
-    <a href="/" class="logo">
-      <img src="/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" height="50" />
-      <span>O Mundo E Suas Histórias</span>
-    </a>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
 
-    <!-- MENU DESKTOP -->
-    <nav class="menu-desktop">
+      <!-- LOGO -->
+      <a href="/" class="logo">
+        <img src="/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias">
+        <span>O Mundo E Suas Histórias</span>
+      </a>
+
+      <!-- MENU DESKTOP -->
+      <nav class="menu-desktop">
+        <ul>
+          <li><a href="/" class="active">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+        </ul>
+        <div class="social-icons">
+          <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+      </nav>
+
+      <!-- BOTÃO HAMBURGUER MOBILE -->
+      <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- MENU MOBILE -->
+    <nav id="mainMenu" class="menu-mobile hidden">
       <ul>
-        <li><a href="/">Início</a></li>
-        <li><a href="/sobre.html" class="active">Sobre</a></li>
+        <li><a href="/" class="active">Início</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
         <li><a href="/contato.html">Contato</a></li>
       </ul>
-
-<!-- Ícones das redes sociais (desktop) -->
-<div class="social-icons">
-  <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
-    <i class="bi bi-facebook"></i>
-  </a>
-  <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
-    <i class="bi bi-youtube"></i>
-  </a>
-  <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
-    <i class="bi bi-instagram"></i>
-  </a>
-</div>
-
-    <!-- BOTÃO HAMBÚRGUER (apenas mobile) -->
-    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">
-      <svg viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-
-  </div>
-
-  <!-- MENU MOBILE (inicialmente oculto) -->
-  <nav id="mainMenu" class="menu-mobile hidden">
-    <ul>
-      <li><a href="/">Início</a></li>
-      <li><a href="/sobre.html" class="active">Sobre</a></li>
-      <li><a href="/contato.html">Contato</a></li>
-    </ul>
-
-    <!-- Ícones das redes sociais (mobile) -->
-    <div class="social-icons">
-      <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-  </nav>
-</header>
-
-
+      <div class="social-icons">
+        <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+    </nav>
+  </header>
 
   <!-- MAIN CONTENT -->
-  <main class="max-w-5xl mx-auto px-4 py-10">
-    <section class="max-w-5xl mx-auto">
-      <h1 class="text-3xl font-bold text-[#800020] mb-6"></h1>
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Lista de posts organizados em colunas, inseridos via JS futuramente -->
-      </div>
-    </section>
-
-
-    <!-- BLOCO: Apresentação do Projeto --><section class="home-section highlight">
-  <h2>O que é "O Mundo E Suas Histórias"?</h2>
-  <p>
-    Um projeto que vai além da timeline: aqui, a história ganha voz, opinião e ironia.
-    Desenterramos verdades com humor e coragem editorial. Porque história não é passatempo,
-    é identidade.
-  </p>
-</section><!-- BLOCO: Super 8 Responde --><section class="home-section quote-block">
-  <blockquote>
-    "Se o passado ensina, por que tem gente repetindo erro?"
-    <cite>– Super 8</cite>
-  </blockquote>
-</section><!-- BLOCO: Destaques Recentes (diferente dos posts) --><section class="home-section grid-featured">
-  <h2>Em Destaque</h2>
-  <div class="grid">
-    <article class="card">
-      <img src="caminho/para/imagem1.jpg" alt="Imagem de destaque 1">
-      <h3>O dia em que a história virou meme</h3>
-      <p>Você sabia que Napoleão nunca foi baixinho? Descubra o que mais te contaram errado.</p>
-      <a href="#">Leia mais</a>
-    </article>
-    <article class="card">
-      <img src="caminho/para/imagem2.jpg" alt="Imagem de destaque 2">
-      <h3>Por que odiamos filosofia sem perceber</h3>
-      <p>Talvez o problema não seja a filosofia... talvez seja quem te explicou.</p>
-      <a href="#">Leia mais</a>
-    </article>
-  </div>
-</section><!-- BLOCO: Sobre os criadores --><section class="home-section about">
-  <h2>Quem faz isso aqui?</h2>
-  <p>Rodrigo e Jackita. Ele do Rio, ela do Sul. Juntos, fazem o caos virar conteúdo histórico de qualidade.</p>
-  <a href="#">Conheça o projeto completo</a>
-</section><!-- BLOCO: Filosofia e História --><section class="home-section trivia">
-  <h2>Pílulas Históricas</h2>
-  <ul>
-    <li><strong>Nietzsche</strong> nunca disse que Deus estava morto como você pensa.</li>
-    <li><strong>Esparta</strong> não era tão gloriosa assim. A censura deles era real.</li>
-    <li><strong>O Iluminismo</strong> criou ideias lindas... mas também justificou opressões.</li>
-  </ul>
-</section><!-- BLOCO: Mito Derrubado --><section class="home-section myth-buster">
-  <h2>Derrubando Mitos</h2>
-  <div class="myth">
-    <p>"A escravidão acabou em 1888 e pronto."</p>
-    <p class="reveal">Nem tão simples. A estrutura escravocrata seguiu por décadas.</p>
-    <a href="#">Veja a análise completa</a>
-  </div>
-</section><!-- BLOCO: Redes sociais --><section class="home-section social-call">
-  <h2>Cansado de ver só bobagem no feed?</h2>
-  <p>Segue a gente nas redes sociais e faz o algoritmo trabalhar por algo que presta.</p>
-  <div class="social-icons">
-    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-  </div>
-</section><!-- BLOCO: Chamada para participação --><section class="home-section contact-block">
-  <h2>Tem uma pauta que ninguém tem coragem?</h2>
-  <p>Conta pra gente. A gente escuta. E publica com contexto.</p>
-  <a href="#">Sugira um tema</a>
-</section><!-- CSS EMBUTIDO --><style>
-  .home-section {
-    padding: 3rem 1rem;
-    margin-bottom: 2rem;
-    background: #f9f9f9;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  }
-
-  .home-section h2 {
-    font-size: 1.8rem;
-    color: #222;
-    margin-bottom: 1rem;
-  }
-
-  .home-section p, .home-section li {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.6;
-  }
-
-  .grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-
-  .card {
-    background: #fff;
-    border-radius: 1rem;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-  }
-
-  .quote-block blockquote {
-    font-style: italic;
-    background: #fffbe6;
-    padding: 1rem;
-    border-left: 4px solid #f0c000;
-    border-radius: 0.5rem;
-    color: #333;
-  }
-
-  .trivia ul {
-    list-style-type: disc;
-    padding-left: 1.2rem;
-  }
-
-  .myth-buster .myth {
-    background: #ffe6e6;
-    padding: 1rem;
-    border-radius: 1rem;
-    border-left: 4px solid #ff5e5e;
-  }
-
-  .myth-buster .reveal {
-    font-weight: bold;
-    margin-top: 0.5rem;
-  }
-
-  .social-icons i {
-    font-size: 2rem;
-    margin-right: 1rem;
-    color: #555;
-    transition: color 0.3s;
-  }
-
-  .social-icons i:hover {
-    color: #000;
-  }
-
-  .contact-block a,
-  .about a,
-  .card a,
-  .myth a {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: #0077cc;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .contact-block a:hover,
-  .about a:hover,
-  .card a:hover,
-  .myth a:hover {
-    text-decoration: underline;
-  }
-</style><!-- JS OPCIONAL (para revelações futuras) --><script>
-  // JS não interfere na base fixa, mas pode ser expandido depois
-  </script>
-
-
-
-    
-
-    <!-- Popup de Manutenção (com animação e persistência localStorage) -->
-<div id="popup-manutencao" style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; display: none; justify-content: center; align-items: center;">
-  <style>
-    #popup-manutencao .popup-content {
-      background: white;
-      max-width: 90%;
-      width: 500px;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      position: relative;
-      font-family: Arial, sans-serif;
-      animation: fadeInScale 0.4s ease-out;
-    }
-
-    #popup-manutencao .popup-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: transparent;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #555;
-    }
-
-    @keyframes fadeInScale {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-  </style>
-
-  <div class="popup-content">
-    <button class="popup-close" id="fechar-popup">&times;</button>
-    <h2 style="margin-top: 0; font-size: 1.75rem; color: #c0392b;">🚧 Site em Manutenção</h2>
-    <p style="font-size: 1rem; color: #333; line-height: 1.5;">
-      Calma, jovem padawan! Nosso site está passando por uma manutençãozinha básica. Estamos polindo os bits e alinhando os pixels para te entregar uma experiência ainda mais insana!
-    </p>
-    <p style="font-size: 0.9rem; color: #666;">Volte em breve e traga café ☕</p>
-  </div>
-</div>
-
-<script>
-  (function () {
-    const popup = document.getElementById("popup-manutencao");
-    const btnFechar = document.getElementById("fechar-popup");
-
-    const chaveLocal = "popupManutencaoVisto";
-
-    // Só mostra se ainda não foi visto
-    if (!localStorage.getItem(chaveLocal)) {
-      popup.style.display = "flex";
-    }
-
-    // Ao fechar, salva que já foi exibido
-    btnFechar.addEventListener("click", function () {
-      popup.style.display = "none";
-      localStorage.setItem(chaveLocal, "true");
-    });
-  })();
-</script>
-
-    
+  <main class="main-content">
+    <!-- Conteúdo das seções do site aqui -->
   </main>
 
-<!-- FOOTER -->
-<footer class="text-white mt-16" style="background-color: #5a0015;">
-  <div class="max-w-6xl mx-auto px-4 py-6">
-    <div class="flex flex-col md:flex-row justify-between items-center text-sm">
-      <div class="mb-4 md:mb-0">
-        <nav class="flex space-x-6">
-          <a href="/" class="hover:underline">Início</a>
-          <a href="/sobre.html" class="hover:underline">Sobre</a>
-          <a href="/contato.html" class="hover:underline">Contato</a>
-        </nav>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <nav>
+        <a href="/">Início</a>
+        <a href="/sobre.html">Sobre</a>
+        <a href="/contato.html">Contato</a>
+      </nav>
+      <div class="social-icons">
+        <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
       </div>
-      <div class="flex space-x-4">
-        <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook" rel="noopener">
-          <i class="bi bi-facebook text-white hover:text-yellow-400 text-xl"></i>
-        </a>
-        <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube" rel="noopener">
-          <i class="bi bi-youtube text-white hover:text-yellow-400 text-xl"></i>
-        </a>
-        <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram" rel="noopener">
-          <i class="bi bi-instagram text-white hover:text-yellow-400 text-xl"></i>
-        </a>
-      </div>
+      <p>&copy; 2025 O Mundo E Suas Histórias. Todos os direitos reservados.</p>
     </div>
-    <div class="text-center mt-4 text-xs">
-      &copy; 2025 O Mundo E Suas Histórias. Todos os direitos reservados.
-    </div>
-  </div>
-      </footer>
+  </footer>
 
-  <!-- Script principal -->
-  <script src="/assets/js/main.js" defer></script>
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
 </body>
-</html>
-
-
-
-
-
-
-
+                            </html>
