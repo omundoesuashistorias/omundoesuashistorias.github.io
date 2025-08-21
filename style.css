@@ -64,100 +64,103 @@ button:disabled {
   text-decoration: none;
   color: inherit;
 }
-
 .logo span {
   font-size: 1.5rem;
   font-weight: bold;
 }
-
 .logo img {
   height: 3rem;
 }
 
-/* ============================= */
-/* MENU DESKTOP                  */
-/* ============================= */
+/* Menu Desktop */
 .menu-desktop {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
-
 .menu-desktop ul {
   display: flex;
   gap: 1.5rem;
   list-style: none;
 }
-
 .menu-desktop a {
   color: #fff;
   text-decoration: none;
 }
-
 .menu-desktop a:hover {
   text-decoration: underline;
 }
-
 .menu-desktop a.active {
   font-weight: 600;
 }
 
-/* ============================= */
-/* BOTÃO HAMBURGUER MOBILE       */
-/* ============================= */
+/* Menu Mobile */
 .menu-toggle {
-  display: none; /* só aparece em mobile */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
   color: #fff;
 }
-
 .menu-toggle svg {
   width: 2rem;
   height: 2rem;
-  stroke: currentColor;
+  stroke: #fff;
+  stroke-width: 2;
 }
 
-/* ============================= */
-/* MENU MOBILE                   */
-/* ============================= */
 .menu-mobile {
-  display: none; /* inicialmente escondido */
+  display: none;
   flex-direction: column;
-  gap: 1rem;
   background-color: #5a0015;
-  padding: 1rem;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
 }
-
 .menu-mobile ul {
   list-style: none;
-  display: flex;
   flex-direction: column;
-  gap: 1rem;
+  padding: 1rem 0;
 }
-
+.menu-mobile ul li {
+  padding: 0.5rem 1rem;
+}
 .menu-mobile a {
   color: #fff;
   text-decoration: none;
 }
-
+.menu-mobile a:hover,
 .menu-mobile a.active {
   font-weight: 600;
 }
 
-.menu-mobile.show {
+/* Ícones sociais */
+.social-icons {
   display: flex;
+  gap: 1rem;
+}
+.social-icons i {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.3s;
+}
+.social-icons i:hover {
+  color: #facc15; /* hover amarelo */
 }
 
 /* ============================= */
 /* RESPONSIVIDADE                 */
 /* ============================= */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .menu-desktop {
-    display: none; /* esconde menu desktop */
+    display: none;
   }
   .menu-toggle {
-    display: block; /* mostra botão hamburguer */
+    display: block;
+  }
+  .menu-mobile.show {
+    display: flex;
   }
   }
