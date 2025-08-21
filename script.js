@@ -1,77 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* =============================
-     MENU RESPONSIVO MOBILE
-  ============================= */
-  const btn = document.getElementById('menuToggle');
-  const menu = document.getElementById('mainMenu');
+  // Seleciona botão hamburguer e menu mobile
+  const menuToggle = document.getElementById('menuToggle');
+  const menuMobile = document.getElementById('mainMenu');
 
-  if (btn && menu) {
-    // Alterna visibilidade do menu
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation(); // impede fechamento imediato
-      menu.classList.toggle('show');
-    });
+  if (!menuToggle || !menuMobile) return;
 
-    // Fecha o menu se clicar fora
-    document.addEventListener('click', (e) => {
-      if (!menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.classList.remove('show');
-      }
-    });
-  }
+  // Função para abrir/fechar menu mobile
+  const toggleMenu = () => {
+    menuMobile.classList.toggle('show');
+  };
 
-  /* =============================
-     FORMULÁRIO DE CONTATO (Formspree)
-  ============================= */
-  const form = document.querySelector('form[action*="formspree.io"]');
-  if (form) {
-    const submitButton = form.querySelector('button[type="submit"]');
-    const messageBox = document.createElement('p');
-    messageBox.className = 'form-message';
-    form.appendChild(messageBox);
+  // Clicar no botão abre/fecha o menu
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation(); // impede que o clique "suba" para o document
+    toggleMenu();
+  });
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  // Fecha o menu se clicar fora dele
+  document.addEventListener('click', (e) => {
+    if (!menuMobile.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuMobile.classList.remove('show');
+    }
+  });
 
-      const email = form.querySelector('input[name="email"]');
-      const message = form.querySelector('textarea[name="message"]');
-
-      if (!email.value.trim() || !message.value.trim()) {
-        messageBox.textContent = 'Por favor, preencha todos os campos obrigatórios.';
-        messageBox.style.color = '#b00020';
-        return;
-      }
-
-      submitButton.disabled = true;
-      submitButton.textContent = 'Enviando...';
-
-      try {
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { Accept: 'application/json' }
-        });
-
-        if (response.ok) {
-          messageBox.textContent = 'Mensagem enviada com sucesso! Obrigado pelo contato.';
-          messageBox.style.color = '#006400';
-          form.reset();
-        } else {
-          messageBox.textContent = 'Ops! Algo deu errado. Tente novamente mais tarde.';
-          messageBox.style.color = '#b00020';
-        }
-      } catch (error) {
-        messageBox.textContent = 'Erro de conexão. Verifique sua internet.';
-        messageBox.style.color = '#b00020';
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = 'Enviar';
-      }
-    });
-  }
-
-  /* =============================
-     FUTURAS INTERAÇÕES
-  ============================= */
+  // FUTURAS EDIÇÕES: adicione aqui novas interações ou animações
 });
