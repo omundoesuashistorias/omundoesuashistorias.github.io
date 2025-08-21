@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (btn && mobileMenu) {
     btn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('show'); // ajustado para combinar com o CSS
     });
   }
 
