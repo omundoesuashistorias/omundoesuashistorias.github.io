@@ -164,3 +164,46 @@ button:disabled {
     display: flex;
   }
   }
+/* ============================= */
+/* FOOTER                         */
+/* ============================= */
+footer {
+  background-color: #5a0015;
+  color: #fff;
+  padding: 1.5rem 1rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #facc15; /* hover amarelo */
+}
+
+footer .flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .space-x-6 > * + * {
+  margin-left: 1.5rem;
+}
+
+footer .space-x-4 > * + * {
+  margin-left: 1rem;
+}
+
+footer .text-center {
+  text-align: center;
+}
+
+footer .text-xs {
+  font-size: 0.75rem;
+  }
+
