@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Seleciona botão hamburguer e menu mobile
+  // Seleciona botão hambúrguer e menu mobile
   const menuToggle = document.getElementById('menuToggle');
   const menuMobile = document.getElementById('mainMenu');
 
@@ -20,7 +20,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (e) => {
     if (!menuMobile.contains(e.target) && !menuToggle.contains(e.target)) {
       menuMobile.classList.remove('show');
+      // fecha todos os submenus
+      document.querySelectorAll('.submenu-parent-mobile').forEach(parent => {
+        parent.classList.remove('active');
+      });
     }
+  });
+
+  // Lógica para abrir/fechar submenus mobile
+  document.querySelectorAll('.submenu-parent-mobile > a').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault(); // previne navegação ao clicar no item principal
+      const parent = item.parentElement;
+      parent.classList.toggle('active'); // abre ou fecha submenu
+    });
   });
 
   // FUTURAS EDIÇÕES: adicione aqui novas interações ou animações
