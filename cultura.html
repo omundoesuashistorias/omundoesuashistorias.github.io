@@ -49,38 +49,61 @@
         <span class="site-title">O Mundo E Suas Histórias</span>
       </a>
 
-      <nav class="menu-desktop" role="navigation" aria-label="Menu principal">
-        <ul>
-          <li><a href="/" class="active">Início</a></li>
-          <li><a href="/sobre.html">Sobre</a></li>
-          <li><a href="/contato.html">Contato</a></li>
-        </ul>
-        <div class="social-icons" aria-hidden="false">
-          <a href="https://facebook.com/omundoesuashistorias" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="https://youtube.com/omundoesuashistorias" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-          <a href="https://instagram.com/omundoesuashistorias" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-        </div>
-      </nav>
-
-      <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu" aria-controls="mainMenu" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-
-    <nav id="mainMenu" class="menu-mobile hidden" aria-label="Menu móvel">
-      <ul>
-        <li><a href="/" class="active">Início</a></li>
-        <li><a href="/sobre.html">Sobre</a></li>
-        <li><a href="/contato.html">Contato</a></li>
+      <nav class="menu-desktop">
+  <ul>
+    <li><a href="/" class="active">Início</a></li>
+    <li><a href="/sobre.html">Sobre</a></li>
+    <li><a href="/contato.html">Contato</a></li>
+    <li class="submenu-parent">
+      <a href="/categorias.html">Categorias</a>
+      <ul class="submenu">
+        <li><a href="https://omundoesuashistorias.com.br/filosofia/">Filosofia</a></li>
+        <li><a href="https://omundoesuashistorias.com.br/mitologia/">Mitologia</a></li>
+        <li><a href="https://omundoesuashistorias.com.br/historia-antiga/">História Antiga</a></li>
+        <li><a href="https://omundoesuashistorias.com.br/arqueologia/">Arqueologia</a></li>
+        <li><a href="https://omundoesuashistorias.com.br/medieval/">Medieval</a></li>
+        <li><a href="https://omundoesuashistorias.com.br/contemporanea/">Contemporânea</a></li>
       </ul>
-      <div class="social-icons">
-        <a href="https://facebook.com/omundoesuashistorias" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://youtube.com/omundoesuashistorias" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-        <a href="https://instagram.com/omundoesuashistorias" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-      </div>
-    </nav>
+    </li>
+  </ul>
+  <div class="social-icons">
+    <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+    <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+    <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+  </div>
+</nav>
+
+<!-- BOTÃO HAMBURGUER MOBILE -->
+<button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">
+  <svg viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+  </svg>
+</button>
+
+<!-- MENU MOBILE -->
+<nav id="mainMenu" class="menu-mobile hidden">
+  <ul>
+    <li><a href="/" class="active">Início</a></li>
+    <li><a href="/sobre.html">Sobre</a></li>
+    <li><a href="/contato.html">Contato</a></li>
+    <li class="submenu-parent-mobile">
+      <a href="/categorias.html">Categorias</a>
+      <ul class="submenu-mobile">
+        <li><a href="https://omundoesuashistorias.com.br/filosofia/">Filosofia</a></li>
+        <li><a href="https://omundoesuashistorias.com.br/mitologia/">Mitologia</a></li>
+        <li><a href="https://omundoesuashistorias.com.br/historia-antiga/">História Antiga</a></li>
+        <li><a href="https://omundoesuashistorias.com.br/arqueologia/">Arqueologia</a></li>
+        <li><a href="https://omundoesuashistorias.com.br/medieval/">Medieval</a></li>
+        <li><a href="https://omundoesuashistorias.com.br/contemporanea/">Contemporânea</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="social-icons">
+    <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+    <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+    <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+  </div>
+</nav>
   </header>
 
   <!-- MAIN CONTENT (Tailwind isolado) -->
