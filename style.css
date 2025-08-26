@@ -73,20 +73,32 @@ button:disabled {
   height: 3rem;
 }
 
-/* Menu Desktop */
+/* ============================= */
+/* MENU DESKTOP                   */
+/* ============================= */
 .menu-desktop {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  position: relative;
 }
+
 .menu-desktop ul {
   display: flex;
   gap: 1.5rem;
   list-style: none;
+  position: relative;
 }
+
+.menu-desktop li {
+  position: relative;
+}
+
 .menu-desktop a {
   color: #fff;
   text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  display: block;
 }
 .menu-desktop a:hover {
   text-decoration: underline;
@@ -95,7 +107,31 @@ button:disabled {
   font-weight: 600;
 }
 
-/* Menu Mobile */
+/* Submenu Desktop */
+.menu-desktop .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #5a0015;
+  list-style: none;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  z-index: 1000;
+  border-radius: 0.25rem;
+}
+
+.menu-desktop .submenu li a {
+  padding: 0.5rem 1rem;
+}
+
+.menu-desktop li:hover > .submenu {
+  display: block;
+}
+
+/* ============================= */
+/* MENU MOBILE                    */
+/* ============================= */
 .menu-toggle {
   display: none;
   background: none;
@@ -120,24 +156,44 @@ button:disabled {
   left: 0;
   z-index: 1000;
 }
+.menu-mobile.show {
+  display: flex;
+}
+
 .menu-mobile ul {
   list-style: none;
   flex-direction: column;
   padding: 1rem 0;
 }
-.menu-mobile ul li {
+
+.menu-mobile li {
   padding: 0.5rem 1rem;
 }
+
 .menu-mobile a {
   color: #fff;
   text-decoration: none;
+  display: block;
 }
 .menu-mobile a:hover,
 .menu-mobile a.active {
   font-weight: 600;
 }
 
-/* Ícones sociais */
+/* Submenu Mobile */
+.submenu-mobile {
+  display: none;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+
+.submenu-parent-mobile.active > .submenu-mobile {
+  display: flex;
+}
+
+/* ============================= */
+/* ÍCONES SOCIAIS                 */
+/* ============================= */
 .social-icons {
   display: flex;
   gap: 1rem;
@@ -195,11 +251,8 @@ button:disabled {
   .menu-toggle {
     display: block;
   }
-  .menu-mobile.show {
-    display: flex;
-  }
   .footer-container {
     flex-direction: column;
     text-align: center;
   }
-  }
+}
