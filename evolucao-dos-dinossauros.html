@@ -270,64 +270,91 @@
       <p>&copy; 2025 O Mundo E Suas Histórias. Todos os direitos reservados.</p>
     </div>
   </footer>  
-
-<!-- SCRIPT -->  <script src="script.js"></script></body>
-
-  <script>
+  
+<!--JS Para Estilo do Article-->
+  
+<script>
   document.addEventListener("DOMContentLoaded", () => {
     const article = document.querySelector("main article");
     if (!article) return;
 
     // Estilo geral do artigo
-    article.classList.add("prose", "prose-lg", "max-w-none", "mx-auto", "p-6", "leading-relaxed");
+    article.classList.add(
+      "max-w-4xl", "mx-auto", "p-6", "text-gray-800", "leading-relaxed", "space-y-6"
+    );
 
-    // Cabeçalho
+    // HEADER
+    const header = article.querySelector("header");
+    if (header) {
+      header.classList.add("mb-10", "border-b", "pb-6", "border-gray-200");
+    }
+
+    // TÍTULO
     article.querySelectorAll("header h1").forEach(h1 => {
-      h1.classList.add("text-3xl", "font-bold", "mb-4", "text-gray-800");
+      h1.classList.add(
+        "text-4xl", "md:text-5xl", "font-extrabold", "tracking-tight",
+        "text-gray-900", "mb-4", "text-center"
+      );
     });
+
+    // METADADOS (autor e data)
     article.querySelectorAll("header p").forEach(p => {
-      p.classList.add("text-sm", "text-gray-500", "mb-8");
+      p.classList.add(
+        "text-center", "text-sm", "text-gray-500", "mb-2"
+      );
     });
 
-    // Seções
-    article.querySelectorAll("section").forEach(sec => {
-      sec.classList.add("mb-10");
-    });
-
-    // Subtítulos
+    // SUBTÍTULOS
     article.querySelectorAll("h2").forEach(h2 => {
-      h2.classList.add("text-2xl", "font-semibold", "mt-6", "mb-4", "text-gray-700");
+      h2.classList.add(
+        "text-2xl", "font-semibold", "mt-12", "mb-6", "text-gray-800",
+        "border-l-4", "border-blue-500", "pl-3"
+      );
     });
+
     article.querySelectorAll("h3").forEach(h3 => {
-      h3.classList.add("text-xl", "font-medium", "mt-4", "mb-2", "text-gray-600");
+      h3.classList.add(
+        "text-xl", "font-medium", "mt-8", "mb-4", "text-gray-700"
+      );
     });
 
-    // Parágrafos
+    // PARÁGRAFOS
     article.querySelectorAll("p").forEach(p => {
-      p.classList.add("mb-4", "text-justify", "text-gray-700");
+      p.classList.add("mb-6", "text-justify", "text-lg", "leading-8");
     });
 
-    // Imagens e legendas
+    // IMAGENS DESTAQUE (primeira imagem grande)
+    const firstImg = article.querySelector("img");
+    if (firstImg) {
+      firstImg.classList.add(
+        "w-full", "h-auto", "rounded-xl", "shadow-lg", "mb-8", "object-cover"
+      );
+    }
+
+    // FIGURAS e legendas
     article.querySelectorAll("figure").forEach(fig => {
-      fig.classList.add("my-6", "text-center");
+      fig.classList.add("my-10");
     });
     article.querySelectorAll("figure img").forEach(img => {
-      img.classList.add("mx-auto", "rounded-lg", "shadow-md");
+      img.classList.add("mx-auto", "rounded-lg", "shadow-md", "max-h-[600px]", "object-contain");
     });
     article.querySelectorAll("figcaption").forEach(cap => {
-      cap.classList.add("text-sm", "text-gray-500", "mt-2");
+      cap.classList.add("text-sm", "text-gray-500", "mt-2", "italic", "text-center");
     });
 
-    // Links
+    // LINKS
     article.querySelectorAll("a").forEach(a => {
-      a.classList.add("text-blue-600", "hover:underline");
+      a.classList.add("text-blue-600", "hover:text-blue-800", "font-medium", "transition-colors");
     });
 
-    // Rodapé
+    // FOOTER (atribuição/créditos)
     const footer = article.querySelector("footer");
     if (footer) {
-      footer.classList.add("mt-12", "pt-6", "border-t", "border-gray-300", "text-sm", "text-gray-500");
+      footer.classList.add(
+        "mt-16", "pt-8", "border-t", "border-gray-300",
+        "text-sm", "text-gray-500", "text-center", "italic"
+      );
     }
   });
-                            </script>
+</script>
 </html>
