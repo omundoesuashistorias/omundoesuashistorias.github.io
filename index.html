@@ -46,17 +46,6 @@
     <li><a href="/" class="active">Início</a></li>
     <li><a href="/sobre.html">Sobre</a></li>
     <li><a href="/contato.html">Contato</a></li>
-    <li class="submenu-parent">
-      <a href="/#">Categorias</a>
-      <ul class="submenu">
-        <li><a href="https://omundoesuashistorias.com.br/filosofia/">Filosofia</a></li>
-        <li><a href="https://omundoesuashistorias.com.br/mitologia/">Mitologia</a></li>
-        <li><a href="https://omundoesuashistorias.com.br/historia-antiga/">História Antiga</a></li>
-        <li><a href="https://omundoesuashistorias.com.br/arqueologia/">Arqueologia</a></li>
-        <li><a href="https://omundoesuashistorias.com.br/medieval/">Medieval</a></li>
-        <li><a href="https://omundoesuashistorias.com.br/contemporanea/">Contemporânea</a></li>
-      </ul>
-    </li>
   </ul>
   <div class="social-icons">
     <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -64,6 +53,7 @@
     <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
   </div>
 </nav>
+
 
 <!-- BOTÃO HAMBURGUER MOBILE -->
 <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">
@@ -98,268 +88,159 @@
 </nav>
   </header>
 
- <!-- MAIN CONTENT -->
-<main class="bg-white">
+ <main class="bg-white">
 
-  <!-- HERO -->
+  <!-- HERO FIXO -->
   <section class="bg-red-800 text-white py-20 px-6 text-center">
     <h1 class="text-4xl md:text-5xl font-bold mb-4">O Mundo E Suas Histórias</h1>
-    <p class="text-lg md:text-xl max-w-2xl mx-auto">Descubra histórias com humor, contexto e ousadia. Aqui o passado ganha voz!</p>
+    <p class="text-lg md:text-xl max-w-2xl mx-auto">
+      Descubra histórias com humor, contexto e ousadia. Aqui o passado ganha voz!
+    </p>
   </section>
 
-  <!-- QUIZ DE HISTÓRIA -->
-<section class="bg-gray-100 py-16 px-6">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#5A0F1B] mb-12">
-      Quiz de História
-    </h2>
+  <!-- LAYOUT PRINCIPAL + SIDEBAR -->
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 px-6 py-12">
 
-    <div class="bg-white rounded-2xl shadow-xl p-8 space-y-6 max-w-3xl mx-auto">
-      <!-- Barra de progresso -->
-      <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-        <div id="progressBar" class="bg-blue-600 h-4 w-0 transition-all duration-500"></div>
+    <!-- COLUNA PRINCIPAL (conteúdo real) -->
+    <div class="lg:col-span-3 space-y-12" id="main-content">
+
+      <!-- DESTAQUE ARTIGO DO MÊS -->
+      <section class="bg-gray-50 py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-center text-[#5A0F1B] mb-12">
+            Artigo em Destaque
+          </h2>
+          <div class="flex flex-col md:flex-row items-start md:items-center bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+            <div class="md:w-1/3 p-6">
+              <img src="https://i.postimg.cc/Vv23VYCb/500px-Herrerasaurusskeleton.jpg" 
+                   alt="Esqueleto de Herrerasaurus, dinossauro do Triássico" 
+                   class="rounded-xl shadow-md object-contain w-full h-auto">
+            </div>
+            <div class="md:w-2/3 p-6">
+              <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
+                Evolução e Paleobiogeografia dos Dinossauros
+              </h3>
+              <p class="text-gray-800 mb-4 leading-relaxed text-lg">
+                Explore como os dinossauros se diversificaram ao longo do Triássico, Jurássico e Cretáceo, acompanhando 
+                mudanças na vegetação, na fragmentação dos continentes e no desenvolvimento de estratégias de alimentação. 
+                Da emergência de aves verdadeiras aos saurópodes de pescoço longo, este artigo detalha milhões de anos 
+                de evolução e adaptação, mostrando como o mundo pré-histórico moldou esses incríveis animais.
+              </p>
+              <a href="https://omundoesuashistorias.com.br/evolucao-dos-dinossauros.html" 
+                 class="inline-block mt-4 bg-[#D4AF37] text-[#5A0F1B] font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-[#b8962e] hover:shadow-lg transition duration-300">
+                Leia o artigo completo
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     <!-- MELHORES VÍDEOS -->
+<section class="bg-white py-16 px-4">
+  <div class="max-w-7xl mx-auto text-center mb-12">
+    <h2 class="text-4xl font-bold text-gray-900">Melhores vídeos</h2>
+  </div>
+
+  <div class="max-w-7xl mx-auto grid gap-8 md:grid-cols-3">
+
+    <!-- Card 1 -->
+    <div class="bg-[#5A0F1B] text-white rounded-2xl shadow-lg overflow-hidden flex flex-col justify-between">
+      <div class="w-full aspect-w-16 aspect-h-9">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/glqHHEXtEbc" title="Ísis - a Deusa do Amor e da Magia" frameborder="0" allowfullscreen></iframe>
       </div>
-      <p id="progressText" class="text-sm text-center text-gray-600">Pergunta 1 de 5</p>
-      
-      <form id="quizForm" class="space-y-6">
-        <!-- Pergunta 1 -->
-        <div class="question" id="q1">
-          <p class="text-lg font-semibold mb-4">1. Em que ano ocorreu a Independência do Brasil?</p>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q1" value="1822" class="mr-2"> 1822
-          </label>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q1" value="1889" class="mr-2"> 1889
-          </label>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q1" value="1500" class="mr-2"> 1500
-          </label>
-          <button type="button" class="next-btn mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">Próxima</button>
-        </div>
-
-        <!-- Pergunta 2 -->
-        <div class="question hidden" id="q2">
-          <p class="text-lg font-semibold mb-4">2. Quem foi o primeiro presidente do Brasil?</p>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q2" value="Deodoro" class="mr-2"> Marechal Deodoro da Fonseca
-          </label>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q2" value="Floriano" class="mr-2"> Floriano Peixoto
-          </label>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q2" value="Getulio" class="mr-2"> Getúlio Vargas
-          </label>
-          <button type="button" class="next-btn mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">Próxima</button>
-        </div>
-
-        <!-- Pergunta 3 -->
-        <div class="question hidden" id="q3">
-          <p class="text-lg font-semibold mb-4">3. Em que ano começou a Primeira Guerra Mundial?</p>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q3" value="1914" class="mr-2"> 1914
-          </label>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q3" value="1939" class="mr-2"> 1939
-          </label>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q3" value="1929" class="mr-2"> 1929
-          </label>
-          <button type="button" class="next-btn mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">Próxima</button>
-        </div>
-
-        <!-- Pergunta 4 -->
-        <div class="question hidden" id="q4">
-          <p class="text-lg font-semibold mb-4">4. Quem descobriu o Brasil em 1500?</p>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q4" value="Cabral" class="mr-2"> Pedro Álvares Cabral
-          </label>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q4" value="Colombo" class="mr-2"> Cristóvão Colombo
-          </label>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q4" value="Vespucci" class="mr-2"> Américo Vespúcio
-          </label>
-          <button type="button" class="next-btn mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">Próxima</button>
-        </div>
-
-        <!-- Pergunta 5 -->
-        <div class="question hidden" id="q5">
-          <p class="text-lg font-semibold mb-4">5. Qual império construiu as pirâmides de Gizé?</p>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q5" value="Egito" class="mr-2"> Império Egípcio
-          </label>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q5" value="Romano" class="mr-2"> Império Romano
-          </label>
-          <label class="block p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
-            <input type="radio" name="q5" value="Inca" class="mr-2"> Império Inca
-          </label>
-          <button type="button" class="finish-btn mt-4 bg-green-600 text-white px-4 py-2 rounded-lg">Finalizar</button>
-        </div>
-      </form>
-
-      <!-- Resultado final -->
-      <div id="result" class="hidden text-center text-xl font-bold mt-6 space-y-4"></div>
+      <div class="p-6 flex flex-col justify-between flex-1">
+        <h3 class="text-xl font-bold mb-2">Ísis - a Deusa do Amor e da Magia</h3>
+        <p class="text-gray-100 mb-4">Descubra a poderosa deusa Ísis, símbolo do amor, da magia e protetora dos antigos egípcios.</p>
+        <a href="https://youtu.be/glqHHEXtEbc" target="_blank" class="mt-auto inline-block bg-yellow-500 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Assista no YouTube</a>
+      </div>
     </div>
+
+    <!-- Card 2 -->
+    <div class="bg-[#5A0F1B] text-white rounded-2xl shadow-lg overflow-hidden flex flex-col justify-between">
+      <div class="w-full aspect-w-16 aspect-h-9">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/kU2h9FEIZuk" title="Escribas no antigo Egito" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="p-6 flex flex-col justify-between flex-1">
+        <h3 class="text-xl font-bold mb-2">Escribas no antigo Egito</h3>
+        <p class="text-gray-100 mb-4">Conheça o mundo dos escribas, mestres da escrita e guardiões do conhecimento no Egito Antigo.</p>
+        <a href="https://youtu.be/kU2h9FEIZuk?si=UYHd2BdvXlTL8jRp" target="_blank" class="mt-auto inline-block bg-yellow-500 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Assista no YouTube</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-[#5A0F1B] text-white rounded-2xl shadow-lg overflow-hidden flex flex-col justify-between">
+      <div class="w-full aspect-w-16 aspect-h-9">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/HNut4sC3wFY" title="Hatshepsut: A primeira faraó do Egito! 3500 anos de história e um sorriso encantador" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="p-6 flex flex-col justify-between flex-1">
+        <h3 class="text-xl font-bold mb-2">Hatshepsut: A primeira faraó do Egito!</h3>
+        <p class="text-gray-100 mb-4">Explore a incrível história de Hatshepsut, a faraó que quebrou paradigmas e marcou 3500 anos de Egito Antigo.</p>
+        <a href="https://youtu.be/HNut4sC3wFY?si=a9KK7PLVPlqVF58v" target="_blank" class="mt-auto inline-block bg-yellow-500 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Assista no YouTube</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- SCRIPT -->
-<script src="quizz.js"></script>
 
-  <!-- DESTAQUE ARTIGO DO MÊS -->
-<section class="bg-gray-50 py-16 px-6">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#5A0F1B] mb-12">
-      Artigo em Destaque
-    </h2>
+      <!-- ÁREAS DO CONHECIMENTO -->
+      <section class="bg-white py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-center text-[#5A0F1B] mb-12">
+            Explore Conhecimentos
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Filosofia -->
+            <div class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+              <div class="overflow-hidden">
+                <img src="https://i.postimg.cc/MpXcSR2b/filosofia.jpg" alt="Filosofia" class="w-full h-48 object-cover rounded-t-2xl transform transition-transform duration-500 hover:scale-105">
+              </div>
+              <div class="p-6 text-center">
+                <h3 class="text-2xl font-semibold text-[#5A0F1B] mb-4">Filosofia</h3>
+                <p class="text-gray-700 mb-6">Reflexão crítica sobre a existência, o conhecimento e a moral. A filosofia nos ajuda a pensar o mundo com profundidade e questionar o óbvio.</p>
+                <a href="filosofia.html" class="inline-block bg-[#D4AF37] text-[#5A0F1B] font-semibold px-5 py-2 rounded-xl shadow-md hover:bg-[#b8962e] hover:shadow-lg hover:scale-105 transition-transform duration-300">Saiba mais</a>
+              </div>
+            </div>
 
-    <div class="flex flex-col md:flex-row items-start md:items-center bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-      
-      <!-- Imagem de destaque -->
-      <div class="md:w-1/3 p-6">
-        <img src="https://i.postimg.cc/Vv23VYCb/500px-Herrerasaurusskeleton.jpg" 
-             alt="Esqueleto de Herrerasaurus, dinossauro do Triássico" 
-             class="rounded-xl shadow-md object-contain w-full h-auto">
-      </div>
+            <!-- Mitologia -->
+            <div class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+              <div class="overflow-hidden">
+                <img src="https://i.postimg.cc/VNCdS8NJ/mitologia.jpg" alt="Mitologia" class="w-full h-48 object-cover rounded-t-2xl transform transition-transform duration-500 hover:scale-105">
+              </div>
+              <div class="p-6 text-center">
+                <h3 class="text-2xl font-semibold text-[#5A0F1B] mb-4">Mitologia</h3>
+                <p class="text-gray-700 mb-6">Narrativas antigas que explicam a origem do mundo, dos deuses e dos heróis. A mitologia revela crenças e símbolos que moldaram civilizações.</p>
+                <a href="mitologia.html" class="inline-block bg-[#D4AF37] text-[#5A0F1B] font-semibold px-5 py-2 rounded-xl shadow-md hover:bg-[#b8962e] hover:shadow-lg hover:scale-105 transition-transform duration-300">Saiba mais</a>
+              </div>
+            </div>
 
-      <!-- Texto do artigo -->
-      <div class="md:w-2/3 p-6">
-        <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
-          Evolução e Paleobiogeografia dos Dinossauros
-        </h3>
-        <p class="text-gray-800 mb-4 leading-relaxed text-lg">
-          Explore como os dinossauros se diversificaram ao longo do Triássico, Jurássico e Cretáceo, acompanhando 
-          mudanças na vegetação, na fragmentação dos continentes e no desenvolvimento de estratégias de alimentação. 
-          Da emergência de aves verdadeiras aos saurópodes de pescoço longo, este artigo detalha milhões de anos 
-          de evolução e adaptação, mostrando como o mundo pré-histórico moldou esses incríveis animais.
-        </p>
-        <a href="https://omundoesuashistorias.com.br/evolucao-dos-dinossauros.html" 
-           class="inline-block mt-4 bg-[#D4AF37] text-[#5A0F1B] font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-[#b8962e] hover:shadow-lg transition duration-300">
-          Leia o artigo completo
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+            <!-- Cultura -->
+            <div class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+              <div class="overflow-hidden">
+                <img src="https://i.postimg.cc/sg8MDX3F/cultura.jpg" alt="Cultura" class="w-full h-48 object-cover rounded-t-2xl transform transition-transform duration-500 hover:scale-105">
+              </div>
+              <div class="p-6 text-center">
+                <h3 class="text-2xl font-semibold text-[#5A0F1B] mb-4">Cultura</h3>
+                <p class="text-gray-700 mb-6">Conjunto de conhecimentos, crenças e práticas que definem sociedades. A cultura reflete nossa identidade e a forma como nos relacionamos.</p>
+                <a href="cultura.html" class="inline-block bg-[#D4AF37] text-[#5A0F1B] font-semibold px-5 py-2 rounded-xl shadow-md hover:bg-[#b8962e] hover:shadow-lg hover:scale-105 transition-transform duration-300">Saiba mais</a>
+              </div>
+            </div>
 
-  <!-- MELHORES VÍDEOS -->
-  <section class="bg-white py-16 px-4">
-    <div class="max-w-7xl mx-auto text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-900">Melhores vídeos</h2>
-    </div>
-
-    <div class="max-w-7xl mx-auto grid gap-8 md:grid-cols-3">
-      <!-- Card 1 -->
-      <div class="bg-[#5A0F1B] text-white rounded-2xl shadow-lg overflow-hidden flex flex-col justify-between">
-        <iframe class="w-full h-48 md:h-64" src="https://www.youtube.com/embed/glqHHEXtEbc" title="Ísis - a Deusa do Amor e da Magia" frameborder="0" allowfullscreen></iframe>
-        <div class="p-6 flex flex-col justify-between flex-1">
-          <h3 class="text-xl font-bold mb-2">Ísis - a Deusa do Amor e da Magia</h3>
-          <p class="text-gray-100 mb-4">Descubra a poderosa deusa Ísis, símbolo do amor, da magia e protetora dos antigos egípcios.</p>
-          <a href="https://youtu.be/glqHHEXtEbc" target="_blank" class="mt-auto inline-block bg-yellow-500 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Assista no YouTube</a>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Card 2 -->
-      <div class="bg-[#5A0F1B] text-white rounded-2xl shadow-lg overflow-hidden flex flex-col justify-between">
-        <iframe class="w-full h-48 md:h-64" src="https://www.youtube.com/embed/kU2h9FEIZuk" title="Escribas no antigo Egito" frameborder="0" allowfullscreen></iframe>
-        <div class="p-6 flex flex-col justify-between flex-1">
-          <h3 class="text-xl font-bold mb-2">Escribas no antigo Egito</h3>
-          <p class="text-gray-100 mb-4">Conheça o mundo dos escribas, mestres da escrita e guardiões do conhecimento no Egito Antigo.</p>
-          <a href="https://youtu.be/kU2h9FEIZuk?si=UYHd2BdvXlTL8jRp" target="_blank" class="mt-auto inline-block bg-yellow-500 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Assista no YouTube</a>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="bg-[#5A0F1B] text-white rounded-2xl shadow-lg overflow-hidden flex flex-col justify-between">
-        <iframe class="w-full h-48 md:h-64" src="https://www.youtube.com/embed/HNut4sC3wFY" title="Hatshepsut: A primeira faraó do Egito! 3500 anos de história e um sorriso encantador" frameborder="0" allowfullscreen></iframe>
-        <div class="p-6 flex flex-col justify-between flex-1">
-          <h3 class="text-xl font-bold mb-2">Hatshepsut: A primeira faraó do Egito!</h3>
-          <p class="text-gray-100 mb-4">Explore a incrível história de Hatshepsut, a faraó que quebrou paradigmas e marcou 3500 anos de Egito Antigo.</p>
-          <a href="https://youtu.be/HNut4sC3wFY?si=a9KK7PLVPlqVF58v" target="_blank" class="mt-auto inline-block bg-yellow-500 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-400 transition">Assista no YouTube</a>
-        </div>
-      </div>
     </div>
-  </section>
-  
-  <!--SEÇÃO AREAS DO CONHECIMENTO-->
 
-  <section class="bg-white py-16 px-6">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#5A0F1B] mb-12">
-      Explore Conhecimentos
-    </h2>
+    <!-- SIDEBAR DINÂMICO -->
+<aside id="sidebar" class="bg-gray-50 rounded-2xl shadow-lg p-6 h-fit sticky top-8">
+  <h2 class="text-xl font-bold text-[#5A0F1B] mb-4">Destaques rápidos</h2>
+  <div id="sidebar-content" class="space-y-4"></div>
+</aside>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Card Filosofia -->
-      <div
-    class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-100
-           hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
-    <div class="overflow-hidden">
-        <img src="https://i.postimg.cc/MpXcSR2b/filosofia.jpg" alt="Filosofia"
-             class="w-full h-48 object-cover rounded-t-2xl transform transition-transform duration-500 hover:scale-105">
-    </div>
-    <div class="p-6 text-center">
-        <h3 class="text-2xl font-semibold text-[#5A0F1B] mb-4">Filosofia</h3>
-        <p class="text-gray-700 mb-6">
-            Reflexão crítica sobre a existência, o conhecimento e a moral. A filosofia nos ajuda a
-            pensar o mundo com profundidade e questionar o óbvio.
-        </p>
-        <a href="filosofia.html"
-           class="inline-block bg-[#D4AF37] text-[#5A0F1B] font-semibold px-5 py-2 rounded-xl shadow-md 
-                  hover:bg-[#b8962e] hover:shadow-lg hover:scale-105 transition-transform duration-300">
-            Saiba mais
-        </a>
-    </div>
-</div>
 
-      <!-- Card Mitologia -->
-<div
-  class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-100
-         hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
-  <div class="overflow-hidden">
-    <img src="https://i.postimg.cc/VNCdS8NJ/mitologia.jpg" alt="Mitologia"
-         class="w-full h-48 object-cover rounded-t-2xl transform transition-transform duration-500 hover:scale-105">
   </div>
-  <div class="p-6 text-center">
-    <h3 class="text-2xl font-semibold text-[#5A0F1B] mb-4">Mitologia</h3>
-    <p class="text-gray-700 mb-6">
-      Narrativas antigas que explicam a origem do mundo, dos deuses e dos heróis. A mitologia
-      revela crenças e símbolos que moldaram civilizações.
-    </p>
-    <a href="mitologia.html"
-       class="inline-block bg-[#D4AF37] text-[#5A0F1B] font-semibold px-5 py-2 rounded-xl shadow-md 
-              hover:bg-[#b8962e] hover:shadow-lg hover:scale-105 transition-transform duration-300">
-      Saiba mais
-    </a>
-  </div>
-</div>
-
-<!-- Card Cultura -->
-<div
-  class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-100
-         hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
-  <div class="overflow-hidden">
-    <img src="https://i.postimg.cc/sg8MDX3F/cultura.jpg" alt="Cultura"
-         class="w-full h-48 object-cover rounded-t-2xl transform transition-transform duration-500 hover:scale-105">
-  </div>
-  <div class="p-6 text-center">
-    <h3 class="text-2xl font-semibold text-[#5A0F1B] mb-4">Cultura</h3>
-    <p class="text-gray-700 mb-6">
-      Conjunto de conhecimentos, crenças e práticas que definem sociedades. A cultura reflete
-      nossa identidade e a forma como nos relacionamos.
-    </p>
-    <a href="cultura.html"
-       class="inline-block bg-[#D4AF37] text-[#5A0F1B] font-semibold px-5 py-2 rounded-xl shadow-md 
-              hover:bg-[#b8962e] hover:shadow-lg hover:scale-105 transition-transform duration-300">
-      Saiba mais
-    </a>
-  </div>
-      </div>
-  </section>
-
 </main>
-
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -378,18 +259,10 @@
     </div>
   </footer>
 
-  <!-- SCRIPT -->
-  <script src="script.js"></script>
+<script src="sidebar.js"></script>
+<script src="script.js"></script>
 </body>
-                            </html>
-
-
-
-
-
-
-
-
+ </html>
 
 
 
