@@ -1,0 +1,176 @@
+// sidebar.js
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ==========================
+  // DADOS DOS WIDGETS
+  // ==========================
+  const widgetsData = [
+    {
+      type: "linklist",
+      title: "Postagens e páginas",
+      items: [
+        { text: "Evolução dos Dinossauros", href: "https://omundoesuashistorias.com.br/evolucao-dos-dinossauros.html" },
+        { text: "Filosofia", href: "https://omundoesuashistorias.com.br/filosofia/" },
+        { text: "Mitologia", href: "https://omundoesuashistorias.com.br/mitologia/" },
+        { text: "História Antiga", href: "https://omundoesuashistorias.com.br/historia-antiga/" }
+      ]
+    },
+    {
+      type: "quote",
+      title: "Frase do dia",
+      text: "“A história não é o que aconteceu. A história é o que foi escrito.”"
+    },
+    {
+      type: "mini-quiz",
+      title: "Mini Quiz Relâmpago",
+      question: "Quem foi o primeiro presidente do Brasil?",
+      options: ["Deodoro da Fonseca", "Floriano Peixoto", "Getúlio Vargas"]
+    },
+    {
+      type: "social",
+      title: "Siga o projeto",
+      links: [
+        { icon: "bi-youtube", text: "YouTube", href: "https://youtube.com/omundoesuashistorias" },
+        { icon: "bi-instagram", text: "Instagram", href: "https://instagram.com/omundoesuashistorias" },
+        { icon: "bi-facebook", text: "Facebook", href: "https://facebook.com/omundoesuashistorias" }
+      ]
+    },
+    {
+      type: "category-chips",
+      title: "Categorias",
+      chips: [
+        { text: "Filosofia", href: "https://omundoesuashistorias.com.br/filosofia/" },
+        { text: "Mitologia", href: "https://omundoesuashistorias.com.br/mitologia/" },
+        { text: "História Antiga", href: "https://omundoesuashistorias.com.br/historia-antiga/" },
+        { text: "Arqueologia", href: "https://omundoesuashistorias.com.br/arqueologia/" },
+        { text: "Medieval", href: "https://omundoesuashistorias.com.br/medieval/" },
+        { text: "Contemporânea", href: "https://omundoesuashistorias.com.br/contemporanea/" }
+      ]
+    }
+  ];
+
+  // ==========================
+  // FUNÇÕES DE RENDERIZAÇÃO
+  // ==========================
+  function renderLinkList(w) {
+    return `
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+        <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+        <ul class="list-disc list-inside text-gray-700">
+          ${w.items.map(item => `<li><a href="${item.href}" class="text-blue-600 hover:underline">${item.text}</a></li>`).join("")}
+        </ul>
+      </div>
+    `;
+  }
+
+  function renderQuote(w) {
+    return `
+      <div class="bg-yellow-50 shadow-lg rounded-xl p-4 border-l-4 border-[#5A0F1B]">
+        <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+        <p class="italic text-gray-800">"${w.text}"</p>
+      </div>
+    `;
+  }
+
+  function renderMiniQuiz(w) {
+    return `
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+        <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+        <p class="text-gray-800 mb-3 font-semibold">${w.question}</p>
+        ${w.options.map((opt, idx) => `
+          <button class="quiz-btn w-full text-left bg-gray-100 hover:bg-gray-200 py-2 px-3 rounded mb-1" data-answer="${idx}">${opt}</button>
+        `).join("")}
+        <p class="mt-2 text-green-700 font-bold quiz-feedback hidden"></p>
+      </div>
+    `;
+  }
+
+  function renderSocial(w) {
+    return `
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+        <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+        <div class="flex gap-3">
+          ${w.links.map(link => `
+            <a href="${link.href}" target="_blank" aria-label="${link.text}" class="text-2xl text-[#5A0F1B] hover:text-[#D4AF37]">
+              <i class="bi ${link.icon}"></i>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderCategoryChips(w) {
+    return `
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+        <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+        <div class="flex flex-wrap gap-2">
+          ${w.chips.map(chip => `<a href="${chip.href}" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full hover:bg-[#D4AF37] hover:text-[#5A0F1B] transition">${chip.text}</a>`).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderWidget(w) {
+    switch (w.type) {
+      case "linklist": return renderLinkList(w);
+      case "quote": return renderQuote(w);
+      case "mini-quiz": return renderMiniQuiz(w);
+      case "social": return renderSocial(w);
+      case "category-chips": return renderCategoryChips(w);
+      default: return "";
+    }
+  }
+
+  // ==========================
+  // MONTAGEM DO SIDEBAR
+  // ==========================
+  const mountCount = 3; // 3 widgets visíveis
+  let startIndex = 0;
+
+  function mountSidebar() {
+    const container = document.getElementById("sidebar-content");
+    if (!container) return; // segurança
+    container.innerHTML = "";
+    for (let i = 0; i < mountCount; i++) {
+      const w = widgetsData[(startIndex + i) % widgetsData.length];
+      container.insertAdjacentHTML("beforeend", renderWidget(w));
+    }
+    attachQuizEvents(); // ativa eventos de quiz
+  }
+
+  // ==========================
+  // ROTACIONAR WIDGETS
+  // ==========================
+  function startRotation() {
+    setInterval(() => {
+      startIndex = (startIndex + 1) % widgetsData.length;
+      mountSidebar();
+    }, 12000); // 12s
+  }
+
+  // ==========================
+  // MINI QUIZ FUNCIONAL
+  // ==========================
+  function attachQuizEvents() {
+    const quizzes = document.querySelectorAll(".quiz-btn");
+    quizzes.forEach(btn => {
+      btn.onclick = () => {
+        const parent = btn.closest("div");
+        const feedback = parent.querySelector(".quiz-feedback");
+        const answerIndex = btn.dataset.answer;
+        const correct = 0; // Deodoro da Fonseca é o correto (index 0)
+        feedback.textContent = answerIndex == correct ? "✅ Correto!" : "❌ Errado!";
+        feedback.classList.remove("hidden");
+      };
+    });
+  }
+
+  // ==========================
+  // INICIALIZAÇÃO
+  // ==========================
+  mountSidebar();
+  startRotation();
+
+});
