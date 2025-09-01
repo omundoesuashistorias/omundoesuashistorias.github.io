@@ -79,9 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
         <p class="text-gray-800 mb-3 font-semibold">${w.question}</p>
         ${w.options.map((opt, idx) => `
-          <button class="quiz-btn w-full text-left bg-gray-100 hover:bg-gray-200 py-2 px-3 rounded mb-1" data-answer="${idx}">${opt}</button>
+          <button class="quiz-btn w-full text-left bg-gray-100 hover:bg-gray-200 py-2 px-3 rounded mb-1 transition-transform duration-200" data-answer="${idx}">${opt}</button>
         `).join("")}
-        <p class="mt-2 text-green-700 font-bold quiz-feedback hidden"></p>
+        <p class="mt-2 text-green-700 font-bold quiz-feedback hidden transition-all duration-300"></p>
       </div>
     `;
   }
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
         <div class="flex gap-3">
           ${w.links.map(link => `
-            <a href="${link.href}" target="_blank" aria-label="${link.text}" class="text-2xl text-[#5A0F1B] hover:text-[#D4AF37]">
+            <a href="${link.href}" target="_blank" aria-label="${link.text}" class="text-2xl text-[#5A0F1B] hover:text-[#D4AF37] transition-colors">
               <i class="bi ${link.icon}"></i>
             </a>
           `).join("")}
@@ -126,18 +126,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================
   // MONTAGEM DO SIDEBAR
   // ==========================
-  const mountCount = 3; // 3 widgets visíveis
+  const mountCount = 3;
   let startIndex = 0;
 
   function mountSidebar() {
     const container = document.getElementById("sidebar-content");
-    if (!container) return; // segurança
+    if (!container) return;
     container.innerHTML = "";
     for (let i = 0; i < mountCount; i++) {
       const w = widgetsData[(startIndex + i) % widgetsData.length];
       container.insertAdjacentHTML("beforeend", renderWidget(w));
     }
-    attachQuizEvents(); // ativa eventos de quiz
+    attachQuizEvents();
   }
 
   // ==========================
@@ -147,22 +147,35 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => {
       startIndex = (startIndex + 1) % widgetsData.length;
       mountSidebar();
-    }, 12000); // 12s
+    }, 12000);
   }
 
   // ==========================
-  // MINI QUIZ FUNCIONAL
+  // MINI QUIZ FUNCIONAL + FEEDBACK VISUAL
   // ==========================
   function attachQuizEvents() {
     const quizzes = document.querySelectorAll(".quiz-btn");
     quizzes.forEach(btn => {
+      // Hover animado
+      btn.addEventListener("mouseenter", () => btn.style.transform = "scale(1.05)");
+      btn.addEventListener("mouseleave", () => btn.style.transform = "scale(1)");
+
       btn.onclick = () => {
         const parent = btn.closest("div");
         const feedback = parent.querySelector(".quiz-feedback");
         const answerIndex = btn.dataset.answer;
-        const correct = 0; // Deodoro da Fonseca é o correto (index 0)
+        const correct = 0;
+
+        // Feedback com animação de pulse
         feedback.textContent = answerIndex == correct ? "✅ Correto!" : "❌ Errado!";
         feedback.classList.remove("hidden");
+        feedback.style.transform = "scale(1.2)";
+        feedback.style.opacity = "1";
+        setTimeout(() => feedback.style.transform = "scale(1)", 300);
+
+        // Botão pisca cor
+        btn.style.backgroundColor = answerIndex == correct ? "#34D399" : "#F87171";
+        setTimeout(() => btn.style.backgroundColor = "", 500);
       };
     });
   }
