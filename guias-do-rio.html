@@ -63,49 +63,82 @@
 <body>  
 
 <!-- HEADER -->  
+<!-- HEADER -->
 <header class="site-header">
-  <div class="header-container">
-    <a href="/" class="logo">
-      <img src="/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias">
+  <div class="header-container" style="position: relative;">
+    <!-- LOGO -->
+    <a href="/" class="logo" style="display: flex; align-items: center; gap: 10px;">
+      <img src="/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" style="height: 50px;">
       <span>O Mundo E Suas Histórias</span>
     </a>
-      
+
     <!-- MENU DESKTOP -->
-    <nav class="menu-desktop">
-      <ul>
+    <nav class="menu-desktop" style="display: flex; gap: 20px;">
+      <ul style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
         <li><a href="/" class="active">Início</a></li>
         <li><a href="/sobre.html">Sobre</a></li>
         <li><a href="/contato.html">Contato</a></li>
       </ul>
-      <div class="social-icons">
-        <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-        <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <div class="social-icons" style="display: flex; gap: 10px;">
+        <a href="https://facebook.com/omundoesuashistorias" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://youtube.com/omundoesuashistorias" target="_blank"><i class="bi bi-youtube"></i></a>
+        <a href="https://instagram.com/omundoesuashistorias" target="_blank"><i class="bi bi-instagram"></i></a>
       </div>
     </nav>
 
-    <!-- BOTÃO HAMBURGUER MOBILE -->
-    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">
-      <svg viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    <!-- BOTÃO HAMBÚRGUER MOBILE -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu"
+      style="position: relative; z-index: 1000; background: transparent; border: none; cursor: pointer; display: none;">
+      <svg viewBox="0 0 24 24" width="30" height="30">
+        <path stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
 
     <!-- MENU MOBILE -->
-    <nav id="mainMenu" class="menu-mobile hidden">
-      <ul>
+    <nav id="mainMenu" class="menu-mobile" style="display: none; position: absolute; top: 60px; left: 0; width: 100%; background: white; z-index: 999; flex-direction: column; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
         <li><a href="/" class="active">Início</a></li>
         <li><a href="/sobre.html">Sobre</a></li>
         <li><a href="/contato.html">Contato</a></li>
       </ul>
-      <div class="social-icons">
-        <a href="https://facebook.com/omundoesuashistorias" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://youtube.com/omundoesuashistorias" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-        <a href="https://instagram.com/omundoesuashistorias" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <div class="social-icons" style="display: flex; gap: 10px; margin-top: 10px;">
+        <a href="https://facebook.com/omundoesuashistorias" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://youtube.com/omundoesuashistorias" target="_blank"><i class="bi bi-youtube"></i></a>
+        <a href="https://instagram.com/omundoesuashistorias" target="_blank"><i class="bi bi-instagram"></i></a>
       </div>
     </nav>
   </div>
-</header> 
+</header>
+
+<!-- SCRIPT DO MENU HAMBÚRGUER -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mainMenu = document.getElementById('mainMenu');
+
+    // Toggle menu mobile
+    menuToggle.addEventListener('click', function() {
+      if(mainMenu.style.display === "none" || mainMenu.style.display === "") {
+        mainMenu.style.display = "flex";
+      } else {
+        mainMenu.style.display = "none";
+      }
+    });
+
+    // Mostrar botão hambúrguer apenas em telas pequenas
+    function checkWindowSize() {
+      if(window.innerWidth <= 768) {
+        menuToggle.style.display = "block";
+      } else {
+        menuToggle.style.display = "none";
+        mainMenu.style.display = "none";
+      }
+    }
+
+    checkWindowSize();
+    window.addEventListener('resize', checkWindowSize);
+  });
+      </script>
 
  <!-- MAIN CONTENT -->  
 <main class="bg-white">
@@ -292,17 +325,4 @@
       <p>&copy; 2025 O Mundo E Suas Histórias. Todos os direitos reservados.</p>
     </div>
   </footer>  
-  <!-- SCRIPT DO MENU HAMBÚRGUER -->
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mainMenu = document.getElementById('mainMenu');
-
-  menuToggle.addEventListener('click', function() {
-    if(mainMenu.classList.contains('hidden')) {
-      mainMenu.classList.remove('hidden');
-    } else {
-      mainMenu.classList.add('hidden');
-    }
-  });
-  </script>
 </html>
