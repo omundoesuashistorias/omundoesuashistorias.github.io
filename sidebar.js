@@ -23,8 +23,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     },
     {
       type: "mini-quiz",
-      title: "Mini Quiz Relâmpago"
-      // question e options serão carregados do JSON
+      title: "Mini Quiz Relâmpago",
+      question: null,
+      options: [],
+      correctIndex: null
     },
     {
       type: "social",
@@ -63,18 +65,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
       if (currentQuiz) {
         const quizWidget = widgetsData.find(w => w.type === "mini-quiz");
-        if (quizWidget) {
-          quizWidget.question = currentQuiz.question;
-          quizWidget.options = currentQuiz.options;
-          quizWidget.correctIndex = currentQuiz.correctIndex;
-        }
+        quizWidget.question = currentQuiz.question;
+        quizWidget.options = currentQuiz.options;
+        quizWidget.correctIndex = currentQuiz.correctIndex;
       }
     } catch (err) {
       console.error("Erro ao carregar o quiz:", err);
     }
   }
-
-  await loadQuiz();
 
   // ==========================
   // FUNÇÕES DE RENDERIZAÇÃO
@@ -100,13 +98,21 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function renderMiniQuiz(w) {
+    if (!w.question || !w.options.length) {
+      return `
+        <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+          <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+          <p class="text-gray-800 mb-3 font-semibold">Quiz indisponível hoje.</p>
+        </div>
+      `;
+    }
     return `
       <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
         <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
-        <p class="text-gray-800 mb-3 font-semibold">${w.question || "Quiz indisponível hoje."}</p>
-        ${w.options ? w.options.map((opt, idx) => `
+        <p class="text-gray-800 mb-3 font-semibold">${w.question}</p>
+        ${w.options.map((opt, idx) => `
           <button class="quiz-btn w-full text-left bg-gray-100 hover:bg-gray-200 py-2 px-3 rounded mb-1 transition-transform duration-200" data-answer="${idx}" data-correct="${w.correctIndex}">${opt}</button>
-        `).join("") : ""}
+        `).join("")}
         <p class="mt-2 text-green-700 font-bold quiz-feedback hidden transition-all duration-300"></p>
       </div>
     `;
@@ -206,6 +212,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ==========================
   // INICIALIZAÇÃO
   // ==========================
+  await loadQuiz();
   mountSidebar();
   startRotation();
 
