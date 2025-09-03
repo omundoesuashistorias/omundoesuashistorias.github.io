@@ -63,9 +63,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
       if (currentQuiz) {
         const quizWidget = widgetsData.find(w => w.type === "mini-quiz");
-        quizWidget.question = currentQuiz.question;
-        quizWidget.options = currentQuiz.options;
-        quizWidget.correctIndex = currentQuiz.correctIndex;
+        if (quizWidget) {
+          quizWidget.question = currentQuiz.question;
+          quizWidget.options = currentQuiz.options;
+          quizWidget.correctIndex = currentQuiz.correctIndex;
+        }
       }
     } catch (err) {
       console.error("Erro ao carregar o quiz:", err);
@@ -77,8 +79,25 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ==========================
   // FUNÇÕES DE RENDERIZAÇÃO
   // ==========================
-  function renderLinkList(w) { /* mantém igual */ }
-  function renderQuote(w) { /* mantém igual */ }
+  function renderLinkList(w) {
+    return `
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+        <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+        <ul class="list-disc list-inside text-gray-700">
+          ${w.items.map(item => `<li><a href="${item.href}" class="text-blue-600 hover:underline">${item.text}</a></li>`).join("")}
+        </ul>
+      </div>
+    `;
+  }
+
+  function renderQuote(w) {
+    return `
+      <div class="bg-yellow-50 shadow-lg rounded-xl p-4 border-l-4 border-[#5A0F1B]">
+        <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+        <p class="italic text-gray-800">"${w.text}"</p>
+      </div>
+    `;
+  }
 
   function renderMiniQuiz(w) {
     return `
@@ -93,8 +112,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     `;
   }
 
-  function renderSocial(w) { /* mantém igual */ }
-  function renderCategoryChips(w) { /* mantém igual */ }
+  function renderSocial(w) {
+    return `
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+        <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+        <div class="flex gap-3">
+          ${w.links.map(link => `
+            <a href="${link.href}" target="_blank" aria-label="${link.text}" class="text-2xl text-[#5A0F1B] hover:text-[#D4AF37] transition-colors">
+              <i class="bi ${link.icon}"></i>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderCategoryChips(w) {
+    return `
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+        <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+        <div class="flex flex-wrap gap-2">
+          ${w.chips.map(chip => `<a href="${chip.href}" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full hover:bg-[#D4AF37] hover:text-[#5A0F1B] transition">${chip.text}</a>`).join("")}
+        </div>
+      </div>
+    `;
+  }
 
   function renderWidget(w) {
     switch (w.type) {
