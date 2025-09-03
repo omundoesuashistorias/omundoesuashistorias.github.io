@@ -1,0 +1,23 @@
+{
+  "title": "Curiosidades Históricas",
+  "quizzes": [
+    {
+      "date": "2025-09-03T00:00:00",
+      "question": "Qual civilização construiu as pirâmides de Giza?",
+      "options": ["Egípcia", "Maya", "Romana"],
+      "correctIndex": 0
+    },
+    {
+      "date": "2025-09-04T00:00:00",
+      "question": "Quem inventou a imprensa de tipos móveis?",
+      "options": ["Johannes Gutenberg", "Leonardo da Vinci", "Isaac Newton"],
+      "correctIndex": 0
+    },
+    {
+      "date": "2025-09-05T00:00:00",
+      "question": "Em que ano começou a Revolução Francesa?",
+      "options": ["1789", "1776", "1804"],
+      "correctIndex": 0
+    }
+  ]
+}
