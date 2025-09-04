@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     {
       type: "article-highlight",
       title: "Motivo Palmette",
-      image: "https://scx1.b-cdn.net/csz/news/800a/2025/new-modeling-indicates.jpg", // ✅ imagem ajustada
+      image: "https://scx1.b-cdn.net/csz/news/800a/2025/new-modeling-indicates.jpg",
       description: "Descubra a origem e o simbolismo do motivo palmette na arte e arquitetura antiga.",
       link: "https://omundoesuashistorias.com.br/motivo-palmette.html"
     },
@@ -66,9 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const data = await res.json();
       const today = new Date().toDateString();
 
-      const currentQuiz = data.quizzes.find(q => {
-        return new Date(q.date).toDateString() === today;
-      });
+      const currentQuiz = data.quizzes.find(q => new Date(q.date).toDateString() === today);
 
       if (currentQuiz) {
         const quizWidget = widgetsData.find(w => w.type === "mini-quiz");
@@ -77,9 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         quizWidget.correctIndex = currentQuiz.correctIndex;
       }
     } catch (err) {
-      console.error("Erro ao carregar quiz.json, usando fallback:", err);
-
-      // fallback interno
+      console.error("Erro ao carregar quiz.json, fallback aplicado:", err);
       const quizWidget = widgetsData.find(w => w.type === "mini-quiz");
       quizWidget.question = "Qual civilização utilizava o motivo palmette?";
       quizWidget.options = ["Egípcios", "Gregos", "Maias", "Chineses"];
@@ -92,7 +88,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ==========================
   function renderArticleHighlight(w) {
     return `
-      <div class="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200">
+      <div class="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200 mb-4">
         <img src="${w.image}" alt="${w.title}" class="w-full h-40 object-cover">
         <div class="p-4">
           <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
@@ -108,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function renderLinkList(w) {
     return `
-      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200 mb-4">
         <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
         <ul class="list-disc list-inside text-gray-700">
           ${w.items.map(item => `<li><a href="${item.href}" class="text-blue-600 hover:underline">${item.text}</a></li>`).join("")}
@@ -119,7 +115,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function renderQuote(w) {
     return `
-      <div class="bg-yellow-50 shadow-lg rounded-xl p-4 border-l-4 border-[#5A0F1B]">
+      <div class="bg-yellow-50 shadow-lg rounded-xl p-4 border-l-4 border-[#5A0F1B] mb-4">
         <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
         <p class="italic text-gray-800">"${w.text}"</p>
       </div>
@@ -129,14 +125,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   function renderMiniQuiz(w) {
     if (!w.question || !w.options.length) {
       return `
-        <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+        <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200 mb-4">
           <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
           <p class="text-gray-800 mb-3 font-semibold">Nenhum quiz disponível hoje.</p>
         </div>
       `;
     }
     return `
-      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200 mb-4">
         <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
         <p class="text-gray-800 mb-3 font-semibold">${w.question}</p>
         ${w.options.map((opt, idx) => `
@@ -151,7 +147,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function renderSocial(w) {
     return `
-      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200 mb-4">
         <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
         <div class="flex gap-3">
           ${w.links.map(link => `
@@ -166,7 +162,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function renderCategoryChips(w) {
     return `
-      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+      <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200 mb-4">
         <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
         <div class="flex flex-wrap gap-2">
           ${w.chips.map(chip => `<a href="${chip.href}" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full hover:bg-[#D4AF37] hover:text-[#5A0F1B] transition">${chip.text}</a>`).join("")}
@@ -188,30 +184,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // ==========================
-  // MONTAGEM DO SIDEBAR
+  // MONTAGEM FIXA DO SIDEBAR
   // ==========================
-  const mountCount = 3;
-  let startIndex = 0;
-
   function mountSidebar() {
     const container = document.getElementById("sidebar-content");
     if (!container) return;
     container.innerHTML = "";
-    for (let i = 0; i < mountCount; i++) {
-      const w = widgetsData[(startIndex + i) % widgetsData.length];
-      container.insertAdjacentHTML("beforeend", renderWidget(w));
-    }
-    attachQuizEvents();
-  }
 
-  // ==========================
-  // ROTACIONAR WIDGETS
-  // ==========================
-  function startRotation() {
-    setInterval(() => {
-      startIndex = (startIndex + 1) % widgetsData.length;
-      mountSidebar();
-    }, 12000);
+    // Renderiza todos os widgets na ordem definida
+    widgetsData.forEach(widget => {
+      container.insertAdjacentHTML("beforeend", renderWidget(widget));
+    });
+
+    attachQuizEvents();
   }
 
   // ==========================
@@ -246,6 +231,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ==========================
   await loadQuiz();
   mountSidebar();
-  startRotation();
 
 });
