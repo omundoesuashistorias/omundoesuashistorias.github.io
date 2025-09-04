@@ -1,11 +1,17 @@
 // sidebar.js
-
 document.addEventListener("DOMContentLoaded", async () => {
 
   // ==========================
   // DADOS DOS WIDGETS
   // ==========================
   const widgetsData = [
+    {
+      type: "article-highlight",
+      title: "Motivo Palmette",
+      image: "https://scx1.b-cdn.net/csz/news/800a/2025/new-modeling-indicates.jpg", // ✅ imagem ajustada
+      description: "Descubra a origem e o simbolismo do motivo palmette na arte e arquitetura antiga.",
+      link: "https://omundoesuashistorias.com.br/motivo-palmette.html"
+    },
     {
       type: "linklist",
       title: "Postagens e páginas",
@@ -58,11 +64,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       const res = await fetch('/quiz.json');
       const data = await res.json();
-      const today = new Date();
+      const today = new Date().toDateString();
+
       const currentQuiz = data.quizzes.find(q => {
-        const quizDate = new Date(q.date);
-        return quizDate.toDateString() === today.toDateString();
+        return new Date(q.date).toDateString() === today;
       });
+
       if (currentQuiz) {
         const quizWidget = widgetsData.find(w => w.type === "mini-quiz");
         quizWidget.question = currentQuiz.question;
@@ -70,13 +77,35 @@ document.addEventListener("DOMContentLoaded", async () => {
         quizWidget.correctIndex = currentQuiz.correctIndex;
       }
     } catch (err) {
-      console.error("Erro ao carregar o quiz:", err);
+      console.error("Erro ao carregar quiz.json, usando fallback:", err);
+
+      // fallback interno
+      const quizWidget = widgetsData.find(w => w.type === "mini-quiz");
+      quizWidget.question = "Qual civilização utilizava o motivo palmette?";
+      quizWidget.options = ["Egípcios", "Gregos", "Maias", "Chineses"];
+      quizWidget.correctIndex = 1;
     }
   }
 
   // ==========================
   // FUNÇÕES DE RENDERIZAÇÃO
   // ==========================
+  function renderArticleHighlight(w) {
+    return `
+      <div class="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200">
+        <img src="${w.image}" alt="${w.title}" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
+          <p class="text-gray-700 mb-3">${w.description}</p>
+          <a href="${w.link}" target="_blank"
+            class="inline-block bg-[#5A0F1B] text-white px-4 py-2 rounded-lg hover:bg-[#D4AF37] hover:text-[#5A0F1B] transition font-semibold">
+            Ler artigo completo →
+          </a>
+        </div>
+      </div>
+    `;
+  }
+
   function renderLinkList(w) {
     return `
       <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
@@ -102,7 +131,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return `
         <div class="bg-white shadow-lg rounded-xl p-4 border border-gray-200">
           <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
-          <p class="text-gray-800 mb-3 font-semibold">Quiz indisponível hoje.</p>
+          <p class="text-gray-800 mb-3 font-semibold">Nenhum quiz disponível hoje.</p>
         </div>
       `;
     }
@@ -111,7 +140,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         <h3 class="font-bold text-[#5A0F1B] mb-2">${w.title}</h3>
         <p class="text-gray-800 mb-3 font-semibold">${w.question}</p>
         ${w.options.map((opt, idx) => `
-          <button class="quiz-btn w-full text-left bg-gray-100 hover:bg-gray-200 py-2 px-3 rounded mb-1 transition-transform duration-200" data-answer="${idx}" data-correct="${w.correctIndex}">${opt}</button>
+          <button class="quiz-btn w-full text-left bg-gray-100 hover:bg-gray-200 py-2 px-3 rounded mb-1 transition-transform duration-200" data-answer="${idx}" data-correct="${w.correctIndex}">
+            ${opt}
+          </button>
         `).join("")}
         <p class="mt-2 text-green-700 font-bold quiz-feedback hidden transition-all duration-300"></p>
       </div>
@@ -146,6 +177,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function renderWidget(w) {
     switch (w.type) {
+      case "article-highlight": return renderArticleHighlight(w);
       case "linklist": return renderLinkList(w);
       case "quote": return renderQuote(w);
       case "mini-quiz": return renderMiniQuiz(w);
