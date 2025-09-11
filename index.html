@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -133,6 +134,12 @@
 
     <!-- COLUNA PRINCIPAL (conteúdo real) -->
     <div class="lg:col-span-3 space-y-12" id="main-content">
+
+<div class="flex justify-center my-10">
+  <section id="destaque-posts" class="flex gap-6 flex-wrap justify-center">
+    <!-- Os cards serão inseridos aqui via JS -->
+  </section>
+</div>
 
   
     <!-- DESTAQUE ARTIGO DO MÊS -->
@@ -293,17 +300,55 @@
     </div>
   </footer>
 
+<script>
+function mostrarDestaques(data) {
+  const container = document.getElementById('destaque-posts');
+  container.innerHTML = '';
+
+  if (!data.feed.entry || data.feed.entry.length === 0) return;
+
+  // Pega os 3 posts mais recentes
+  const posts = data.feed.entry.slice(0, 3);
+
+  posts.forEach(entry => {
+    const titulo = entry.title.$t;
+
+    // Pega resumo e limita a 150 caracteres
+    const resumoFull = entry.summary ? entry.summary.$t : entry.content.$t;
+    const resumo = resumoFull.replace(/<[^>]+>/g, '').substring(0, 150) + '...';
+
+    // Pega a primeira imagem do conteúdo (PostImage ou outras)
+    let img = 'https://via.placeholder.com/300x200'; // fallback
+    const imgMatch = entry.content.$t.match(/<img.*?src=["'](.*?)["']/);
+    if (imgMatch && imgMatch[1]) {
+      img = imgMatch[1];
+    }
+
+    // Link do post
+    const link = entry.link.find(l => l.rel === 'alternate').href;
+
+    // Card HTML com Tailwind
+    const cardHTML = `
+      <div class="flex-1 max-w-[300px] bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+        <img class="w-full h-48 object-cover" src="${img}" alt="${titulo}">
+        <div class="p-5 flex flex-col justify-between flex-grow">
+          <h3 class="text-lg font-semibold mb-2">${titulo}</h3>
+          <p class="text-gray-600 text-sm flex-grow">${resumo}</p>
+          <a href="${link}" target="_blank" class="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors text-sm">Leia mais</a>
+        </div>
+      </div>
+    `;
+
+    container.innerHTML += cardHTML;
+  });
+}
+</script>
+<script src="https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&callback=mostrarDestaques"></script>
+
 <script src="sidebar.js"></script>
 <script src="script.js"></script>
 </body>
  </html>
-
-
-
-
-
-
-
 
 
 
