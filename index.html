@@ -135,12 +135,6 @@
       <!-- Cards inseridos via JS -->
     </section>
 
-    <!-- ===== CARDS FEED PHYS.ORG ===== -->
-    <section class="max-w-6xl mx-auto p-4">
-      <h1 class="text-2xl font-bold mb-6 text-center">Arqueologia e Fósseis - Phys.org</h1>
-      <div id="feed" class="grid gap-6 md:grid-cols-3 sm:grid-cols-1"></div>
-    </section>
-  
     <!-- DESTAQUE ARTIGO DO MÊS -->
     <section class="bg-gray-50 py-16 px-6">
       <div class="max-w-6xl mx-auto">
@@ -319,52 +313,10 @@ function mostrarDestaques(data) {
       </script>
   <script src="https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&callback=mostrarDestaques"></script>
 
-<!-- ===== JS FEED PHYS.ORG ===== -->
-  <script>
-  const feedUrl = "https://api.rss2json.com/v1/api.json?rss_url=https://phys.org/rss-feed/science-news/archaeology-fossils/";
 
-  async function traduzir(texto) {
-    try {
-      const res = await fetch("https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=pt&dt=t&q=" + encodeURIComponent(texto));
-      const data = await res.json();
-      return data[0][0][0];
-    } catch (e) {
-      return texto; // fallback para inglês
-    }
-  }
-
-  async function carregarFeed() {
-    const res = await fetch(feedUrl);
-    const data = await res.json();
-    const posts = data.items.slice(0, 3);
-
-    const container = document.getElementById("feed");
-    container.innerHTML = "";
-
-    for (const post of posts) {
-      const tituloTrad = await traduzir(post.title);
-      const descTrad = await traduzir(post.description.replace(/<[^>]+>/g, "").substring(0, 150) + "...");
-
-      const card = `
-        <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col">
-          <img src="${post.thumbnail || 'https://via.placeholder.com/400x200'}" alt="${tituloTrad}" class="w-full h-48 object-cover">
-          <div class="p-4 flex flex-col flex-grow">
-            <h2 class="text-lg font-semibold mb-2">${tituloTrad}</h2>
-            <p class="text-gray-600 flex-grow">${descTrad}</p>
-            <a href="${post.link}" target="_blank" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-              Ler mais
-            </a>
-          </div>
-        </div>
-      `;
-      container.innerHTML += card;
-    }
-  }
-
-  carregarFeed();
-  </script>
   
 <script src="sidebar.js"></script>
 <script src="script.js"></script>
 </body>
   </html>
+
