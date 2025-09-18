@@ -135,6 +135,86 @@
       <!-- Cards inseridos via JS -->
     </section>
 
+    <!-- ===== Feed Arqueologia e Fósseis do Phys.Org ===== -->
+    
+    <section id="rss-cards" style="display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between; padding:20px; background:#f5f5f5;"></section>
+
+<script>
+const container = document.getElementById('rss-cards');
+const maxCards = 3;
+
+function createCard(title, link, img, description) {
+  const card = document.createElement('div');
+  card.setAttribute('style', `
+    flex:1 1 calc(33% - 20px);
+    background:#fff;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  `);
+
+  card.innerHTML = `
+    <img src="${img}" alt="${title}" style="width:100%; aspect-ratio:16/9; object-fit:cover;">
+    <div style="padding:15px; display:flex; flex-direction:column; flex:1; width:100%; align-items:center;">
+      <h3 style="margin-bottom:10px; font-size:18px; text-align:center;">${title}</h3>
+      <p style="flex:1; color:#555; font-size:14px; margin-bottom:15px; text-align:center;">${description}</p>
+      <a href="${link}" target="_blank" style="
+        display:inline-block;
+        padding:6px 12px;
+        background:#800000;
+        color:#FFD700;
+        border-radius:5px;
+        text-decoration:none;
+        text-align:center;
+        font-weight:bold;
+      ">Leia mais</a>
+    </div>
+  `;
+
+  card.addEventListener('mouseover', () => {
+    card.style.transform = 'translateY(-5px)';
+    card.style.boxShadow = '0 6px 12px rgba(0,0,0,0.15)';
+  });
+  card.addEventListener('mouseout', () => {
+    card.style.transform = 'translateY(0)';
+    card.style.boxShadow = '0 2px 6px rgba(0,0,0,0.1)';
+  });
+
+  container.appendChild(card);
+}
+
+function parseRSS(xml) {
+  const items = xml.querySelectorAll('item');
+  for(let i = 0; i < Math.min(items.length, maxCards); i++) {
+    const item = items[i];
+    const title = item.querySelector('title').textContent;
+    const link = item.querySelector('link').textContent;
+    const descriptionRaw = item.querySelector('description').textContent;
+    const description = descriptionRaw.replace(/<[^>]*>?/gm,'').substring(0,120) + '...';
+
+    const mediaThumb = item.getElementsByTagName('media:thumbnail')[0];
+    const img = mediaThumb ? mediaThumb.getAttribute('url') : 'https://via.placeholder.com/400x225?text=Sem+Imagem';
+
+    createCard(title, link, img, description);
+  }
+}
+
+// Fetch RSS com proxy
+fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://phys.org/rss-feed/science-news/archaeology-fossils/'))
+  .then(res => res.json())
+  .then(data => {
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(data.contents,'application/xml');
+    parseRSS(xml);
+  })
+  .catch(err => console.error('Erro ao carregar feed RSS:', err));
+</script>
+
+
     <!-- DESTAQUE ARTIGO DO MÊS -->
     <section class="bg-gray-50 py-16 px-6">
       <div class="max-w-6xl mx-auto">
@@ -319,4 +399,5 @@ function mostrarDestaques(data) {
 <script src="script.js"></script>
 </body>
   </html>
+
 
