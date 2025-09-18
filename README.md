@@ -1,64 +1,59 @@
-# O Mundo E Suas Histórias 🌍📚
+# omundoesuashistorias.github.io
 
-Repositório oficial do site estático **O Mundo E Suas Histórias**, um projeto criado por Rodrigo Pontes e Jackita Longoni, com foco em conteúdo histórico, cultural e curiosidades do mundo. O site é hospedado no [GitHub Pages](https://omundoesuashistorias.com.br) e desenvolvido com HTML, Tailwind CSS, JavaScript e organização modular por pastas.
+Este repositório é o código-fonte do site [O Mundo é Suas Histórias](https://omundoesuashistorias.com.br), um projeto dedicado à publicação de textos, reflexões e conteúdos diversos sobre filosofia, literatura, arte e experiências de vida.
 
-## 🔧 Tecnologias Utilizadas
+## 📚 Sobre o Projeto
 
-- HTML5  
-- Tailwind CSS (via CDN)  
-- JavaScript Puro  
-- Font Awesome  
-- GitHub Pages (Hospedagem)  
-- Estrutura modular para facilitar automações com Python futuramente  
+O projeto tem como objetivo compartilhar ideias e histórias que inspirem, provoquem reflexão e incentivem o diálogo. O conteúdo é produzido de maneira independente e aberto para colaborações, sempre prezando pelo respeito, diversidade e criatividade.
 
-## 📁 Estrutura de Pastas
+## 🚀 Funcionalidades
+
+- Publicação de textos e artigos originais
+- Organização dos conteúdos por temas e categorias
+- Layout responsivo, acessível em dispositivos móveis e desktops
+- Recursos de navegação simples e intuitiva
+- Integração com mídias sociais
+
+## 🛠️ Tecnologias Utilizadas
+
+- **HTML** (estrutura do site)
+- **CSS** (estilização e responsividade)
+- **JavaScript** (funcionalidades dinâmicas)
+- [GitHub Pages](https://pages.github.com/) (hospedagem gratuita)
+
+## 📂 Estrutura do Repositório
 
 ```
 /
-├── index.html            ← Página inicial (vitrine)
-├── sobre.html            ← Página de informações sobre o projeto
-├── contato.html          ← Página com dados de contato
-├── /posts/               ← Contém os posts em HTML individual (cada post é um arquivo)
-├── /assets/
-│   ├── /css/style.css    ← CSS customizado complementar ao Tailwind
-│   ├── /js/main.js       ← Scripts JS para interações e carregamento dinâmico
-│   └── /img/             ← Imagens do site (favicon, logo, thumbnails etc)
-└── robots.txt            ← Permissão de indexação + link para o sitemap
+├── assets/           # Imagens, fontes e outros arquivos estáticos
+├── css/              # Arquivos de estilos
+├── js/               # Scripts JavaScript
+├── posts/            # Artigos e textos publicados
+├── index.html        # Página inicial
+├── about.html        # Sobre o projeto
+└── ...               # Outros arquivos e páginas
 ```
 
-## 🌐 Acessar o site
+## 👤 Autor
 
-Você pode acessar o projeto em produção aqui:  
-🔗 [https://omundoesuashistorias.com.br](https://omundoesuashistorias.com.br)
+- **O Mundo é Suas Histórias**  
+  Feito com carinho por [@omundoesuashistorias](https://github.com/omundoesuashistorias)
 
-## 🧠 Sobre o Projeto
+## 💡 Como Contribuir
 
-> O Mundo E Suas Histórias é um projeto autoral voltado para a divulgação histórica com humor, provocação e inteligência. O conteúdo é original e gerenciado por criadores que prezam por embasamento, sarcasmo de qualidade e uma pitada de ousadia. É claro.
+1. Faça um fork deste repositório
+2. Crie uma branch (`git checkout -b minha-nova-ideia`)
+3. Faça suas alterações e commit (`git commit -am 'Adicionando nova ideia'`)
+4. Envie para o GitHub (`git push origin minha-nova-ideia`)
+5. Abra um Pull Request
 
-## 🤖 Automação Futuras (Planejamento)
+Sugestões, correções e novas histórias são sempre bem-vindas!
 
-- Criação automática de páginas a partir de arquivos `.md` via scripts em Python  
-- Gerador estático leve sem dependência de frameworks pesados  
-- Integração com planilhas ou banco de dados simples para organização de posts  
+## 📄 Licença
 
-## 🧱 SEO e Meta Tags
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-Todas as páginas principais possuem:
+---
 
-- Meta description  
-- Canonical URL  
-- Open Graph Tags (para melhor exibição nas redes sociais)  
-- Favicon  
-- Robots.txt com sitemap incluso  
-
-## 🛠️ Como contribuir
-
-1. Clone o repositório  
-2. Crie um branch para sua melhoria (`git checkout -b melhoria`)  
-3. Faça suas alterações  
-4. Envie um Pull Request  
-
-## 📜 Licença
-
-Este projeto é de autoria de Rodrigo Pontes e Jackita Longoni. O uso e reprodução de conteúdo devem respeitar os direitos dos criadores.  
-Todos os direitos reservados © 2025.
+Sinta-se à vontade para explorar, ler, compartilhar e contribuir!  
+**O mundo é feito de histórias. Qual é a sua?**
