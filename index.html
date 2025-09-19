@@ -130,10 +130,10 @@
 
   <div class="max-w-7xl mx-auto px-6 py-12 space-y-12" id="main-content">
 
-    <!--Cards Feed Blogger-->
-    <section id="destaque-posts" class="grid grid-cols-1 md:grid-cols-3 gap-6 my-10 px-4">
-      <!-- Cards inseridos via JS -->
-    </section>
+    <!-- Cards Feed Blogger -->
+<section id="destaque-posts" class="grid grid-cols-1 md:grid-cols-3 gap-6 my-10 px-4">
+  <!-- Cards inseridos via JS -->
+</section>
 
     <!-- ===== Feed Arqueologia e Fósseis do Phys.Org ===== -->
     
@@ -335,10 +335,17 @@ function mostrarDestaques(data) {
   posts.forEach(entry => {
     const titulo = entry.title.$t;
 
-    const resumoFull = entry.summary ? entry.summary.$t : entry.content.$t;
+    // Pega conteúdo ou resumo
+    let resumoFull = entry.summary ? entry.summary.$t : entry.content.$t;
+
+    // REMOVE <style> e div do post-css
+    resumoFull = resumoFull.replace(/<div class="post-css"[^>]*>[\s\S]*?<\/div>/gi, '');
+    resumoFull = resumoFull.replace(/<style[\s\S]*?<\/style>/gi, '');
+
+    // Remove todas as tags HTML restantes para resumo
     const resumo = resumoFull.replace(/<[^>]+>/g, '').substring(0, 150) + '...';
 
-    // imagem do conteúdo (PostImage)
+    // Imagem do conteúdo (PostImage)
     let img = 'https://via.placeholder.com/300x200';
     const imgMatch = entry.content.$t.match(/<img.*?src=["'](.*?)["']/);
     if (imgMatch && imgMatch[1]) {
@@ -361,15 +368,15 @@ function mostrarDestaques(data) {
     container.innerHTML += cardHTML;
   });
 }
-      </script>
-  <script src="https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&callback=mostrarDestaques"></script>
+</script>
 
-
+<script src="https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&callback=mostrarDestaques"></script>
   
 <script src="sidebar.js"></script>
 <script src="script.js"></script>
 </body>
   </html>
+
 
 
 
