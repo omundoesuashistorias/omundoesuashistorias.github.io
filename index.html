@@ -174,58 +174,7 @@
   <!-- Cards inseridos via JS -->
 </section>
 
-    <!-- ===== Feed Arqueologia e Fósseis do Phys.Org ===== -->
-    
-   <section id="rss-cards" class="max-w-6xl mx-auto p-6">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="cards-container"></div>
-</section>
-
-<script>
-const container = document.getElementById('cards-container');
-const maxCards = 3;
-
-function createCard(title, link, img, description) {
-  const card = document.createElement('div');
-  card.className = "bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300 flex flex-col";
-
-  card.innerHTML = `
-    <img src="${img}" alt="${title}" class="w-full h-48 object-cover" loading="lazy">
-    <div class="p-6 flex flex-col">
-      <h3 class="text-2xl font-bold text-black mb-4">${title}</h3>
-      <p class="text-gray-800 mb-4 leading-relaxed text-lg">${description}</p>
-      <a href="${link}" target="_blank" class="inline-block mt-4 bg-[#D4AF37] text-[#5A0F1B] font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-[#b8962e] hover:shadow-lg transition duration-300">Leia mais</a>
-    </div>
-  `;
-
-  container.appendChild(card);
-}
-
-function parseRSS(xml) {
-  const items = xml.querySelectorAll('item');
-  for (let i = 0; i < Math.min(items.length, maxCards); i++) {
-    const item = items[i];
-    const title = item.querySelector('title').textContent;
-    const link = item.querySelector('link').textContent;
-    const descriptionRaw = item.querySelector('description').textContent;
-    const description = descriptionRaw.replace(/<[^>]*>?/gm,'').substring(0,200)+'...';
-    const mediaThumb = item.getElementsByTagName('media:thumbnail')[0];
-    const img = mediaThumb ? mediaThumb.getAttribute('url') : 'https://via.placeholder.com/400x225?text=Sem+Imagem';
-    createCard(title, link, img, description);
-  }
-}
-
-// Fetch RSS via proxy
-fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://phys.org/rss-feed/science-news/archaeology-fossils/'))
-  .then(res => res.json())
-  .then(data => {
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(data.contents,'application/xml');
-    parseRSS(xml);
-  })
-  .catch(err => console.error('Erro ao carregar feed RSS:', err));
-</script>
-
-    <!-- DESTAQUE ARTIGO DO MÊS -->
+        <!-- DESTAQUE ARTIGO DO MÊS -->
     <section class="bg-gray-50 py-16 px-6">
       <div class="max-w-6xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold text-center text-[#5A0F1B] mb-12">
@@ -415,6 +364,7 @@ function mostrarDestaques(data) {
 <script src="script.js"></script>
 </body>
   </html>
+
 
 
 
