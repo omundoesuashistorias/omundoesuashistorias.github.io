@@ -121,12 +121,49 @@
 <main class="bg-white">
 
   <!-- HERO FIXO -->
-  <section class="bg-[#EAD7B7] text-[#4B0E1E] py-20 px-6 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">O Mundo E Suas Histórias</h1>
-    <p class="text-lg md:text-xl max-w-2xl mx-auto">
-      Descubra histórias com humor, contexto e ousadia. Aqui o passado ganha voz!
-    </p>
-  </section>
+  <section class="relative w-full overflow-hidden" style="padding-top: 10.42%;">
+  <!-- padding-top = 200 / 1920 ≈ 10.42% para manter proporção -->
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper absolute top-0 left-0 w-full h-full">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="carrossel/1.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="carrossel/2.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="carrossel/3.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="carrossel/4.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="carrossel/5.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="carrossel/6.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="carrossel/7.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="carrossel/8.png" class="w-full h-full object-cover" /></div>
+    </div>
+  </div>
+
+  <!-- Gradiente para legibilidade -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50 z-10"></div>
+
+  <!-- Texto sobreposto responsivo proporcional -->
+  <div class="absolute inset-0 flex items-center justify-center z-20 px-4">
+    <h1 class="text-white font-extrabold text-center drop-shadow-[0_5px_15px_rgba(0,0,0,0.7)] leading-none"
+        style="font-size: clamp(1.2rem, 5vw, 3rem);">
+      Toda história <span class="text-yellow-400">tem dois lados...</span>
+    </h1>
+  </div>
+</section>
+
+<!-- Swiper JS (no final do body) -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 10000, // 10 segundos
+      disableOnInteraction: false,
+    },
+    effect: "fade",
+    speed: 1000,
+  });
+</script>
+<!-- ===== FIM DA HERO ===== -->
 
   <div class="max-w-7xl mx-auto px-6 py-12 space-y-12" id="main-content">
 
@@ -376,6 +413,7 @@ function mostrarDestaques(data) {
 <script src="script.js"></script>
 </body>
   </html>
+
 
 
 
