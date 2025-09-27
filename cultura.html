@@ -109,49 +109,63 @@
   </p>
 </section>
 
-    <!-- CULTURA -->
-    <section id="cultura" class="w-full max-w-6xl mx-auto bg-[#5A0F1B] text-white rounded-2xl overflow-hidden shadow-2xl ring-1 ring-[#D4AF37]/20 p-6 md:p-12 mt-12" aria-label="Cultura">
+<!-- CULTURA -->
+<section id="cultura" class="w-full bg-white py-20" aria-label="Cultura">
 
-      <!-- Imagem de destaque -->
-      <div class="w-full mb-10 relative overflow-hidden rounded-xl shadow-2xl border-4 border-[#D4AF37]/30">
-        <img src="https://i.postimg.cc/63FbfWMR/cultura.jpg" 
-             alt="Representação artística da diversidade cultural humana" 
-             class="w-full h-64 md:h-[28rem] lg:h-[32rem] object-cover rounded-xl aspect-[16/9] md:aspect-[21/9]" />
-      </div>
+  <!-- Container central -->
+  <div class="max-w-6xl mx-auto bg-[#5A0F1B] text-white shadow-2xl border border-[#D4AF37]/20 p-10 md:p-16">
 
-      <!-- Conteúdo textual -->
-      <div class="space-y-8">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-[#D4AF37]">Cultura: o tecido invisível que une a humanidade</h2>
-        <p class="text-white text-base md:text-lg leading-relaxed">
-          A cultura é o conjunto de práticas, crenças, valores, símbolos e instituições que orientam o comportamento humano e moldam as relações sociais. Transmitida de geração em geração, adapta-se às transformações históricas e sociais, influenciando arte, religião, ciência e estruturas de poder.
+    <!-- Imagem de destaque -->
+    <div class="w-full mb-14 relative overflow-hidden shadow-2xl border-4 border-[#D4AF37]/40 group">
+      <img src="https://i.postimg.cc/63FbfWMR/cultura.jpg" 
+           alt="Representação artística da diversidade cultural humana" 
+           class="w-full h-72 md:h-[32rem] object-cover aspect-[16/9] md:aspect-[21/9] transition-transform duration-700 ease-out group-hover:scale-105 rounded-xl" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none"></div>
+    </div>
+
+    <!-- Conteúdo central -->
+    <div class="space-y-10 text-center max-w-4xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-[#D4AF37] drop-shadow-lg">
+        Cultura: o tecido invisível que une a humanidade
+      </h2>
+      <p class="text-white/90 text-base md:text-lg leading-relaxed">
+        A cultura é o conjunto de práticas, crenças, valores, símbolos e instituições que orientam o comportamento humano e moldam as relações sociais. 
+        Transmitida de geração em geração, adapta-se às transformações históricas e sociais, influenciando arte, religião, ciência e estruturas de poder.
+      </p>
+    </div>
+
+    <!-- Grid de cards -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Card 1 -->
+      <article class="bg-[#5A0F1B]/80 p-8 border border-[#D4AF37]/30 shadow-lg 
+                      transform transition duration-500 hover:-translate-y-3 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:border-[#D4AF37]/80 hover:bg-[#5A0F1B]/90">
+        <h3 class="text-2xl font-semibold text-[#D4AF37] mb-4">O que é cultura?</h3>
+        <p class="text-white/90 text-sm md:text-base leading-relaxed">
+          Segundo Edward Burnett Tylor, "é o complexo que inclui conhecimento, crenças, arte, morais, leis, costumes e outras aptidões e hábitos adquiridos pelo homem como membro da sociedade".
         </p>
+      </article>
 
-        <!-- Cards de conteúdo -->
-        <div class="space-y-6">
-          <article class="bg-[#5A0F1B] bg-opacity-70 p-6 rounded-2xl border border-[#D4AF37]/20 shadow-md transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] hover:border-[#D4AF37]">
-            <h3 class="text-xl font-semibold text-[#D4AF37] mb-2">O que é cultura?</h3>
-            <p class="text-white text-sm md:text-base leading-relaxed">
-              Segundo Edward Burnett Tylor, "é o complexo que inclui conhecimento, crenças, arte, morais, leis, costumes e outras aptidões e hábitos adquiridos pelo homem como membro da sociedade". 
-            </p>
-          </article>
+      <!-- Card 2 -->
+      <article class="bg-[#5A0F1B]/80 p-8 border border-[#D4AF37]/30 shadow-lg 
+                      transform transition duration-500 hover:-translate-y-3 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:border-[#D4AF37]/80 hover:bg-[#5A0F1B]/90">
+        <h3 class="text-2xl font-semibold text-[#D4AF37] mb-4">A origem da cultura humana</h3>
+        <p class="text-white/90 text-sm md:text-base leading-relaxed">
+          Desde os primeiros hominídeos, como o Homo habilis, até o Homo sapiens, a cultura foi essencial para adaptação, comunicação e desenvolvimento das sociedades humanas.
+        </p>
+      </article>
 
-          <article class="bg-[#5A0F1B] bg-opacity-70 p-6 rounded-2xl border border-[#D4AF37]/20 shadow-md transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] hover:border-[#D4AF37]">
-            <h3 class="text-xl font-semibold text-[#D4AF37] mb-2">A origem da cultura humana</h3>
-            <p class="text-white text-sm md:text-base leading-relaxed">
-              Desde os primeiros hominídeos, como o Homo habilis, até o Homo sapiens, a cultura foi essencial para adaptação, comunicação e desenvolvimento das sociedades humanas.  
-            </p>
-          </article>
+      <!-- Card 3 -->
+      <article class="bg-[#5A0F1B]/80 p-8 border border-[#D4AF37]/30 shadow-lg 
+                      transform transition duration-500 hover:-translate-y-3 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:border-[#D4AF37]/80 hover:bg-[#5A0F1B]/90">
+        <h3 class="text-2xl font-semibold text-[#D4AF37] mb-4">Evolução cultural ao longo do tempo</h3>
+        <p class="text-white/90 text-sm md:text-base leading-relaxed">
+          As práticas culturais evoluem continuamente, refletindo adaptação, intercâmbio entre sociedades e transformações históricas. Arte, idioma, tecnologia e costumes são testemunhos dessa evolução.
+        </p>
+      </article>
+    </div>
 
-          <article class="bg-[#5A0F1B] bg-opacity-70 p-6 rounded-2xl border border-[#D4AF37]/20 shadow-md transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] hover:border-[#D4AF37]">
-            <h3 class="text-xl font-semibold text-[#D4AF37] mb-2">Evolução cultural ao longo do tempo</h3>
-            <p class="text-white text-sm md:text-base leading-relaxed">
-              As práticas culturais evoluem continuamente, refletindo adaptação, intercâmbio entre sociedades e transformações históricas. Arte, idioma, tecnologia e costumes são testemunhos dessa evolução.
-            </p>
-          </article>
-        </div>
-
-      </div>
-    </section>
+  </div>
+  </section>
 
   </main>
 
