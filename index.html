@@ -196,9 +196,60 @@
   <main id="main-content" class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
    
   <!-- Cards Feed Blogger -->
-<section id="destaque-posts" class="grid grid-cols-1 md:grid-cols-3 gap-6 my-10 px-4">
-  <!-- Cards inseridos via JS -->
-</section>
+<!-- Container dos cards -->
+<div id="feed-container" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+
+<!-- Script para gerar cards estilizados -->
+<script>
+  const feedUrl = "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json";
+  const container = document.getElementById("feed-container");
+
+  fetch(feedUrl)
+    .then(response => response.json())
+    .then(data => {
+      const posts = data.feed.entry.slice(0, 3); // pega 3 últimas postagens
+      posts.forEach(post => {
+        const title = post.title.$t;
+        const link = post.link.find(l => l.rel === "alternate").href;
+
+        // Imagem de destaque (se existir)
+        let image = "";
+        if (post.media$thumbnail) {
+          image = post.media$thumbnail.url.replace(/\/s72-c\//, "/s400/"); // aumenta resolução
+        }
+
+        // Cria o card
+        const card = document.createElement("div");
+        card.className = "bg-white shadow-lg rounded-lg overflow-hidden flex flex-col transform transition hover:-translate-y-1 hover:shadow-2xl";
+
+        if (image) {
+          const imgEl = document.createElement("img");
+          imgEl.src = image;
+          imgEl.alt = title;
+          imgEl.className = "w-full h-48 object-cover";
+          card.appendChild(imgEl);
+        }
+
+        const content = document.createElement("div");
+        content.className = "p-4 flex flex-col flex-grow";
+        const h3 = document.createElement("h3");
+        h3.className = "text-lg font-bold mb-2";
+        h3.textContent = title;
+
+        const btn = document.createElement("a");
+        btn.href = link;
+        btn.textContent = "Ler mais";
+        btn.className = "mt-auto inline-block bg-bordo text-ovo px-4 py-2 rounded hover:bg-ovo hover:text-bordo transition-colors duration-300";
+
+        content.appendChild(h3);
+        content.appendChild(btn);
+        card.appendChild(content);
+        container.appendChild(card);
+      });
+    })
+    .catch(err => console.error("Erro ao carregar feed:", err));
+</script>
+<!-- ===== FI DO FEED ===== -->
 
        <!-- DESTAQUE ARTIGO DO MÊS -->
 <section class="bg-gray-50 py-16 px-6">
@@ -535,5 +586,6 @@
 
 </body>
 </html>
+
 
 
