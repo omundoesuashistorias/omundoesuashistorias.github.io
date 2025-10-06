@@ -199,57 +199,60 @@
 <!-- Container dos cards -->
 <div id="feed-container" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
 
-<!-- Script para gerar cards estilizados -->
+<!-- Script para gerar cards -->
 <script>
-  const feedUrl = "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json";
+  const feedUrl = "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&callback=?";
   const container = document.getElementById("feed-container");
 
-  fetch(feedUrl)
-    .then(response => response.json())
-    .then(data => {
-      const posts = data.feed.entry.slice(0, 3); // pega 3 últimas postagens
-      posts.forEach(post => {
-        const title = post.title.$t;
-        const link = post.link.find(l => l.rel === "alternate").href;
+  function loadFeed(json) {
+    const posts = json.feed.entry.slice(0, 3); // pega 3 últimas postagens
+    posts.forEach(post => {
+      const title = post.title.$t;
+      const link = post.link.find(l => l.rel === "alternate").href;
 
-        // Imagem de destaque (se existir)
-        let image = "";
-        if (post.media$thumbnail) {
-          image = post.media$thumbnail.url.replace(/\/s72-c\//, "/s400/"); // aumenta resolução
-        }
+      // Imagem de destaque (se existir)
+      let image = "";
+      if (post.media$thumbnail) {
+        image = post.media$thumbnail.url.replace(/\/s72-c\//, "/s400/"); // aumenta resolução
+      }
 
-        // Cria o card
-        const card = document.createElement("div");
-        card.className = "bg-white shadow-lg rounded-lg overflow-hidden flex flex-col transform transition hover:-translate-y-1 hover:shadow-2xl";
+      // Cria o card
+      const card = document.createElement("div");
+      card.className = "bg-white shadow-md rounded overflow-hidden flex flex-col";
 
-        if (image) {
-          const imgEl = document.createElement("img");
-          imgEl.src = image;
-          imgEl.alt = title;
-          imgEl.className = "w-full h-48 object-cover";
-          card.appendChild(imgEl);
-        }
+      if (image) {
+        const imgEl = document.createElement("img");
+        imgEl.src = image;
+        imgEl.alt = title;
+        imgEl.className = "w-full h-48 object-cover";
+        card.appendChild(imgEl);
+      }
 
-        const content = document.createElement("div");
-        content.className = "p-4 flex flex-col flex-grow";
-        const h3 = document.createElement("h3");
-        h3.className = "text-lg font-bold mb-2";
-        h3.textContent = title;
+      const content = document.createElement("div");
+      content.className = "p-4 flex flex-col flex-grow";
 
-        const btn = document.createElement("a");
-        btn.href = link;
-        btn.textContent = "Ler mais";
-        btn.className = "mt-auto inline-block bg-bordo text-ovo px-4 py-2 rounded hover:bg-ovo hover:text-bordo transition-colors duration-300";
+      const h3 = document.createElement("h3");
+      h3.className = "text-lg font-bold mb-2";
+      h3.textContent = title;
 
-        content.appendChild(h3);
-        content.appendChild(btn);
-        card.appendChild(content);
-        container.appendChild(card);
-      });
-    })
-    .catch(err => console.error("Erro ao carregar feed:", err));
+      const btn = document.createElement("a");
+      btn.href = link;
+      btn.textContent = "Ler mais";
+      btn.className = "mt-auto inline-block bg-bordo text-ovo px-4 py-2 rounded hover:bg-ovo hover:text-bordo transition";
+
+      content.appendChild(h3);
+      content.appendChild(btn);
+      card.appendChild(content);
+      container.appendChild(card);
+    });
+  }
+
+  // Carrega feed via JSONP
+  const script = document.createElement("script");
+  script.src = feedUrl.replace("?", "loadFeed");
+  document.body.appendChild(script);
 </script>
-<!-- ===== FI DO FEED ===== -->
+
 
        <!-- DESTAQUE ARTIGO DO MÊS -->
 <section class="bg-gray-50 py-16 px-6">
@@ -586,6 +589,7 @@
 
 </body>
 </html>
+
 
 
 
