@@ -199,16 +199,17 @@
 <!-- Container dos cards -->
 <div id="feed-container" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
 
-<!-- Script para gerar cards -->
+<!-- Script para gerar cards do Blogger -->
 <script>
-  const feedUrl = "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&callback=?";
   const container = document.getElementById("feed-container");
 
+  // Função chamada pelo JSONP do Blogger
   function loadFeed(json) {
     const posts = json.feed.entry.slice(0, 3); // pega 3 últimas postagens
     posts.forEach(post => {
       const title = post.title.$t;
-      const link = post.link.find(l => l.rel === "alternate").href;
+      const linkObj = post.link.find(l => l.rel === "alternate");
+      const link = linkObj ? linkObj.href : "#";
 
       // Imagem de destaque (se existir)
       let image = "";
@@ -247,11 +248,12 @@
     });
   }
 
-  // Carrega feed via JSONP
+  // Cria script JSONP dinamicamente com callback correto
   const script = document.createElement("script");
-  script.src = feedUrl.replace("?", "loadFeed");
+  script.src = "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&callback=loadFeed";
   document.body.appendChild(script);
 </script>
+
 
 
        <!-- DESTAQUE ARTIGO DO MÊS -->
@@ -589,6 +591,7 @@
 
 </body>
 </html>
+
 
 
 
