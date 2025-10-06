@@ -211,10 +211,13 @@
       const linkObj = post.link.find(l => l.rel === "alternate");
       const link = linkObj ? linkObj.href : "#";
 
-      // Pega imagem de destaque se houver
+      // Pega imagem de destaque: media$thumbnail ou primeira imagem do content
       let image = "";
       if(post.media$thumbnail){
         image = post.media$thumbnail.url.replace(/\/s72-c\//,"/s400/");
+      } else if(post.content && post.content.$t){
+        const imgMatch = post.content.$t.match(/<img.*?src="(.*?)"/i);
+        if(imgMatch) image = imgMatch[1].replace(/\/s72-c\//,"/s400/");
       }
 
       // Cria o card
@@ -254,8 +257,6 @@
   script.src = "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&callback=loadOMHFeed";
   document.body.appendChild(script);
 </script>
-
-
 
        <!-- DESTAQUE ARTIGO DO MÊS -->
 <section class="bg-gray-50 py-16 px-6">
@@ -592,6 +593,7 @@
 
 </body>
 </html>
+
 
 
 
