@@ -1,91 +1,242 @@
-# O Mundo e Suas Histórias
+# 🌍 O Mundo e Suas Histórias
 
-Bem-vindo ao repositório do site "O Mundo e Suas Histórias" — um espaço dedicado a contar, registrar e aproximar pessoas por meio de histórias, cultura e conteúdo audiovisual.
+**Bem-vindo ao repositório oficial de *O Mundo e Suas Histórias*** — um projeto dedicado a reunir narrativas, memórias e conteúdos audiovisuais que conectam pessoas, culturas e experiências por meio da força da história.
 
-Site principal: https://omundoesuashistórias.com.br (ou https://omundoesuashistorias.com.br)
+🔗 **Website:** [omundoesuashistorias.com.br](https://omundoesuashistorias.com.br)
+🌐 **Página alternativa (com acento):** [omundoesuashistórias.com.br](https://omundoesuashistórias.com.br)
 
-Fundadores: Rodrigo Pontes & Jaqueline Longoni
+📱 **Redes sociais**
 
-Redes sociais e contato:
-- Facebook: https://facebook.com/omundoesuashistorias
-- YouTube: https://youtube.com/@omundoesuashistorias
-- Instagram: https://instagram.com/omundoesuashistorias
-- E‑mail: omh.tube@gmail.com
+* [Facebook](https://facebook.com/omundoesuashistorias)
+* [YouTube](https://youtube.com/@omundoesuashistorias)
+* [Instagram](https://instagram.com/omundoesuashistorias)
+* ✉️ **Contato:** [omh.tube@gmail.com](mailto:omh.tube@gmail.com)
 
----
+👥 **Fundadores**
 
-Índice
-- Sobre
-- Destaques do site
-- Tecnologias
-- Como rodar localmente
-- Contribuição
-- Boas práticas de conteúdo
-- Acessibilidade e SEO
-- Suporte e contato
-- Créditos e licença
+* Rodrigo Pontes
+* Jaqueline Longoni
 
 ---
 
-Sobre
-O Mundo e Suas Histórias é um projeto que reúne narrativas, vídeos e conteúdos que exploram memórias, cultura e experiências humanas. A plataforma apresenta episódios, matérias e séries produzidas pelos fundadores com o objetivo de conectar público e protagonistas por meio de narrativas autênticas.
+## 🧭 Índice
 
-Destaques do site
-- Conteúdo multimídia em destaque (vídeos, séries e entrevistas).
-- Navegação limpa e responsiva para diferentes dispositivos.
-- Integração com redes sociais para fácil compartilhamento.
-- Área dedicada à comunidade e contato direto.
+1. Visão geral
+2. Missão e valores
+3. O que você encontra aqui
+4. Tecnologias e estrutura do repositório
+5. Como executar localmente
+6. Fluxo de contribuição
+7. Boas práticas de conteúdo, acessibilidade e SEO
+8. Deploy e integração contínua
+9. Licença, créditos e agradecimentos
+10. Contato e suporte
 
-Tecnologias
-Este site é construído com foco em simplicidade, performance e compatibilidade:
-- HTML (principal linguagem)
-- CSS (estilização e responsividade)
-- JavaScript (interações leves)
+---
 
-Estrutura do repositório
-- index.html — página inicial
-- /assets — imagens, vídeos e recursos estáticos
-- /css — arquivos de estilo
-- /js — scripts (quando aplicável)
-- /posts ou /_posts — (se utilizar sistema de posts/coleções)
+## 🌐 Visão geral
 
-Como rodar localmente
-1. Clone este repositório:
-   git clone https://github.com/omundoesuashistorias/omundoesuashistorias.github.io.git
-2. Entre na pasta:
-   cd omundoesuashistorias.github.io
-3. Abra o arquivo index.html no seu navegador (duplo clique ou via Live Server).
-Opcional: use uma extensão de desenvolvimento (Live Server no VS Code) ou um servidor simples (por exemplo, `python -m http.server` na pasta do projeto) para testar rotas relativas e recursos.
+**O Mundo e Suas Histórias** produz e organiza conteúdos em vídeo e texto que valorizam **memórias locais, relatos orais e manifestações culturais**. Este repositório reúne os **arquivos públicos do site estático**, hospedado via GitHub Pages, incluindo recursos visuais e documentação para manutenção e contribuições.
 
-Contribuição
-Contribuições são bem-vindas! Se quiser colaborar com conteúdo, design, correções ou melhorias técnicas:
-1. Abra uma issue descrevendo sua proposta ou correção.
-2. Crie uma branch com um nome claro: `feat/nome-da-feature` ou `fix/descricao-breve`.
-3. Envie um Pull Request com descrição detalhada do que foi alterado.
-4. Mantenha commits atômicos e mensagens claras.
+---
 
-Boas práticas de conteúdo
-- Créditar fontes e autores ao publicar histórias e trechos de terceiros.
-- Garantir autorização para uso de imagens e vídeos quando necessário.
-- Respeitar privacidade e direitos de imagem das pessoas retratadas.
+## 🎯 Missão e valores
 
-Acessibilidade e SEO
-- Use headings (<h1>, <h2>, ...) de forma semântica.
-- Adicione atributos alt descritivos às imagens.
-- Garanta contraste adequado de cores e navegação por teclado.
-- Utilize meta tags relevantes (title, description, og: tags) para melhor indexação e compartilhamento em redes sociais.
+* Preservar e amplificar vozes e histórias humanas.
+* Produzir conteúdo com **integridade jornalística** e **sensibilidade cultural**.
+* Tornar o conteúdo **acessível, leve e compartilhável** para públicos diversos.
+* Valorizar **transparência, colaboração e responsabilidade** no uso de material sensível.
 
-Suporte e contato
-Para sugestões, parcerias ou questões técnicas, entre em contato:
-- E‑mail: omh.tube@gmail.com
-- Redes sociais listadas acima
+---
 
-Créditos
-- Fundadores: Rodrigo Pontes & Jaqueline Longoni
-- Equipe e colaboradores: (adicione nomes conforme contribuições)
-- Ferramentas e bibliotecas: (listar conforme uso)
+## 📚 O que você encontra aqui
 
-Licença
-Este repositório está aberto para colaboração. Recomenda-se adicionar um arquivo LICENSE com a licença desejada (por exemplo, MIT) se quiser permitir uso, modificação e redistribuição. Se preferir outra licença, informe nos arquivos do projeto.
+* Página institucional e listagem de episódios e matérias.
+* Páginas multimídia com vídeos incorporados, galerias e entrevistas.
+* Recursos públicos: imagens, folhas de estilo e scripts leves.
+* Documentação técnica e guias para contribuir e publicar novos conteúdos.
 
-Obrigado por visitar O Mundo e Suas Histórias — esperamos que o conteúdo inspire, conecte e emocione.
+---
+
+## 🧩 Tecnologias e estrutura do repositório
+
+**Principais tecnologias:**
+
+* **HTML:** estrutura e marcação de conteúdo
+* **CSS:** estilos, grid responsivo e temas visuais
+* **JavaScript:** interatividade leve e integrações (vídeos, widgets sociais)
+
+**Estrutura típica:**
+
+```
+index.html          # Página inicial
+/assets             # Imagens, vídeos, ícones e arquivos estáticos
+/css                # Estilos principais (possível organização por partials)
+/js                 # Scripts front-end
+/posts ou /_posts   # Conteúdo e artigos
+README.md           # Este arquivo
+```
+
+---
+
+## ⚙️ Como executar localmente
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/omundoesuashistorias/omundoesuashistorias.github.io.git
+```
+
+2. Acesse a pasta:
+
+```bash
+cd omundoesuashistorias.github.io
+```
+
+3. Execute um servidor local:
+
+* Com Python 3:
+
+```bash
+python -m http.server 8000
+```
+
+Acesse: [http://localhost:8000](http://localhost:8000)
+
+* Ou use a extensão **Live Server** no VS Code para recarregamento automático.
+
+4. Abra `index.html` no navegador e navegue pelo site.
+
+---
+
+## 🤝 Fluxo de contribuição
+
+Contribuições são **bem-vindas** — técnicas, editoriais ou visuais. Siga o fluxo padrão:
+
+1. **Abra uma issue** descrevendo sua proposta (ex.: nova feature, melhoria visual, novo post).
+2. Crie uma branch:
+
+```bash
+git checkout -b feat/nome-da-feature
+```
+
+3. Faça **commits atômicos e descritivos** (preferencialmente seguindo o padrão *Conventional Commits*).
+4. Envie um **Pull Request** com descrição clara e, se possível, **screenshots** ou **links de referência**.
+
+---
+
+## 🪶 Boas práticas de conteúdo
+
+* Credite sempre **autores, fontes e colaboradores**.
+* Obtenha **autorização por escrito** para uso de imagens e vídeos de pessoas identificáveis.
+* Mantenha **contexto e fidelidade** ao relato original.
+* Adicione **avisos de conteúdo sensível** quando necessário.
+
+---
+
+## ♿ Acessibilidade e SEO — *Checklist essencial*
+
+* Estrutura semântica: `<h1>`–`<h4>`, `<nav>`, `<main>`, `<footer>`.
+* Textos alternativos (`alt`) descritivos para imagens.
+* Contraste de cores adequado e boa legibilidade em dispositivos móveis.
+* Navegação acessível por teclado e foco visível.
+* Tags meta essenciais: `title`, `description`, `canonical`, `og:`, `twitter:`.
+* Sitemap.xml e robots.txt configurados.
+* Uso de microdados ou JSON-LD (ex.: `schema.org/VideoObject`) quando aplicável.
+
+---
+
+## 🚀 Deploy e integração contínua
+
+* **Hospedagem:** GitHub Pages (branch `main` ou `gh-pages`).
+* **CI recomendada (GitHub Actions):**
+
+  * Validação HTML/CSS
+  * Linting (Prettier, Stylelint)
+  * Teste de build
+* Opcional: incluir badge de status de build no README.
+
+---
+
+## 🎨 Qualidade de código e design
+
+* **CSS:** modularizar com partials ou metodologia **BEM**.
+* **Imagens:** otimizar e usar formatos modernos (**WebP**, `srcset`).
+* **Vídeos:** incorporar via YouTube com player responsivo e transcrições.
+* **Performance:** usar lazy-loading para imagens e recursos pesados.
+
+---
+
+## 🔒 Privacidade e aspectos legais
+
+* Página de **Política de Privacidade** (Analytics, formulários).
+* Aviso e consentimento de cookies, se aplicável.
+* Termos de uso para contribuições e envio de materiais.
+
+---
+
+## ⚖️ Licença, créditos e agradecimentos
+
+* Adicione um arquivo **LICENSE** (ex.: MIT) se quiser permitir uso livre com atribuição.
+* Use um **CREDITS.md** para listar colaboradores, parceiros e fontes.
+* Inclua um **CODE_OF_CONDUCT.md** para orientar interações na comunidade.
+
+---
+
+## 🧱 Modelos e templates recomendados
+
+```
+.github/
+ ├── ISSUE_TEMPLATE/        # Templates para bugs e sugestões
+ ├── PULL_REQUEST_TEMPLATE.md
+ └── CONTRIBUTING.md
+```
+
+---
+
+## 💌 Contato e suporte
+
+📧 **E-mail:** [omh.tube@gmail.com](mailto:omh.tube@gmail.com)
+📱 **Facebook:** [@omundoesuashistorias](https://facebook.com/omundoesuashistorias)
+▶️ **YouTube:** [@omundoesuashistorias](https://youtube.com/@omundoesuashistorias)
+📸 **Instagram:** [@omundoesuashistorias](https://instagram.com/omundoesuashistorias)
+
+---
+
+## 🎨 Aparência e material visual
+
+Inclua uma pasta `/design` com:
+
+* Logotipos em SVG/PNG
+* Paleta de cores e tipografia
+* Guia de uso da marca
+* Screenshots do site (`/assets/screenshots`)
+
+---
+
+## 🕓 Changelog e releases
+
+Use **tags semânticas** e um `CHANGELOG.md` para registrar atualizações, melhorias e publicações de novas matérias.
+
+---
+
+## 🙌 Créditos
+
+**Fundadores:** Rodrigo Pontes & Jaqueline Longoni
+**Criação, produção e curadoria:** Equipe *O Mundo e Suas Histórias*
+
+---
+
+### 💬 Agradecimento
+
+Obrigado por contribuir com **O Mundo e Suas Histórias**.
+Se desejar, posso:
+
+* Adicionar este README diretamente ao repositório e abrir um Pull Request;
+* Gerar automaticamente uma **LICENSE (MIT, Apache 2.0 ou GPL)**;
+* Criar **templates de issues e PRs**, e um **workflow básico de CI (GitHub Actions)**.
+
+👉 É só indicar qual dessas opções você quer que eu configure primeiro.
+
+```
+```
