@@ -236,7 +236,7 @@ Se desejar, posso:
 * Gerar automaticamente uma **LICENSE (MIT, Apache 2.0 ou GPL)**;
 * Criar **templates de issues e PRs**, e um **workflow básico de CI (GitHub Actions)**.
 
-👉 É só indicar qual dessas opções você quer que eu configure primeiro.
+
 
 ```
 ```
