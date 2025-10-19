@@ -271,8 +271,8 @@
 </script>
     <!-- ===== FIM do FEED Blogger ===== -->
 
-    <!-- Espaço do Super 8 -->
-<section class="text-center py-12">
+<!-- Espaço do Super 8 -->
+<section class="text-center py-12 relative">
   <h2 class="text-4xl font-extrabold text-gray-800 mb-4">🎬 Espaço do Super 8</h2>
   <p class="text-gray-600 max-w-2xl mx-auto mb-10">
     Ora, ora, quem temos aqui? 👀 Bem-vindo ao meu cantinho histórico!  
@@ -282,70 +282,93 @@
   <!-- Grid de Curiosidades -->
   <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
     <!-- Curiosidade 1 -->
-    <div class="bg-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all">
-      <h3 class="text-xl font-semibold text-gray-800 mb-3">⚔️ A Batalha dos Pães</h3>
-      <p class="text-gray-600">Você não vai acreditar no que rolou em 1895... 🍞</p>
-      <label for="curiosidade1" class="mt-4 inline-block text-indigo-600 font-semibold cursor-pointer hover:text-indigo-800">Ler mais</label>
+    <div>
+      <input type="checkbox" id="curiosidade1" class="hidden peer">
+      <div class="bg-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all">
+        <h3 class="text-xl font-semibold text-gray-800 mb-3">⚔️ A Batalha dos Pães</h3>
+        <p class="text-gray-600">Você não vai acreditar no que rolou em 1895... 🍞</p>
+        <label for="curiosidade1" class="mt-4 inline-block text-indigo-600 font-semibold cursor-pointer hover:text-indigo-800">Ler mais</label>
+      </div>
+
+      <!-- Modal -->
+      <div class="fixed inset-0 bg-black bg-opacity-60 hidden peer-checked:flex items-center justify-center z-50">
+        <!-- Overlay clicável -->
+        <label for="curiosidade1" class="absolute inset-0 cursor-pointer"></label>
+
+        <!-- Caixa do modal -->
+        <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 text-left relative z-10 animate-fade-in">
+          <label for="curiosidade1" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl cursor-pointer">&times;</label>
+          <h3 class="text-2xl font-bold mb-3 text-gray-800">⚔️ A Batalha dos Pães</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Sim, meus caros! Em 1895, duas padarias em Lisboa começaram uma “guerra de pães”. 🍞  
+            Uma lançava promoções, a outra respondia com fornadas grátis!  
+            O povo amava tanto a briga que os jornais chamaram de “A Batalha dos Pães”! 📰  
+            Resultado? As duas viraram sucesso — e eu, claro, teria comprado os dois! 😎  
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- Curiosidade 2 -->
-    <div class="bg-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all">
-      <h3 class="text-xl font-semibold text-gray-800 mb-3">🎭 O Rei Disfarçado</h3>
-      <p class="text-gray-600">Um monarca que virou “influencer” no século XVIII?! 👑📜</p>
-      <label for="curiosidade2" class="mt-4 inline-block text-indigo-600 font-semibold cursor-pointer hover:text-indigo-800">Ler mais</label>
+    <div>
+      <input type="checkbox" id="curiosidade2" class="hidden peer">
+      <div class="bg-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all">
+        <h3 class="text-xl font-semibold text-gray-800 mb-3">🎭 O Rei Disfarçado</h3>
+        <p class="text-gray-600">Um monarca que virou “influencer” no século XVIII?! 👑📜</p>
+        <label for="curiosidade2" class="mt-4 inline-block text-indigo-600 font-semibold cursor-pointer hover:text-indigo-800">Ler mais</label>
+      </div>
+
+      <!-- Modal -->
+      <div class="fixed inset-0 bg-black bg-opacity-60 hidden peer-checked:flex items-center justify-center z-50">
+        <label for="curiosidade2" class="absolute inset-0 cursor-pointer"></label>
+        <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 text-left relative z-10 animate-fade-in">
+          <label for="curiosidade2" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl cursor-pointer">&times;</label>
+          <h3 class="text-2xl font-bold mb-3 text-gray-800">🎭 O Rei Disfarçado</h3>
+          <p class="text-gray-700 leading-relaxed">
+            O rei Gustavo III da Suécia era um verdadeiro mestre dos disfarces! 👑  
+            Ele se infiltrava em bailes mascarados para ouvir o que o povo pensava dele — tipo um “feedback anônimo real”. 😂  
+            Pena que um desses bailes virou tragédia… mas isso é história pra outro episódio do Super 8! 🎬  
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- Curiosidade 3 -->
-    <div class="bg-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all">
-      <h3 class="text-xl font-semibold text-gray-800 mb-3">🚀 A Carta ao Futuro</h3>
-      <p class="text-gray-600">Um cientista que escreveu pra nós… em 1899! 🕰️</p>
-      <label for="curiosidade3" class="mt-4 inline-block text-indigo-600 font-semibold cursor-pointer hover:text-indigo-800">Ler mais</label>
-    </div>
-  </div>
+    <div>
+      <input type="checkbox" id="curiosidade3" class="hidden peer">
+      <div class="bg-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all">
+        <h3 class="text-xl font-semibold text-gray-800 mb-3">🚀 A Carta ao Futuro</h3>
+        <p class="text-gray-600">Um cientista que escreveu pra nós… em 1899! 🕰️</p>
+        <label for="curiosidade3" class="mt-4 inline-block text-indigo-600 font-semibold cursor-pointer hover:text-indigo-800">Ler mais</label>
+      </div>
 
-  <!-- Modal 1 -->
-  <input type="checkbox" id="curiosidade1" class="peer hidden">
-  <div class="fixed inset-0 bg-black bg-opacity-60 hidden peer-checked:flex items-center justify-center z-50">
-    <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 text-left relative">
-      <label for="curiosidade1" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl cursor-pointer">&times;</label>
-      <h3 class="text-2xl font-bold mb-3 text-gray-800">⚔️ A Batalha dos Pães</h3>
-      <p class="text-gray-700 leading-relaxed">
-        Sim, meus caros! Em 1895, duas padarias em Lisboa começaram uma “guerra de pães”. 🍞  
-        Uma lançava promoções, a outra respondia com fornadas grátis!  
-        O povo amava tanto a briga que os jornais chamaram de “A Batalha dos Pães”! 📰  
-        Resultado? As duas viraram sucesso — e eu, claro, teria comprado os dois! 😎  
-      </p>
+      <!-- Modal -->
+      <div class="fixed inset-0 bg-black bg-opacity-60 hidden peer-checked:flex items-center justify-center z-50">
+        <label for="curiosidade3" class="absolute inset-0 cursor-pointer"></label>
+        <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 text-left relative z-10 animate-fade-in">
+          <label for="curiosidade3" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl cursor-pointer">&times;</label>
+          <h3 class="text-2xl font-bold mb-3 text-gray-800">🚀 A Carta ao Futuro</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Em 1899, o inventor Nikola Tesla escreveu uma carta prevendo a “internet sem fios”. ⚡  
+            Disse que um dia, todos se comunicariam através do ar, sem cabos! 📡  
+            E cá estamos nós… lendo isso num site — e eu, um personagem digital, te contando isso! 💫  
+          </p>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Modal 2 -->
-  <input type="checkbox" id="curiosidade2" class="peer hidden">
-  <div class="fixed inset-0 bg-black bg-opacity-60 hidden peer-checked:flex items-center justify-center z-50">
-    <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 text-left relative">
-      <label for="curiosidade2" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl cursor-pointer">&times;</label>
-      <h3 class="text-2xl font-bold mb-3 text-gray-800">🎭 O Rei Disfarçado</h3>
-      <p class="text-gray-700 leading-relaxed">
-        O rei Gustavo III da Suécia era um verdadeiro mestre dos disfarces! 👑  
-        Ele se infiltrava em bailes mascarados para ouvir o que o povo pensava dele — tipo um “feedback anônimo real”. 😂  
-        Pena que um desses bailes virou tragédia… mas isso é história pra outro episódio do Super 8! 🎬  
-      </p>
-    </div>
-  </div>
-
-  <!-- Modal 3 -->
-  <input type="checkbox" id="curiosidade3" class="peer hidden">
-  <div class="fixed inset-0 bg-black bg-opacity-60 hidden peer-checked:flex items-center justify-center z-50">
-    <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 text-left relative">
-      <label for="curiosidade3" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl cursor-pointer">&times;</label>
-      <h3 class="text-2xl font-bold mb-3 text-gray-800">🚀 A Carta ao Futuro</h3>
-      <p class="text-gray-700 leading-relaxed">
-        Em 1899, o inventor Nikola Tesla escreveu uma carta prevendo a “internet sem fios”. ⚡  
-        Disse que um dia, todos se comunicariam através do ar, sem cabos! 📡  
-        E cá estamos nós… lendo isso num site — e eu, um personagem digital, te contando isso! 💫  
-      </p>
-    </div>
-  </div>
-  </section>
+<!-- Animação opcional -->
+<style>
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out;
+}
+          </style>
     
         <!-- DESTAQUE ARTIGO DO MÊS -->
 <section class="bg-gray-50 py-16 px-6">
@@ -639,6 +662,7 @@
 
 </body>
 </html>
+
 
 
 
