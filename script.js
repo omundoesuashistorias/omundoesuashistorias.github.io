@@ -43,17 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('posts-grid');
   if (!grid) return;
 
-  // callback global exigido pelo JSONP
+  // Callback global exigido pelo JSONP do Blogger
   window.bloggerFeedCallback = function (data) {
     const entries = data.feed.entry || [];
 
     entries.slice(0, 3).forEach(entry => {
       const title = entry.title.$t;
-      const link = entry.link.find(l => l.rel === 'alternate').href;
+
+      const link =
+        entry.link.find(l => l.rel === 'alternate')?.href || '#';
 
       let image =
         entry.media$thumbnail?.url ||
-        entry.content.$t.match(/<img.*?src="(.*?)"/)?.[1] ||
+        entry.content?.$t.match(/<img[^>]+src="([^">]+)"/)?.[1] ||
         'https://via.placeholder.com/600x400?text=O+Mundo+e+Suas+Hist%C3%B3rias';
 
       const card = document.createElement('article');
@@ -62,18 +64,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
       card.innerHTML = `
         <div class="aspect-[16/9] overflow-hidden">
-          <img src="${image}" alt="${title}"
-            class="w-full h-full object-cover hover:scale-105 transition-transform">
+          <img
+            src="${image}"
+            alt="${title}"
+            class="w-full h-full object-cover hover:scale-105 transition-transform"
+          >
         </div>
 
         <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-lg font-bold text-gray-900 mb-4">
+          <h3 class="text-lg font-bold text-gray-900 mb-4 line-clamp-3">
             ${title}
           </h3>
 
           <div class="mt-auto">
-            <a href="${link}" target="_blank"
-              class="inline-block bg-bordo text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-800 transition">
+            <a
+              href="${link}"
+              target="_blank"
+              class="inline-block bg-bordo text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-800 transition"
+            >
               Ler mais
             </a>
           </div>
@@ -84,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // injeta o script JSONP
+  // Injeta o script JSONP do Blogger (SEM CORS)
   const script = document.createElement('script');
   script.src =
     'https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default' +
