@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Ciência News — Uma pílula com notícias sobre ciências</title>
-    <link>https://portalciencianews.com.br/</link>
+    <link>https://portalciencianews.github.io/</link>
     <description>Últimos artigos e notícias do Ciência News.</description>
     <language>pt-BR</language>
     <lastBuildDate>Thu, 02 Oct 2025 12:00:00 +0000</lastBuildDate>
@@ -11,8 +11,8 @@
     <!-- Artigo 1: Energia Escura -->
     <item>
       <title>Energia Escura: Simulações Desafiam Modelo Cosmológico Padrão</title>
-      <link>https://portalciencianews.com.br/post/outubro/energia-escura-simulacoes.html</link>
-      <guid isPermaLink="true">https://portalciencianews.com.br/post/outubro/energia-escura-simulacoes.html</guid>
+      <link>https://portalciencianews.github.io/post/outubro/energia-escura-simulacoes.html</link>
+      <guid isPermaLink="true">https://portalciencianews.github.io/post/outubro/energia-escura-simulacoes.html</guid>
       <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
       <description><![CDATA[
         Novas simulações sugerem que a energia escura pode não se comportar exatamente como prevê o modelo cosmológico padrão.
@@ -23,8 +23,8 @@
     <!-- Artigo 2: Lua -->
     <item>
       <title>Lua de duas faces: novas amostras sugerem que o lado oculto foi mais frio</title>
-      <link>https://portalciencianews.com.br/lua-lado-oculto-mais-frio.html</link>
-      <guid isPermaLink="true">https://portalciencianews.com.br/lua-lado-oculto-mais-frio.html</guid>
+      <link>https://portalciencianews.github.io/lua-lado-oculto-mais-frio.html</link>
+      <guid isPermaLink="true">https://portalciencianews.github.io/lua-lado-oculto-mais-frio.html</guid>
       <pubDate>Thu, 02 Oct 2025 08:00:00 +0000</pubDate>
       <description><![CDATA[
         Pesquisas recentes indicam que a composição do lado oculto da Lua difere do lado visível, revelando pistas sobre sua formação.
@@ -35,8 +35,8 @@
     <!-- Artigo 3: Fóton -->
     <item>
       <title>Quanto tempo um fóton permanece como excitação atômica? O enigma do tempo quântico</title>
-      <link>https://portalciencianews.com.br/quanto-tempo-foton-excitacao-atomica.html</link>
-      <guid isPermaLink="true">https://portalciencianews.com.br/quanto-tempo-foton-excitacao-atomica.html</guid>
+      <link>https://portalciencianews.github.io/quanto-tempo-foton-excitacao-atomica.html</link>
+      <guid isPermaLink="true">https://portalciencianews.github.io/quanto-tempo-foton-excitacao-atomica.html</guid>
       <pubDate>Wed, 01 Oct 2025 19:00:00 +0000</pubDate>
       <description><![CDATA[
         Um estudo recente tenta resolver o enigma de quanto tempo a informação quântica de um fóton sobrevive em um átomo excitado.
