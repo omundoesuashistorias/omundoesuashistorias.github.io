@@ -41,39 +41,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const FEED_URL = 'https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?max-results=3';
-  const grid = document.getElementById('posts-grid');
+  const FEED_URL =
+    'https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json&max-results=3';
 
+  const grid = document.getElementById('posts-grid');
   if (!grid) return;
 
   fetch(FEED_URL)
-    .then(res => res.text())
-    .then(xmlText => {
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(xmlText, 'text/xml');
-      const entries = xml.querySelectorAll('entry');
+    .then(res => res.json())
+    .then(data => {
+      const entries = data.feed.entry || [];
 
       entries.forEach(entry => {
-        const title = entry.querySelector('title')?.textContent || 'Sem título';
-        const link = entry.querySelector('link[rel="alternate"]')?.getAttribute('href') || '#';
+        const title = entry.title.$t;
+        const link = entry.link.find(l => l.rel === 'alternate')?.href || '#';
 
-        // imagem de destaque (media:thumbnail ou fallback)
+        // imagem de destaque
         let image =
-          entry.querySelector('media\\:thumbnail')?.getAttribute('url') ||
-          entry.querySelector('content')?.textContent.match(/<img.*?src="(.*?)"/)?.[1] ||
+          entry.media$thumbnail?.url ||
+          entry.content?.$t.match(/<img.*?src="(.*?)"/)?.[1] ||
           'https://via.placeholder.com/600x400?text=O+Mundo+e+Suas+Hist%C3%B3rias';
 
         const card = document.createElement('article');
-        card.className = `
-          bg-white rounded-xl shadow-md overflow-hidden
-          hover:shadow-xl transition-shadow duration-300
-          flex flex-col
-        `;
+        card.className =
+          'bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col';
 
         card.innerHTML = `
           <div class="aspect-[16/9] overflow-hidden">
             <img src="${image}" alt="${title}"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+              class="w-full h-full object-cover hover:scale-105 transition-transform">
           </div>
 
           <div class="p-6 flex flex-col flex-grow">
@@ -83,9 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <div class="mt-auto">
               <a href="${link}" target="_blank"
-                class="inline-block bg-bordo text-white font-semibold
-                       px-5 py-2 rounded-lg
-                       hover:bg-red-800 transition-colors">
+                class="inline-block bg-bordo text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-800 transition">
                 Ler mais
               </a>
             </div>
@@ -97,9 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => {
       console.error('Erro ao carregar feed:', err);
-      grid.innerHTML = '<p class="text-center text-gray-500">Não foi possível carregar os artigos.</p>';
+      grid.innerHTML =
+        '<p class="text-center text-gray-500">Erro ao carregar artigos.</p>';
     });
 });
 </script>
-
-
