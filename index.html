@@ -91,26 +91,77 @@
 </head>
 <body class="antialiased font-sans bg-gray-50 text-gray-900">
 
-<header id="header-main" class="bg-bordo text-ovo sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+<!-- ========== HEADER (editable) ========== -->
+  <header id="header-main" class="bg-bordo text-ovo sticky top-0 z-50">
+    <!-- EDIT: Área de cabeçalho principal (ID: header-main) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- LOGO -->
+        <div id="header-logo" class="flex-shrink-0 site-logo">
+          <a href="/" aria-label="O Mundo E Suas Histórias - Início" class="flex items-center">
+            <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" />
+            <span class="hidden sm:inline-block">O Mundo E Suas Histórias</span>
+          </a>
+        </div>
 
-      <div id="header-logo" class="flex-shrink-0 site-logo">
-        <a href="/" aria-label="O Mundo E Suas Histórias - Início" class="flex items-center">
-          <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" />
-          <span class="hidden sm:inline-block">O Mundo E Suas Histórias</span>
-        </a>
+       <!-- MENU (desktop) -->
+<nav id="header-nav" class="hidden md:flex md:items-center md:space-x-6" aria-label="Menu principal">
+  <a href="https://omundoesuashistorias.github.io/index.html" class="text-ovo hover-underline hover-ovo text-base font-medium">Início</a>
+  <a href="https://omundoesuashistorias.github.io/sobre" class="text-ovo hover-underline hover-ovo text-base font-medium">Sobre</a>
+  <a href="https://omundoesuashistorias.github.io/artigos" class="text-ovo hover-underline hover-ovo text-base font-medium">Artigos</a>
+  <a href="https://omundoesuashistorias.github.io/contato" class="text-ovo hover-underline hover-ovo text-base font-medium">Contato</a>
+</nav>
+
+
+        <!-- Social Icons (header) -->
+        <div id="header-social" class="hidden sm:flex items-center space-x-3">
+          <!-- Facebook -->
+          <a href="https://facebook.com/omundoesuashistorias" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-ovo hover-ovo">
+            <i class="bi bi-facebook text-2xl" aria-hidden="true"></i>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/omundoesuashistorias" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-ovo hover-ovo">
+            <i class="bi bi-instagram text-2xl" aria-hidden="true"></i>
+          </a>
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/@omundoesuashistorias" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-ovo hover-ovo">
+            <i class="bi bi-youtube text-2xl" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="btn-mobile-open" aria-controls="mobile-menu" aria-expanded="false" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ovo" aria-label="Abrir menu móvel">
+            <svg class="h-6 w-6 text-ovo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
       </div>
-
-      <nav id="header-nav" class="hidden md:flex md:items-center md:space-x-6">
-        <a href="https://omundoesuashistorias.github.io/index.html">Início</a>
-        <a href="https://omundoesuashistorias.github.io/sobre">Sobre</a>
-        <a href="https://omundoesuashistorias.github.io/artigos">Artigos</a>
-        <a href="https://omundoesuashistorias.github.io/contato">Contato</a>
-      </nav>
     </div>
-  </div>
-</header>
+
+    <!-- Mobile menu, toggleable -->
+    <div id="mobile-menu" class="md:hidden hidden" aria-hidden="true">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-bordo">
+        <a href="https://omundoesuashistorias.com.br/index.html" class="text-ovo hover-underline hover-ovo text-base font-medium">início</a>
+        <a href="https://omundoesuashistorias.github.io/sobre" class="block px-3 py-2 rounded-md text-base font-medium text-ovo">Sobre</a>
+        <a href="https://omundoesuashistorias.github.io/artigos" class="block px-3 py-2 rounded-md text-base font-medium text-ovo">Artigos</a>
+        <a href="https://omundoesuashistorias.github.io/contato" class="block px-3 py-2 rounded-md text-base font-medium text-ovo">Contato</a>
+
+        <div class="mt-3 flex items-center space-x-4 px-3">
+          <a href="https://facebook.com/omundoesuashistorias" target="_blank" rel="noopener noreferrer" class="text-ovo" aria-label="Facebook">
+            <i class="bi bi-facebook text-2xl"></i>
+          </a>
+          <a href="https://instagram.com/omundoesuashistorias" target="_blank" rel="noopener noreferrer" class="text-ovo" aria-label="Instagram">
+            <i class="bi bi-instagram text-2xl"></i>
+          </a>
+          <a href="https://www.youtube.com/@omundoesuashistorias" target="_blank" rel="noopener noreferrer" class="text-ovo" aria-label="YouTube">
+            <i class="bi bi-youtube text-2xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
 
 <section id="hero-main" class="relative w-full overflow-hidden" style="padding-top: 10.42%;">
 
@@ -562,6 +613,7 @@
 
 </body>
 </html>
+
 
 
 
