@@ -60,12 +60,13 @@
   <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Bootstrap Icons CDN -->
+  <!-- Bootstrap Icons CDN (para ícones sociais) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
+  <!-- Custom small CSS para cores específicas e pequenas correções -->
   <style>
     :root{
       --bordo: #6b0b0b;
@@ -74,33 +75,34 @@
     .text-ovo { color: var(--ovo); }
     .bg-bordo { background-color: var(--bordo); }
     .hover-ovo:hover { color: var(--ovo) !important; }
-    .site-logo img { height: 40px; width: auto; }
-    .site-logo span { margin-left: 0.5rem; font-weight:700; color:var(--ovo); }
+    .site-logo img { height: 40px; width: auto; display:inline-block; vertical-align:middle; }
+    .site-logo span { margin-left: 0.5rem; font-weight:700; letter-spacing:0.2px; color:var(--ovo); }
     .hero-title { text-shadow: 0 5px 15px rgba(0,0,0,0.7); }
   </style>
 
-  <!-- Google tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-81XK3D8PHY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-81XK3D8PHY');
-  </script>
-</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-81XK3D8PHY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-81XK3D8PHY');
+</script>
 
+</head>
 <body class="antialiased font-sans bg-gray-50 text-gray-900">
 
-<header class="bg-bordo text-ovo sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4">
+<header id="header-main" class="bg-bordo text-ovo sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
 
-      <a href="/" class="flex items-center site-logo">
-        <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png" alt="Logo">
-        <span class="hidden sm:inline-block">O Mundo E Suas Histórias</span>
-      </a>
+      <div id="header-logo" class="flex-shrink-0 site-logo">
+        <a href="/" aria-label="O Mundo E Suas Histórias - Início" class="flex items-center">
+          <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" />
+          <span class="hidden sm:inline-block">O Mundo E Suas Histórias</span>
+        </a>
+      </div>
 
-      <nav class="hidden md:flex space-x-6">
+      <nav id="header-nav" class="hidden md:flex md:items-center md:space-x-6">
         <a href="https://omundoesuashistorias.github.io/index.html">Início</a>
         <a href="https://omundoesuashistorias.github.io/sobre">Sobre</a>
         <a href="https://omundoesuashistorias.github.io/artigos">Artigos</a>
@@ -110,17 +112,17 @@
   </div>
 </header>
 
-<section class="relative w-full overflow-hidden" style="padding-top:10.42%">
-  <div class="swiper mySwiper absolute inset-0">
+<section id="hero-main" class="relative w-full overflow-hidden" style="padding-top: 10.42%;">
+  <div class="swiper mySwiper absolute top-0 left-0 w-full h-full">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/1.png" class="w-full h-full object-cover"></div>
-      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/2.png" class="w-full h-full object-cover"></div>
-      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/3.png" class="w-full h-full object-cover"></div>
-      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/4.png" class="w-full h-full object-cover"></div>
-      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/5.png" class="w-full h-full object-cover"></div>
-      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/6.png" class="w-full h-full object-cover"></div>
-      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/7.png" class="w-full h-full object-cover"></div>
-      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/8.png" class="w-full h-full object-cover"></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/1.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/2.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/3.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/4.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/5.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/6.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/7.png" class="w-full h-full object-cover" /></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/8.png" class="w-full h-full object-cover" /></div>
     </div>
   </div>
 </section>
@@ -557,6 +559,7 @@
 
 </body>
 </html>
+
 
 
 
