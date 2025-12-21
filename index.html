@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://omundoesuashistorias.com.br/" />
+  <link rel="canonical" href="https://omundoesuashistorias.github.io/" />
 
   <!-- Favicon -->
-  <link rel="icon" href="https://omundoesuashistorias.com.br/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="https://omundoesuashistorias.github.io/favicon.ico" type="image/x-icon" />
 
   <!-- Meta tags principais -->
   <title>O Mundo E Suas Histórias — Toda história tem dois lados</title>
@@ -22,8 +22,8 @@
   <meta property="og:site_name" content="O Mundo E Suas Histórias" />
   <meta property="og:title" content="O Mundo E Suas Histórias — Toda história tem dois lados" />
   <meta property="og:description" content="Toda história tem dois lados" />
-  <meta property="og:url" content="https://omundoesuashistorias.com.br/" />
-  <meta property="og:image" content="https://omundoesuashistorias.com.br/thumbnail.jpg" />
+  <meta property="og:url" content="https://omundoesuashistorias.github.io/" />
+  <meta property="og:image" content="https://omundoesuashistorias.github.io/thumbnail.jpg" />
   <meta property="og:image:alt" content="O Mundo E Suas Histórias — Toda história tem dois lados" />
 
   <!-- Twitter Card -->
@@ -31,14 +31,14 @@
   <meta name="twitter:site" content="@omundoesuashistorias" />
   <meta name="twitter:title" content="O Mundo E Suas Histórias — Toda história tem dois lados" />
   <meta name="twitter:description" content="Toda história tem dois lados" />
-  <meta name="twitter:image" content="https://omundoesuashistorias.com.br/thumbnail.jpg" />
+  <meta name="twitter:image" content="https://omundoesuashistorias.github.io/thumbnail.jpg" />
 
   <!-- Schema.org (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "url": "https://omundoesuashistorias.com.br/",
+    "url": "https://omundoesuashistorias.github.io/",
     "name": "O Mundo E Suas Histórias",
     "description": "Toda história tem dois lados",
     "publisher": {
@@ -46,7 +46,7 @@
       "name": "O Mundo E Suas Histórias",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://omundoesuashistorias.com.br/logo_omh_fundo_transparente.png"
+        "url": "https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
       }
     },
     "sameAs": [
@@ -60,135 +60,70 @@
   <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Bootstrap Icons CDN (para ícones sociais) -->
+  <!-- Bootstrap Icons CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
-  <!-- Custom small CSS para cores específicas e pequenas correções -->
   <style>
     :root{
-      --bordo: #6b0b0b; /* vermelho escuro - bordo */
-      --ovo: #f0c808;   /* amarelo tom ovo */
+      --bordo: #6b0b0b;
+      --ovo: #f0c808;
     }
-
-    /* Força contraste do texto nos botões/links */
     .text-ovo { color: var(--ovo); }
     .bg-bordo { background-color: var(--bordo); }
     .hover-ovo:hover { color: var(--ovo) !important; }
-
-    /* Logo small adjustments */
-    .site-logo img { height: 40px; width: auto; display:inline-block; vertical-align:middle; }
-    .site-logo span { margin-left: 0.5rem; font-weight:700; letter-spacing:0.2px; color:var(--ovo); }
-
-    /* Ensure hero has proper stacking for accessibility */
+    .site-logo img { height: 40px; width: auto; }
+    .site-logo span { margin-left: 0.5rem; font-weight:700; color:var(--ovo); }
     .hero-title { text-shadow: 0 5px 15px rgba(0,0,0,0.7); }
   </style>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-81XK3D8PHY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-81XK3D8PHY');
-</script>
-  
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-81XK3D8PHY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-81XK3D8PHY');
+  </script>
 </head>
+
 <body class="antialiased font-sans bg-gray-50 text-gray-900">
 
-  <!-- ========== HEADER (editable) ========== -->
-  <header id="header-main" class="bg-bordo text-ovo sticky top-0 z-50">
-    <!-- EDIT: Área de cabeçalho principal (ID: header-main) -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- LOGO -->
-        <div id="header-logo" class="flex-shrink-0 site-logo">
-          <a href="/" aria-label="O Mundo E Suas Histórias - Início" class="flex items-center">
-            <img src="https://omundoesuashistorias.com.br/logo_omh_fundo_transparente.png" alt="Logo O Mundo E Suas Histórias" />
-            <span class="hidden sm:inline-block">O Mundo E Suas Histórias</span>
-          </a>
-        </div>
+<header class="bg-bordo text-ovo sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
 
-        <!-- MENU (desktop) -->
-        <nav id="header-nav" class="hidden md:flex md:items-center md:space-x-6" aria-label="Menu principal">
-          <a href="https://omundoesuashistorias.com.br/index.html" class="text-ovo hover-underline hover-ovo text-base font-medium">Início</a>
-          <a href="https://omundoesuashistorias.com.br/sobre" class="text-ovo hover-underline hover-ovo text-base font-medium">Sobre</a>
-          <a href="https://omundoesuashistorias.com.br/artigos" class="text-ovo hover-underline hover-ovo text-base font-medium">Artigos</a>
-          <a href="https://omundoesuashistorias.com.br/contato" class="text-ovo hover-underline hover-ovo text-base font-medium">Contato</a>
-        </nav>
+      <a href="/" class="flex items-center site-logo">
+        <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png" alt="Logo">
+        <span class="hidden sm:inline-block">O Mundo E Suas Histórias</span>
+      </a>
 
-        <!-- Social Icons (header) -->
-        <div id="header-social" class="hidden sm:flex items-center space-x-3">
-          <!-- Facebook -->
-          <a href="https://facebook.com/omundoesuashistorias" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-ovo hover-ovo">
-            <i class="bi bi-facebook text-2xl" aria-hidden="true"></i>
-          </a>
-          <!-- Instagram -->
-          <a href="https://instagram.com/omundoesuashistorias" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-ovo hover-ovo">
-            <i class="bi bi-instagram text-2xl" aria-hidden="true"></i>
-          </a>
-          <!-- YouTube -->
-          <a href="https://www.youtube.com/@omundoesuashistorias" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-ovo hover-ovo">
-            <i class="bi bi-youtube text-2xl" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <!-- Mobile menu button -->
-        <div class="md:hidden">
-          <button id="btn-mobile-open" aria-controls="mobile-menu" aria-expanded="false" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ovo" aria-label="Abrir menu móvel">
-            <svg class="h-6 w-6 text-ovo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-        </div>
-      </div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="https://omundoesuashistorias.github.io/index.html">Início</a>
+        <a href="https://omundoesuashistorias.github.io/sobre">Sobre</a>
+        <a href="https://omundoesuashistorias.github.io/artigos">Artigos</a>
+        <a href="https://omundoesuashistorias.github.io/contato">Contato</a>
+      </nav>
     </div>
+  </div>
+</header>
 
-    <!-- Mobile menu, toggleable -->
-    <div id="mobile-menu" class="md:hidden hidden" aria-hidden="true">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-bordo">
-        <a href="https://omundoesuashistorias.com.br/index.html" class="text-ovo hover-underline hover-ovo text-base font-medium">início</a>
-        <a href="https://omundoesuashistorias.com.br/sobre" class="block px-3 py-2 rounded-md text-base font-medium text-ovo">Sobre</a>
-        <a href="https://omundoesuashistorias.com.br/artigos" class="block px-3 py-2 rounded-md text-base font-medium text-ovo">Artigos</a>
-        <a href="https://omundoesuashistorias.com.br/contato" class="block px-3 py-2 rounded-md text-base font-medium text-ovo">Contato</a>
-
-        <div class="mt-3 flex items-center space-x-4 px-3">
-          <a href="https://facebook.com/omundoesuashistorias" target="_blank" rel="noopener noreferrer" class="text-ovo" aria-label="Facebook">
-            <i class="bi bi-facebook text-2xl"></i>
-          </a>
-          <a href="https://instagram.com/omundoesuashistorias" target="_blank" rel="noopener noreferrer" class="text-ovo" aria-label="Instagram">
-            <i class="bi bi-instagram text-2xl"></i>
-          </a>
-          <a href="https://www.youtube.com/@omundoesuashistorias" target="_blank" rel="noopener noreferrer" class="text-ovo" aria-label="YouTube">
-            <i class="bi bi-youtube text-2xl"></i>
-          </a>
-        </div>
-      </div>
+<section class="relative w-full overflow-hidden" style="padding-top:10.42%">
+  <div class="swiper mySwiper absolute inset-0">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/1.png" class="w-full h-full object-cover"></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/2.png" class="w-full h-full object-cover"></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/3.png" class="w-full h-full object-cover"></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/4.png" class="w-full h-full object-cover"></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/5.png" class="w-full h-full object-cover"></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/6.png" class="w-full h-full object-cover"></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/7.png" class="w-full h-full object-cover"></div>
+      <div class="swiper-slide"><img src="https://omundoesuashistorias.github.io/carrossel/8.png" class="w-full h-full object-cover"></div>
     </div>
-  </header>
-  <!-- ========== FIM HEADER ========== -->
-
-  <!-- ========== HERO FIXO (EDITABLE) ========== -->
-  <!-- EDIT: Área Hero (ID: hero-main). Mantém proporção e Swiper -->
-  <section id="hero-main" class="relative w-full overflow-hidden" style="padding-top: 10.42%;">
-    <!-- padding-top = 200 / 1920 ≈ 10.42% para manter proporção -->
-
-    <!-- Swiper -->
-    <div class="swiper mySwiper absolute top-0 left-0 w-full h-full" role="region" aria-label="Carrossel de imagens">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://omundoesuashistorias.com.br/carrossel/1.png" class="w-full h-full object-cover" alt="Carrossel imagem 1" /></div>
-        <div class="swiper-slide"><img src="https://omundoesuashistorias.com.br/carrossel/2.png" class="w-full h-full object-cover" alt="Carrossel imagem 2" /></div>
-        <div class="swiper-slide"><img src="https://omundoesuashistorias.com.br/carrossel/3.png" class="w-full h-full object-cover" alt="Carrossel imagem 3" /></div>
-        <div class="swiper-slide"><img src="https://omundoesuashistorias.com.br/carrossel/4.png" class="w-full h-full object-cover" alt="Carrossel imagem 4" /></div>
-        <div class="swiper-slide"><img src="https://omundoesuashistorias.com.br/carrossel/5.png" class="w-full h-full object-cover" alt="Carrossel imagem 5" /></div>
-        <div class="swiper-slide"><img src="https://omundoesuashistorias.com.br/carrossel/6.png" class="w-full h-full object-cover" alt="Carrossel imagem 6" /></div>
-        <div class="swiper-slide"><img src="https://omundoesuashistorias.com.br/carrossel/7.png" class="w-full h-full object-cover" alt="Carrossel imagem 7" /></div>
-        <div class="swiper-slide"><img src="https://omundoesuashistorias.com.br/carrossel/8.png" class="w-full h-full object-cover" alt="Carrossel imagem 8" /></div>
-      </div>
-    </div>
+  </div>
+</section>
 
     <!-- Gradiente para legibilidade -->
     <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50 z-10" aria-hidden="true"></div>
@@ -622,6 +557,7 @@
 
 </body>
 </html>
+
 
 
 
