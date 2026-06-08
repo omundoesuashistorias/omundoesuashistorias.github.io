@@ -100,11 +100,7 @@
 
 <script type="module">
 
-// =========================
-// IMPORTS FIREBASE
-// =========================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-
 import {
   getAuth,
   GoogleAuthProvider,
@@ -120,12 +116,8 @@ import {
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-
-// =========================
-// FIREBASE CONFIG
-// =========================
 const firebaseConfig = {
-  apiKey: "AIzaSyAfgKWLjMnOQ2DzZfEOJMXQ69WMYiE5A",
+  apiKey: "AIza...",
   authDomain: "login-blog-33823.firebaseapp.com",
   projectId: "login-blog-33823",
   storageBucket: "login-blog-33823.firebasestorage.app",
@@ -133,10 +125,6 @@ const firebaseConfig = {
   appId: "1:441445336670:web:a440123ab05df73b8516cf"
 };
 
-
-// =========================
-// INIT FIREBASE
-// =========================
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -144,8 +132,8 @@ const provider = new GoogleAuthProvider();
 
 const allowedEmail = "omh.tube@gmail.com";
 
-console.log("🔥 Firebase Admin carregado com sucesso");
-
+let isAuthenticated = false;
+let authReady = false;
 
 // =========================
 // ELEMENTOS UI
@@ -157,24 +145,29 @@ const userEmail = document.getElementById("userEmail");
 const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
+const titleEl = document.getElementById("postTitle");
+const slugEl = document.getElementById("postSlug");
+const excerptEl = document.getElementById("postExcerpt");
+const contentEl = document.getElementById("postContent");
+const imageEl = document.getElementById("postImage");
+
+// =========================
+// LOGS
+// =========================
+console.log("🔥 CMS carregado");
 
 // =========================
 // LOGIN
 // =========================
 loginBtn?.addEventListener("click", async () => {
   try {
-    console.log("➡️ Iniciando login Google...");
-
     const result = await signInWithPopup(auth, provider);
-
-    console.log("✅ Login OK:", result.user.email);
-
+    console.log("LOGIN OK:", result.user.email);
   } catch (err) {
-    console.error("❌ ERRO LOGIN:", err);
-    alert("Erro login: " + err.code);
+    console.error("LOGIN ERROR:", err);
+    alert("Erro ao logar");
   }
 });
-
 
 // =========================
 // LOGOUT
@@ -182,18 +175,17 @@ loginBtn?.addEventListener("click", async () => {
 logoutBtn?.addEventListener("click", async () => {
   try {
     await signOut(auth);
-    console.log("🚪 Logout feito");
   } catch (err) {
-    console.error("Erro logout:", err);
+    console.error("LOGOUT ERROR:", err);
   }
 });
 
-
 // =========================
-// SLUG
+// SLUGIFY
 // =========================
-function slugify(text) {
+function slugify(text = "") {
   return text
+    .toString()
     .toLowerCase()
     .trim()
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -201,81 +193,69 @@ function slugify(text) {
     .replace(/(^-|-$)/g, "");
 }
 
-
 // =========================
 // SALVAR POST
 // =========================
 async function savePost(status) {
 
+  if (!authReady) return alert("Sistema carregando...");
+  if (!isAuthenticated) return alert("Sem permissão");
+
+  if (!titleEl || !slugEl || !excerptEl || !contentEl || !imageEl) {
+    return alert("Editor não carregado corretamente");
+  }
+
+  const title = titleEl.value.trim();
+  if (!title) return alert("Título obrigatório");
+
+  let slug = slugEl.value.trim();
+  if (!slug) slug = slugify(title);
+
+  const data = {
+    title,
+    slug,
+    excerpt: excerptEl.value || "",
+    content: contentEl.value || "",
+    image: imageEl.value || "",
+    status,
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp()
+  };
+
   try {
-    const titleEl = document.getElementById("postTitle");
-    if (!titleEl) return alert("Editor não carregado");
-
-    const title = titleEl.value.trim();
-
-    if (!title) {
-      alert("Título obrigatório");
-      return;
-    }
-
-    let slug = document.getElementById("postSlug")?.value.trim();
-    if (!slug) slug = slugify(title);
-
-    const data = {
-      title,
-      slug,
-      excerpt: document.getElementById("postExcerpt")?.value || "",
-      content: document.getElementById("postContent")?.value || "",
-      image: document.getElementById("postImage")?.value || "",
-      status,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp()
-    };
-
-    console.log("💾 Salvando post:", data);
-
     await setDoc(doc(db, "posts", slug), data);
-
     alert("Post salvo com sucesso!");
-
   } catch (err) {
-    console.error("❌ ERRO AO SALVAR:", err);
+    console.error("ERRO FIRESTORE:", err);
     alert("Erro ao salvar post");
   }
 }
 
+// =========================
+// BOTÕES
+// =========================
+document.getElementById("saveDraftBtn")?.addEventListener("click", () => savePost("draft"));
+document.getElementById("publishBtn")?.addEventListener("click", () => savePost("published"));
 
 // =========================
-// BOTÕES POST
-// =========================
-document.getElementById("saveDraftBtn")?.addEventListener("click", () => {
-  console.log("🟡 Salvando rascunho...");
-  savePost("draft");
-});
-
-document.getElementById("publishBtn")?.addEventListener("click", () => {
-  console.log("🟢 Publicando post...");
-  savePost("published");
-});
-
-
-// =========================
-// AUTH STATE CONTROL
+// AUTH STATE
 // =========================
 onAuthStateChanged(auth, (user) => {
 
-  console.log("🔄 Auth state:", user?.email || "nenhum");
+  authReady = true;
 
   if (user && user.email === allowedEmail) {
+
+    isAuthenticated = true;
 
     loginScreen?.classList.add("d-none");
     adminPanel?.classList.remove("d-none");
 
     if (userEmail) userEmail.textContent = user.email;
 
-    console.log("✅ Acesso liberado");
-
   } else {
+
+    isAuthenticated = false;
 
     loginScreen?.classList.remove("d-none");
     adminPanel?.classList.add("d-none");
@@ -286,12 +266,9 @@ onAuthStateChanged(auth, (user) => {
       signOut(auth);
       alert("Acesso negado");
     }
-
-    console.log("⛔ Acesso bloqueado ou logout");
   }
 });
 
 </script>
-
 </body>
 </html>
