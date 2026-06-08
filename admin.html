@@ -101,10 +101,10 @@
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+
 import {
   getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
+  signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
@@ -136,15 +136,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const provider = new GoogleAuthProvider();
 
 const allowedEmail = "omh.tube@gmail.com";
 
-let isAuthenticated = false;
-
 
 // =========================
-// ELEMENTOS UI
+// UI ELEMENTS
 // =========================
 const loginScreen = document.getElementById("loginScreen");
 const adminPanel = document.getElementById("adminPanel");
@@ -159,31 +156,33 @@ const excerptEl = document.getElementById("postExcerpt");
 const contentEl = document.getElementById("postContent");
 const imageEl = document.getElementById("postImage");
 
-const saveDraftBtn = document.getElementById("saveDraftBtn");
-const publishBtn = document.getElementById("publishBtn");
-
 
 // =========================
 // LOG
 // =========================
-console.log("🔥 Admin CMS carregado com sucesso");
+console.log("🔥 Admin CMS carregado");
 
 
 // =========================
-// LOGIN
+// LOGIN (EMAIL/SENHA)
 // =========================
 loginBtn?.addEventListener("click", async () => {
-  console.log("➡️ Iniciando login...");
+
+  const email = document.getElementById("email")?.value?.trim();
+  const password = document.getElementById("password")?.value?.trim();
+
+  if (!email || !password) {
+    alert("Preencha email e senha");
+    return;
+  }
 
   try {
-    const result = await signInWithPopup(auth, provider);
+    const result = await signInWithEmailAndPassword(auth, email, password);
     console.log("LOGIN OK:", result.user.email);
+
   } catch (err) {
-    console.log("❌ ERRO LOGIN:");
-    console.log("CODE:", err.code);
-    console.log("MESSAGE:", err.message);
-    console.log(err);
-    alert(err.code || err.message);
+    console.error("LOGIN ERROR:", err.code, err.message);
+    alert(err.message);
   }
 });
 
@@ -194,9 +193,9 @@ loginBtn?.addEventListener("click", async () => {
 logoutBtn?.addEventListener("click", async () => {
   try {
     await signOut(auth);
-    console.log("🚪 Logout realizado");
+    console.log("LOGOUT OK");
   } catch (err) {
-    console.error("ERRO LOGOUT:", err);
+    console.error("LOGOUT ERROR:", err);
   }
 });
 
@@ -217,17 +216,27 @@ function slugify(text = "") {
 
 
 // =========================
-// SALVAR POST
+// SALVAR POST (SEMPRE VIA AUTH REAL)
 // =========================
 async function savePost(status) {
 
-  if (!isAuthenticated) {
+  const user = auth.currentUser;
+
+  if (!user) {
+    alert("Não autenticado");
+    return;
+  }
+
+  if (user.email?.toLowerCase() !== allowedEmail.toLowerCase()) {
     alert("Sem permissão");
     return;
   }
 
   const title = titleEl?.value?.trim();
-  if (!title) return alert("Título obrigatório");
+  if (!title) {
+    alert("Título obrigatório");
+    return;
+  }
 
   let slug = slugEl?.value?.trim();
   if (!slug) slug = slugify(title);
@@ -244,35 +253,36 @@ async function savePost(status) {
   };
 
   try {
-    console.log("💾 Salvando post:", data);
-
     await setDoc(doc(db, "posts", slug), data);
-
     alert("Post salvo com sucesso!");
+    console.log("POST SALVO:", data);
+
   } catch (err) {
-    console.error("ERRO FIRESTORE:", err);
+    console.error("FIRESTORE ERROR:", err);
     alert("Erro ao salvar post");
   }
 }
 
 
 // =========================
-// BOTÕES POST
+// BOTÕES
 // =========================
-saveDraftBtn?.addEventListener("click", () => savePost("draft"));
-publishBtn?.addEventListener("click", () => savePost("published"));
+document.getElementById("saveDraftBtn")?.addEventListener("click", () => savePost("draft"));
+document.getElementById("publishBtn")?.addEventListener("click", () => savePost("published"));
 
 
 // =========================
-// AUTH STATE
+// AUTH STATE (ÚNICA FONTE DE VERDADE)
 // =========================
 onAuthStateChanged(auth, (user) => {
 
-  console.log("AUTH STATE:", user?.email || "nenhum");
+  console.log("AUTH STATE:", user);
 
-  if (user && user.email === allowedEmail) {
+  const email = user?.email?.toLowerCase();
 
-    isAuthenticated = true;
+  const allowed = allowedEmail.toLowerCase();
+
+  if (user && email === allowed) {
 
     loginScreen?.classList.add("d-none");
     adminPanel?.classList.remove("d-none");
@@ -281,17 +291,10 @@ onAuthStateChanged(auth, (user) => {
 
   } else {
 
-    isAuthenticated = false;
-
     loginScreen?.classList.remove("d-none");
     adminPanel?.classList.add("d-none");
 
     if (userEmail) userEmail.textContent = "";
-
-    if (user && user.email !== allowedEmail) {
-      signOut(auth);
-      alert("Acesso negado");
-    }
   }
 });
 
