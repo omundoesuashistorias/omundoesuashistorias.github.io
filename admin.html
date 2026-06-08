@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin CMS</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,31 +10,39 @@
 
 <body class="bg-light">
 
-<!-- LOGIN -->
+<!-- =========================
+LOGIN
+========================= -->
 <div id="loginScreen" class="vh-100 d-flex justify-content-center align-items-center">
 
-  <div class="card p-4 shadow" style="width:360px">
+  <div class="card p-4 shadow" style="width: 360px;">
 
-    <h4 class="text-center mb-3">Acesso Admin</h4>
+    <h4 class="mb-3 text-center">Acesso Admin</h4>
 
-    <input id="email" class="form-control mb-2" type="email" placeholder="Email">
-    <input id="password" class="form-control mb-3" type="password" placeholder="Senha">
+    <input id="email" type="email" class="form-control mb-2" placeholder="Email">
 
-    <button id="loginBtn" class="btn btn-primary w-100">Entrar</button>
+    <input id="password" type="password" class="form-control mb-3" placeholder="Senha">
+
+    <button id="loginBtn" class="btn btn-primary w-100">
+      Entrar
+    </button>
 
     <div id="errorBox" class="text-danger small mt-3 text-center"></div>
 
   </div>
 </div>
 
-<!-- PAINEL -->
+<!-- =========================
+PAINEL
+========================= -->
 <div id="adminPanel" class="container mt-5 d-none">
 
-  <div class="d-flex justify-content-between mb-4">
-    <h3>Editor de Posts</h3>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3>Editor</h3>
+
     <div>
-      <span id="userEmail"></span>
-      <button id="logoutBtn" class="btn btn-sm btn-outline-dark ms-2">Sair</button>
+      <span id="userEmail" class="me-3"></span>
+      <button id="logoutBtn" class="btn btn-outline-dark btn-sm">Sair</button>
     </div>
   </div>
 
@@ -49,20 +56,17 @@
 
     <input id="postImage" class="form-control mb-2" placeholder="Imagem URL">
 
-    <select id="postStatus" class="form-select mb-3">
-      <option value="draft">Rascunho</option>
-      <option value="published">Publicado</option>
-    </select>
-
     <div class="d-flex gap-2">
-      <button id="saveDraftBtn" class="btn btn-secondary w-50">Salvar</button>
+      <button id="saveBtn" class="btn btn-secondary w-50">Salvar</button>
       <button id="publishBtn" class="btn btn-success w-50">Publicar</button>
     </div>
 
   </div>
 </div>
 
-<!-- FIREBASE -->
+<!-- =========================
+FIREBASE (VERSÃO ESTÁVEL)
+========================= -->
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -80,8 +84,11 @@ import {
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
+/* =========================
+   🔥 CONFIG (CORRETA)
+========================= */
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY_REAL",
+  apiKey: "AIzaSyAfgKWLjMnOQ2qhDzZfEOJMXQ69WMYiE5A",
   authDomain: "login-blog-33823.firebaseapp.com",
   projectId: "login-blog-33823",
   storageBucket: "login-blog-33823.appspot.com",
@@ -89,17 +96,18 @@ const firebaseConfig = {
   appId: "1:441445336670:web:a440123ab05df73b8516cf"
 };
 
+/* =========================
+   INIT FIREBASE
+========================= */
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const allowedEmail = "omh.tube@gmail.com";
-
-/* UI */
+/* =========================
+   UI
+========================= */
 const loginScreen = document.getElementById("loginScreen");
 const adminPanel = document.getElementById("adminPanel");
-const userEmail = document.getElementById("userEmail");
-const errorBox = document.getElementById("errorBox");
 
 const emailEl = document.getElementById("email");
 const passwordEl = document.getElementById("password");
@@ -107,76 +115,47 @@ const passwordEl = document.getElementById("password");
 const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
-const titleEl = document.getElementById("postTitle");
-const slugEl = document.getElementById("postSlug");
-const excerptEl = document.getElementById("postExcerpt");
-const contentEl = document.getElementById("postContent");
-const imageEl = document.getElementById("postImage");
+const userEmail = document.getElementById("userEmail");
 
-/* LOGIN */
+/* =========================
+   LOGIN (CORRIGIDO)
+========================= */
 loginBtn.addEventListener("click", async () => {
 
-  const email = emailEl.value.trim();
-  const password = passwordEl.value.trim();
-
-  if (!email || !password) {
-    errorBox.textContent = "Preencha email e senha";
-    return;
-  }
+  document.getElementById("errorBox").textContent = "";
 
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-    errorBox.textContent = "";
+
+    const userCred = await signInWithEmailAndPassword(
+      auth,
+      emailEl.value,
+      passwordEl.value
+    );
+
+    console.log("LOGIN OK:", userCred.user.email);
+
   } catch (err) {
-    console.log(err);
-    errorBox.textContent = err.code;
+
+    console.error(err);
+
+    document.getElementById("errorBox").textContent =
+      err.code || "Erro no login";
   }
 });
 
-/* LOGOUT */
-logoutBtn.addEventListener("click", () => signOut(auth));
+/* =========================
+   LOGOUT
+========================= */
+logoutBtn.addEventListener("click", async () => {
+  await signOut(auth);
+});
 
-/* SLUG */
-function slugify(text="") {
-  return text.toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
-/* SAVE POST */
-async function savePost(status) {
-
-  const title = titleEl.value.trim();
-  if (!title) return alert("Título obrigatório");
-
-  let slug = slugEl.value.trim();
-  if (!slug) slug = slugify(title);
-
-  const data = {
-    title,
-    slug,
-    excerpt: excerptEl.value || "",
-    content: contentEl.value || "",
-    image: imageEl.value || "",
-    status,
-    createdAt: serverTimestamp(),
-    updatedAt: serverTimestamp()
-  };
-
-  await setDoc(doc(db, "posts", slug), data);
-
-  alert("Salvo!");
-}
-
-/* BOTÕES */
-document.getElementById("saveDraftBtn").onclick = () => savePost("draft");
-document.getElementById("publishBtn").onclick = () => savePost("published");
-
-/* AUTH STATE */
+/* =========================
+   AUTH STATE (FONTE DA VERDADE)
+========================= */
 onAuthStateChanged(auth, (user) => {
 
-  if (user && user.email === allowedEmail) {
+  if (user) {
 
     loginScreen.classList.add("d-none");
     adminPanel.classList.remove("d-none");
@@ -191,6 +170,45 @@ onAuthStateChanged(auth, (user) => {
     userEmail.textContent = "";
   }
 });
+
+/* =========================
+   SAVE POST
+========================= */
+async function savePost(status) {
+
+  const title = document.getElementById("postTitle").value;
+
+  if (!title) return alert("Título obrigatório");
+
+  let slug = document.getElementById("postSlug").value;
+  if (!slug) {
+    slug = title.toLowerCase().replace(/\s+/g, "-");
+  }
+
+  const data = {
+    title,
+    slug,
+    excerpt: document.getElementById("postExcerpt").value,
+    content: document.getElementById("postContent").value,
+    image: document.getElementById("postImage").value,
+    status,
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp()
+  };
+
+  await setDoc(doc(db, "posts", slug), data);
+
+  alert("Salvo com sucesso!");
+}
+
+/* =========================
+   BOTÕES POST
+========================= */
+document.getElementById("saveBtn")
+  .addEventListener("click", () => savePost("draft"));
+
+document.getElementById("publishBtn")
+  .addEventListener("click", () => savePost("published"));
 
 </script>
 
