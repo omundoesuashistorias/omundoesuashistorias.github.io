@@ -4,47 +4,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Admin CMS - O Mundo e Suas Histórias</title>
+  <title>Admin CMS</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
 
-<!-- =========================
-LOGIN
-========================= -->
+<!-- LOGIN -->
 <div id="loginScreen" class="vh-100 d-flex justify-content-center align-items-center">
 
-  <div class="card shadow p-4" style="width: 360px;">
+  <div class="card p-4 shadow" style="width:360px">
 
-    <h4 class="mb-3 text-center">Acesso Admin</h4>
+    <h4 class="text-center mb-3">Acesso Admin</h4>
 
-    <input id="email" type="email" class="form-control mb-2" placeholder="Email">
+    <input id="email" class="form-control mb-2" type="email" placeholder="Email">
+    <input id="password" class="form-control mb-3" type="password" placeholder="Senha">
 
-    <input id="password" type="password" class="form-control mb-3" placeholder="Senha">
+    <button id="loginBtn" class="btn btn-primary w-100">Entrar</button>
 
-    <button id="loginBtn" class="btn btn-primary w-100">
-      Entrar
-    </button>
-
-    <div id="errorBox" class="text-danger mt-3 small text-center"></div>
+    <div id="errorBox" class="text-danger small mt-3 text-center"></div>
 
   </div>
 </div>
 
-<!-- =========================
-PAINEL
-========================= -->
+<!-- PAINEL -->
 <div id="adminPanel" class="container mt-5 d-none">
 
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h3>Editor de Postagens</h3>
-
+  <div class="d-flex justify-content-between mb-4">
+    <h3>Editor de Posts</h3>
     <div>
-      <span id="userEmail" class="me-3"></span>
-      <button id="logoutBtn" class="btn btn-outline-dark btn-sm">Sair</button>
+      <span id="userEmail"></span>
+      <button id="logoutBtn" class="btn btn-sm btn-outline-dark ms-2">Sair</button>
     </div>
   </div>
 
@@ -69,12 +60,9 @@ PAINEL
     </div>
 
   </div>
-
 </div>
 
-<!-- =========================
-FIREBASE + JS
-========================= -->
+<!-- FIREBASE -->
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -93,10 +81,10 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIza...",
+  apiKey: "SUA_API_KEY_REAL",
   authDomain: "login-blog-33823.firebaseapp.com",
   projectId: "login-blog-33823",
-  storageBucket: "login-blog-33823.firebasestorage.app",
+  storageBucket: "login-blog-33823.appspot.com",
   messagingSenderId: "441445336670",
   appId: "1:441445336670:web:a440123ab05df73b8516cf"
 };
@@ -107,37 +95,25 @@ const db = getFirestore(app);
 
 const allowedEmail = "omh.tube@gmail.com";
 
-/* =========================
-UI
-========================= */
+/* UI */
 const loginScreen = document.getElementById("loginScreen");
 const adminPanel = document.getElementById("adminPanel");
 const userEmail = document.getElementById("userEmail");
 const errorBox = document.getElementById("errorBox");
 
-/* login */
 const emailEl = document.getElementById("email");
 const passwordEl = document.getElementById("password");
+
 const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
-/* posts */
 const titleEl = document.getElementById("postTitle");
 const slugEl = document.getElementById("postSlug");
 const excerptEl = document.getElementById("postExcerpt");
 const contentEl = document.getElementById("postContent");
 const imageEl = document.getElementById("postImage");
 
-function slugify(text = "") {
-  return text.toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
-/* =========================
-LOGIN
-========================= */
+/* LOGIN */
 loginBtn.addEventListener("click", async () => {
 
   const email = emailEl.value.trim();
@@ -149,23 +125,26 @@ loginBtn.addEventListener("click", async () => {
   }
 
   try {
-    const result = await signInWithEmailAndPassword(auth, email, password);
+    await signInWithEmailAndPassword(auth, email, password);
     errorBox.textContent = "";
-    console.log("LOGIN OK:", result.user.email);
   } catch (err) {
     console.log(err);
     errorBox.textContent = err.code;
   }
 });
 
-/* =========================
-LOGOUT
-========================= */
+/* LOGOUT */
 logoutBtn.addEventListener("click", () => signOut(auth));
 
-/* =========================
-SAVE POST
-========================= */
+/* SLUG */
+function slugify(text="") {
+  return text.toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+/* SAVE POST */
 async function savePost(status) {
 
   const title = titleEl.value.trim();
@@ -187,15 +166,14 @@ async function savePost(status) {
 
   await setDoc(doc(db, "posts", slug), data);
 
-  alert("Salvo com sucesso!");
+  alert("Salvo!");
 }
 
+/* BOTÕES */
 document.getElementById("saveDraftBtn").onclick = () => savePost("draft");
 document.getElementById("publishBtn").onclick = () => savePost("published");
 
-/* =========================
-AUTH STATE
-========================= */
+/* AUTH STATE */
 onAuthStateChanged(auth, (user) => {
 
   if (user && user.email === allowedEmail) {
