@@ -160,12 +160,17 @@ console.log("🔥 CMS carregado");
 // LOGIN
 // =========================
 loginBtn?.addEventListener("click", async () => {
+  console.log("CLICK OK - iniciando auth");
+
   try {
     const result = await signInWithPopup(auth, provider);
     console.log("LOGIN OK:", result.user.email);
   } catch (err) {
-    console.error("LOGIN ERROR:", err);
-    alert("Erro ao logar");
+    console.log("❌ ERRO COMPLETO:");
+    console.log("CODE:", err.code);
+    console.log("MESSAGE:", err.message);
+    console.log("FULL:", err);
+    alert(err.code || err.message);
   }
 });
 
