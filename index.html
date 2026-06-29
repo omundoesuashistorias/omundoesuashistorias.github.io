@@ -507,7 +507,7 @@ body{
     </span>
 
     <span class="fst-italic">
-      “Toda história tem dois lados.”
+      "Toda história tem dois lados."
     </span>
   </div>
 </div>
@@ -643,6 +643,7 @@ Assistir no YouTube
 
 <main class="col-lg-8">
 
+<section>
 <h2 class="section-title">
 <i class="fa-solid fa-feather-pointed me-3"></i>
 Artigos de Pesquisa
@@ -654,11 +655,14 @@ Artigos de Pesquisa
 
 <div class="spinner-border text-danger"
 style="width:4rem;height:4rem;"
-role="status"></div>
+role="status"
+aria-label="Carregando artigos de pesquisa..."></div>
 
 </div>
 </div>
+</section>
 
+<section>
 <h2 class="section-title mt-5">
 
 <i class="fa-solid fa-video me-3"></i>
@@ -701,6 +705,7 @@ Escribas no Antigo Egito
 
 </div>
 </div>
+</section>
 </main>
 
 <aside class="col-lg-4">
@@ -1001,23 +1006,31 @@ style="height:220px;width:100%;object-fit:cover;">
 
 <div class="col-md-8">
 
+<a href="${link}"
+target="_blank"
+class="text-decoration-none">
+
 <h4 class="mb-3">${title}</h4>
 
-<p class="mb-4">
-Pesquisa histórica exclusiva publicada em nosso portal.
-Explore detalhes, contexto e análises aprofundadas.
+</a>
+
+<p class="text-muted">
+Clique para ler o artigo completo e conhecer mais detalhes dessa pesquisa histórica fascinante.
 </p>
 
 <a href="${link}"
 target="_blank"
-class="btn btn-portal">
+class="btn btn-portal btn-sm">
 
-Ver Pesquisa Completa
+<i class="fa-solid fa-arrow-right me-2"></i>
+Ler Artigo
 
 </a>
 
 </div>
+
 </div>
+
 `;
 
 container.appendChild(card);
@@ -1025,16 +1038,11 @@ container.appendChild(card);
 });
 
 }
+
 };
-
-const bloggerScript = document.createElement('script');
-
-bloggerScript.src =
-"https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=6&callback=bloggerFeedCallback";
-
-document.body.appendChild(bloggerScript);
 
 </script>
 
 </body>
-  </html>
+
+</html>
