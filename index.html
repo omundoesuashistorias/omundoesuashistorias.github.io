@@ -507,7 +507,7 @@ body{
     </span>
 
     <span class="fst-italic">
-      "Toda história tem dois lados."
+      “Toda história tem dois lados.”
     </span>
   </div>
 </div>
@@ -643,7 +643,6 @@ Assistir no YouTube
 
 <main class="col-lg-8">
 
-<section>
 <h2 class="section-title">
 <i class="fa-solid fa-feather-pointed me-3"></i>
 Artigos de Pesquisa
@@ -655,14 +654,11 @@ Artigos de Pesquisa
 
 <div class="spinner-border text-danger"
 style="width:4rem;height:4rem;"
-role="status"
-aria-label="Carregando artigos de pesquisa..."></div>
+role="status"></div>
 
 </div>
 </div>
-</section>
 
-<section>
 <h2 class="section-title mt-5">
 
 <i class="fa-solid fa-video me-3"></i>
@@ -705,110 +701,71 @@ Escribas no Antigo Egito
 
 </div>
 </div>
-</section>
 </main>
 
 <aside class="col-lg-4">
-
 <div class="sidebar-card p-4 mb-4">
-
 <h4 class="section-title h5">
-
 <i class="fa-solid fa-bolt me-2 text-warning"></i>
-
 Espaço do Super 8
-
 </h4>
-
 <div class="curiosity-item"
 data-bs-toggle="modal"
 data-bs-target="#modalFarao">
-
 <h6>👑 O Faraó que Nunca Sorriu</h6>
-
 <p class="small text-muted mb-0">
 Ramsés II e o mistério da expressão séria.
 </p>
-
 </div>
-
 <div class="curiosity-item"
 data-bs-toggle="modal"
 data-bs-target="#modalExplosao">
-
 <h6>💥 A Explosão que Salvou uma Cidade</h6>
-
 <p class="small text-muted mb-0">
 Quando um desastre virou heroísmo histórico.
 </p>
-
 </div>
-
 <div class="curiosity-item"
 data-bs-toggle="modal"
 data-bs-target="#modalBiblioteca">
-
 <h6>📚 Biblioteca que Sobreviveu ao Fogo</h6>
-
 <p class="small text-muted mb-0">
 Manuscritos que escaparam das chamas.
 </p>
-
 </div>
-
 </div>
-
 <div class="sidebar-card p-4 mb-4">
-
 <h4 class="section-title h5">
 Siga nossas Redes
 </h4>
-
-<div class="d-flex justify-content-around pt-2">
-
-<a href="https://facebook.com/omundoesuashistorias"
+<div class="d-flex justify-content-around pt-2"> <href="https://facebook.com/omundoesuashistorias"
 target="_blank"
 class="fs-1"
 style="color:var(--bordo);">
-
 <i class="fa-brands fa-facebook"></i>
-
 </a>
-
 <a href="https://instagram.com/omundoesuashistorias"
 target="_blank"
 class="fs-1"
 style="color:var(--bordo);">
-
 <i class="fa-brands fa-instagram"></i>
-
 </a>
-
 <a href="https://www.youtube.com/@omundoesuashistorias"
 target="_blank"
 class="fs-1"
 style="color:var(--bordo);">
-
 <i class="fa-brands fa-youtube"></i>
-
 </a>
-
 </div>
 </div>
-
 <div class="text-center">
-
 <a href="https://megacontador.com.br/" target="_blank">
-
 <img
 src="https://megacontador.com.br/img-xtUHCQGny8QTjx01-3.gif"
 class="img-fluid rounded-4 shadow"
 alt="Contador"/>
-
 </a>
-
 </div>
-
 </aside>
 </div>
 </div>
@@ -929,123 +886,103 @@ Apesar do incêndio devastador, diversos manuscritos históricos foram salvos gr
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-
 const options = {
-  weekday:'long',
-  year:'numeric',
-  month:'long',
-  day:'numeric'
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
 };
 
-document.getElementById('current-date').innerText =
-new Date().toLocaleDateString('pt-BR',options);
+document.getElementById("current-date").innerText =
+    new Date().toLocaleDateString("pt-BR", options);
 
-document.getElementById('year').innerText =
-new Date().getFullYear();
+document.getElementById("year").innerText =
+    new Date().getFullYear();
 
-window.bloggerFeedCallback = function(data){
+window.bloggerFeedCallback = function (data) {
 
-const entries = data.feed.entry || [];
+    const entries = data.feed.entry || [];
+    const container = document.getElementById("posts-container");
 
-const container =
-document.getElementById('posts-container');
+    container.innerHTML = "";
 
-container.innerHTML = '';
+    if (entries.length > 0) {
 
-if(entries.length > 0){
+        const firstPost = entries[0];
 
-const firstPost = entries[0];
+        const firstTitle = firstPost.title.$t;
 
-const firstTitle = firstPost.title.$t;
+        const firstLink =
+            firstPost.link.find(l => l.rel === "alternate").href;
 
-const firstLink =
-firstPost.link.find(l => l.rel === 'alternate').href;
+        const firstImg = firstPost.media$thumbnail
+            ? firstPost.media$thumbnail.url.replace("s72-c", "s1600")
+            : "thumbnail.jpg";
 
-let firstImg =
-firstPost.media$thumbnail
-? firstPost.media$thumbnail.url.replace('s72-c','s1600')
-: 'thumbnail.jpg';
+        document.getElementById("hero-title").innerText = firstTitle;
+        document.getElementById("hero-link").href = firstLink;
+        document.getElementById("hero-img").style.backgroundImage =
+            `url('${firstImg}')`;
 
-document.getElementById('hero-title').innerText =
-firstTitle;
+        entries.slice(1, 6).forEach(entry => {
 
-document.getElementById('hero-link').href =
-firstLink;
+            const title = entry.title.$t;
 
-document.getElementById('hero-img').style.backgroundImage =
-`url('${firstImg}')`;
+            const link =
+                entry.link.find(l => l.rel === "alternate").href;
 
-entries.slice(1,6).forEach(entry => {
+            const img = entry.media$thumbnail
+                ? entry.media$thumbnail.url.replace("s72-c", "s600")
+                : "thumbnail.jpg";
 
-const title = entry.title.$t;
+            const card = document.createElement("div");
 
-const link =
-entry.link.find(l => l.rel === 'alternate').href;
+            card.className = "news-card p-4 mb-4";
 
-let img =
-entry.media$thumbnail
-? entry.media$thumbnail.url.replace('s72-c','s600')
-: 'thumbnail.jpg';
+            card.innerHTML = `
+                <div class="row align-items-center g-4">
 
-const card = document.createElement('div');
+                    <div class="col-md-4">
+                        <img
+                            src="${img}"
+                            class="img-fluid rounded-4"
+                            alt="${title}"
+                            style="height:220px;width:100%;object-fit:cover;"
+                        >
+                    </div>
 
-card.className = 'news-card p-4 mb-4';
+                    <div class="col-md-8">
+                        <h4 class="mb-3">${title}</h4>
 
-card.innerHTML = `
+                        <p class="mb-4">
+                            Pesquisa histórica exclusiva publicada em nosso portal.
+                            Explore detalhes, contexto e análises aprofundadas.
+                        </p>
 
-<div class="row align-items-center g-4">
+                        <a
+                            href="${link}"
+                            target="_blank"
+                            class="btn btn-portal"
+                        >
+                            Ver Pesquisa Completa
+                        </a>
+                    </div>
 
-<div class="col-md-4">
+                </div>
+            `;
 
-<img src="${img}"
-class="img-fluid rounded-4"
-alt="${title}"
-style="height:220px;width:100%;object-fit:cover;">
-
-</div>
-
-<div class="col-md-8">
-
-<a href="${link}"
-target="_blank"
-class="text-decoration-none">
-
-<h4 class="mb-3">${title}</h4>
-
-</a>
-
-<p class="text-muted">
-Clique para ler o artigo completo e conhecer mais detalhes dessa pesquisa histórica fascinante.
-</p>
-
-<a href="${link}"
-target="_blank"
-class="btn btn-portal btn-sm">
-
-<i class="fa-solid fa-arrow-right me-2"></i>
-Ler Artigo
-
-</a>
-
-</div>
-
-</div>
-
-`;
-
-container.appendChild(card);
-
-});
-
-}
-
+            container.appendChild(card);
+        });
+    }
 };
 
+const bloggerScript = document.createElement("script");
+
+bloggerScript.src =
+    "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=6&callback=bloggerFeedCallback";
+
+document.body.appendChild(bloggerScript);
 </script>
-
-<!-- Carregar feed do Blogger -->
-<script src="https://www.blogger.com/feeds/3614079409664860921/posts/default?alt=json-in-script&callback=bloggerFeedCallback&orderby=published&max-results=6"></script>
-
 </body>
 
-</html>
+  </html>
