@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="pt-BR">
 
@@ -24,477 +25,384 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 
+<!-- CSS -->
+
 <style>
+/* =========================================
+   1. VARIÁVEIS E BASE
+   ========================================= */
+:root {
+  --bordo: #6b0b0b;
+  --bordo-dark: #3f0505;
+  --bordo-light: #8d1b1b;
+  --gold: #f0c808;
+  --gold-soft: #ffde59;
+  --bg: #f3f0ea;
+  --paper: #fffdf9;
+  --text: #2d2d2d;
 
-:root{
-  --bordo:#6b0b0b;
-  --bordo-dark:#3f0505;
-  --bordo-light:#8d1b1b;
-  --gold:#f0c808;
-  --gold-soft:#ffde59;
-  --bg:#f3f0ea;
-  --paper:#fffdf9;
-  --text:#2d2d2d;
-
-  --shadow:
-    0 15px 35px rgba(0,0,0,.08),
-    0 5px 15px rgba(0,0,0,.04);
-
-  --shadow-hover:
-    0 22px 50px rgba(0,0,0,.15),
-    0 10px 25px rgba(107,11,11,.15);
+  --shadow: 
+    0 15px 35px rgba(0, 0, 0, .08), 
+    0 5px 15px rgba(0, 0, 0, .04);
+    
+  --shadow-hover: 
+    0 22px 50px rgba(0, 0, 0, .15), 
+    0 10px 25px rgba(107, 11, 11, .15);
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-  background:
-    linear-gradient(rgba(255,255,255,.93),rgba(255,255,255,.93)),
+body {
+  font-family: 'Georgia', serif;
+  color: var(--text);
+  overflow-x: hidden;
+  background: 
+    linear-gradient(rgba(255, 255, 255, .93), rgba(255, 255, 255, .93)), 
     url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-
-  font-family:'Georgia',serif;
-  color:var(--text);
-  overflow-x:hidden;
 }
 
-/* TOPO */
-
-.top-bar{
-  background:
-    linear-gradient(
-      90deg,
-      #290202,
-      #530707,
-      #290202
-    );
-
-  color:white;
-  padding:8px 0;
-  font-size:.85rem;
-  border-bottom:1px solid rgba(255,255,255,.06);
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-/* NAVBAR */
-
-.navbar{
-  background:
-    linear-gradient(
-      90deg,
-      var(--bordo-dark),
-      var(--bordo),
-      var(--bordo-dark)
-    ) !important;
-
-  border-bottom:4px solid var(--gold);
-
-  backdrop-filter:blur(8px);
-
-  box-shadow:
-    0 10px 25px rgba(0,0,0,.18);
-
-  padding:.75rem 0;
+::-webkit-scrollbar-track {
+  background: #ececec;
 }
 
-.navbar-brand img{
-  filter:
-    drop-shadow(0 4px 8px rgba(0,0,0,.3));
+::-webkit-scrollbar-thumb {
+  background: var(--bordo);
+  border-radius: 20px;
 }
 
-.nav-link{
-  color:var(--gold) !important;
-  font-weight:700;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  font-size:.9rem;
-  position:relative;
-  margin-left:10px;
-  transition:.3s ease;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bordo-light);
 }
 
-.nav-link::after{
-  content:'';
-  position:absolute;
-  bottom:-5px;
-  left:50%;
-  transform:translateX(-50%);
-  width:0%;
-  height:2px;
-  background:var(--gold);
-  transition:.3s ease;
+/* =========================================
+   2. TOPO E NAVEGAÇÃO
+   ========================================= */
+.top-bar {
+  font-size: .85rem;
+  padding: 8px 0;
+  color: white;
+  background: linear-gradient(90deg, #290202, #530707, #290202);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
 
-.nav-link:hover{
-  color:white !important;
+.navbar {
+  padding: .75rem 0;
+  background: linear-gradient(90deg, var(--bordo-dark), var(--bordo), var(--bordo-dark)) !important;
+  border-bottom: 4px solid var(--gold);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .18);
+  backdrop-filter: blur(8px);
 }
 
-.nav-link:hover::after{
-  width:100%;
+.navbar-brand img {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .3));
 }
 
-/* HERO */
-
-#hero-display{
-  position:relative;
-  height:560px;
-  overflow:hidden;
-  border-radius:22px;
-
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.22),
-    0 10px 30px rgba(107,11,11,.22);
-
-  isolation:isolate;
+.nav-link {
+  position: relative;
+  margin-left: 10px;
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold) !important;
+  transition: .3s ease;
 }
 
-#hero-display::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.05),
-      rgba(0,0,0,.8)
-    );
-
-  z-index:1;
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background: var(--gold);
+  transform: translateX(-50%);
+  transition: .3s ease;
 }
 
-#hero-img{
-  width:100%;
-  height:100%;
-  background-size:cover;
-  background-position:center;
-  transition:transform 1.2s ease;
+.nav-link:hover {
+  color: white !important;
 }
 
-#hero-display:hover #hero-img{
-  transform:scale(1.08);
+.nav-link:hover::after {
+  width: 100%;
 }
 
-.hero-overlay{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:2;
-
-  padding:80px 35px 35px;
-
-  color:white;
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+#hero-display {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 22px;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, .22), 
+    0 10px 30px rgba(107, 11, 11, .22);
 }
 
-.hero-overlay h1{
-  font-size:clamp(2rem,5vw,3.6rem);
-  line-height:1.1;
-  font-weight:800;
-
-  text-shadow:
-    0 4px 15px rgba(0,0,0,.6);
+#hero-display::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .8));
 }
 
-.hero-overlay p{
-  font-size:1rem;
-  opacity:.88;
-  max-width:750px;
+#hero-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1.2s ease;
 }
 
-.badge{
-  background:linear-gradient(45deg,#d00000,#ff2d2d) !important;
-  padding:8px 14px;
-  border-radius:30px;
-  letter-spacing:.5px;
+#hero-display:hover #hero-img {
+  transform: scale(1.08);
 }
 
-/* TITULOS */
-
-.section-title{
-  position:relative;
-  display:flex;
-  align-items:center;
-
-  color:var(--bordo);
-
-  font-size:2rem;
-  font-weight:800;
-
-  margin-bottom:35px;
-  padding-bottom:12px;
-
-  border-bottom:1px solid rgba(107,11,11,.15);
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 80px 35px 35px;
+  color: white;
 }
 
-.section-title::after{
-  content:'';
-  position:absolute;
-  bottom:-2px;
-  left:0;
-
-  width:90px;
-  height:5px;
-
-  background:var(--gold);
-  border-radius:10px;
+.hero-overlay h1 {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, .6);
 }
 
-/* CARDS */
-
-.news-card{
-  background:rgba(255,255,255,.97);
-
-  border:none;
-  border-radius:22px;
-
-  overflow:hidden;
-
-  transition:.4s ease;
-
-  box-shadow:var(--shadow);
-
-  backdrop-filter:blur(10px);
+.hero-overlay p {
+  font-size: 1rem;
+  max-width: 750px;
+  opacity: .88;
 }
 
-.news-card:hover{
-  transform:translateY(-10px);
-  box-shadow:var(--shadow-hover);
+.badge {
+  padding: 8px 14px;
+  letter-spacing: .5px;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #d00000, #ff2d2d) !important;
 }
 
-.news-card img{
-  transition:transform .6s ease;
+/* =========================================
+   4. TÍTULOS DE SEÇÃO
+   ========================================= */
+.section-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+  padding-bottom: 12px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--bordo);
+  border-bottom: 1px solid rgba(107, 11, 11, .15);
 }
 
-.news-card:hover img{
-  transform:scale(1.05);
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 90px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 10px;
 }
 
-.news-card h4{
-  color:var(--bordo);
-  font-weight:800;
+/* =========================================
+   5. CARDS E CONTEÚDO
+   ========================================= */
+.news-card {
+  background: rgba(255, 255, 255, .97);
+  overflow: hidden;
+  border: none;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  transition: .4s ease;
 }
 
-.news-card p{
-  color:#666;
-  line-height:1.7;
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
 }
 
-/* SIDEBAR */
-
-.sidebar-card{
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.98),
-      rgba(255,255,255,.95)
-    );
-
-  border:none;
-  border-top:5px solid var(--bordo);
-
-  border-radius:22px;
-
-  box-shadow:var(--shadow);
-
-  overflow:hidden;
+.news-card img {
+  transition: transform .6s ease;
 }
 
-.sidebar-card img{
-  object-fit:cover;
+.news-card:hover img {
+  transform: scale(1.05);
 }
 
-/* CURIOSIDADES */
-
-.curiosity-item{
-  padding:16px;
-  border-radius:14px;
-  transition:.3s ease;
-  cursor:pointer;
-  border:1px solid transparent;
+.news-card h4 {
+  font-weight: 800;
+  color: var(--bordo);
 }
 
-.curiosity-item:hover{
-  background:#fff8dd;
-  transform:translateX(6px);
-  border-color:rgba(240,200,8,.4);
+.news-card p {
+  line-height: 1.7;
+  color: #666;
 }
 
-.curiosity-item h6{
-  font-weight:800;
+.sidebar-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(255, 255, 255, .95));
+  overflow: hidden;
+  border: none;
+  border-top: 5px solid var(--bordo);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
 }
 
-/* BOTÕES */
-
-.btn-portal{
-  background:
-    linear-gradient(
-      45deg,
-      var(--bordo-dark),
-      var(--bordo)
-    );
-
-  color:var(--gold);
-  border:none;
-
-  border-radius:14px;
-
-  font-weight:700;
-  letter-spacing:.5px;
-
-  padding:10px 22px;
-
-  transition:.3s ease;
-
-  box-shadow:
-    0 8px 20px rgba(107,11,11,.2);
+.sidebar-card img {
+  object-fit: cover;
 }
 
-.btn-portal:hover{
-  background:
-    linear-gradient(
-      45deg,
-      var(--bordo),
-      var(--bordo-light)
-    );
-
-  color:white;
-
-  transform:translateY(-2px);
+.curiosity-item {
+  padding: 16px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  transition: .3s ease;
 }
 
-/* VIDEOS */
-
-.ratio iframe{
-  border-radius:18px;
-  box-shadow:var(--shadow);
+.curiosity-item:hover {
+  background: #fff8dd;
+  transform: translateX(6px);
+  border-color: rgba(240, 200, 8, .4);
 }
 
-/* FOOTER */
-
-.footer-portal{
-  margin-top:90px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #3d0505,
-      #220101
-    );
-
-  position:relative;
-
-  overflow:hidden;
+.curiosity-item h6 {
+  font-weight: 800;
 }
 
-.footer-portal::before{
-  content:'';
-  position:absolute;
-  inset:0;
-
-  background:
-    radial-gradient(circle at top right,rgba(240,200,8,.12),transparent 30%);
-
-  pointer-events:none;
+/* =========================================
+   6. COMPONENTES UI
+   ========================================= */
+.btn-portal {
+  padding: 10px 22px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--gold);
+  background: linear-gradient(45deg, var(--bordo-dark), var(--bordo));
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(107, 11, 11, .2);
+  transition: .3s ease;
 }
 
-.footer-link{
-  color:var(--gold);
-  text-decoration:none;
-  font-weight:700;
-  transition:.3s ease;
+.btn-portal:hover {
+  color: white;
+  background: linear-gradient(45deg, var(--bordo), var(--bordo-light));
+  transform: translateY(-2px);
 }
 
-.footer-link:hover{
-  color:white;
+.ratio iframe {
+  border-radius: 18px;
+  box-shadow: var(--shadow);
 }
 
-.footer-portal p{
-  color:#e5d6d6;
+.modal-content {
+  overflow: hidden;
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, .25);
 }
 
-/* MODAIS */
-
-.modal-content{
-  border:none;
-  border-radius:22px;
-  overflow:hidden;
-
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.25);
+.modal-header {
+  color: white;
+  border: none;
+  background: linear-gradient(45deg, var(--bordo-dark), var(--bordo));
 }
 
-.modal-header{
-  background:
-    linear-gradient(
-      45deg,
-      var(--bordo-dark),
-      var(--bordo)
-    );
-
-  color:white;
-  border:none;
+.modal-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
-.modal-body{
-  font-size:1.05rem;
-  line-height:1.8;
+/* =========================================
+   7. FOOTER
+   ========================================= */
+.footer-portal {
+  position: relative;
+  margin-top: 90px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #3d0505, #220101);
 }
 
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-  width:10px;
+.footer-portal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top right, rgba(240, 200, 8, .12), transparent 30%);
 }
 
-::-webkit-scrollbar-track{
-  background:#ececec;
+.footer-link {
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  transition: .3s ease;
 }
 
-::-webkit-scrollbar-thumb{
-  background:var(--bordo);
-  border-radius:20px;
+.footer-link:hover {
+  color: white;
 }
 
-::-webkit-scrollbar-thumb:hover{
-  background:var(--bordo-light);
+.footer-portal p {
+  color: #e5d6d6;
 }
 
-/* RESPONSIVO */
-
-@media(max-width:991px){
-
-  #hero-display{
-    height:420px;
+/* =========================================
+   8. RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 991px) {
+  #hero-display {
+    height: 420px;
   }
 
-  .hero-overlay{
-    padding:60px 25px 25px;
+  .hero-overlay {
+    padding: 60px 25px 25px;
   }
 
-  .section-title{
-    font-size:1.6rem;
+  .section-title {
+    font-size: 1.6rem;
   }
-
 }
 
-@media(max-width:768px){
-
-  #hero-display{
-    height:340px;
-    border-radius:18px;
+@media (max-width: 768px) {
+  #hero-display {
+    height: 340px;
+    border-radius: 18px;
   }
 
-  .hero-overlay h1{
-    font-size:2rem;
+  .hero-overlay h1 {
+    font-size: 2rem;
   }
 
-  .news-card .row{
-    flex-direction:column;
+  .news-card .row {
+    flex-direction: column;
   }
-
 }
-
 </style>
+<!-- FIM DO CSS -->
+
 </head>
 
 <body>
@@ -537,15 +445,11 @@ PORTAL DE NOTÍCIAS HISTÓRICAS
 type="button"
 data-bs-toggle="collapse"
 data-bs-target="#navbarNav">
-
 <i class="fa-solid fa-bars"></i>
-
 </button>
 
 <div class="collapse navbar-collapse" id="navbarNav">
-
 <ul class="navbar-nav ms-auto">
-
 <li class="nav-item">
 <a class="nav-link" href="/">Início</a>
 </li>
@@ -561,28 +465,19 @@ data-bs-target="#navbarNav">
 <li class="nav-item">
 <a class="nav-link" href="/contato">Contato</a>
 </li>
-
 </ul>
-
 </div>
 </div>
 </nav>
 
 <div class="container mt-4">
-
 <div class="row g-4">
-
 <div class="col-lg-8">
-
 <a id="hero-link" href="#" target="_blank" class="text-decoration-none">
-
 <div id="hero-display">
-
 <div id="hero-img"
 style="background-image:url('thumbnail.jpg');"></div>
-
 <div class="hero-overlay">
-
 <span class="badge mb-3">
 MAIS RECENTE
 </span>
@@ -601,14 +496,11 @@ Buscando as últimas atualizações das pesquisas históricas...
 </div>
 
 <div class="col-lg-4 d-none d-lg-block">
-
 <div class="sidebar-card h-100">
-
 <img src="thumbnail.jpg"
 class="card-img-top"
 style="height:250px;object-fit:cover;"
 alt="Preview"/>
-
 <div class="card-body p-4 d-flex flex-column">
 
 <h4 class="fw-bold mb-3" style="color:var(--bordo);">
@@ -620,16 +512,12 @@ Siga nossa jornada pelo tempo e descubra eventos, curiosidades e análises hist�
 </p>
 
 <div class="mt-auto">
-
 <a href="https://www.youtube.com/@omundoesuashistorias"
 target="_blank"
 class="btn btn-portal w-100">
-
 <i class="fa-brands fa-youtube me-2"></i>
 Assistir no YouTube
-
 </a>
-
 </div>
 </div>
 </div>
@@ -638,45 +526,34 @@ Assistir no YouTube
 </div>
 
 <div class="container mt-5">
-
 <div class="row g-5">
 
-<main class="col-lg-8">
+<!-- MAIN COMEÇO -->
 
+<main class="col-lg-8">
 <h2 class="section-title">
 <i class="fa-solid fa-feather-pointed me-3"></i>
 Artigos de Pesquisa
 </h2>
-
 <div id="posts-container">
-
 <div class="text-center p-5">
-
 <div class="spinner-border text-danger"
 style="width:4rem;height:4rem;"
 role="status"></div>
-
 </div>
 </div>
 
 <h2 class="section-title mt-5">
-
 <i class="fa-solid fa-video me-3"></i>
-
 Vídeos em Destaque
-
 </h2>
 
 <div class="row g-4">
-
 <div class="col-md-6">
-
 <div class="ratio ratio-16x9">
-
 <iframe
 src="https://www.youtube.com/embed/glqHHEXtEbc"
 allowfullscreen></iframe>
-
 </div>
 
 <h5 class="mt-3 fw-bold">
@@ -684,15 +561,11 @@ allowfullscreen></iframe>
 </h5>
 
 </div>
-
 <div class="col-md-6">
-
 <div class="ratio ratio-16x9">
-
 <iframe
 src="https://www.youtube.com/embed/kU2h9FEIZuk"
 allowfullscreen></iframe>
-
 </div>
 
 <h5 class="mt-3 fw-bold">
@@ -703,6 +576,10 @@ Escribas no Antigo Egito
 </div>
 </main>
 
+<!-- FIM DO MAIN -->
+
+
+<!-- SIDEBAR -->
 <aside class="col-lg-4">
 <div class="sidebar-card p-4 mb-4">
 <h4 class="section-title h5">
@@ -735,29 +612,26 @@ Manuscritos que escaparam das chamas.
 </div>
 </div>
 <div class="sidebar-card p-4 mb-4">
-<h4 class="section-title h5">
-Siga nossas Redes
-</h4>
-<div class="d-flex justify-content-around pt-2"> <href="https://facebook.com/omundoesuashistorias"
-target="_blank"
-class="fs-1"
-style="color:var(--bordo);">
-<i class="fa-brands fa-facebook"></i>
-</a>
-<a href="https://instagram.com/omundoesuashistorias"
-target="_blank"
-class="fs-1"
-style="color:var(--bordo);">
-<i class="fa-brands fa-instagram"></i>
-</a>
-<a href="https://www.youtube.com/@omundoesuashistorias"
-target="_blank"
-class="fs-1"
-style="color:var(--bordo);">
-<i class="fa-brands fa-youtube"></i>
-</a>
+  <h4 class="section-title h5">
+    Siga nossas Redes
+  </h4>
+  
+  <!-- AQUI ESTAVA O ERRO: Faltava o "<a" no primeiro link -->
+  <div class="d-flex justify-content-around pt-2"> 
+    <a href="https://facebook.com/omundoesuashistorias" target="_blank" class="fs-1" style="color:var(--bordo);">
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+    
+    <a href="https://instagram.com/omundoesuashistorias" target="_blank" class="fs-1" style="color:var(--bordo);">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    
+    <a href="https://www.youtube.com/@omundoesuashistorias" target="_blank" class="fs-1" style="color:var(--bordo);">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+  </div>
 </div>
-</div>
+
 <div class="text-center">
 <a href="https://megacontador.com.br/" target="_blank">
 <img
@@ -767,76 +641,53 @@ alt="Contador"/>
 </a>
 </div>
 </aside>
+<!-- FIM DO ASIDE -->
 </div>
 </div>
 
+<!-- FOOTER -->
 <footer class="footer-portal pt-5 pb-4">
-
 <div class="container text-center position-relative">
-
 <img src="logo_omh_fundo_transparente.png"
 height="75"
 class="mb-4"/>
-
 <div class="mb-4">
-
 <a href="/" class="footer-link mx-3">Início</a>
-
 <a href="/sobre" class="footer-link mx-3">Sobre</a>
-
 <a href="/contato" class="footer-link mx-3">Contato</a>
-
 </div>
-
 <p class="small mb-0">
-
 O Mundo E Suas Histórias ©
 <span id="year"></span>
-
 | Toda história tem dois lados.
-
 </p>
-
 </div>
 </footer>
 
+<!-- FIM DO FOOTER -->
+
 <!-- MODAIS -->
-
 <div class="modal fade" id="modalFarao" tabindex="-1">
-
 <div class="modal-dialog modal-dialog-centered">
-
 <div class="modal-content">
-
 <div class="modal-header">
-
 <h5 class="modal-title">
 👑 O Faraó que Nunca Sorriu
 </h5>
-
 <button type="button"
 class="btn-close btn-close-white"
 data-bs-dismiss="modal"></button>
-
 </div>
-
 <div class="modal-body">
-
 Ramsés II governou o Egito por décadas e construiu monumentos gigantescos. Muitos estudiosos acreditam que sua postura rígida ajudava a transmitir poder absoluto diante do povo egípcio.
-
 </div>
 </div>
 </div>
 </div>
-
 <div class="modal fade" id="modalExplosao" tabindex="-1">
-
 <div class="modal-dialog modal-dialog-centered">
-
 <div class="modal-content">
-
 <div class="modal-header">
-
 <h5 class="modal-title">
 💥 A Explosão que Salvou uma Cidade
 </h5>
@@ -844,26 +695,19 @@ Ramsés II governou o Egito por décadas e construiu monumentos gigantescos. Mui
 <button type="button"
 class="btn-close btn-close-white"
 data-bs-dismiss="modal"></button>
-
 </div>
 
 <div class="modal-body">
-
 Um acidente químico no século XIX acabou impedindo uma tragédia ainda maior, mudando completamente o destino da cidade.
-
 </div>
 </div>
 </div>
 </div>
 
 <div class="modal fade" id="modalBiblioteca" tabindex="-1">
-
 <div class="modal-dialog modal-dialog-centered">
-
 <div class="modal-content">
-
 <div class="modal-header">
-
 <h5 class="modal-title">
 📚 Biblioteca que Sobreviveu ao Fogo
 </h5>
@@ -871,18 +715,17 @@ Um acidente químico no século XIX acabou impedindo uma tragédia ainda maior, 
 <button type="button"
 class="btn-close btn-close-white"
 data-bs-dismiss="modal"></button>
-
 </div>
 
 <div class="modal-body">
-
 Apesar do incêndio devastador, diversos manuscritos históricos foram salvos graças à ação rápida de estudiosos e bibliotecários.
-
 </div>
 </div>
 </div>
 </div>
 
+
+<!-- JAVA SCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
@@ -892,68 +735,44 @@ const options = {
     month: "long",
     day: "numeric"
 };
-
 document.getElementById("current-date").innerText =
     new Date().toLocaleDateString("pt-BR", options);
-
 document.getElementById("year").innerText =
     new Date().getFullYear();
-
 window.bloggerFeedCallback = function (data) {
-
     const entries = data.feed.entry || [];
     const container = document.getElementById("posts-container");
-
     container.innerHTML = "";
-
     if (entries.length > 0) {
-
         const firstPost = entries[0];
-
         const firstTitle = firstPost.title.$t;
-
         const firstLink =
             firstPost.link.find(l => l.rel === "alternate").href;
-
         const firstImg = firstPost.media$thumbnail
             ? firstPost.media$thumbnail.url.replace("s72-c", "s1600")
-            : "thumbnail.jpg";
-
-        document.getElementById("hero-title").innerText = firstTitle;
-        document.getElementById("hero-link").href = firstLink;
-        document.getElementById("hero-img").style.backgroundImage =
+            : "thumbnail.jpg"; document.getElementById("hero-title").innerText = firstTitle; document.getElementById("hero-link").href = firstLink;     document.getElementById("hero-img").style.backgroundImage =
             `url('${firstImg}')`;
-
         entries.slice(1, 6).forEach(entry => {
-
             const title = entry.title.$t;
-
             const link =
                 entry.link.find(l => l.rel === "alternate").href;
-
             const img = entry.media$thumbnail
                 ? entry.media$thumbnail.url.replace("s72-c", "s600")
                 : "thumbnail.jpg";
-
             const card = document.createElement("div");
-
             card.className = "news-card p-4 mb-4";
-
             card.innerHTML = `
                 <div class="row align-items-center g-4">
-
                     <div class="col-md-4">
                         <img
                             src="${img}"
                             class="img-fluid rounded-4"
-                            alt="${title}"
-                            style="height:220px;width:100%;object-fit:cover;"
+                            alt="${title}"                            style="height:220px;width:100%;object-fit:cover;"
                         >
                     </div>
 
                     <div class="col-md-8">
                         <h4 class="mb-3">${title}</h4>
-
                         <p class="mb-4">
                             Pesquisa histórica exclusiva publicada em nosso portal.
                             Explore detalhes, contexto e análises aprofundadas.
@@ -975,14 +794,9 @@ window.bloggerFeedCallback = function (data) {
         });
     }
 };
-
 const bloggerScript = document.createElement("script");
-
-bloggerScript.src =
-    "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=6&callback=bloggerFeedCallback";
-
+bloggerScript.src =    "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=6&callback=bloggerFeedCallback";
 document.body.appendChild(bloggerScript);
 </script>
 </body>
-
   </html>
