@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
 
@@ -12,6 +11,7 @@
 <meta name="description" content="Toda história tem dois lados. Explore curiosidades históricas, artigos e vídeos sobre civilizações antigas, mistérios históricos e pesquisas independentes."/>
 <link rel="canonical" href="https://omundoesuashistorias.github.io/"/>
 <link rel="icon" href="https://omundoesuashistorias.github.io/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="https://omundoesuashistorias.github.io/apple-touch-icon.png"/>
 
 <meta name="theme-color" content="#6b0b0b"/>
 
@@ -22,11 +22,50 @@
 <meta property="og:description" content="Explore curiosidades históricas, artigos e vídeos sobre civilizações antigas, mistérios históricos e pesquisas independentes."/>
 <meta property="og:image" content="https://omundoesuashistorias.github.io/thumbnail.jpg"/>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="O Mundo E Suas Histórias"/>
+<meta name="twitter:description" content="Explore curiosidades históricas, artigos e vídeos sobre civilizações antigas."/>
+<meta name="twitter:image" content="https://omundoesuashistorias.github.io/thumbnail.jpg"/>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "O Mundo E Suas Histórias",
+  "url": "https://omundoesuashistorias.github.io/",
+  "description": "Portal de notícias históricas com curiosidades, artigos e vídeos sobre civilizações antigas e mistérios históricos.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "O Mundo E Suas Histórias",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
+    }
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://omundoesuashistorias.github.io/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Bootstrap 5.3.8 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+<!-- Font Awesome 6.7.2 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
+<!-- AOS - Animate On Scroll -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- CSS -->
-
 <style>
 /* =========================================
    1. VARIÁVEIS E BASE
@@ -40,14 +79,17 @@
   --bg: #f3f0ea;
   --paper: #fffdf9;
   --text: #2d2d2d;
+  --text-light: #666;
 
   --shadow: 
     0 15px 35px rgba(0, 0, 0, .08), 
     0 5px 15px rgba(0, 0, 0, .04);
     
   --shadow-hover: 
-    0 22px 50px rgba(0, 0, 0, .15), 
-    0 10px 25px rgba(107, 11, 11, .15);
+    0 25px 60px rgba(0, 0, 0, .18), 
+    0 12px 30px rgba(107, 11, 11, .2);
+    
+  --transition: all .4s cubic-bezier(.4, 0, .2, 1);
 }
 
 html {
@@ -55,17 +97,23 @@ html {
 }
 
 body {
-  font-family: 'Georgia', serif;
+  font-family: 'Inter', sans-serif;
   color: var(--text);
   overflow-x: hidden;
   background: 
-    linear-gradient(rgba(255, 255, 255, .93), rgba(255, 255, 255, .93)), 
+    linear-gradient(rgba(255, 255, 255, .96), rgba(255, 255, 255, .96)), 
     url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -73,12 +121,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bordo);
+  background: linear-gradient(180deg, var(--bordo), var(--bordo-dark));
   border-radius: 20px;
+  border: 2px solid #ececec;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--bordo-light);
+  background: linear-gradient(180deg, var(--bordo-light), var(--bordo));
 }
 
 /* =========================================
@@ -86,53 +135,105 @@ body {
    ========================================= */
 .top-bar {
   font-size: .85rem;
-  padding: 8px 0;
+  padding: 10px 0;
   color: white;
-  background: linear-gradient(90deg, #290202, #530707, #290202);
-  border-bottom: 1px solid rgba(255, 255, 255, .06);
+  background: linear-gradient(90deg, #1a0101, #3d0505, #1a0101);
+  border-bottom: 1px solid rgba(240, 200, 8, .15);
+  position: relative;
+  overflow: hidden;
+}
+
+.top-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(240, 200, 8, .1), transparent);
+  animation: shimmer 8s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 .navbar {
-  padding: .75rem 0;
-  background: linear-gradient(90deg, var(--bordo-dark), var(--bordo), var(--bordo-dark)) !important;
+  padding: 1rem 0;
+  background: linear-gradient(135deg, var(--bordo-dark) 0%, var(--bordo) 50%, var(--bordo-dark) 100%) !important;
   border-bottom: 4px solid var(--gold);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, .18);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .25);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  padding: .5rem 0;
+  background: rgba(63, 5, 5, .98) !important;
+}
+
+.navbar-brand {
+  transition: var(--transition);
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
 }
 
 .navbar-brand img {
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .3));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .4));
+  transition: var(--transition);
+}
+
+.navbar-brand:hover img {
+  filter: drop-shadow(0 6px 16px rgba(240, 200, 8, .3));
 }
 
 .nav-link {
   position: relative;
-  margin-left: 10px;
-  font-size: .9rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+  margin: 0 8px;
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   color: var(--gold) !important;
-  transition: .3s ease;
+  transition: var(--transition);
+  padding: 8px 16px !important;
+  border-radius: 8px;
 }
 
-.nav-link::after {
+.nav-link::before {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: 0;
   left: 50%;
   width: 0%;
-  height: 2px;
-  background: var(--gold);
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
   transform: translateX(-50%);
-  transition: .3s ease;
+  transition: var(--transition);
+  border-radius: 3px;
 }
 
 .nav-link:hover {
   color: white !important;
+  background: rgba(255, 255, 255, .08);
 }
 
-.nav-link:hover::after {
-  width: 100%;
+.nav-link:hover::before {
+  width: 80%;
+}
+
+.navbar-toggler {
+  border: 2px solid var(--gold) !important;
+  padding: 6px 12px;
+  transition: var(--transition);
+}
+
+.navbar-toggler:hover {
+  background: rgba(240, 200, 8, .15);
+  transform: rotate(90deg);
 }
 
 /* =========================================
@@ -140,13 +241,21 @@ body {
    ========================================= */
 #hero-display {
   position: relative;
-  height: 560px;
+  height: 600px;
   overflow: hidden;
   isolation: isolate;
-  border-radius: 22px;
+  border-radius: 24px;
   box-shadow: 
-    0 25px 60px rgba(0, 0, 0, .22), 
-    0 10px 30px rgba(107, 11, 11, .22);
+    0 30px 80px rgba(0, 0, 0, .25), 
+    0 15px 40px rgba(107, 11, 11, .25);
+  transition: var(--transition);
+}
+
+#hero-display:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 40px 100px rgba(0, 0, 0, .3), 
+    0 20px 50px rgba(107, 11, 11, .3);
 }
 
 #hero-display::before {
@@ -154,7 +263,10 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .8));
+  background: linear-gradient(180deg, 
+    rgba(0, 0, 0, .1) 0%, 
+    rgba(0, 0, 0, .4) 50%, 
+    rgba(0, 0, 0, .85) 100%);
 }
 
 #hero-img {
@@ -162,11 +274,11 @@ body {
   height: 100%;
   background-size: cover;
   background-position: center;
-  transition: transform 1.2s ease;
+  transition: transform 1.5s cubic-bezier(.4, 0, .2, 1);
 }
 
 #hero-display:hover #hero-img {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 .hero-overlay {
@@ -175,28 +287,40 @@ body {
   left: 0;
   right: 0;
   z-index: 2;
-  padding: 80px 35px 35px;
+  padding: 100px 40px 40px;
   color: white;
 }
 
 .hero-overlay h1 {
-  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 800;
-  line-height: 1.1;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, .6);
+  line-height: 1.15;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, .7);
+  margin-bottom: 1rem;
 }
 
 .hero-overlay p {
-  font-size: 1rem;
-  max-width: 750px;
-  opacity: .88;
+  font-size: 1.1rem;
+  max-width: 800px;
+  opacity: .95;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+  line-height: 1.6;
 }
 
 .badge {
-  padding: 8px 14px;
-  letter-spacing: .5px;
+  padding: 10px 18px;
+  letter-spacing: 1px;
   border-radius: 30px;
-  background: linear-gradient(45deg, #d00000, #ff2d2d) !important;
+  background: linear-gradient(135deg, #d00000, #ff2d2d) !important;
+  font-weight: 700;
+  font-size: .85rem;
+  box-shadow: 0 6px 20px rgba(208, 0, 0, .4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 /* =========================================
@@ -206,144 +330,263 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 35px;
-  padding-bottom: 12px;
-  font-size: 2rem;
+  margin-bottom: 40px;
+  padding-bottom: 15px;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--bordo);
-  border-bottom: 1px solid rgba(107, 11, 11, .15);
+  border-bottom: 2px solid rgba(107, 11, 11, .1);
 }
 
 .section-title::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -3px;
   left: 0;
-  width: 90px;
-  height: 5px;
-  background: var(--gold);
+  width: 100px;
+  height: 6px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
   border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(240, 200, 8, .4);
+}
+
+.section-title i {
+  color: var(--gold);
+  filter: drop-shadow(0 2px 8px rgba(240, 200, 8, .3));
 }
 
 /* =========================================
    5. CARDS E CONTEÚDO
    ========================================= */
 .news-card {
-  background: rgba(255, 255, 255, .97);
+  background: rgba(255, 255, 255, .98);
   overflow: hidden;
   border: none;
-  border-radius: 22px;
+  border-radius: 24px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
-  transition: .4s ease;
+  transition: var(--transition);
+  position: relative;
+}
+
+.news-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--bordo), var(--gold));
+  transform: scaleX(0);
+  transition: var(--transition);
 }
 
 .news-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px);
   box-shadow: var(--shadow-hover);
 }
 
+.news-card:hover::before {
+  transform: scaleX(1);
+}
+
 .news-card img {
-  transition: transform .6s ease;
+  transition: transform .8s cubic-bezier(.4, 0, .2, 1);
+  border-radius: 16px;
 }
 
 .news-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .news-card h4 {
   font-weight: 800;
   color: var(--bordo);
+  line-height: 1.3;
+  transition: var(--transition);
+}
+
+.news-card:hover h4 {
+  color: var(--bordo-light);
 }
 
 .news-card p {
-  line-height: 1.7;
-  color: #666;
+  line-height: 1.8;
+  color: var(--text-light);
 }
 
 .sidebar-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(255, 255, 255, .95));
+  background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(255, 255, 255, .96));
   overflow: hidden;
   border: none;
-  border-top: 5px solid var(--bordo);
-  border-radius: 22px;
+  border-top: 6px solid var(--bordo);
+  border-radius: 24px;
   box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.sidebar-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
 }
 
 .sidebar-card img {
   object-fit: cover;
+  transition: var(--transition);
+}
+
+.sidebar-card:hover img {
+  transform: scale(1.05);
 }
 
 .curiosity-item {
-  padding: 16px;
+  padding: 18px;
   cursor: pointer;
-  border: 1px solid transparent;
-  border-radius: 14px;
-  transition: .3s ease;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.curiosity-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(240, 200, 8, .1), transparent);
+  transition: var(--transition);
 }
 
 .curiosity-item:hover {
-  background: #fff8dd;
-  transform: translateX(6px);
-  border-color: rgba(240, 200, 8, .4);
+  background: linear-gradient(135deg, #fff8dd, #fffbe6);
+  transform: translateX(8px);
+  border-color: rgba(240, 200, 8, .5);
+  box-shadow: 0 8px 25px rgba(240, 200, 8, .2);
+}
+
+.curiosity-item:hover::before {
+  left: 100%;
 }
 
 .curiosity-item h6 {
   font-weight: 800;
+  color: var(--bordo);
+  margin-bottom: 8px;
 }
 
 /* =========================================
    6. COMPONENTES UI
    ========================================= */
 .btn-portal {
-  padding: 10px 22px;
+  padding: 12px 28px;
   font-weight: 700;
-  letter-spacing: .5px;
+  letter-spacing: .8px;
   color: var(--gold);
-  background: linear-gradient(45deg, var(--bordo-dark), var(--bordo));
+  background: linear-gradient(135deg, var(--bordo-dark), var(--bordo));
   border: none;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(107, 11, 11, .2);
-  transition: .3s ease;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(107, 11, 11, .3);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-portal::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .2);
+  transform: translate(-50%, -50%);
+  transition: width .6s, height .6s;
 }
 
 .btn-portal:hover {
   color: white;
-  background: linear-gradient(45deg, var(--bordo), var(--bordo-light));
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--bordo), var(--bordo-light));
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(107, 11, 11, .4);
+}
+
+.btn-portal:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .ratio iframe {
-  border-radius: 18px;
+  border-radius: 20px;
   box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.ratio:hover iframe {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
 }
 
 .modal-content {
   overflow: hidden;
   border: none;
-  border-radius: 22px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, .25);
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .3);
 }
 
 .modal-header {
   color: white;
   border: none;
-  background: linear-gradient(45deg, var(--bordo-dark), var(--bordo));
+  background: linear-gradient(135deg, var(--bordo-dark), var(--bordo));
+  padding: 1.5rem;
+}
+
+.modal-title {
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .modal-body {
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  padding: 2rem;
 }
 
 /* =========================================
-   7. FOOTER
+   7. SIDEBAR REDES SOCIAIS
+   ========================================= */
+.social-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bordo), var(--bordo-light));
+  color: white;
+  font-size: 2rem;
+  transition: var(--transition);
+  box-shadow: 0 8px 25px rgba(107, 11, 11, .3);
+}
+
+.social-icon:hover {
+  transform: translateY(-8px) rotate(360deg);
+  box-shadow: 0 15px 40px rgba(107, 11, 11, .5);
+  color: var(--gold);
+}
+
+/* =========================================
+   8. FOOTER
    ========================================= */
 .footer-portal {
   position: relative;
-  margin-top: 90px;
+  margin-top: 100px;
   overflow: hidden;
-  background: linear-gradient(180deg, #3d0505, #220101);
+  background: linear-gradient(180deg, #3d0505, #1a0101);
+  padding: 60px 0 30px;
 }
 
 .footer-portal::before {
@@ -351,54 +594,152 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at top right, rgba(240, 200, 8, .12), transparent 30%);
+  background: 
+    radial-gradient(circle at top right, rgba(240, 200, 8, .15), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(107, 11, 11, .2), transparent 40%);
 }
 
 .footer-link {
   font-weight: 700;
   color: var(--gold);
   text-decoration: none;
-  transition: .3s ease;
+  transition: var(--transition);
+  position: relative;
+  padding: 5px 0;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: var(--transition);
 }
 
 .footer-link:hover {
   color: white;
 }
 
+.footer-link:hover::after {
+  width: 100%;
+}
+
 .footer-portal p {
   color: #e5d6d6;
 }
 
+.footer-logo {
+  filter: drop-shadow(0 8px 20px rgba(240, 200, 8, .3));
+  transition: var(--transition);
+}
+
+.footer-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
 /* =========================================
-   8. RESPONSIVIDADE
+   9. RESPONSIVIDADE
    ========================================= */
 @media (max-width: 991px) {
   #hero-display {
-    height: 420px;
+    height: 450px;
   }
 
   .hero-overlay {
-    padding: 60px 25px 25px;
+    padding: 80px 30px 30px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2.5rem;
   }
 
   .section-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+  }
+
+  .navbar-brand img {
+    height: 50px !important;
   }
 }
 
 @media (max-width: 768px) {
   #hero-display {
-    height: 340px;
-    border-radius: 18px;
+    height: 380px;
+    border-radius: 20px;
+  }
+
+  .hero-overlay {
+    padding: 60px 20px 20px;
   }
 
   .hero-overlay h1 {
     font-size: 2rem;
   }
 
+  .hero-overlay p {
+    font-size: .95rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
   .news-card .row {
     flex-direction: column;
   }
+
+  .social-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+
+  .footer-portal {
+    margin-top: 60px;
+    padding: 40px 0 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .top-bar {
+    font-size: .75rem;
+  }
+
+  .badge {
+    font-size: .75rem;
+    padding: 8px 14px;
+  }
+}
+
+/* =========================================
+   10. ANIMAÇÕES ADICIONAIS
+   ========================================= */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading spinner customizado */
+.spinner-border {
+  border-width: 4px;
+}
+
+/* Contador */
+.contador-img {
+  transition: var(--transition);
+  border-radius: 16px;
+}
+
+.contador-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
 }
 </style>
 <!-- FIM DO CSS -->
@@ -407,6 +748,7 @@ body {
 
 <body>
 
+<!-- TOP BAR -->
 <div class="top-bar d-none d-md-block">
   <div class="container d-flex justify-content-between align-items-center">
     <span>
@@ -415,388 +757,437 @@ body {
     </span>
 
     <span class="fst-italic">
-      “Toda história tem dois lados.”
+      <i class="fas fa-quote-left me-2 opacity-50"></i>
+      "Toda história tem dois lados."
+      <i class="fas fa-quote-right ms-2 opacity-50"></i>
     </span>
   </div>
 </div>
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png" 
+           alt="Logo O Mundo E Suas Histórias" 
+           height="65"/>
+      <div class="ms-3">
+        <span class="text-warning d-block fw-bold fs-4" style="font-family: 'Playfair Display', serif;">
+          O Mundo e Suas Histórias
+        </span>
+        <small class="text-white opacity-75">
+          PORTAL DE NOTÍCIAS HISTÓRICAS
+        </small>
+      </div>
+    </a>
 
-<div class="container">
+    <button class="navbar-toggler text-warning border-warning"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
-<a class="navbar-brand d-flex align-items-center" href="/">
-
-<img src="logo_omh_fundo_transparente.png" alt="Logo" height="60"/>
-
-<div class="ms-3">
-
-<span class="text-warning d-block fw-bold fs-4">
-O Mundo e Suas Histórias
-</span>
-
-<small class="text-white">
-PORTAL DE NOTÍCIAS HISTÓRICAS
-</small>
-
-</div>
-</a>
-
-<button class="navbar-toggler text-warning border-warning"
-type="button"
-data-bs-toggle="collapse"
-data-bs-target="#navbarNav">
-<i class="fa-solid fa-bars"></i>
-</button>
-
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item">
-<a class="nav-link" href="/">Início</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="/sobre">Sobre a Pesquisa</a>
-</li>
-
-  <li class="nav-item">
-<a class="nav-link" href="https://omundoesuashistorias.github.io/blog.html">Blog</a>
-  </li>
-
-<li class="nav-item">
-<a class="nav-link" href="/contato">Contato</a>
-</li>
-</ul>
-</div>
-</div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            <i class="fa-solid fa-house me-1"></i>Início
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sobre">
+            <i class="fa-solid fa-circle-info me-1"></i>Sobre
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://omundoesuashistorias.github.io/blog.html">
+            <i class="fa-solid fa-blog me-1"></i>Blog
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contato">
+            <i class="fa-solid fa-envelope me-1"></i>Contato
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<div class="container mt-4">
-<div class="row g-4">
-<div class="col-lg-8">
-<a id="hero-link" href="#" target="_blank" class="text-decoration-none">
-<div id="hero-display">
-<div id="hero-img"
-style="background-image:url('thumbnail.jpg');"></div>
-<div class="hero-overlay">
-<span class="badge mb-3">
-MAIS RECENTE
-</span>
+<!-- HERO SECTION -->
+<div class="container mt-4" data-aos="fade-up">
+  <div class="row g-4">
+    <div class="col-lg-8">
+      <a id="hero-link" href="#" target="_blank" class="text-decoration-none">
+        <div id="hero-display">
+          <div id="hero-img"
+               style="background-image:url('https://omundoesuashistorias.github.io/thumbnail.jpg');"></div>
+          <div class="hero-overlay">
+            <span class="badge mb-3">
+              <i class="fa-solid fa-bolt me-2"></i>MAIS RECENTE
+            </span>
+            <h1 id="hero-title">
+              Carregando notícia do blog...
+            </h1>
+            <p id="hero-snippet">
+              Buscando as últimas atualizações das pesquisas históricas...
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
 
-<h1 id="hero-title">
-Carregando notícia do blog...
-</h1>
-
-<p id="hero-snippet">
-Buscando as últimas atualizações das pesquisas históricas...
-</p>
-
-</div>
-</div>
-</a>
-</div>
-
-<div class="col-lg-4 d-none d-lg-block">
-<div class="sidebar-card h-100">
-<img src="thumbnail.jpg"
-class="card-img-top"
-style="height:250px;object-fit:cover;"
-alt="Preview"/>
-<div class="card-body p-4 d-flex flex-column">
-
-<h4 class="fw-bold mb-3" style="color:var(--bordo);">
-Bem-vindo ao Portal
-</h4>
-
-<p class="text-muted">
-Siga nossa jornada pelo tempo e descubra eventos, curiosidades e análises históricas que muitas vezes ficam fora dos livros tradicionais.
-</p>
-
-<div class="mt-auto">
-<a href="https://www.youtube.com/@omundoesuashistorias"
-target="_blank"
-class="btn btn-portal w-100">
-<i class="fa-brands fa-youtube me-2"></i>
-Assistir no YouTube
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="container mt-5">
-<div class="row g-5">
-
-<!-- MAIN COMEÇO -->
-
-<main class="col-lg-8">
-<h2 class="section-title">
-<i class="fa-solid fa-feather-pointed me-3"></i>
-Artigos de Pesquisa
-</h2>
-<div id="posts-container">
-<div class="text-center p-5">
-<div class="spinner-border text-danger"
-style="width:4rem;height:4rem;"
-role="status"></div>
-</div>
-</div>
-
-<h2 class="section-title mt-5">
-<i class="fa-solid fa-video me-3"></i>
-Vídeos em Destaque
-</h2>
-
-<div class="row g-4">
-<div class="col-md-6">
-<div class="ratio ratio-16x9">
-<iframe
-src="https://www.youtube.com/embed/glqHHEXtEbc"
-allowfullscreen></iframe>
-</div>
-
-<h5 class="mt-3 fw-bold">
-Ísis — A Deusa do Amor
-</h5>
-
-</div>
-<div class="col-md-6">
-<div class="ratio ratio-16x9">
-<iframe
-src="https://www.youtube.com/embed/kU2h9FEIZuk"
-allowfullscreen></iframe>
-</div>
-
-<h5 class="mt-3 fw-bold">
-Escribas no Antigo Egito
-</h5>
-
-</div>
-</div>
-</main>
-
-<!-- FIM DO MAIN -->
-
-
-<!-- SIDEBAR -->
-<aside class="col-lg-4">
-<div class="sidebar-card p-4 mb-4">
-<h4 class="section-title h5">
-<i class="fa-solid fa-bolt me-2 text-warning"></i>
-Espaço do Super 8
-</h4>
-<div class="curiosity-item"
-data-bs-toggle="modal"
-data-bs-target="#modalFarao">
-<h6>👑 O Faraó que Nunca Sorriu</h6>
-<p class="small text-muted mb-0">
-Ramsés II e o mistério da expressão séria.
-</p>
-</div>
-<div class="curiosity-item"
-data-bs-toggle="modal"
-data-bs-target="#modalExplosao">
-<h6>💥 A Explosão que Salvou uma Cidade</h6>
-<p class="small text-muted mb-0">
-Quando um desastre virou heroísmo histórico.
-</p>
-</div>
-<div class="curiosity-item"
-data-bs-toggle="modal"
-data-bs-target="#modalBiblioteca">
-<h6>📚 Biblioteca que Sobreviveu ao Fogo</h6>
-<p class="small text-muted mb-0">
-Manuscritos que escaparam das chamas.
-</p>
-</div>
-</div>
-<div class="sidebar-card p-4 mb-4">
-  <h4 class="section-title h5">
-    Siga nossas Redes
-  </h4>
-  
-  <!-- AQUI ESTAVA O ERRO: Faltava o "<a" no primeiro link -->
-  <div class="d-flex justify-content-around pt-2"> 
-    <a href="https://facebook.com/omundoesuashistorias" target="_blank" class="fs-1" style="color:var(--bordo);">
-      <i class="fa-brands fa-facebook"></i>
-    </a>
-    
-    <a href="https://instagram.com/omundoesuashistorias" target="_blank" class="fs-1" style="color:var(--bordo);">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-    
-    <a href="https://www.youtube.com/@omundoesuashistorias" target="_blank" class="fs-1" style="color:var(--bordo);">
-      <i class="fa-brands fa-youtube"></i>
-    </a>
+    <div class="col-lg-4 d-none d-lg-block" data-aos="fade-left" data-aos-delay="200">
+      <div class="sidebar-card h-100">
+        <img src="https://omundoesuashistorias.github.io/thumbnail.jpg"
+             class="card-img-top"
+             style="height:280px;object-fit:cover;"
+             alt="Preview"/>
+        <div class="card-body p-4 d-flex flex-column">
+          <h4 class="fw-bold mb-3" style="color:var(--bordo);">
+            <i class="fa-solid fa-scroll me-2 text-warning"></i>
+            Bem-vindo ao Portal
+          </h4>
+          <p class="text-muted">
+            Siga nossa jornada pelo tempo e descubra eventos, curiosidades e análises históricas que muitas vezes ficam fora dos livros tradicionais.
+          </p>
+          <div class="mt-auto">
+            <a href="https://www.youtube.com/@omundoesuashistorias"
+               target="_blank"
+               class="btn btn-portal w-100">
+              <i class="fa-brands fa-youtube me-2"></i>
+              Assistir no YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="text-center">
-<a href="https://megacontador.com.br/" target="_blank">
-<img
-src="https://megacontador.com.br/img-xtUHCQGny8QTjx01-3.gif"
-class="img-fluid rounded-4 shadow"
-alt="Contador"/>
-</a>
-</div>
-</aside>
-<!-- FIM DO ASIDE -->
-</div>
+<!-- MAIN CONTENT -->
+<div class="container mt-5">
+  <div class="row g-5">
+    <!-- MAIN -->
+    <main class="col-lg-8">
+      <h2 class="section-title" data-aos="fade-right">
+        <i class="fa-solid fa-feather-pointed me-3"></i>
+        Artigos de Pesquisa
+      </h2>
+      <div id="posts-container">
+        <div class="text-center p-5">
+          <div class="spinner-border text-danger"
+               style="width:4rem;height:4rem;"
+               role="status">
+            <span class="visually-hidden">Carregando...</span>
+          </div>
+          <p class="mt-3 text-muted">Carregando artigos...</p>
+        </div>
+      </div>
+
+      <h2 class="section-title mt-5" data-aos="fade-right">
+        <i class="fa-solid fa-video me-3"></i>
+        Vídeos em Destaque
+      </h2>
+
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="ratio ratio-16x9">
+            <iframe
+              src="https://www.youtube.com/embed/glqHHEXtEbc"
+              title="Ísis — A Deusa do Amor"
+              allowfullscreen></iframe>
+          </div>
+          <h5 class="mt-3 fw-bold">
+            <i class="fa-solid fa-play-circle text-warning me-2"></i>
+            Ísis — A Deusa do Amor
+          </h5>
+        </div>
+        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="ratio ratio-16x9">
+            <iframe
+              src="https://www.youtube.com/embed/kU2h9FEIZuk"
+              title="Escribas no Antigo Egito"
+              allowfullscreen></iframe>
+          </div>
+          <h5 class="mt-3 fw-bold">
+            <i class="fa-solid fa-play-circle text-warning me-2"></i>
+            Escribas no Antigo Egito
+          </h5>
+        </div>
+      </div>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="col-lg-4">
+      <div class="sidebar-card p-4 mb-4" data-aos="fade-left">
+        <h4 class="section-title h5">
+          <i class="fa-solid fa-bolt me-2 text-warning"></i>
+          Espaço do Super 8
+        </h4>
+        <div class="curiosity-item"
+             data-bs-toggle="modal"
+             data-bs-target="#modalFarao">
+          <h6><i class="fa-solid fa-crown text-warning me-2"></i>O Faraó que Nunca Sorriu</h6>
+          <p class="small text-muted mb-0">
+            Ramsés II e o mistério da expressão séria.
+          </p>
+        </div>
+        <div class="curiosity-item"
+             data-bs-toggle="modal"
+             data-bs-target="#modalExplosao">
+          <h6><i class="fa-solid fa-explosion text-warning me-2"></i>A Explosão que Salvou uma Cidade</h6>
+          <p class="small text-muted mb-0">
+            Quando um desastre virou heroísmo histórico.
+          </p>
+        </div>
+        <div class="curiosity-item"
+             data-bs-toggle="modal"
+             data-bs-target="#modalBiblioteca">
+          <h6><i class="fa-solid fa-book-open text-warning me-2"></i>Biblioteca que Sobreviveu ao Fogo</h6>
+          <p class="small text-muted mb-0">
+            Manuscritos que escaparam das chamas.
+          </p>
+        </div>
+      </div>
+
+      <div class="sidebar-card p-4 mb-4" data-aos="fade-left" data-aos-delay="100">
+        <h4 class="section-title h5">
+          <i class="fa-solid fa-share-nodes me-2 text-warning"></i>
+          Siga nossas Redes
+        </h4>
+        <div class="d-flex justify-content-around pt-3">
+          <a href="https://facebook.com/omundoesuashistorias" 
+             target="_blank" 
+             class="social-icon"
+             title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com/omundoesuashistorias" 
+             target="_blank" 
+             class="social-icon"
+             title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/@omundoesuashistorias" 
+             target="_blank" 
+             class="social-icon"
+             title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+        <a href="https://megacontador.com.br/" target="_blank">
+          <img
+            src="https://megacontador.com.br/img-xtUHCQGny8QTjx01-3.gif"
+            class="img-fluid contador-img shadow"
+            alt="Contador de visitas"/>
+        </a>
+      </div>
+    </aside>
+  </div>
 </div>
 
 <!-- FOOTER -->
-<footer class="footer-portal pt-5 pb-4">
-<div class="container text-center position-relative">
-<img src="logo_omh_fundo_transparente.png"
-height="75"
-class="mb-4"/>
-<div class="mb-4">
-<a href="/" class="footer-link mx-3">Início</a>
-<a href="/sobre" class="footer-link mx-3">Sobre</a>
-<a href="/contato" class="footer-link mx-3">Contato</a>
-</div>
-<p class="small mb-0">
-O Mundo E Suas Histórias ©
-<span id="year"></span>
-| Toda história tem dois lados.
-</p>
-</div>
+<footer class="footer-portal">
+  <div class="container text-center position-relative">
+    <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
+         height="80"
+         class="mb-4 footer-logo"/>
+    <div class="mb-4">
+      <a href="/" class="footer-link mx-3">
+        <i class="fa-solid fa-house me-1"></i>Início
+      </a>
+      <a href="/sobre" class="footer-link mx-3">
+        <i class="fa-solid fa-circle-info me-1"></i>Sobre
+      </a>
+      <a href="/contato" class="footer-link mx-3">
+        <i class="fa-solid fa-envelope me-1"></i>Contato
+      </a>
+    </div>
+    <p class="small mb-0">
+      <i class="fa-solid fa-scroll me-2 opacity-50"></i>
+      O Mundo E Suas Histórias ©
+      <span id="year"></span>
+      | Toda história tem dois lados.
+    </p>
+  </div>
 </footer>
-
-<!-- FIM DO FOOTER -->
 
 <!-- MODAIS -->
 <div class="modal fade" id="modalFarao" tabindex="-1">
-<div class="modal-dialog modal-dialog-centered">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title">
-👑 O Faraó que Nunca Sorriu
-</h5>
-<button type="button"
-class="btn-close btn-close-white"
-data-bs-dismiss="modal"></button>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i class="fa-solid fa-crown me-2"></i>
+          O Faraó que Nunca Sorriu
+        </h5>
+        <button type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Ramsés II governou o Egito por décadas e construiu monumentos gigantescos. Muitos estudiosos acreditam que sua postura rígida ajudava a transmitir poder absoluto diante do povo egípcio.</p>
+        <p>Suas estátuas monumentais, espalhadas por todo o Egito, sempre o retratavam com uma expressão séria e imponente, reforçando sua autoridade divina.</p>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="modal-body">
-Ramsés II governou o Egito por décadas e construiu monumentos gigantescos. Muitos estudiosos acreditam que sua postura rígida ajudava a transmitir poder absoluto diante do povo egípcio.
-</div>
-</div>
-</div>
-</div>
+
 <div class="modal fade" id="modalExplosao" tabindex="-1">
-<div class="modal-dialog modal-dialog-centered">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title">
-💥 A Explosão que Salvou uma Cidade
-</h5>
-
-<button type="button"
-class="btn-close btn-close-white"
-data-bs-dismiss="modal"></button>
-</div>
-
-<div class="modal-body">
-Um acidente químico no século XIX acabou impedindo uma tragédia ainda maior, mudando completamente o destino da cidade.
-</div>
-</div>
-</div>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i class="fa-solid fa-explosion me-2"></i>
+          A Explosão que Salvou uma Cidade
+        </h5>
+        <button type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Um acidente químico no século XIX acabou impedindo uma tragédia ainda maior, mudando completamente o destino da cidade.</p>
+        <p>O que parecia ser um desastre tornou-se uma oportunidade de recomeço, transformando a história local para sempre.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="modal fade" id="modalBiblioteca" tabindex="-1">
-<div class="modal-dialog modal-dialog-centered">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title">
-📚 Biblioteca que Sobreviveu ao Fogo
-</h5>
-
-<button type="button"
-class="btn-close btn-close-white"
-data-bs-dismiss="modal"></button>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i class="fa-solid fa-book-open me-2"></i>
+          Biblioteca que Sobreviveu ao Fogo
+        </h5>
+        <button type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Apesar do incêndio devastador, diversos manuscritos históricos foram salvos graças à ação rápida de estudiosos e bibliotecários.</p>
+        <p>Esses documentos preciosos continuam disponíveis até hoje, preservando conhecimento invaluable para as gerações futuras.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="modal-body">
-Apesar do incêndio devastador, diversos manuscritos históricos foram salvos graças à ação rápida de estudiosos e bibliotecários.
-</div>
-</div>
-</div>
-</div>
-
-
-<!-- JAVA SCRIPT -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
 <script>
+// Inicializar AOS
+AOS.init({
+  duration: 800,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 50
+});
+
+// Data atual
 const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric"
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric"
 };
+
 document.getElementById("current-date").innerText =
-    new Date().toLocaleDateString("pt-BR", options);
+  new Date().toLocaleDateString("pt-BR", options);
+
 document.getElementById("year").innerText =
-    new Date().getFullYear();
+  new Date().getFullYear();
+
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Blogger Feed Callback
 window.bloggerFeedCallback = function (data) {
-    const entries = data.feed.entry || [];
-    const container = document.getElementById("posts-container");
-    container.innerHTML = "";
-    if (entries.length > 0) {
-        const firstPost = entries[0];
-        const firstTitle = firstPost.title.$t;
-        const firstLink =
-            firstPost.link.find(l => l.rel === "alternate").href;
-        const firstImg = firstPost.media$thumbnail
-            ? firstPost.media$thumbnail.url.replace("s72-c", "s1600")
-            : "thumbnail.jpg"; document.getElementById("hero-title").innerText = firstTitle; document.getElementById("hero-link").href = firstLink;     document.getElementById("hero-img").style.backgroundImage =
-            `url('${firstImg}')`;
-        entries.slice(1, 6).forEach(entry => {
-            const title = entry.title.$t;
-            const link =
-                entry.link.find(l => l.rel === "alternate").href;
-            const img = entry.media$thumbnail
-                ? entry.media$thumbnail.url.replace("s72-c", "s600")
-                : "thumbnail.jpg";
-            const card = document.createElement("div");
-            card.className = "news-card p-4 mb-4";
-            card.innerHTML = `
-                <div class="row align-items-center g-4">
-                    <div class="col-md-4">
-                        <img
-                            src="${img}"
-                            class="img-fluid rounded-4"
-                            alt="${title}"                            style="height:220px;width:100%;object-fit:cover;"
-                        >
-                    </div>
+  const entries = data.feed.entry || [];
+  const container = document.getElementById("posts-container");
+  container.innerHTML = "";
 
-                    <div class="col-md-8">
-                        <h4 class="mb-3">${title}</h4>
-                        <p class="mb-4">
-                            Pesquisa histórica exclusiva publicada em nosso portal.
-                            Explore detalhes, contexto e análises aprofundadas.
-                        </p>
+  if (entries.length > 0) {
+    // Primeiro post (Hero)
+    const firstPost = entries[0];
+    const firstTitle = firstPost.title.$t;
+    const firstLink = firstPost.link.find(l => l.rel === "alternate").href;
+    const firstImg = firstPost.media$thumbnail
+      ? firstPost.media$thumbnail.url.replace("s72-c", "s1600")
+      : "https://omundoesuashistorias.github.io/thumbnail.jpg";
 
-                        <a
-                            href="${link}"
-                            target="_blank"
-                            class="btn btn-portal"
-                        >
-                            Ver Pesquisa Completa
-                        </a>
-                    </div>
+    document.getElementById("hero-title").innerText = firstTitle;
+    document.getElementById("hero-link").href = firstLink;
+    document.getElementById("hero-img").style.backgroundImage = `url('${firstImg}')`;
 
-                </div>
-            `;
+    // Posts restantes
+    entries.slice(1, 6).forEach((entry, index) => {
+      const title = entry.title.$t;
+      const link = entry.link.find(l => l.rel === "alternate").href;
+      const img = entry.media$thumbnail
+        ? entry.media$thumbnail.url.replace("s72-c", "s600")
+        : "https://omundoesuashistorias.github.io/thumbnail.jpg";
 
-            container.appendChild(card);
-        });
-    }
+      const card = document.createElement("div");
+      card.className = "news-card p-4 mb-4";
+      card.setAttribute("data-aos", "fade-up");
+      card.setAttribute("data-aos-delay", (index * 100).toString());
+      
+      card.innerHTML = `
+        <div class="row align-items-center g-4">
+          <div class="col-md-4">
+            <img
+              src="${img}"
+              class="img-fluid rounded-4"
+              alt="${title}"
+              style="height:240px;width:100%;object-fit:cover;"
+            >
+          </div>
+          <div class="col-md-8">
+            <h4 class="mb-3">${title}</h4>
+            <p class="mb-4">
+              Pesquisa histórica exclusiva publicada em nosso portal.
+              Explore detalhes, contexto e análises aprofundadas.
+            </p>
+            <a
+              href="${link}"
+              target="_blank"
+              class="btn btn-portal"
+            >
+              <i class="fa-solid fa-book-open me-2"></i>
+              Ver Pesquisa Completa
+            </a>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+
+    // Re-inicializar AOS para novos elementos
+    AOS.refresh();
+  }
 };
+
+// Carregar feed do Blogger
 const bloggerScript = document.createElement("script");
-bloggerScript.src =    "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=6&callback=bloggerFeedCallback";
+bloggerScript.src = "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=6&callback=bloggerFeedCallback";
 document.body.appendChild(bloggerScript);
 </script>
+
 </body>
-  </html>
+               </html>
