@@ -67,9 +67,6 @@
 
 <!-- CSS -->
 <style>
-/* =========================================
-   1. VARIÁVEIS E BASE
-   ========================================= */
 :root {
   --bordo: #6b0b0b;
   --bordo-dark: #3f0505;
@@ -80,30 +77,39 @@
   --paper: #fffdf9;
   --text: #2d2d2d;
   --text-light: #666;
-
-  --shadow: 
-    0 15px 35px rgba(0, 0, 0, .08), 
-    0 5px 15px rgba(0, 0, 0, .04);
-    
-  --shadow-hover: 
-    0 25px 60px rgba(0, 0, 0, .18), 
-    0 12px 30px rgba(107, 11, 11, .2);
-    
+  --shadow: 0 15px 35px rgba(0, 0, 0, .08), 0 5px 15px rgba(0, 0, 0, .04);
+  --shadow-hover: 0 25px 60px rgba(0, 0, 0, .18), 0 12px 30px rgba(107, 11, 11, .2);
   --transition: all .4s cubic-bezier(.4, 0, .2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
   font-family: 'Inter', sans-serif;
   color: var(--text);
-  overflow-x: hidden;
-  background: 
-    linear-gradient(rgba(255, 255, 255, .96), rgba(255, 255, 255, .96)), 
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background:
+    linear-gradient(rgba(255, 255, 255, .96), rgba(255, 255, 255, .96)),
     url("https://www.transparenttextures.com/patterns/paper-fibers.png");
   line-height: 1.6;
+}
+
+img,
+iframe,
+video {
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -111,7 +117,16 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* Scrollbar */
+.container,
+.container-fluid {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -130,9 +145,7 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(180deg, var(--bordo-light), var(--bordo));
 }
 
-/* =========================================
-   2. TOPO E NAVEGAÇÃO
-   ========================================= */
+/* TOPO E NAVEGAÇÃO */
 .top-bar {
   font-size: .85rem;
   padding: 10px 0;
@@ -168,6 +181,10 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
 }
 
+.navbar .container {
+  min-width: 0;
+}
+
 .navbar.scrolled {
   padding: .5rem 0;
   background: rgba(63, 5, 5, .98) !important;
@@ -175,19 +192,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-brand {
   transition: var(--transition);
+  min-width: 0;
+  max-width: calc(100% - 60px);
 }
 
 .navbar-brand:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .navbar-brand img {
+  flex-shrink: 0;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .4));
   transition: var(--transition);
 }
 
 .navbar-brand:hover img {
   filter: drop-shadow(0 6px 16px rgba(240, 200, 8, .3));
+}
+
+.navbar-brand .ms-3 {
+  min-width: 0;
+}
+
+.navbar-brand .fs-4 {
+  overflow-wrap: anywhere;
 }
 
 .nav-link {
@@ -226,6 +254,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-toggler {
+  flex-shrink: 0;
   border: 2px solid var(--gold) !important;
   padding: 6px 12px;
   transition: var(--transition);
@@ -233,29 +262,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-toggler:hover {
   background: rgba(240, 200, 8, .15);
-  transform: rotate(90deg);
 }
 
-/* =========================================
-   3. HERO SECTION
-   ========================================= */
+/* HERO */
 #hero-display {
   position: relative;
-  height: 600px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   isolation: isolate;
   border-radius: 24px;
-  box-shadow: 
-    0 30px 80px rgba(0, 0, 0, .25), 
-    0 15px 40px rgba(107, 11, 11, .25);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .25), 0 15px 40px rgba(107, 11, 11, .25);
   transition: var(--transition);
 }
 
 #hero-display:hover {
   transform: translateY(-5px);
-  box-shadow: 
-    0 40px 100px rgba(0, 0, 0, .3), 
-    0 20px 50px rgba(107, 11, 11, .3);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, .3), 0 20px 50px rgba(107, 11, 11, .3);
 }
 
 #hero-display::before {
@@ -263,10 +287,8 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, 
-    rgba(0, 0, 0, .1) 0%, 
-    rgba(0, 0, 0, .4) 50%, 
-    rgba(0, 0, 0, .85) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .4) 50%, rgba(0, 0, 0, .85) 100%);
+  pointer-events: none;
 }
 
 #hero-img {
@@ -278,7 +300,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero-display:hover #hero-img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .hero-overlay {
@@ -287,24 +309,26 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   z-index: 2;
-  padding: 100px 40px 40px;
+  padding: clamp(16px, 5vw, 60px);
   color: white;
 }
 
 .hero-overlay h1 {
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-size: clamp(1.2rem, 4vw, 4rem);
   font-weight: 800;
   line-height: 1.15;
   text-shadow: 0 4px 20px rgba(0, 0, 0, .7);
-  margin-bottom: 1rem;
+  margin-bottom: .75rem;
+  overflow-wrap: anywhere;
 }
 
 .hero-overlay p {
-  font-size: 1.1rem;
+  font-size: clamp(.75rem, 1.5vw, 1.1rem);
   max-width: 800px;
   opacity: .95;
   text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
-  line-height: 1.6;
+  line-height: 1.5;
+  margin-bottom: 0;
 }
 
 .badge {
@@ -320,12 +344,10 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.03); }
 }
 
-/* =========================================
-   4. TÍTULOS DE SEÇÃO
-   ========================================= */
+/* TÍTULOS */
 .section-title {
   position: relative;
   display: flex;
@@ -336,6 +358,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   color: var(--bordo);
   border-bottom: 2px solid rgba(107, 11, 11, .1);
+  overflow-wrap: anywhere;
 }
 
 .section-title::after {
@@ -351,13 +374,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title i {
+  flex-shrink: 0;
   color: var(--gold);
   filter: drop-shadow(0 2px 8px rgba(240, 200, 8, .3));
 }
 
-/* =========================================
-   5. CARDS E CONTEÚDO
-   ========================================= */
+/* CARDS */
 .news-card {
   background: rgba(255, 255, 255, .98);
   overflow: hidden;
@@ -367,6 +389,7 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(10px);
   transition: var(--transition);
   position: relative;
+  min-width: 0;
 }
 
 .news-card::before {
@@ -382,7 +405,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .news-card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-hover);
 }
 
@@ -391,12 +414,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .news-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
   transition: transform .8s cubic-bezier(.4, 0, .2, 1);
   border-radius: 16px;
 }
 
 .news-card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.03);
 }
 
 .news-card h4 {
@@ -404,6 +432,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--bordo);
   line-height: 1.3;
   transition: var(--transition);
+  overflow-wrap: anywhere;
 }
 
 .news-card:hover h4 {
@@ -413,6 +442,11 @@ h1, h2, h3, h4, h5, h6 {
 .news-card p {
   line-height: 1.8;
   color: var(--text-light);
+  overflow-wrap: anywhere;
+}
+
+.news-card .row > * {
+  min-width: 0;
 }
 
 .sidebar-card {
@@ -423,20 +457,24 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 24px;
   box-shadow: var(--shadow);
   transition: var(--transition);
+  min-width: 0;
 }
 
 .sidebar-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
 }
 
 .sidebar-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   transition: var(--transition);
 }
 
 .sidebar-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .curiosity-item {
@@ -462,7 +500,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .curiosity-item:hover {
   background: linear-gradient(135deg, #fff8dd, #fffbe6);
-  transform: translateX(8px);
   border-color: rgba(240, 200, 8, .5);
   box-shadow: 0 8px 25px rgba(240, 200, 8, .2);
 }
@@ -477,9 +514,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 8px;
 }
 
-/* =========================================
-   6. COMPONENTES UI
-   ========================================= */
+/* COMPONENTES */
 .btn-portal {
   padding: 12px 28px;
   font-weight: 700;
@@ -492,6 +527,8 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  max-width: 100%;
+  white-space: normal;
 }
 
 .btn-portal::before {
@@ -525,11 +562,6 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
 }
 
-.ratio:hover iframe {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-hover);
-}
-
 .modal-content {
   overflow: hidden;
   border: none;
@@ -555,32 +587,29 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2rem;
 }
 
-/* =========================================
-   7. SIDEBAR REDES SOCIAIS
-   ========================================= */
+/* REDES SOCIAIS */
 .social-icon {
-  width: 70px;
-  height: 70px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--bordo), var(--bordo-light));
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   transition: var(--transition);
-  box-shadow: 0 8px 25px rgba(107, 11, 11, .3);
+  box-shadow: 0 3px 10px rgba(107, 11, 11, .2);
+  flex-shrink: 0;
 }
 
 .social-icon:hover {
-  transform: translateY(-8px) rotate(360deg);
-  box-shadow: 0 15px 40px rgba(107, 11, 11, .5);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(107, 11, 11, .3);
   color: var(--gold);
 }
 
-/* =========================================
-   8. FOOTER
-   ========================================= */
+/* RODAPÉ */
 .footer-portal {
   position: relative;
   margin-top: 100px;
@@ -594,7 +623,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: 
+  background:
     radial-gradient(circle at top right, rgba(240, 200, 8, .15), transparent 40%),
     radial-gradient(circle at bottom left, rgba(107, 11, 11, .2), transparent 40%);
 }
@@ -606,6 +635,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
   position: relative;
   padding: 5px 0;
+  display: inline-block;
 }
 
 .footer-link::after {
@@ -632,28 +662,78 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-logo {
+  max-width: 100%;
   filter: drop-shadow(0 8px 20px rgba(240, 200, 8, .3));
   transition: var(--transition);
 }
 
 .footer-logo:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.03);
 }
 
-/* =========================================
-   9. RESPONSIVIDADE
-   ========================================= */
+/* CONTADOR DE VISITAS — MINIMALISTA */
+.contador-img {
+  display: inline-block;
+  width: auto;
+  max-width: 120px;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none !important;
+  transition: none;
+}
+
+.contador-img:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1199px) {
+  .navbar-brand .fs-4 {
+    font-size: 1.2rem !important;
+  }
+
+  .navbar-brand img {
+    height: 55px !important;
+  }
+
+  .nav-link {
+    margin: 0 2px;
+    padding: 8px 10px !important;
+    letter-spacing: .5px;
+  }
+}
+
 @media (max-width: 991px) {
+  .navbar .navbar-collapse {
+    padding-top: 1rem;
+  }
+
+  .navbar-nav {
+    align-items: stretch;
+  }
+
+  .nav-link {
+    margin: 2px 0;
+  }
+
+  .nav-link::before {
+    display: none;
+  }
+
   #hero-display {
-    height: 450px;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .hero-overlay {
-    padding: 80px 30px 30px;
+    padding: clamp(16px, 4vw, 30px);
   }
 
   .hero-overlay h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
   }
 
   .section-title {
@@ -667,20 +747,27 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   #hero-display {
-    height: 380px;
+    height: auto;
+    aspect-ratio: 16 / 9;
     border-radius: 20px;
   }
 
   .hero-overlay {
-    padding: 60px 20px 20px;
+    padding: 14px 16px;
   }
 
   .hero-overlay h1 {
-    font-size: 2rem;
+    font-size: clamp(1rem, 4.3vw, 2rem);
+    margin-bottom: .4rem;
   }
 
   .hero-overlay p {
-    font-size: .95rem;
+    font-size: clamp(.7rem, 2.4vw, .95rem);
+    line-height: 1.35;
+  }
+
+  .hero-overlay .badge {
+    margin-bottom: .4rem !important;
   }
 
   .section-title {
@@ -691,15 +778,19 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
   }
 
-  .social-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 1.6rem;
+  .news-card .row > .col-md-4,
+  .news-card .row > .col-md-8 {
+    width: 100%;
   }
 
   .footer-portal {
     margin-top: 60px;
     padding: 40px 0 20px;
+  }
+
+  .modal-body {
+    padding: 1.25rem;
+    font-size: 1rem;
   }
 }
 
@@ -708,15 +799,93 @@ h1, h2, h3, h4, h5, h6 {
     font-size: .75rem;
   }
 
+  .navbar {
+    padding: .75rem 0;
+  }
+
+  .navbar .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .navbar-brand {
+    margin-right: .25rem;
+  }
+
+  .navbar-brand img {
+    height: 42px !important;
+  }
+
+  .navbar-brand .ms-3 {
+    margin-left: .5rem !important;
+  }
+
+  .navbar-brand .fs-4 {
+    font-size: .95rem !important;
+    line-height: 1.2;
+  }
+
+  .navbar-brand small {
+    font-size: .55rem;
+    line-height: 1.2;
+    display: block;
+  }
+
+  .navbar-toggler {
+    padding: 5px 9px;
+  }
+
   .badge {
-    font-size: .75rem;
-    padding: 8px 14px;
+    font-size: .65rem;
+    padding: 6px 10px;
+  }
+
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .row {
+    --bs-gutter-x: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.35rem;
+    margin-bottom: 25px;
+  }
+
+  .section-title i {
+    margin-right: .6rem !important;
+  }
+
+  .news-card,
+  .sidebar-card {
+    border-radius: 18px;
+  }
+
+  .news-card {
+    padding: 1rem !important;
+  }
+
+  .hero-overlay {
+    padding: 10px 12px;
+  }
+
+  .hero-overlay h1 {
+    font-size: clamp(.9rem, 4vw, 1.3rem);
+    line-height: 1.15;
+  }
+
+  .hero-overlay p {
+    font-size: .68rem;
+  }
+
+  .footer-link {
+    margin: 5px 8px !important;
   }
 }
 
-/* =========================================
-   10. ANIMAÇÕES ADICIONAIS
-   ========================================= */
+/* ANIMAÇÕES */
 .fade-in {
   animation: fadeIn 1s ease-in;
 }
@@ -726,20 +895,8 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Loading spinner customizado */
 .spinner-border {
   border-width: 4px;
-}
-
-/* Contador */
-.contador-img {
-  transition: var(--transition);
-  border-radius: 16px;
-}
-
-.contador-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
 }
 </style>
 <!-- FIM DO CSS -->
@@ -767,9 +924,9 @@ h1, h2, h3, h4, h5, h6 {
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="/">
-      <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png" 
-           alt="Logo O Mundo E Suas Histórias" 
+    <a class="navbar-brand d-flex align-items-center" href="https://omundoesuashistorias.github.io/">
+      <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
+           alt="Logo O Mundo E Suas Histórias"
            height="65"/>
       <div class="ms-3">
         <span class="text-warning d-block fw-bold fs-4" style="font-family: 'Playfair Display', serif;">
@@ -784,19 +941,22 @@ h1, h2, h3, h4, h5, h6 {
     <button class="navbar-toggler text-warning border-warning"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarNav">
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Abrir ou fechar menu">
       <i class="fa-solid fa-bars"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/">
+          <a class="nav-link" href="https://omundoesuashistorias.github.io/">
             <i class="fa-solid fa-house me-1"></i>Início
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/sobre">
+          <a class="nav-link" href="https://omundoesuashistorias.github.io/sobre">
             <i class="fa-solid fa-circle-info me-1"></i>Sobre
           </a>
         </li>
@@ -806,7 +966,7 @@ h1, h2, h3, h4, h5, h6 {
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/contato">
+          <a class="nav-link" href="https://omundoesuashistorias.github.io/contato">
             <i class="fa-solid fa-envelope me-1"></i>Contato
           </a>
         </li>
@@ -819,7 +979,7 @@ h1, h2, h3, h4, h5, h6 {
 <div class="container mt-4" data-aos="fade-up">
   <div class="row g-4">
     <div class="col-lg-8">
-      <a id="hero-link" href="#" target="_blank" class="text-decoration-none">
+      <a id="hero-link" href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
         <div id="hero-display">
           <div id="hero-img"
                style="background-image:url('https://omundoesuashistorias.github.io/thumbnail.jpg');"></div>
@@ -842,7 +1002,6 @@ h1, h2, h3, h4, h5, h6 {
       <div class="sidebar-card h-100">
         <img src="https://omundoesuashistorias.github.io/thumbnail.jpg"
              class="card-img-top"
-             style="height:280px;object-fit:cover;"
              alt="Preview"/>
         <div class="card-body p-4 d-flex flex-column">
           <h4 class="fw-bold mb-3" style="color:var(--bordo);">
@@ -855,6 +1014,7 @@ h1, h2, h3, h4, h5, h6 {
           <div class="mt-auto">
             <a href="https://www.youtube.com/@omundoesuashistorias"
                target="_blank"
+               rel="noopener noreferrer"
                class="btn btn-portal w-100">
               <i class="fa-brands fa-youtube me-2"></i>
               Assistir no YouTube
@@ -875,6 +1035,7 @@ h1, h2, h3, h4, h5, h6 {
         <i class="fa-solid fa-feather-pointed me-3"></i>
         Artigos de Pesquisa
       </h2>
+
       <div id="posts-container">
         <div class="text-center p-5">
           <div class="spinner-border text-danger"
@@ -897,6 +1058,9 @@ h1, h2, h3, h4, h5, h6 {
             <iframe
               src="https://www.youtube.com/embed/glqHHEXtEbc"
               title="Ísis — A Deusa do Amor"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
           </div>
           <h5 class="mt-3 fw-bold">
@@ -904,11 +1068,15 @@ h1, h2, h3, h4, h5, h6 {
             Ísis — A Deusa do Amor
           </h5>
         </div>
+
         <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
           <div class="ratio ratio-16x9">
             <iframe
               src="https://www.youtube.com/embed/kU2h9FEIZuk"
               title="Escribas no Antigo Egito"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
           </div>
           <h5 class="mt-3 fw-bold">
@@ -926,7 +1094,10 @@ h1, h2, h3, h4, h5, h6 {
           <i class="fa-solid fa-bolt me-2 text-warning"></i>
           Espaço do Super 8
         </h4>
+
         <div class="curiosity-item"
+             role="button"
+             tabindex="0"
              data-bs-toggle="modal"
              data-bs-target="#modalFarao">
           <h6><i class="fa-solid fa-crown text-warning me-2"></i>O Faraó que Nunca Sorriu</h6>
@@ -934,7 +1105,10 @@ h1, h2, h3, h4, h5, h6 {
             Ramsés II e o mistério da expressão séria.
           </p>
         </div>
+
         <div class="curiosity-item"
+             role="button"
+             tabindex="0"
              data-bs-toggle="modal"
              data-bs-target="#modalExplosao">
           <h6><i class="fa-solid fa-explosion text-warning me-2"></i>A Explosão que Salvou uma Cidade</h6>
@@ -942,7 +1116,10 @@ h1, h2, h3, h4, h5, h6 {
             Quando um desastre virou heroísmo histórico.
           </p>
         </div>
+
         <div class="curiosity-item"
+             role="button"
+             tabindex="0"
              data-bs-toggle="modal"
              data-bs-target="#modalBiblioteca">
           <h6><i class="fa-solid fa-book-open text-warning me-2"></i>Biblioteca que Sobreviveu ao Fogo</h6>
@@ -957,30 +1134,39 @@ h1, h2, h3, h4, h5, h6 {
           <i class="fa-solid fa-share-nodes me-2 text-warning"></i>
           Siga nossas Redes
         </h4>
+
         <div class="d-flex justify-content-around pt-3">
-          <a href="https://facebook.com/omundoesuashistorias" 
-             target="_blank" 
+          <a href="https://facebook.com/omundoesuashistorias"
+             target="_blank"
+             rel="noopener noreferrer"
              class="social-icon"
-             title="Facebook">
+             title="Facebook"
+             aria-label="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <a href="https://instagram.com/omundoesuashistorias" 
-             target="_blank" 
+
+          <a href="https://instagram.com/omundoesuashistorias"
+             target="_blank"
+             rel="noopener noreferrer"
              class="social-icon"
-             title="Instagram">
+             title="Instagram"
+             aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="https://www.youtube.com/@omundoesuashistorias" 
-             target="_blank" 
+
+          <a href="https://www.youtube.com/@omundoesuashistorias"
+             target="_blank"
+             rel="noopener noreferrer"
              class="social-icon"
-             title="YouTube">
+             title="YouTube"
+             aria-label="YouTube">
             <i class="fa-brands fa-youtube"></i>
           </a>
         </div>
       </div>
 
       <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-        <a href="https://megacontador.com.br/" target="_blank">
+        <a href="https://megacontador.com.br/" target="_blank" rel="noopener noreferrer">
           <img
             src="https://megacontador.com.br/img-xtUHCQGny8QTjx01-3.gif"
             class="img-fluid contador-img shadow"
@@ -996,18 +1182,21 @@ h1, h2, h3, h4, h5, h6 {
   <div class="container text-center position-relative">
     <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
          height="80"
-         class="mb-4 footer-logo"/>
+         class="mb-4 footer-logo"
+         alt="O Mundo E Suas Histórias"/>
+
     <div class="mb-4">
-      <a href="/" class="footer-link mx-3">
+      <a href="https://omundoesuashistorias.github.io/" class="footer-link mx-3">
         <i class="fa-solid fa-house me-1"></i>Início
       </a>
-      <a href="/sobre" class="footer-link mx-3">
+      <a href="https://omundoesuashistorias.github.io/sobre" class="footer-link mx-3">
         <i class="fa-solid fa-circle-info me-1"></i>Sobre
       </a>
-      <a href="/contato" class="footer-link mx-3">
+      <a href="https://omundoesuashistorias.github.io/contato" class="footer-link mx-3">
         <i class="fa-solid fa-envelope me-1"></i>Contato
       </a>
     </div>
+
     <p class="small mb-0">
       <i class="fa-solid fa-scroll me-2 opacity-50"></i>
       O Mundo E Suas Histórias ©
@@ -1018,17 +1207,18 @@ h1, h2, h3, h4, h5, h6 {
 </footer>
 
 <!-- MODAIS -->
-<div class="modal fade" id="modalFarao" tabindex="-1">
+<div class="modal fade" id="modalFarao" tabindex="-1" aria-labelledby="modalFaraoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">
+        <h5 class="modal-title" id="modalFaraoLabel">
           <i class="fa-solid fa-crown me-2"></i>
           O Faraó que Nunca Sorriu
         </h5>
         <button type="button"
                 class="btn-close btn-close-white"
-                data-bs-dismiss="modal"></button>
+                data-bs-dismiss="modal"
+                aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
         <p>Ramsés II governou o Egito por décadas e construiu monumentos gigantescos. Muitos estudiosos acreditam que sua postura rígida ajudava a transmitir poder absoluto diante do povo egípcio.</p>
@@ -1038,17 +1228,18 @@ h1, h2, h3, h4, h5, h6 {
   </div>
 </div>
 
-<div class="modal fade" id="modalExplosao" tabindex="-1">
+<div class="modal fade" id="modalExplosao" tabindex="-1" aria-labelledby="modalExplosaoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">
+        <h5 class="modal-title" id="modalExplosaoLabel">
           <i class="fa-solid fa-explosion me-2"></i>
           A Explosão que Salvou uma Cidade
         </h5>
         <button type="button"
                 class="btn-close btn-close-white"
-                data-bs-dismiss="modal"></button>
+                data-bs-dismiss="modal"
+                aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
         <p>Um acidente químico no século XIX acabou impedindo uma tragédia ainda maior, mudando completamente o destino da cidade.</p>
@@ -1058,17 +1249,18 @@ h1, h2, h3, h4, h5, h6 {
   </div>
 </div>
 
-<div class="modal fade" id="modalBiblioteca" tabindex="-1">
+<div class="modal fade" id="modalBiblioteca" tabindex="-1" aria-labelledby="modalBibliotecaLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">
+        <h5 class="modal-title" id="modalBibliotecaLabel">
           <i class="fa-solid fa-book-open me-2"></i>
           Biblioteca que Sobreviveu ao Fogo
         </h5>
         <button type="button"
                 class="btn-close btn-close-white"
-                data-bs-dismiss="modal"></button>
+                data-bs-dismiss="modal"
+                aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
         <p>Apesar do incêndio devastador, diversos manuscritos históricos foram salvos graças à ação rápida de estudiosos e bibliotecários.</p>
@@ -1083,7 +1275,7 @@ h1, h2, h3, h4, h5, h6 {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
 <script>
-// Inicializar AOS
+/* Inicializar AOS */
 AOS.init({
   duration: 800,
   easing: 'ease-out-cubic',
@@ -1091,7 +1283,7 @@ AOS.init({
   offset: 50
 });
 
-// Data atual
+/* Data atual */
 const options = {
   weekday: "long",
   year: "numeric",
@@ -1099,45 +1291,80 @@ const options = {
   day: "numeric"
 };
 
-document.getElementById("current-date").innerText =
-  new Date().toLocaleDateString("pt-BR", options);
+const currentDate = document.getElementById("current-date");
+if (currentDate) {
+  currentDate.innerText = new Date().toLocaleDateString("pt-BR", options);
+}
 
-document.getElementById("year").innerText =
-  new Date().getFullYear();
+document.getElementById("year").innerText = new Date().getFullYear();
 
-// Navbar scroll effect
+/* Navbar scroll effect */
 window.addEventListener('scroll', function() {
   const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
+
+  if (navbar) {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
   }
 });
 
-// Blogger Feed Callback
-window.bloggerFeedCallback = function (data) {
-  const entries = data.feed.entry || [];
+/* Fechar menu mobile após selecionar um link */
+document.querySelectorAll('#navbarNav .nav-link').forEach(function(link) {
+  link.addEventListener('click', function() {
+    const navbarCollapse = document.getElementById('navbarNav');
+
+    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+      bootstrap.Collapse.getOrCreateInstance(navbarCollapse).hide();
+    }
+  });
+});
+
+/* Blogger Feed Callback */
+window.bloggerFeedCallback = function(data) {
+  const entries = data.feed && data.feed.entry ? data.feed.entry : [];
   const container = document.getElementById("posts-container");
+
+  if (!container) return;
+
   container.innerHTML = "";
 
   if (entries.length > 0) {
-    // Primeiro post (Hero)
+    /* Primeiro post: Hero */
     const firstPost = entries[0];
     const firstTitle = firstPost.title.$t;
-    const firstLink = firstPost.link.find(l => l.rel === "alternate").href;
+    const firstLinkEntry = firstPost.link.find(function(link) {
+      return link.rel === "alternate";
+    });
+
+    const firstLink = firstLinkEntry ? firstLinkEntry.href : "https://omundoesuashistoriasartigos.blogspot.com/";
     const firstImg = firstPost.media$thumbnail
       ? firstPost.media$thumbnail.url.replace("s72-c", "s1600")
       : "https://omundoesuashistorias.github.io/thumbnail.jpg";
 
     document.getElementById("hero-title").innerText = firstTitle;
     document.getElementById("hero-link").href = firstLink;
-    document.getElementById("hero-img").style.backgroundImage = `url('${firstImg}')`;
+    document.getElementById("hero-img").style.backgroundImage = "url('" + firstImg + "')";
 
-    // Posts restantes
-    entries.slice(1, 6).forEach((entry, index) => {
+    const heroSnippet = document.getElementById("hero-snippet");
+    if (firstPost.summary && firstPost.summary.$t) {
+      const temporaryElement = document.createElement("div");
+      temporaryElement.innerHTML = firstPost.summary.$t;
+      heroSnippet.innerText = temporaryElement.textContent.trim().slice(0, 220);
+    } else {
+      heroSnippet.innerText = "Confira a publicação mais recente do nosso portal de pesquisas históricas.";
+    }
+
+    /* Posts restantes */
+    entries.slice(1, 6).forEach(function(entry, index) {
       const title = entry.title.$t;
-      const link = entry.link.find(l => l.rel === "alternate").href;
+      const linkEntry = entry.link.find(function(link) {
+        return link.rel === "alternate";
+      });
+
+      const link = linkEntry ? linkEntry.href : "https://omundoesuashistoriasartigos.blogspot.com/";
       const img = entry.media$thumbnail
         ? entry.media$thumbnail.url.replace("s72-c", "s600")
         : "https://omundoesuashistorias.github.io/thumbnail.jpg";
@@ -1146,48 +1373,76 @@ window.bloggerFeedCallback = function (data) {
       card.className = "news-card p-4 mb-4";
       card.setAttribute("data-aos", "fade-up");
       card.setAttribute("data-aos-delay", (index * 100).toString());
-      
-      card.innerHTML = `
-        <div class="row align-items-center g-4">
-          <div class="col-md-4">
-            <img
-              src="${img}"
-              class="img-fluid rounded-4"
-              alt="${title}"
-              style="height:240px;width:100%;object-fit:cover;"
-            >
-          </div>
-          <div class="col-md-8">
-            <h4 class="mb-3">${title}</h4>
-            <p class="mb-4">
-              Pesquisa histórica exclusiva publicada em nosso portal.
-              Explore detalhes, contexto e análises aprofundadas.
-            </p>
-            <a
-              href="${link}"
-              target="_blank"
-              class="btn btn-portal"
-            >
-              <i class="fa-solid fa-book-open me-2"></i>
-              Ver Pesquisa Completa
-            </a>
-          </div>
-        </div>
-      `;
 
+      const row = document.createElement("div");
+      row.className = "row align-items-center g-4";
+
+      const imageColumn = document.createElement("div");
+      imageColumn.className = "col-md-4";
+
+      const image = document.createElement("img");
+      image.src = img;
+      image.className = "img-fluid rounded-4";
+      image.alt = title;
+      image.loading = "lazy";
+      image.style.width = "100%";
+      image.style.aspectRatio = "16 / 9";
+      image.style.objectFit = "cover";
+      image.style.display = "block";
+
+      imageColumn.appendChild(image);
+
+      const contentColumn = document.createElement("div");
+      contentColumn.className = "col-md-8";
+
+      const heading = document.createElement("h4");
+      heading.className = "mb-3";
+      heading.textContent = title;
+
+      const paragraph = document.createElement("p");
+      paragraph.className = "mb-4";
+      paragraph.textContent = "Pesquisa histórica exclusiva publicada em nosso portal. Explore detalhes, contexto e análises aprofundadas.";
+
+      const button = document.createElement("a");
+      button.href = link;
+      button.target = "_blank";
+      button.rel = "noopener noreferrer";
+      button.className = "btn btn-portal";
+
+      const buttonIcon = document.createElement("i");
+      buttonIcon.className = "fa-solid fa-book-open me-2";
+
+      button.appendChild(buttonIcon);
+      button.appendChild(document.createTextNode("Ver Pesquisa Completa"));
+
+      contentColumn.appendChild(heading);
+      contentColumn.appendChild(paragraph);
+      contentColumn.appendChild(button);
+
+      row.appendChild(imageColumn);
+      row.appendChild(contentColumn);
+      card.appendChild(row);
       container.appendChild(card);
     });
 
-    // Re-inicializar AOS para novos elementos
+    /* Re-inicializar AOS para os novos elementos */
     AOS.refresh();
+  } else {
+    container.innerHTML = '<p class="text-center text-muted p-4">Nenhum artigo encontrado no momento.</p>';
   }
 };
 
-// Carregar feed do Blogger
+/* Carregar feed do Blogger */
 const bloggerScript = document.createElement("script");
 bloggerScript.src = "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=6&callback=bloggerFeedCallback";
+bloggerScript.onerror = function() {
+  const container = document.getElementById("posts-container");
+  if (container) {
+    container.innerHTML = '<p class="text-center text-muted p-4">Não foi possível carregar os artigos agora. Tente novamente mais tarde.</p>';
+  }
+};
 document.body.appendChild(bloggerScript);
 </script>
 
 </body>
-  </html>
+</html>
