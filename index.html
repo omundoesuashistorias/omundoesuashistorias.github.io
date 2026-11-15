@@ -1,1448 +1,1845 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>O Mundo E Suas Histórias — Portal de Notícias Históricas</title>
+  <title>O Mundo E Suas Histórias — Portal de Notícias Históricas</title>
+  <meta name="description" content="História, arqueologia, ciência e descobertas que ajudam a compreender o passado. Toda história tem dois lados.">
+  <meta name="theme-color" content="#071a33">
+  <meta name="author" content="O Mundo E Suas Histórias">
+  <meta name="robots" content="index, follow">
 
-<meta name="description" content="Toda história tem dois lados. Explore curiosidades históricas, artigos e vídeos sobre civilizações antigas, mistérios históricos e pesquisas independentes."/>
-<link rel="canonical" href="https://omundoesuashistorias.github.io/"/>
-<link rel="icon" href="https://omundoesuashistorias.github.io/favicon.ico" type="image/x-icon"/>
-<link rel="apple-touch-icon" href="https://omundoesuashistorias.github.io/apple-touch-icon.png"/>
+  <link rel="canonical" href="https://omundoesuashistorias.github.io/">
+  <link rel="icon" href="https://omundoesuashistorias.github.io/favicon.ico">
+  <link rel="apple-touch-icon" href="https://omundoesuashistorias.github.io/apple-touch-icon.png">
 
-<meta name="theme-color" content="#6b0b0b"/>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="O Mundo E Suas Histórias">
+  <meta property="og:description" content="História, arqueologia, ciência e descobertas. Toda história tem dois lados.">
+  <meta property="og:url" content="https://omundoesuashistorias.github.io/">
+  <meta property="og:image" content="https://omundoesuashistorias.github.io/thumbnail.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="O Mundo E Suas Histórias">
 
-<meta property="og:site_name" content="O Mundo E Suas Histórias"/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://omundoesuashistorias.github.io/"/>
-<meta property="og:title" content="O Mundo E Suas Histórias — Toda história tem dois lados"/>
-<meta property="og:description" content="Explore curiosidades históricas, artigos e vídeos sobre civilizações antigas, mistérios históricos e pesquisas independentes."/>
-<meta property="og:image" content="https://omundoesuashistorias.github.io/thumbnail.jpg"/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="O Mundo E Suas Histórias">
+  <meta name="twitter:description" content="Toda história tem dois lados.">
+  <meta name="twitter:image" content="https://omundoesuashistorias.github.io/thumbnail.jpg">
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="O Mundo E Suas Histórias"/>
-<meta name="twitter:description" content="Explore curiosidades históricas, artigos e vídeos sobre civilizações antigas."/>
-<meta name="twitter:image" content="https://omundoesuashistorias.github.io/thumbnail.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://images.euronews.com">
+  <link rel="preconnect" href="https://media.springernature.com">
 
-<!-- Schema.org -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "O Mundo E Suas Histórias",
-  "url": "https://omundoesuashistorias.github.io/",
-  "description": "Portal de notícias históricas com curiosidades, artigos e vídeos sobre civilizações antigas e mistérios históricos.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "O Mundo E Suas Histórias",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #071a33;
+      --navy-2: #0b2545;
+      --navy-3: #12385f;
+      --blue: #164e86;
+      --gold: #d5b36a;
+      --gold-light: #ead7a8;
+      --paper: #f5f6f8;
+      --white: #ffffff;
+      --ink: #182334;
+      --muted: #6d7888;
+      --border: #e5e9ef;
+      --shadow: 0 12px 35px rgba(7, 26, 51, .09);
     }
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://omundoesuashistorias.github.io/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Inter", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .top-strip {
+      background: #041225;
+      color: rgba(255,255,255,.78);
+      font-size: .76rem;
+      padding: 8px 0;
+      letter-spacing: .02em;
+    }
+
+    .top-strip strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      background:
+        radial-gradient(circle at 82% 15%, rgba(42, 91, 139, .23), transparent 30%),
+        linear-gradient(115deg, #071a33 0%, #0b2545 58%, #102f52 100%);
+      box-shadow: 0 8px 28px rgba(0,0,0,.13);
+      transition: box-shadow .25s ease;
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    }
+
+    .site-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .12;
+      background-image:
+        repeating-linear-gradient(
+          135deg,
+          transparent 0,
+          transparent 38px,
+          rgba(255,255,255,.08) 39px,
+          transparent 40px
+        );
+    }
+
+    .navbar {
+      position: relative;
+      z-index: 2;
+      min-height: 86px;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: white !important;
+      max-width: 75%;
+    }
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      display: block;
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.65rem);
+      line-height: 1.05;
+      letter-spacing: .01em;
+    }
+
+    .brand-tagline {
+      display: block;
+      margin-top: 5px;
+      color: var(--gold-light);
+      font-size: .7rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .navbar-nav {
+      gap: 5px;
+    }
+
+    .navbar-nav .nav-link {
+      color: rgba(255,255,255,.86);
+      font-size: .87rem;
+      font-weight: 600;
+      padding: 10px 13px !important;
+      border-radius: 7px;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+      color: var(--gold-light);
+      background: rgba(255,255,255,.09);
+    }
+
+    .navbar-toggler {
+      width: 46px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .navbar-toggler:focus {
+      border-color: var(--gold);
+    }
+
+    .navbar-toggler-icon {
+      width: 25px;
+      height: 25px;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.4' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      padding: 85px 0 78px;
+      background:
+        radial-gradient(ellipse at 80% 30%, rgba(38, 91, 143, .35), transparent 35%),
+        linear-gradient(120deg, #071a33 0%, #0b2545 60%, #12385f 100%);
+    }
+
+    .hero::before {
+      content: "HISTÓRIA";
+      position: absolute;
+      right: -25px;
+      bottom: -65px;
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(7rem, 19vw, 17rem);
+      line-height: 1;
+      color: rgba(255,255,255,.035);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--gold-light);
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 27px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      margin: 18px 0;
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(2.5rem, 5.8vw, 4.7rem);
+      line-height: 1.08;
+      letter-spacing: -.025em;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin-bottom: 28px;
+      color: rgba(255,255,255,.77);
+      font-size: 1.03rem;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 1px solid var(--gold);
+      border-radius: 7px;
+      padding: 12px 20px;
+      background: var(--gold);
+      color: #15243a;
+      font-weight: 800;
+      font-size: .88rem;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      color: #15243a;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light-custom {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 7px;
+      padding: 12px 20px;
+      color: white;
+      font-size: .88rem;
+      font-weight: 700;
+      transition: background .2s ease;
+    }
+
+    .btn-outline-light-custom:hover {
+      color: white;
+      background: rgba(255,255,255,.12);
+    }
+
+    .section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      color: var(--blue);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 8px 0 9px;
+      color: var(--navy);
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+    }
+
+    .section-description {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .featured-card {
+      overflow: hidden;
+      border: 0;
+      border-radius: 14px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .featured-image-wrap {
+      position: relative;
+      min-height: 350px;
+      height: 100%;
+      background: linear-gradient(135deg, #193e63, #071a33);
+    }
+
+    .featured-image-wrap img {
+      width: 100%;
+      height: 100%;
+      min-height: 350px;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+    }
+
+    .featured-content {
+      padding: clamp(25px, 4vw, 48px);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 600;
+    }
+
+    .category-pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 50px;
+      padding: 5px 10px;
+      background: #eaf1f8;
+      color: #174b7b;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .featured-content h3 {
+      margin: 18px 0 13px;
+      color: var(--navy);
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.18;
+    }
+
+    .featured-content p {
+      color: #5e6b7b;
+      font-size: .93rem;
+    }
+
+    .source-line {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .source-line strong {
+      color: var(--navy);
+    }
+
+    .news-section {
+      background: #edf1f5;
+    }
+
+    .news-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 26px;
+    }
+
+    .search-box {
+      position: relative;
+      width: min(100%, 330px);
+    }
+
+    .search-box i {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      color: #8792a0;
+      transform: translateY(-50%);
+    }
+
+    .search-box input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #dce2e9;
+      border-radius: 8px;
+      padding: 9px 13px 9px 40px;
+      background: white;
+      color: var(--ink);
+      font: inherit;
+      font-size: .84rem;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: #6e96bd;
+      box-shadow: 0 0 0 3px rgba(22,78,134,.1);
+    }
+
+    .filter-select {
+      min-height: 44px;
+      min-width: 190px;
+      border: 1px solid #dce2e9;
+      border-radius: 8px;
+      padding: 8px 34px 8px 12px;
+      background-color: white;
+      color: #405066;
+      font: inherit;
+      font-size: .84rem;
+      outline: none;
+    }
+
+    .news-count {
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 600;
+    }
+
+    .news-card {
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(13, 42, 72, .06);
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 7px 22px rgba(7,26,51,.055);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 35px rgba(7,26,51,.12);
+    }
+
+    .news-image {
+      position: relative;
+      display: block;
+      height: 220px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #183d63, #071a33);
+    }
+
+    .news-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+
+    .news-card:hover .news-image img {
+      transform: scale(1.045);
+    }
+
+    .image-credit {
+      position: absolute;
+      right: 9px;
+      bottom: 9px;
+      z-index: 2;
+      border-radius: 4px;
+      padding: 3px 7px;
+      background: rgba(4,18,37,.72);
+      color: rgba(255,255,255,.9);
+      font-size: .58rem;
+      line-height: 1.4;
+    }
+
+    .image-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.88);
+      background:
+        radial-gradient(circle at 75% 25%, rgba(213,179,106,.25), transparent 32%),
+        linear-gradient(135deg, #183d63, #071a33);
+      font-size: 3.5rem;
+    }
+
+    .news-card-body {
+      display: flex;
+      flex-direction: column;
+      min-height: 300px;
+      padding: 21px;
+    }
+
+    .news-card-body h3 {
+      margin: 13px 0 10px;
+      color: var(--navy);
+      font-family: "DM Serif Display", serif;
+      font-size: 1.35rem;
+      line-height: 1.22;
+    }
+
+    .news-card-body p {
+      margin-bottom: 18px;
+      color: #687486;
+      font-size: .84rem;
+      line-height: 1.65;
+    }
+
+    .news-card-footer {
+      margin-top: auto;
+      padding-top: 15px;
+      border-top: 1px solid #edf0f3;
+    }
+
+    .news-card-footer .source-line {
+      margin: 0 0 12px;
+      font-size: .72rem;
+    }
+
+    .btn-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+      font-size: .8rem;
+      font-weight: 800;
+      transition: color .2s ease;
+    }
+
+    .btn-read:hover {
+      color: #0a2c4e;
+    }
+
+    .empty-results {
+      display: none;
+      padding: 45px 20px;
+      border-radius: 12px;
+      background: white;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .empty-results i {
+      display: block;
+      margin-bottom: 12px;
+      color: #9aa7b6;
+      font-size: 2rem;
+    }
+
+    .about-section {
+      background: white;
+    }
+
+    .about-panel {
+      height: 100%;
+      border-radius: 13px;
+      padding: 34px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(213,179,106,.14), transparent 30%),
+        linear-gradient(145deg, #0b2545, #071a33);
+      color: white;
+    }
+
+    .about-panel h2 {
+      margin: 15px 0;
+      font-family: "DM Serif Display", serif;
+      font-size: 2.2rem;
+    }
+
+    .about-panel p {
+      color: rgba(255,255,255,.75);
+      font-size: .91rem;
+    }
+
+    .about-panel .gold-line {
+      width: 55px;
+      height: 3px;
+      margin: 18px 0;
+      background: var(--gold);
+    }
+
+    .about-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .about-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 7px;
+      padding: 9px 13px;
+      color: white;
+      font-size: .8rem;
+      font-weight: 700;
+      transition: background .2s ease;
+    }
+
+    .about-links a:hover {
+      background: rgba(255,255,255,.1);
+    }
+
+    .social-panel {
+      height: 100%;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 30px;
+      background: #fafbfd;
+    }
+
+    .social-panel h3 {
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-family: "DM Serif Display", serif;
+      font-size: 1.7rem;
+    }
+
+    .social-panel p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-top: 13px;
+      border: 1px solid #e7ebf0;
+      border-radius: 9px;
+      padding: 12px 14px;
+      background: white;
+      color: var(--navy);
+      font-size: .85rem;
+      font-weight: 700;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .social-link:hover {
+      transform: translateX(3px);
+      border-color: #b8c9da;
+      color: var(--blue);
+    }
+
+    .social-link i {
+      color: var(--blue);
+      font-size: 1.2rem;
+    }
+
+    .video-section {
+      background: #edf1f5;
+    }
+
+    .video-card {
+      overflow: hidden;
+      height: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 7px 22px rgba(7,26,51,.05);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #071a33;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-caption {
+      padding: 17px 19px;
+    }
+
+    .video-caption h3 {
+      margin: 0;
+      color: var(--navy);
+      font-family: "DM Serif Display", serif;
+      font-size: 1.2rem;
+    }
+
+    .video-caption p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .youtube-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 25px;
+      border-radius: 10px;
+      padding: 20px 23px;
+      background: var(--navy);
+      color: white;
+    }
+
+    .youtube-cta p {
+      margin: 0;
+      color: rgba(255,255,255,.78);
+      font-size: .86rem;
+    }
+
+    .youtube-cta strong {
+      display: block;
+      margin-bottom: 3px;
+      color: white;
+      font-size: .98rem;
+    }
+
+    .btn-youtube {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 7px;
+      padding: 10px 15px;
+      background: #d92727;
+      color: white;
+      font-size: .8rem;
+      font-weight: 800;
+    }
+
+    .btn-youtube:hover {
+      background: #b91f1f;
+      color: white;
+    }
+
+    .site-footer {
+      padding: 48px 0 22px;
+      background: #041225;
+      color: rgba(255,255,255,.72);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      color: white;
+      font-family: "DM Serif Display", serif;
+      font-size: 1.35rem;
+    }
+
+    .footer-brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .footer-description {
+      max-width: 400px;
+      color: rgba(255,255,255,.58);
+      font-size: .82rem;
+    }
+
+    .footer-title {
+      margin-bottom: 15px;
+      color: var(--gold-light);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .footer-links a {
+      width: fit-content;
+      color: rgba(255,255,255,.7);
+      font-size: .82rem;
+      transition: color .2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 35px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 18px;
+      color: rgba(255,255,255,.45);
+      font-size: .72rem;
+    }
+
+    .visitor-counter img {
+      max-width: 120px;
+      height: auto;
+      opacity: .85;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        padding: 12px 0 18px;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 10px 12px !important;
+      }
+
+      .hero {
+        padding: 68px 0 62px;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .navbar {
+        min-height: 76px;
+      }
+
+      .brand-logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand-tagline {
+        font-size: .58rem;
+        letter-spacing: .08em;
+      }
+
+      .hero {
+        padding: 58px 0 55px;
+      }
+
+      .section {
+        padding: 55px 0;
+      }
+
+      .featured-image-wrap,
+      .featured-image-wrap img {
+        min-height: 250px;
+      }
+
+      .news-image {
+        height: 215px;
+      }
+
+      .news-card-body {
+        min-height: auto;
+      }
+
+      .about-panel,
+      .social-panel {
+        padding: 25px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "O Mundo E Suas Histórias",
+    "url": "https://omundoesuashistorias.github.io/",
+    "description": "História, arqueologia, ciência e descobertas. Toda história tem dois lados.",
+    "inLanguage": "pt-BR",
+    "publisher": {
+      "@type": "Organization",
+      "name": "O Mundo E Suas Histórias",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
+      }
+    }
   }
-}
-</script>
-
-<!-- Bootstrap 5.3.8 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
-
-<!-- Font Awesome 6.7.2 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
-
-<!-- AOS - Animate On Scroll -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
-
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- CSS -->
-<style>
-:root {
-  --bordo: #6b0b0b;
-  --bordo-dark: #3f0505;
-  --bordo-light: #8d1b1b;
-  --gold: #f0c808;
-  --gold-soft: #ffde59;
-  --bg: #f3f0ea;
-  --paper: #fffdf9;
-  --text: #2d2d2d;
-  --text-light: #666;
-  --shadow: 0 15px 35px rgba(0, 0, 0, .08), 0 5px 15px rgba(0, 0, 0, .04);
-  --shadow-hover: 0 25px 60px rgba(0, 0, 0, .18), 0 12px 30px rgba(107, 11, 11, .2);
-  --transition: all .4s cubic-bezier(.4, 0, .2, 1);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  max-width: 100%;
-  overflow-x: clip;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text);
-  width: 100%;
-  max-width: 100%;
-  overflow-x: clip;
-  background:
-    linear-gradient(rgba(255, 255, 255, .96), rgba(255, 255, 255, .96)),
-    url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-  line-height: 1.6;
-}
-
-img,
-iframe,
-video {
-  max-width: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-}
-
-.container,
-.container-fluid {
-  min-width: 0;
-  max-width: 100%;
-}
-
-.row {
-  --bs-gutter-x: 1.5rem;
-}
-
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: #ececec;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--bordo), var(--bordo-dark));
-  border-radius: 20px;
-  border: 2px solid #ececec;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--bordo-light), var(--bordo));
-}
-
-/* TOPO E NAVEGAÇÃO */
-.top-bar {
-  font-size: .85rem;
-  padding: 10px 0;
-  color: white;
-  background: linear-gradient(90deg, #1a0101, #3d0505, #1a0101);
-  border-bottom: 1px solid rgba(240, 200, 8, .15);
-  position: relative;
-  overflow: hidden;
-}
-
-.top-bar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(240, 200, 8, .1), transparent);
-  animation: shimmer 8s infinite;
-}
-
-@keyframes shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-.navbar {
-  padding: 1rem 0;
-  background: linear-gradient(135deg, var(--bordo-dark) 0%, var(--bordo) 50%, var(--bordo-dark) 100%) !important;
-  border-bottom: 4px solid var(--gold);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, .25);
-  backdrop-filter: blur(10px);
-  transition: var(--transition);
-}
-
-.navbar .container {
-  min-width: 0;
-}
-
-.navbar.scrolled {
-  padding: .5rem 0;
-  background: rgba(63, 5, 5, .98) !important;
-}
-
-.navbar-brand {
-  transition: var(--transition);
-  min-width: 0;
-  max-width: calc(100% - 60px);
-}
-
-.navbar-brand:hover {
-  transform: scale(1.02);
-}
-
-.navbar-brand img {
-  flex-shrink: 0;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .4));
-  transition: var(--transition);
-}
-
-.navbar-brand:hover img {
-  filter: drop-shadow(0 6px 16px rgba(240, 200, 8, .3));
-}
-
-.navbar-brand .ms-3 {
-  min-width: 0;
-}
-
-.navbar-brand .fs-4 {
-  overflow-wrap: anywhere;
-}
-
-.nav-link {
-  position: relative;
-  margin: 0 8px;
-  font-size: .95rem;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: var(--gold) !important;
-  transition: var(--transition);
-  padding: 8px 16px !important;
-  border-radius: 8px;
-}
-
-.nav-link::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
-  transform: translateX(-50%);
-  transition: var(--transition);
-  border-radius: 3px;
-}
-
-.nav-link:hover {
-  color: white !important;
-  background: rgba(255, 255, 255, .08);
-}
-
-.nav-link:hover::before {
-  width: 80%;
-}
-
-.navbar-toggler {
-  flex-shrink: 0;
-  border: 2px solid var(--gold) !important;
-  padding: 6px 12px;
-  transition: var(--transition);
-}
-
-.navbar-toggler:hover {
-  background: rgba(240, 200, 8, .15);
-}
-
-/* HERO */
-#hero-display {
-  position: relative;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  isolation: isolate;
-  border-radius: 24px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, .25), 0 15px 40px rgba(107, 11, 11, .25);
-  transition: var(--transition);
-}
-
-#hero-display:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 40px 100px rgba(0, 0, 0, .3), 0 20px 50px rgba(107, 11, 11, .3);
-}
-
-#hero-display::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .4) 50%, rgba(0, 0, 0, .85) 100%);
-  pointer-events: none;
-}
-
-#hero-img {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: transform 1.5s cubic-bezier(.4, 0, .2, 1);
-}
-
-#hero-display:hover #hero-img {
-  transform: scale(1.05);
-}
-
-.hero-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  padding: clamp(16px, 5vw, 60px);
-  color: white;
-}
-
-.hero-overlay h1 {
-  font-size: clamp(1.2rem, 4vw, 4rem);
-  font-weight: 800;
-  line-height: 1.15;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, .7);
-  margin-bottom: .75rem;
-  overflow-wrap: anywhere;
-}
-
-.hero-overlay p {
-  font-size: clamp(.75rem, 1.5vw, 1.1rem);
-  max-width: 800px;
-  opacity: .95;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
-  line-height: 1.5;
-  margin-bottom: 0;
-}
-
-.badge {
-  padding: 10px 18px;
-  letter-spacing: 1px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #d00000, #ff2d2d) !important;
-  font-weight: 700;
-  font-size: .85rem;
-  box-shadow: 0 6px 20px rgba(208, 0, 0, .4);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-
-/* TÍTULOS */
-.section-title {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  padding-bottom: 15px;
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--bordo);
-  border-bottom: 2px solid rgba(107, 11, 11, .1);
-  overflow-wrap: anywhere;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 100px;
-  height: 6px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(240, 200, 8, .4);
-}
-
-.section-title i {
-  flex-shrink: 0;
-  color: var(--gold);
-  filter: drop-shadow(0 2px 8px rgba(240, 200, 8, .3));
-}
-
-/* CARDS */
-.news-card {
-  background: rgba(255, 255, 255, .98);
-  overflow: hidden;
-  border: none;
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(10px);
-  transition: var(--transition);
-  position: relative;
-  min-width: 0;
-}
-
-.news-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--bordo), var(--gold));
-  transform: scaleX(0);
-  transition: var(--transition);
-}
-
-.news-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
-}
-
-.news-card:hover::before {
-  transform: scaleX(1);
-}
-
-.news-card img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-  transition: transform .8s cubic-bezier(.4, 0, .2, 1);
-  border-radius: 16px;
-}
-
-.news-card:hover img {
-  transform: scale(1.03);
-}
-
-.news-card h4 {
-  font-weight: 800;
-  color: var(--bordo);
-  line-height: 1.3;
-  transition: var(--transition);
-  overflow-wrap: anywhere;
-}
-
-.news-card:hover h4 {
-  color: var(--bordo-light);
-}
-
-.news-card p {
-  line-height: 1.8;
-  color: var(--text-light);
-  overflow-wrap: anywhere;
-}
-
-.news-card .row > * {
-  min-width: 0;
-}
-
-.sidebar-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(255, 255, 255, .96));
-  overflow: hidden;
-  border: none;
-  border-top: 6px solid var(--bordo);
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  min-width: 0;
-}
-
-.sidebar-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-}
-
-.sidebar-card img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  transition: var(--transition);
-}
-
-.sidebar-card:hover img {
-  transform: scale(1.02);
-}
-
-.curiosity-item {
-  padding: 18px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 16px;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-}
-
-.curiosity-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(240, 200, 8, .1), transparent);
-  transition: var(--transition);
-}
-
-.curiosity-item:hover {
-  background: linear-gradient(135deg, #fff8dd, #fffbe6);
-  border-color: rgba(240, 200, 8, .5);
-  box-shadow: 0 8px 25px rgba(240, 200, 8, .2);
-}
-
-.curiosity-item:hover::before {
-  left: 100%;
-}
-
-.curiosity-item h6 {
-  font-weight: 800;
-  color: var(--bordo);
-  margin-bottom: 8px;
-}
-
-/* COMPONENTES */
-.btn-portal {
-  padding: 12px 28px;
-  font-weight: 700;
-  letter-spacing: .8px;
-  color: var(--gold);
-  background: linear-gradient(135deg, var(--bordo-dark), var(--bordo));
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(107, 11, 11, .3);
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  max-width: 100%;
-  white-space: normal;
-}
-
-.btn-portal::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .2);
-  transform: translate(-50%, -50%);
-  transition: width .6s, height .6s;
-}
-
-.btn-portal:hover {
-  color: white;
-  background: linear-gradient(135deg, var(--bordo), var(--bordo-light));
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(107, 11, 11, .4);
-}
-
-.btn-portal:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-.ratio iframe {
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-
-.modal-content {
-  overflow: hidden;
-  border: none;
-  border-radius: 24px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, .3);
-}
-
-.modal-header {
-  color: white;
-  border: none;
-  background: linear-gradient(135deg, var(--bordo-dark), var(--bordo));
-  padding: 1.5rem;
-}
-
-.modal-title {
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-.modal-body {
-  font-size: 1.1rem;
-  line-height: 1.9;
-  padding: 2rem;
-}
-
-/* REDES SOCIAIS */
-.social-icon {
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--bordo), var(--bordo-light));
-  color: white;
-  font-size: 1rem;
-  transition: var(--transition);
-  box-shadow: 0 3px 10px rgba(107, 11, 11, .2);
-  flex-shrink: 0;
-}
-
-.social-icon:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(107, 11, 11, .3);
-  color: var(--gold);
-}
-
-/* RODAPÉ */
-.footer-portal {
-  position: relative;
-  margin-top: 100px;
-  overflow: hidden;
-  background: linear-gradient(180deg, #3d0505, #1a0101);
-  padding: 60px 0 30px;
-}
-
-.footer-portal::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at top right, rgba(240, 200, 8, .15), transparent 40%),
-    radial-gradient(circle at bottom left, rgba(107, 11, 11, .2), transparent 40%);
-}
-
-.footer-link {
-  font-weight: 700;
-  color: var(--gold);
-  text-decoration: none;
-  transition: var(--transition);
-  position: relative;
-  padding: 5px 0;
-  display: inline-block;
-}
-
-.footer-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--gold);
-  transition: var(--transition);
-}
-
-.footer-link:hover {
-  color: white;
-}
-
-.footer-link:hover::after {
-  width: 100%;
-}
-
-.footer-portal p {
-  color: #e5d6d6;
-}
-
-.footer-logo {
-  max-width: 100%;
-  filter: drop-shadow(0 8px 20px rgba(240, 200, 8, .3));
-  transition: var(--transition);
-}
-
-.footer-logo:hover {
-  transform: scale(1.03);
-}
-
-/* CONTADOR DE VISITAS — MINIMALISTA */
-.contador-img {
-  display: inline-block;
-  width: auto;
-  max-width: 120px;
-  height: auto;
-  aspect-ratio: auto;
-  object-fit: contain;
-  border-radius: 0;
-  box-shadow: none !important;
-  transition: none;
-}
-
-.contador-img:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 1199px) {
-  .navbar-brand .fs-4 {
-    font-size: 1.2rem !important;
-  }
-
-  .navbar-brand img {
-    height: 55px !important;
-  }
-
-  .nav-link {
-    margin: 0 2px;
-    padding: 8px 10px !important;
-    letter-spacing: .5px;
-  }
-}
-
-@media (max-width: 991px) {
-  .navbar .navbar-collapse {
-    padding-top: 1rem;
-  }
-
-  .navbar-nav {
-    align-items: stretch;
-  }
-
-  .nav-link {
-    margin: 2px 0;
-  }
-
-  .nav-link::before {
-    display: none;
-  }
-
-  #hero-display {
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-
-  .hero-overlay {
-    padding: clamp(16px, 4vw, 30px);
-  }
-
-  .hero-overlay h1 {
-    font-size: clamp(1.2rem, 4vw, 2.5rem);
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .navbar-brand img {
-    height: 50px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  #hero-display {
-    height: auto;
-    aspect-ratio: 16 / 9;
-    border-radius: 20px;
-  }
-
-  .hero-overlay {
-    padding: 14px 16px;
-  }
-
-  .hero-overlay h1 {
-    font-size: clamp(1rem, 4.3vw, 2rem);
-    margin-bottom: .4rem;
-  }
-
-  .hero-overlay p {
-    font-size: clamp(.7rem, 2.4vw, .95rem);
-    line-height: 1.35;
-  }
-
-  .hero-overlay .badge {
-    margin-bottom: .4rem !important;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
-  }
-
-  .news-card .row {
-    flex-direction: column;
-  }
-
-  .news-card .row > .col-md-4,
-  .news-card .row > .col-md-8 {
-    width: 100%;
-  }
-
-  .footer-portal {
-    margin-top: 60px;
-    padding: 40px 0 20px;
-  }
-
-  .modal-body {
-    padding: 1.25rem;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .top-bar {
-    font-size: .75rem;
-  }
-
-  .navbar {
-    padding: .75rem 0;
-  }
-
-  .navbar .container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .navbar-brand {
-    margin-right: .25rem;
-  }
-
-  .navbar-brand img {
-    height: 42px !important;
-  }
-
-  .navbar-brand .ms-3 {
-    margin-left: .5rem !important;
-  }
-
-  .navbar-brand .fs-4 {
-    font-size: .95rem !important;
-    line-height: 1.2;
-  }
-
-  .navbar-brand small {
-    font-size: .55rem;
-    line-height: 1.2;
-    display: block;
-  }
-
-  .navbar-toggler {
-    padding: 5px 9px;
-  }
-
-  .badge {
-    font-size: .65rem;
-    padding: 6px 10px;
-  }
-
-  .container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .row {
-    --bs-gutter-x: 1rem;
-  }
-
-  .section-title {
-    font-size: 1.35rem;
-    margin-bottom: 25px;
-  }
-
-  .section-title i {
-    margin-right: .6rem !important;
-  }
-
-  .news-card,
-  .sidebar-card {
-    border-radius: 18px;
-  }
-
-  .news-card {
-    padding: 1rem !important;
-  }
-
-  .hero-overlay {
-    padding: 10px 12px;
-  }
-
-  .hero-overlay h1 {
-    font-size: clamp(.9rem, 4vw, 1.3rem);
-    line-height: 1.15;
-  }
-
-  .hero-overlay p {
-    font-size: .68rem;
-  }
-
-  .footer-link {
-    margin: 5px 8px !important;
-  }
-}
-
-/* ANIMAÇÕES */
-.fade-in {
-  animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.spinner-border {
-  border-width: 4px;
-}
-</style>
-<!-- FIM DO CSS -->
-
+  </script>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar d-none d-md-block">
-  <div class="container d-flex justify-content-between align-items-center">
-    <span>
-      <i class="far fa-calendar-alt me-2 text-warning"></i>
-      <span id="current-date"></span>
-    </span>
-
-    <span class="fst-italic">
-      <i class="fas fa-quote-left me-2 opacity-50"></i>
-      "Toda história tem dois lados."
-      <i class="fas fa-quote-right ms-2 opacity-50"></i>
-    </span>
-  </div>
-</div>
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="https://omundoesuashistorias.github.io/">
-      <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
-           alt="Logo O Mundo E Suas Histórias"
-           height="65"/>
-      <div class="ms-3">
-        <span class="text-warning d-block fw-bold fs-4" style="font-family: 'Playfair Display', serif;">
-          O Mundo e Suas Histórias
-        </span>
-        <small class="text-white opacity-75">
-          PORTAL DE NOTÍCIAS HISTÓRICAS
-        </small>
-      </div>
-    </a>
-
-    <button class="navbar-toggler text-warning border-warning"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Abrir ou fechar menu">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="https://omundoesuashistorias.github.io/">
-            <i class="fa-solid fa-house me-1"></i>Início
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://omundoesuashistorias.github.io/sobre">
-            <i class="fa-solid fa-circle-info me-1"></i>Sobre
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://omundoesuashistorias.github.io/blog.html">
-            <i class="fa-solid fa-blog me-1"></i>Blog
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://omundoesuashistorias.github.io/contato">
-            <i class="fa-solid fa-envelope me-1"></i>Contato
-          </a>
-        </li>
-      </ul>
+  <div class="top-strip">
+    <div class="container d-flex justify-content-between align-items-center gap-3">
+      <span><strong>O MUNDO E SUAS HISTÓRIAS</strong> · Toda história tem dois lados.</span>
+      <span id="current-date" class="d-none d-sm-inline"></span>
     </div>
   </div>
-</nav>
 
-<!-- HERO SECTION -->
-<div class="container mt-4" data-aos="fade-up">
-  <div class="row g-4">
-    <div class="col-lg-8">
-      <a id="hero-link" href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
-        <div id="hero-display">
-          <div id="hero-img"
-               style="background-image:url('https://omundoesuashistorias.github.io/thumbnail.jpg');"></div>
-          <div class="hero-overlay">
-            <span class="badge mb-3">
-              <i class="fa-solid fa-bolt me-2"></i>MAIS RECENTE
-            </span>
-            <h1 id="hero-title">
-              Carregando notícia do blog...
-            </h1>
-            <p id="hero-snippet">
-              Buscando as últimas atualizações das pesquisas históricas...
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
 
-    <div class="col-lg-4 d-none d-lg-block" data-aos="fade-left" data-aos-delay="200">
-      <div class="sidebar-card h-100">
-        <img src="https://omundoesuashistorias.github.io/thumbnail.jpg"
-             class="card-img-top"
-             alt="Preview"/>
-        <div class="card-body p-4 d-flex flex-column">
-          <h4 class="fw-bold mb-3" style="color:var(--bordo);">
-            <i class="fa-solid fa-scroll me-2 text-warning"></i>
-            Bem-vindo ao Portal
-          </h4>
-          <p class="text-muted">
-            Siga nossa jornada pelo tempo e descubra eventos, curiosidades e análises históricas que muitas vezes ficam fora dos livros tradicionais.
-          </p>
-          <div class="mt-auto">
-            <a href="https://www.youtube.com/@omundoesuashistorias"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn btn-portal w-100">
-              <i class="fa-brands fa-youtube me-2"></i>
-              Assistir no YouTube
-            </a>
-          </div>
+        <a class="navbar-brand" href="https://omundoesuashistorias.github.io/" aria-label="Página inicial">
+          <img
+            class="brand-logo"
+            src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
+            alt="Logo O Mundo E Suas Histórias">
+          <span>
+            <span class="brand-name">O Mundo E Suas Histórias</span>
+            <span class="brand-tagline">Toda história tem dois lados</span>
+          </span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavigation"
+          aria-controls="mainNavigation"
+          aria-expanded="false"
+          aria-label="Abrir ou fechar menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="https://omundoesuashistorias.github.io/">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pesquisas">Descobertas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#videos">Vídeos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://omundoesuashistorias.github.io/sobre">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://omundoesuashistorias.github.io/blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://omundoesuashistorias.github.io/contato">Contato</a>
+            </li>
+          </ul>
         </div>
+
       </div>
-    </div>
-  </div>
-</div>
+    </nav>
+  </header>
 
-<!-- MAIN CONTENT -->
-<div class="container mt-5">
-  <div class="row g-5">
-    <!-- MAIN -->
-    <main class="col-lg-8">
-      <h2 class="section-title" data-aos="fade-right">
-        <i class="fa-solid fa-feather-pointed me-3"></i>
-        Artigos de Pesquisa
-      </h2>
+  <main>
 
-      <div id="posts-container">
-        <div class="text-center p-5">
-          <div class="spinner-border text-danger"
-               style="width:4rem;height:4rem;"
-               role="status">
-            <span class="visually-hidden">Carregando...</span>
-          </div>
-          <p class="mt-3 text-muted">Carregando artigos...</p>
-        </div>
-      </div>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="eyebrow">História, ciência e conhecimento</div>
 
-      <h2 class="section-title mt-5" data-aos="fade-right">
-        <i class="fa-solid fa-video me-3"></i>
-        Vídeos em Destaque
-      </h2>
+        <h1>
+          O passado nunca está tão distante quanto <span>parece.</span>
+        </h1>
 
-      <div class="row g-4">
-        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
-          <div class="ratio ratio-16x9">
-            <iframe
-              src="https://www.youtube.com/embed/glqHHEXtEbc"
-              title="Ísis — A Deusa do Amor"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <h5 class="mt-3 fw-bold">
-            <i class="fa-solid fa-play-circle text-warning me-2"></i>
-            Ísis — A Deusa do Amor
-          </h5>
-        </div>
+        <p>
+          Descobertas arqueológicas, pesquisas científicas, personagens,
+          acontecimentos e histórias que ajudam a enxergar o mundo por
+          diferentes perspectivas.
+        </p>
 
-        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
-          <div class="ratio ratio-16x9">
-            <iframe
-              src="https://www.youtube.com/embed/kU2h9FEIZuk"
-              title="Escribas no Antigo Egito"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <h5 class="mt-3 fw-bold">
-            <i class="fa-solid fa-play-circle text-warning me-2"></i>
-            Escribas no Antigo Egito
-          </h5>
-        </div>
-      </div>
-    </main>
-
-    <!-- SIDEBAR -->
-    <aside class="col-lg-4">
-      <div class="sidebar-card p-4 mb-4" data-aos="fade-left">
-        <h4 class="section-title h5">
-          <i class="fa-solid fa-bolt me-2 text-warning"></i>
-          Espaço do Super 8
-        </h4>
-
-        <div class="curiosity-item"
-             role="button"
-             tabindex="0"
-             data-bs-toggle="modal"
-             data-bs-target="#modalFarao">
-          <h6><i class="fa-solid fa-crown text-warning me-2"></i>O Faraó que Nunca Sorriu</h6>
-          <p class="small text-muted mb-0">
-            Ramsés II e o mistério da expressão séria.
-          </p>
-        </div>
-
-        <div class="curiosity-item"
-             role="button"
-             tabindex="0"
-             data-bs-toggle="modal"
-             data-bs-target="#modalExplosao">
-          <h6><i class="fa-solid fa-explosion text-warning me-2"></i>A Explosão que Salvou uma Cidade</h6>
-          <p class="small text-muted mb-0">
-            Quando um desastre virou heroísmo histórico.
-          </p>
-        </div>
-
-        <div class="curiosity-item"
-             role="button"
-             tabindex="0"
-             data-bs-toggle="modal"
-             data-bs-target="#modalBiblioteca">
-          <h6><i class="fa-solid fa-book-open text-warning me-2"></i>Biblioteca que Sobreviveu ao Fogo</h6>
-          <p class="small text-muted mb-0">
-            Manuscritos que escaparam das chamas.
-          </p>
-        </div>
-      </div>
-
-      <div class="sidebar-card p-4 mb-4" data-aos="fade-left" data-aos-delay="100">
-        <h4 class="section-title h5">
-          <i class="fa-solid fa-share-nodes me-2 text-warning"></i>
-          Siga nossas Redes
-        </h4>
-
-        <div class="d-flex justify-content-around pt-3">
-          <a href="https://facebook.com/omundoesuashistorias"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="social-icon"
-             title="Facebook"
-             aria-label="Facebook">
-            <i class="fa-brands fa-facebook-f"></i>
-          </a>
-
-          <a href="https://instagram.com/omundoesuashistorias"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="social-icon"
-             title="Instagram"
-             aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#pesquisas" class="btn-gold">
+            <i class="bi bi-journal-richtext"></i>
+            Explorar descobertas
           </a>
 
           <a href="https://www.youtube.com/@omundoesuashistorias"
              target="_blank"
              rel="noopener noreferrer"
-             class="social-icon"
-             title="YouTube"
-             aria-label="YouTube">
-            <i class="fa-brands fa-youtube"></i>
+             class="btn-outline-light-custom">
+            <i class="bi bi-youtube"></i>
+            Visitar canal
           </a>
         </div>
       </div>
+    </section>
 
-      <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-        <a href="https://megacontador.com.br/" target="_blank" rel="noopener noreferrer">
-          <img
-            src="https://megacontador.com.br/img-xtUHCQGny8QTjx01-3.gif"
-            class="img-fluid contador-img shadow"
-            alt="Contador de visitas"/>
-        </a>
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="section-kicker">Em destaque</div>
+          <h2 class="section-title">Uma descoberta que estava diante de todos</h2>
+          <p class="section-description">
+            Uma pesquisa recente mostra como novas observações podem mudar
+            aquilo que acreditávamos saber sobre o passado.
+          </p>
+        </div>
+
+        <article class="featured-card reveal">
+          <div class="row g-0">
+
+            <div class="col-lg-6">
+              <div class="featured-image-wrap">
+                <img
+                  src="https://imagenes.diaridetarragona.com/files/og_thumbnail/uploads/2026/04/12/69dbe42a2b1ed.jpeg"
+                  alt="Gravura paleolítica de um cavalo na Cova de la Font Major, na Espanha"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.style.display='none';">
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="featured-content">
+                <div class="article-meta">
+                  <span class="category-pill">Arqueologia</span>
+                  <span>05 de novembro de 2026</span>
+                </div>
+
+                <h3>
+                  280 gravuras paleolíticas escondidas à vista de todos
+                </h3>
+
+                <p>
+                  Em uma caverna turística da Catalunha, pesquisadores
+                  identificaram 280 motivos gravados na rocha, incluindo
+                  55 representações de animais. A descoberta questiona a
+                  antiga ideia de que essa região da Península Ibérica
+                  possuía pouca arte rupestre paleolítica.
+                </p>
+
+                <p>
+                  O detalhe curioso? A caverna recebia visitantes havia
+                  décadas. Algumas das gravuras estavam praticamente
+                  diante dos olhos de todos.
+                </p>
+
+                <div class="source-line">
+                  <strong>Pesquisa original:</strong> Antiquity · Cambridge University Press
+                </div>
+
+                <a
+                  href="https://www.cambridge.org/core/journals/antiquity/article/filling-gaps-the-palaeolithic-rock-art-of-the-cova-de-la-font-major-on-the-northeast-iberian-peninsula/B61327338FF78E966BEA56E2DA9CAEDB"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-gold mt-3">
+                  Ler estudo original
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
       </div>
-    </aside>
-  </div>
-</div>
+    </section>
 
-<!-- FOOTER -->
-<footer class="footer-portal">
-  <div class="container text-center position-relative">
-    <img src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
-         height="80"
-         class="mb-4 footer-logo"
-         alt="O Mundo E Suas Histórias"/>
+    <section class="section news-section" id="pesquisas">
+      <div class="container">
 
-    <div class="mb-4">
-      <a href="https://omundoesuashistorias.github.io/" class="footer-link mx-3">
-        <i class="fa-solid fa-house me-1"></i>Início
-      </a>
-      <a href="https://omundoesuashistorias.github.io/sobre" class="footer-link mx-3">
-        <i class="fa-solid fa-circle-info me-1"></i>Sobre
-      </a>
-      <a href="https://omundoesuashistorias.github.io/contato" class="footer-link mx-3">
-        <i class="fa-solid fa-envelope me-1"></i>Contato
-      </a>
+        <div class="section-heading reveal">
+          <div class="section-kicker">Pesquisa e descoberta</div>
+          <h2 class="section-title">Histórias que merecem ser conhecidas</h2>
+          <p class="section-description">
+            Pesquisas, achados arqueológicos e novidades científicas
+            selecionadas para quem gosta de investigar o passado.
+          </p>
+        </div>
+
+        <div class="news-toolbar reveal">
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <div class="search-box">
+              <i class="bi bi-search"></i>
+              <input
+                type="search"
+                id="newsSearch"
+                placeholder="Pesquisar assuntos..."
+                aria-label="Pesquisar notícias e pesquisas">
+            </div>
+
+            <select id="categoryFilter" class="filter-select" aria-label="Filtrar por categoria">
+              <option value="todos">Todas as categorias</option>
+              <option value="arqueologia">Arqueologia</option>
+              <option value="genetica">Genética e história</option>
+              <option value="antiguidade">Antiguidade</option>
+              <option value="tecnologia">Tecnologia e pesquisa</option>
+            </select>
+          </div>
+
+          <span class="news-count" id="newsCount" aria-live="polite">
+            6 pesquisas
+          </span>
+        </div>
+
+        <div class="row g-4" id="newsGrid">
+
+          <!-- CARD 1: CITA / MACONHA -->
+          <div class="col-md-6 col-lg-4 news-item reveal"
+               data-category="arqueologia"
+               data-search="citas cannabis maconha ritual tumba siberia tuva arqueologia">
+            <article class="news-card">
+
+              <div class="news-image">
+                <img
+                  src="https://www.biletik.aero/upload/medialibrary/c53/c53fe26206abfd7b314e2cea480d7da4.jpg"
+                  alt="Paisagem de antigos túmulos e estruturas funerárias na região de Tuva, Sibéria"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="imageFallback(this)">
+                <span class="image-fallback"><i class="bi bi-mountains"></i></span>
+                <span class="image-credit">Imagem contextual · Tuva</span>
+              </div>
+
+              <div class="news-card-body">
+                <div class="article-meta">
+                  <span class="category-pill">Arqueologia</span>
+                  <span>05 nov. 2026</span>
+                </div>
+
+                <h3>Maconha ritual entre os citas: evidências em uma tumba de 2.800 anos</h3>
+
+                <p>
+                  Uma tumba encontrada na região de Tuva, na Rússia, revelou
+                  sementes de cannabis e vestígios químicos em amostras de
+                  cabelo humano. Os pesquisadores relacionam os indícios
+                  a práticas ritualísticas de antigos grupos citas.
+                </p>
+
+                <div class="news-card-footer">
+                  <div class="source-line">
+                    <strong>Fonte:</strong> Reuters
+                  </div>
+                  <a
+                    class="btn-read"
+                    href="https://www.reuters.com/science/siberian-burial-site-reveals-ancient-use-cannabis-an-intoxicant-2026-11-05/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Ler reportagem <i class="bi bi-arrow-up-right"></i>
+                  </a>
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- CARD 2: DNA E LÍNGUAS CELTAS -->
+          <div class="col-md-6 col-lg-4 news-item reveal"
+               data-category="genetica"
+               data-search="dna antigo genetica linguas celtas europa idade bronze ferro">
+            <article class="news-card">
+
+              <div class="news-image">
+                <img
+                  src="https://scx2.b-cdn.net/gfx/news/2024/ancient-genomes-provid-2.jpg"
+                  alt="Mapas científicos que representam ancestralidade genética em populações antigas da Europa"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="imageFallback(this)">
+                <span class="image-fallback"><i class="bi bi-diagram-3"></i></span>
+                <span class="image-credit">Imagem contextual · genética antiga</span>
+              </div>
+
+              <div class="news-card-body">
+                <div class="article-meta">
+                  <span class="category-pill">Genética e história</span>
+                  <span>04 nov. 2026</span>
+                </div>
+
+                <h3>DNA antigo ajuda a reconstruir a expansão das línguas celtas</h3>
+
+                <p>
+                  Uma análise de dados genéticos de 4.587 indivíduos antigos
+                  investigou os movimentos populacionais que podem ajudar
+                  a explicar a expansão das línguas celtas pela Europa
+                  durante a Idade do Bronze e a Idade do Ferro.
+                </p>
+
+                <div class="news-card-footer">
+                  <div class="source-line">
+                    <strong>Pesquisa original:</strong> Nature
+                  </div>
+                  <a
+                    class="btn-read"
+                    href="https://www.nature.com/articles/s41586-026-11198-9"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Ler estudo original <i class="bi bi-arrow-up-right"></i>
+                  </a>
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- CARD 3: CACAU EM ETOWAH -->
+          <div class="col-md-6 col-lg-4 news-item reveal"
+               data-category="antiguidade"
+               data-search="chocolate cacau etowah mississippiana america pre colombiana ceramica">
+            <article class="news-card">
+
+              <div class="news-image">
+                <img
+                  src="https://exploregeorgia.org/sites/default/files/styles/listing_slideshow/public/listing_images/profile/1290/18857-1789.jpg?itok=u-He1vrg"
+                  alt="Esculturas de efígies da cultura mississippiana expostas no sítio arqueológico de Etowah"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="imageFallback(this)">
+                <span class="image-fallback"><i class="bi bi-cup-hot"></i></span>
+                <span class="image-credit">Etowah · Explore Georgia</span>
+              </div>
+
+              <div class="news-card-body">
+                <div class="article-meta">
+                  <span class="category-pill">Antiguidade</span>
+                  <span>2026</span>
+                </div>
+
+                <h3>O chocolate chegou mais longe na América pré-colombiana do que se imaginava</h3>
+
+                <p>
+                  Vestígios de DNA antigo de cacau encontrados em fragmentos
+                  de cerâmica de Etowah, nos Estados Unidos, ampliam o
+                  conhecimento sobre o consumo dessa planta e as redes
+                  de intercâmbio existentes na América pré-colombiana.
+                </p>
+
+                <div class="news-card-footer">
+                  <div class="source-line">
+                    <strong>Pesquisa original:</strong> PLOS One
+                  </div>
+                  <a
+                    class="btn-read"
+                    href="https://doi.org/10.1371/journal.pone.0353607"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Ler estudo original <i class="bi bi-arrow-up-right"></i>
+                  </a>
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- CARD 4: FERRO METEORÍTICO -->
+          <div class="col-md-6 col-lg-4 news-item reveal"
+               data-category="arqueologia"
+               data-search="aneis ferro meteorito meteoritico grecia minoicos micenicos idade bronze">
+            <article class="news-card">
+
+              <div class="news-image">
+                <img
+                  src="https://scx1.b-cdn.net/csz/news/800a/2026/rings-forged-from-mete.jpg"
+                  alt="Anéis antigos de ferro analisados em pesquisa sobre ferro de origem meteórica"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="imageFallback(this)">
+                <span class="image-fallback"><i class="bi bi-gem"></i></span>
+                <span class="image-credit">Anéis arqueológicos · Phys.org</span>
+              </div>
+
+              <div class="news-card-body">
+                <div class="article-meta">
+                  <span class="category-pill">Arqueologia</span>
+                  <span>Agosto de 2026</span>
+                </div>
+
+                <h3>Anéis feitos de ferro de meteoritos eram símbolos de status entre elites do Egeu</h3>
+
+                <p>
+                  A análise química de objetos da Idade do Bronze e do
+                  início da Idade do Ferro identificou peças feitas com
+                  ferro de origem meteórica. Entre elas, anéis associados
+                  a contextos de prestígio das elites minoicas e micênicas.
+                </p>
+
+                <div class="news-card-footer">
+                  <div class="source-line">
+                    <strong>Pesquisa:</strong> Journal of Archaeological Science
+                  </div>
+                  <a
+                    class="btn-read"
+                    href="https://www.sciencedirect.com/science/article/abs/pii/S0305440326001524"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Ler estudo original <i class="bi bi-arrow-up-right"></i>
+                  </a>
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- CARD 5: BIBLIOTECA DE HERCULANO -->
+          <div class="col-md-6 col-lg-4 news-item reveal"
+               data-category="tecnologia"
+               data-search="herculano pergaminho carbonizado inteligencia artificial tomografia vesuvio papiro">
+            <article class="news-card">
+
+              <div class="news-image">
+                <img
+                  src="https://images.euronews.com/articles/stories/09/81/92/42/1920x1718_cmsv2_000244c3-bd39-5b2c-9f65-4f87fe689e19-9819242.jpg"
+                  alt="Pergaminho carbonizado de Herculano e imagens digitais de suas camadas internas"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="imageFallback(this)">
+                <span class="image-fallback"><i class="bi bi-file-earmark-richtext"></i></span>
+                <span class="image-credit">Imagem científica · Euronews</span>
+              </div>
+
+              <div class="news-card-body">
+                <div class="article-meta">
+                  <span class="category-pill">Tecnologia e pesquisa</span>
+                  <span>25 jun. 2026</span>
+                </div>
+
+                <h3>A biblioteca de Herculano começou a falar novamente</h3>
+
+                <p>
+                  Técnicas de tomografia e processamento computacional
+                  permitiram revelar partes de um pergaminho carbonizado
+                  pela erupção do Vesúvio. O documento foi analisado
+                  digitalmente, sem precisar ser aberto fisicamente.
+                </p>
+
+                <div class="news-card-footer">
+                  <div class="source-line">
+                    <strong>Fontes:</strong> University of Kentucky · Vesuvius Challenge
+                  </div>
+                  <a
+                    class="btn-read"
+                    href="https://scrollprize.org/firstscroll"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Conhecer a descoberta <i class="bi bi-arrow-up-right"></i>
+                  </a>
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- CARD 6: COVA DE LA FONT MAJOR -->
+          <div class="col-md-6 col-lg-4 news-item reveal"
+               data-category="arqueologia"
+               data-search="cova font major gravuras paleoliticas pinturas rupestres catalunha espanha">
+            <article class="news-card">
+
+              <div class="news-image">
+                <img
+                  src="https://imagenes.diaridetarragona.com/files/og_thumbnail/uploads/2026/04/12/69dbe42a2b1ed.jpeg"
+                  alt="Gravura paleolítica de um cavalo na parede da Cova de la Font Major"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="imageFallback(this)">
+                <span class="image-fallback"><i class="bi bi-brush"></i></span>
+                <span class="image-credit">Cova de la Font Major</span>
+              </div>
+
+              <div class="news-card-body">
+                <div class="article-meta">
+                  <span class="category-pill">Arqueologia</span>
+                  <span>05 nov. 2026</span>
+                </div>
+
+                <h3>Uma caverna turística escondia centenas de gravuras pré-históricas</h3>
+
+                <p>
+                  O conjunto identificado na Catalunha reúne 280 motivos
+                  paleolíticos, incluindo figuras de animais. A descoberta
+                  mostra como detalhes importantes do passado podem
+                  permanecer despercebidos mesmo em locais bastante visitados.
+                </p>
+
+                <div class="news-card-footer">
+                  <div class="source-line">
+                    <strong>Pesquisa original:</strong> Antiquity
+                  </div>
+                  <a
+                    class="btn-read"
+                    href="https://doi.org/10.15184/aqy.2026.10447"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Ler estudo original <i class="bi bi-arrow-up-right"></i>
+                  </a>
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+        </div>
+
+        <div class="empty-results mt-4" id="emptyResults">
+          <i class="bi bi-search"></i>
+          <strong>Nenhum resultado encontrado.</strong>
+          <div class="small mt-1">Experimente outro termo ou categoria.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section about-section" id="sobre">
+      <div class="container">
+        <div class="row g-4">
+
+          <div class="col-lg-7 reveal">
+            <div class="about-panel">
+              <div class="eyebrow">Nossa proposta</div>
+              <h2>Toda história tem dois lados.</h2>
+              <div class="gold-line"></div>
+
+              <p>
+                O Mundo E Suas Histórias é um espaço dedicado à divulgação
+                de acontecimentos históricos, descobertas arqueológicas,
+                curiosidades científicas e diferentes perspectivas sobre
+                o passado.
+              </p>
+
+              <p>
+                Aqui, a história não é apenas uma sequência de datas.
+                É investigação, contexto, debate e conhecimento.
+              </p>
+
+              <div class="about-links">
+                <a href="https://omundoesuashistorias.github.io/sobre">
+                  <i class="bi bi-info-circle"></i>
+                  Conheça o projeto
+                </a>
+
+                <a href="https://omundoesuashistorias.github.io/blog.html">
+                  <i class="bi bi-journal-text"></i>
+                  Acesse o blog
+                </a>
+
+                <a href="https://omundoesuashistorias.github.io/contato">
+                  <i class="bi bi-envelope"></i>
+                  Entre em contato
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5 reveal">
+            <div class="social-panel">
+              <div class="section-kicker">Acompanhe</div>
+              <h3>Continue essa jornada.</h3>
+
+              <p>
+                Acompanhe os conteúdos, vídeos e novidades do projeto
+                também nas redes sociais.
+              </p>
+
+              <a
+                class="social-link"
+                href="https://www.youtube.com/@omundoesuashistorias"
+                target="_blank"
+                rel="noopener noreferrer">
+                <i class="bi bi-youtube"></i>
+                <span>YouTube</span>
+                <i class="bi bi-arrow-up-right ms-auto"></i>
+              </a>
+
+              <a
+                class="social-link"
+                href="https://facebook.com/omundoesuashistorias"
+                target="_blank"
+                rel="noopener noreferrer">
+                <i class="bi bi-facebook"></i>
+                <span>Facebook</span>
+                <i class="bi bi-arrow-up-right ms-auto"></i>
+              </a>
+
+              <a
+                class="social-link"
+                href="https://instagram.com/omundoesuashistorias"
+                target="_blank"
+                rel="noopener noreferrer">
+                <i class="bi bi-instagram"></i>
+                <span>Instagram</span>
+                <i class="bi bi-arrow-up-right ms-auto"></i>
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section video-section" id="videos">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="section-kicker">Conteúdo em vídeo</div>
+          <h2 class="section-title">Histórias também em movimento</h2>
+          <p class="section-description">
+            Alguns conteúdos do canal para continuar explorando
+            personagens, culturas e acontecimentos históricos.
+          </p>
+        </div>
+
+        <div class="row g-4">
+
+          <div class="col-md-6 reveal">
+            <article class="video-card">
+              <div class="video-frame">
+                <iframe
+                  src="https://www.youtube.com/embed/glqHHEXtEbc"
+                  title="Ísis — A Deusa do Amor"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen>
+                </iframe>
+              </div>
+
+              <div class="video-caption">
+                <h3>Ísis — A Deusa do Amor</h3>
+                <p>Mitologia, religião e as histórias do Egito Antigo.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 reveal">
+            <article class="video-card">
+              <div class="video-frame">
+                <iframe
+                  src="https://www.youtube.com/embed/kU2h9FEIZuk"
+                  title="Escribas no Antigo Egito"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen>
+                </iframe>
+              </div>
+
+              <div class="video-caption">
+                <h3>Escribas no Antigo Egito</h3>
+                <p>Conheça os responsáveis por registrar a sociedade egípcia.</p>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <div class="youtube-cta reveal">
+          <div>
+            <strong>O conhecimento não termina por aqui.</strong>
+            <p>Encontre mais histórias e conteúdos no canal oficial.</p>
+          </div>
+
+          <a
+            class="btn-youtube"
+            href="https://www.youtube.com/@omundoesuashistorias"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="bi bi-youtube"></i>
+            Acessar o YouTube
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="row g-4">
+
+        <div class="col-lg-5">
+          <div class="footer-brand">
+            <img
+              src="https://omundoesuashistorias.github.io/logo_omh_fundo_transparente.png"
+              alt="Logo O Mundo E Suas Histórias">
+            <span>O Mundo E Suas Histórias</span>
+          </div>
+
+          <p class="footer-description">
+            História, arqueologia, ciência e conhecimento.
+            Diferentes perspectivas para compreender o passado
+            e refletir sobre o presente.
+          </p>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="footer-title">Navegação</div>
+          <div class="footer-links">
+            <a href="https://omundoesuashistorias.github.io/">Página inicial</a>
+            <a href="#pesquisas">Descobertas</a>
+            <a href="#videos">Vídeos</a>
+            <a href="https://omundoesuashistorias.github.io/blog.html">Blog</a>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <div class="footer-title">Projeto</div>
+          <div class="footer-links">
+            <a href="https://omundoesuashistorias.github.io/sobre">Sobre</a>
+            <a href="https://omundoesuashistorias.github.io/contato">Contato</a>
+            <a href="https://facebook.com/omundoesuashistorias" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://instagram.com/omundoesuashistorias" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="footer-title">Visitas</div>
+          <a
+            class="visitor-counter"
+            href="https://megacontador.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contador de visitas">
+            <img
+              src="https://megacontador.com.br/img-xtUHCQGny8QTjx01-3.gif"
+              alt="Contador de visitas"
+              loading="lazy">
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>
+          © <span id="current-year"></span> O Mundo E Suas Histórias. Todos os direitos reservados.
+        </span>
+
+        <span>
+          Toda história tem dois lados.
+        </span>
+      </div>
+
     </div>
+  </footer>
 
-    <p class="small mb-0">
-      <i class="fa-solid fa-scroll me-2 opacity-50"></i>
-      O Mundo E Suas Histórias ©
-      <span id="year"></span>
-      | Toda história tem dois lados.
-    </p>
-  </div>
-</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- MODAIS -->
-<div class="modal fade" id="modalFarao" tabindex="-1" aria-labelledby="modalFaraoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalFaraoLabel">
-          <i class="fa-solid fa-crown me-2"></i>
-          O Faraó que Nunca Sorriu
-        </h5>
-        <button type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Fechar"></button>
-      </div>
-      <div class="modal-body">
-        <p>Ramsés II governou o Egito por décadas e construiu monumentos gigantescos. Muitos estudiosos acreditam que sua postura rígida ajudava a transmitir poder absoluto diante do povo egípcio.</p>
-        <p>Suas estátuas monumentais, espalhadas por todo o Egito, sempre o retratavam com uma expressão séria e imponente, reforçando sua autoridade divina.</p>
-      </div>
-    </div>
-  </div>
-</div>
+  <script>
+    // Data atual no cabeçalho
+    const dateElement = document.getElementById("current-date");
 
-<div class="modal fade" id="modalExplosao" tabindex="-1" aria-labelledby="modalExplosaoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalExplosaoLabel">
-          <i class="fa-solid fa-explosion me-2"></i>
-          A Explosão que Salvou uma Cidade
-        </h5>
-        <button type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Fechar"></button>
-      </div>
-      <div class="modal-body">
-        <p>Um acidente químico no século XIX acabou impedindo uma tragédia ainda maior, mudando completamente o destino da cidade.</p>
-        <p>O que parecia ser um desastre tornou-se uma oportunidade de recomeço, transformando a história local para sempre.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="modalBiblioteca" tabindex="-1" aria-labelledby="modalBibliotecaLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalBibliotecaLabel">
-          <i class="fa-solid fa-book-open me-2"></i>
-          Biblioteca que Sobreviveu ao Fogo
-        </h5>
-        <button type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Fechar"></button>
-      </div>
-      <div class="modal-body">
-        <p>Apesar do incêndio devastador, diversos manuscritos históricos foram salvos graças à ação rápida de estudiosos e bibliotecários.</p>
-        <p>Esses documentos preciosos continuam disponíveis até hoje, preservando conhecimento invaluable para as gerações futuras.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-<script>
-/* Inicializar AOS */
-AOS.init({
-  duration: 800,
-  easing: 'ease-out-cubic',
-  once: true,
-  offset: 50
-});
-
-/* Data atual */
-const options = {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric"
-};
-
-const currentDate = document.getElementById("current-date");
-if (currentDate) {
-  currentDate.innerText = new Date().toLocaleDateString("pt-BR", options);
-}
-
-document.getElementById("year").innerText = new Date().getFullYear();
-
-/* Navbar scroll effect */
-window.addEventListener('scroll', function() {
-  const navbar = document.querySelector('.navbar');
-
-  if (navbar) {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+    if (dateElement) {
+      dateElement.textContent = new Intl.DateTimeFormat("pt-BR", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+      }).format(new Date());
     }
-  }
-});
 
-/* Fechar menu mobile após selecionar um link */
-document.querySelectorAll('#navbarNav .nav-link').forEach(function(link) {
-  link.addEventListener('click', function() {
-    const navbarCollapse = document.getElementById('navbarNav');
+    // Ano automático no rodapé
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
 
-    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-      bootstrap.Collapse.getOrCreateInstance(navbarCollapse).hide();
-    }
-  });
-});
+    // Efeito no cabeçalho durante a rolagem
+    const siteHeader = document.getElementById("siteHeader");
 
-/* Blogger Feed Callback */
-window.bloggerFeedCallback = function(data) {
-  const entries = data.feed && data.feed.entry ? data.feed.entry : [];
-  const container = document.getElementById("posts-container");
+    window.addEventListener("scroll", () => {
+      siteHeader.classList.toggle("scrolled", window.scrollY > 20);
+    }, { passive: true });
 
-  if (!container) return;
+    // Fechar o menu mobile depois de clicar em um link
+    const navigation = document.getElementById("mainNavigation");
 
-  container.innerHTML = "";
+    navigation.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth < 992) {
+          const menu = bootstrap.Collapse.getInstance(navigation);
 
-  if (entries.length > 0) {
-    /* Primeiro post: Hero */
-    const firstPost = entries[0];
-    const firstTitle = firstPost.title.$t;
-    const firstLinkEntry = firstPost.link.find(function(link) {
-      return link.rel === "alternate";
+          if (menu) {
+            menu.hide();
+          }
+        }
+      });
     });
 
-    const firstLink = firstLinkEntry ? firstLinkEntry.href : "https://omundoesuashistoriasartigos.blogspot.com/";
-    const firstImg = firstPost.media$thumbnail
-      ? firstPost.media$thumbnail.url.replace("s72-c", "s1600")
-      : "https://omundoesuashistorias.github.io/thumbnail.jpg";
+    // Imagem reserva individual: não reutiliza fotografia de outro card
+    function imageFallback(image) {
+      image.style.display = "none";
 
-    document.getElementById("hero-title").innerText = firstTitle;
-    document.getElementById("hero-link").href = firstLink;
-    document.getElementById("hero-img").style.backgroundImage = "url('" + firstImg + "')";
+      const fallback = image.parentElement.querySelector(".image-fallback");
 
-    const heroSnippet = document.getElementById("hero-snippet");
-    if (firstPost.summary && firstPost.summary.$t) {
-      const temporaryElement = document.createElement("div");
-      temporaryElement.innerHTML = firstPost.summary.$t;
-      heroSnippet.innerText = temporaryElement.textContent.trim().slice(0, 220);
-    } else {
-      heroSnippet.innerText = "Confira a publicação mais recente do nosso portal de pesquisas históricas.";
+      if (fallback) {
+        fallback.style.display = "flex";
+      }
     }
 
-    /* Posts restantes */
-    entries.slice(1, 6).forEach(function(entry, index) {
-      const title = entry.title.$t;
-      const linkEntry = entry.link.find(function(link) {
-        return link.rel === "alternate";
+    // Pesquisa e filtro de categorias
+    const searchInput = document.getElementById("newsSearch");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const newsItems = Array.from(document.querySelectorAll(".news-item"));
+    const newsCount = document.getElementById("newsCount");
+    const emptyResults = document.getElementById("emptyResults");
+
+    function filterNews() {
+      const searchTerm = searchInput.value
+        .trim()
+        .toLocaleLowerCase("pt-BR");
+
+      const selectedCategory = categoryFilter.value;
+
+      let visibleCount = 0;
+
+      newsItems.forEach(item => {
+        const category = item.dataset.category || "";
+        const searchableText = (
+          item.dataset.search + " " + item.textContent
+        ).toLocaleLowerCase("pt-BR");
+
+        const matchesSearch = searchableText.includes(searchTerm);
+        const matchesCategory =
+          selectedCategory === "todos" ||
+          category === selectedCategory;
+
+        const visible = matchesSearch && matchesCategory;
+
+        item.style.display = visible ? "" : "none";
+
+        if (visible) {
+          visibleCount++;
+        }
       });
 
-      const link = linkEntry ? linkEntry.href : "https://omundoesuashistoriasartigos.blogspot.com/";
-      const img = entry.media$thumbnail
-        ? entry.media$thumbnail.url.replace("s72-c", "s600")
-        : "https://omundoesuashistorias.github.io/thumbnail.jpg";
+      newsCount.textContent =
+        visibleCount === 1
+          ? "1 pesquisa encontrada"
+          : `${visibleCount} pesquisas encontradas`;
 
-      const card = document.createElement("div");
-      card.className = "news-card p-4 mb-4";
-      card.setAttribute("data-aos", "fade-up");
-      card.setAttribute("data-aos-delay", (index * 100).toString());
+      emptyResults.style.display =
+        visibleCount === 0 ? "block" : "none";
+    }
 
-      const row = document.createElement("div");
-      row.className = "row align-items-center g-4";
+    searchInput.addEventListener("input", filterNews);
+    categoryFilter.addEventListener("change", filterNews);
 
-      const imageColumn = document.createElement("div");
-      imageColumn.className = "col-md-4";
+    // Animação de entrada dos elementos
+    const revealElements = document.querySelectorAll(".reveal");
 
-      const image = document.createElement("img");
-      image.src = img;
-      image.className = "img-fluid rounded-4";
-      image.alt = title;
-      image.loading = "lazy";
-      image.style.width = "100%";
-      image.style.aspectRatio = "16 / 9";
-      image.style.objectFit = "cover";
-      image.style.display = "block";
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -35px 0px"
+      });
 
-      imageColumn.appendChild(image);
-
-      const contentColumn = document.createElement("div");
-      contentColumn.className = "col-md-8";
-
-      const heading = document.createElement("h4");
-      heading.className = "mb-3";
-      heading.textContent = title;
-
-      const paragraph = document.createElement("p");
-      paragraph.className = "mb-4";
-      paragraph.textContent = "Pesquisa histórica exclusiva publicada em nosso portal. Explore detalhes, contexto e análises aprofundadas.";
-
-      const button = document.createElement("a");
-      button.href = link;
-      button.target = "_blank";
-      button.rel = "noopener noreferrer";
-      button.className = "btn btn-portal";
-
-      const buttonIcon = document.createElement("i");
-      buttonIcon.className = "fa-solid fa-book-open me-2";
-
-      button.appendChild(buttonIcon);
-      button.appendChild(document.createTextNode("Ver Pesquisa Completa"));
-
-      contentColumn.appendChild(heading);
-      contentColumn.appendChild(paragraph);
-      contentColumn.appendChild(button);
-
-      row.appendChild(imageColumn);
-      row.appendChild(contentColumn);
-      card.appendChild(row);
-      container.appendChild(card);
-    });
-
-    /* Re-inicializar AOS para os novos elementos */
-    AOS.refresh();
-  } else {
-    container.innerHTML = '<p class="text-center text-muted p-4">Nenhum artigo encontrado no momento.</p>';
-  }
-};
-
-/* Carregar feed do Blogger */
-const bloggerScript = document.createElement("script");
-bloggerScript.src = "https://omundoesuashistoriasartigos.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=6&callback=bloggerFeedCallback";
-bloggerScript.onerror = function() {
-  const container = document.getElementById("posts-container");
-  if (container) {
-    container.innerHTML = '<p class="text-center text-muted p-4">Não foi possível carregar os artigos agora. Tente novamente mais tarde.</p>';
-  }
-};
-document.body.appendChild(bloggerScript);
-</script>
+      revealElements.forEach(element => {
+        revealObserver.observe(element);
+      });
+    } else {
+      revealElements.forEach(element => {
+        element.classList.add("visible");
+      });
+    }
+  </script>
 
 </body>
 </html>
