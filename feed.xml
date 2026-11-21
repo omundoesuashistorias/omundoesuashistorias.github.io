@@ -1,48 +1,60 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
-  <channel>
-    <title>Ciência News — Uma pílula com notícias sobre ciências</title>
-    <link>https://portalciencianews.github.io/</link>
-    <description>Últimos artigos e notícias do Ciência News.</description>
-    <language>pt-BR</language>
-    <lastBuildDate>Thu, 02 Oct 2025 12:00:00 +0000</lastBuildDate>
-    <ttl>60</ttl>
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0"><channel><title>O Mundo e Suas Histórias</title><link>https://omundoesuashistorias.github.io/</link><description>Pesquisas, curiosidades e histórias.</description><language>pt-BR</language><item><title>Um misterioso corpo de areia encontrado em Sutton Hoo</title><link>https://omundoesuashistorias.github.io/#pesquisas</link><guid isPermaLink="false">bbafe7804fd0f902efe8ca54f88488075674b4652dbc6087e7172470022428d2</guid><description>Arqueólogos encontraram um sepultamento incomum no cemitério Garden Field, em Sutton Hoo, Suffolk, Inglaterra. A descoberta ocorreu durante uma campanha de escavação realizada em 2025 pelo projeto Time Team em parceria com o National Trust.
 
-    <!-- Artigo 1: Energia Escura -->
-    <item>
-      <title>Energia Escura: Simulações Desafiam Modelo Cosmológico Padrão</title>
-      <link>https://portalciencianews.github.io/post/outubro/energia-escura-simulacoes.html</link>
-      <guid isPermaLink="true">https://portalciencianews.github.io/post/outubro/energia-escura-simulacoes.html</guid>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0000</pubDate>
-      <description><![CDATA[
-        Novas simulações sugerem que a energia escura pode não se comportar exatamente como prevê o modelo cosmológico padrão.
-      ]]></description>
-      <media:content url="https://scx1.b-cdn.net/csz/news/800a/2025/could-dark-energy-chan.jpg" type="image/jpeg"/>
-    </item>
+Os chamados sand bodies, ou corpos de areia, são formas preservadas no solo depois que os restos humanos desaparecem. As condições ácidas do terreno podem dissolver ossos e matéria orgânica, enquanto a areia endurecida conserva o contorno do corpo.
 
-    <!-- Artigo 2: Lua -->
-    <item>
-      <title>Lua de duas faces: novas amostras sugerem que o lado oculto foi mais frio</title>
-      <link>https://portalciencianews.github.io/lua-lado-oculto-mais-frio.html</link>
-      <guid isPermaLink="true">https://portalciencianews.github.io/lua-lado-oculto-mais-frio.html</guid>
-      <pubDate>Thu, 02 Oct 2025 08:00:00 +0000</pubDate>
-      <description><![CDATA[
-        Pesquisas recentes indicam que a composição do lado oculto da Lua difere do lado visível, revelando pistas sobre sua formação.
-      ]]></description>
-      <media:content url="https://scx1.b-cdn.net/csz/news/800a/2025/far-side-of-the-moon-m.jpg" type="image/jpeg"/>
-    </item>
+Junto ao sepultamento foram encontrados contas, pinças, uma faca e um broche. Mais intrigante ainda: os arqueólogos identificaram sinais de que outra pessoa poderia estar enterrada diretamente abaixo do primeiro indivíduo.
 
-    <!-- Artigo 3: Fóton -->
-    <item>
-      <title>Quanto tempo um fóton permanece como excitação atômica? O enigma do tempo quântico</title>
-      <link>https://portalciencianews.github.io/quanto-tempo-foton-excitacao-atomica.html</link>
-      <guid isPermaLink="true">https://portalciencianews.github.io/quanto-tempo-foton-excitacao-atomica.html</guid>
-      <pubDate>Wed, 01 Oct 2025 19:00:00 +0000</pubDate>
-      <description><![CDATA[
-        Um estudo recente tenta resolver o enigma de quanto tempo a informação quântica de um fóton sobrevive em um átomo excitado.
-      ]]></description>
-      <media:content url="https://i.postimg.cc/521Qj1s9/images.jpg" type="image/jpeg"/>
-    </item>
+A investigação também procura compreender como esse cemitério se relacionava com as famosas sepulturas monumentais e com as comunidades comuns que viviam na região durante o período anglo-saxão.</description><category>Arqueologia</category><source>HeritageDaily · National Trust · Time Team</source><pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate></item><item><title>Harvard devolve ao Brasil restos mortais de duas pessoas escravizadas</title><link>https://omundoesuashistorias.github.io/#pesquisas</link><guid isPermaLink="false">05f195c442bc9a0aea4113b0c9990da1d7695b471f92673d8933ef5eec6730d2</guid><description>Mais de um século e meio depois de terem sido retirados do Brasil, os restos mortais de duas pessoas de ascendência africana retornaram ao país após permanecerem na coleção do Museu Peabody de Arqueologia e Etnologia, vinculado à Universidade Harvard.
 
-  </channel>
-</rss>
+A restituição foi acompanhada de cerimônias no Rio de Janeiro e em Salvador, encerrando uma campanha de recuperação que envolveu pesquisadores, organizações comunitárias e autoridades brasileiras.
+
+Um dos indivíduos é identificado como um homem de origem nagô, ou iorubá, que provavelmente participou da Revolta dos Malês, ocorrida em Salvador em janeiro de 1835. O levante foi uma das mais importantes rebeliões urbanas de pessoas escravizadas na história brasileira.
+
+O segundo indivíduo, provavelmente uma mulher adulta, teve seus restos mortais associados a registros de uma expedição realizada no Brasil em 1865 e 1866. Há uma hipótese de que tenha sido retirada do antigo Cemitério dos Pretos Novos, no Rio de Janeiro.
+
+Os restos mortais foram encaminhados a instituições brasileiras. A restituição abre novas discussões sobre a história da escravidão, a violência científica do século XIX e a responsabilidade dos museus na preservação da dignidade humana.</description><category>História e memória</category><source>Smithsonian Magazine · The Art Newspaper</source><pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate></item><item><title>Mais de 200 moedas de prata celtas encontradas na Hungria</title><link>https://omundoesuashistorias.github.io/#pesquisas</link><guid isPermaLink="false">562a262ff2bc2466aaca6211f46bec50521b8b5efac431e066a5c12a57022ecc</guid><description>Arqueólogos na Hungria encontraram um conjunto com mais de 200 moedas de prata de origem celta durante escavações em Szombathely, no condado de Vas.
+
+As moedas estavam depositadas em uma cavidade rasa. Algumas delas haviam sido colocadas dentro de um pequeno recipiente de cerâmica.
+
+A datação preliminar situa o conjunto entre o final do século II e o início do século I antes de Cristo. O achado oferece novas informações sobre circulação monetária, redes de intercâmbio e práticas de armazenamento de riqueza entre comunidades celtas da Europa Central.
+
+A região também revelou evidências de aproximadamente sete mil anos de atividade humana, demonstrando a longa ocupação daquele território.
+
+A descoberta foi divulgada em novembro de 2026 pelo HeritageDaily, com referência às instituições húngaras envolvidas na investigação.</description><category>Arqueologia da Idade do Ferro</category><source>HeritageDaily · Hungarian National Museum Public Collection Center</source><pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate></item><item><title>Uma monumental igreja medieval é revelada na antiga Núbia</title><link>https://omundoesuashistorias.github.io/#pesquisas</link><guid isPermaLink="false">fb93fd8bfc99a795a595c4238a0905217c4319626264ff4140736401761deffd</guid><description>Uma missão arqueológica polonesa-sudanesa realizou novas investigações na Grande Igreja de Jesus, em Old Dongola, no atual Sudão.
+
+A equipe alcançou o piso original do edifício após escavar uma escadaria monumental cercada por paredes de aproximadamente 11 metros de altura.
+
+A construção possui dimensões estimadas de 47 por 57 metros, sendo considerada um dos maiores edifícios religiosos conhecidos da Núbia medieval.
+
+Old Dongola foi uma das principais cidades do Reino de Makúria, uma potência cristã que se desenvolveu ao longo do vale do Nilo durante a Idade Média.
+
+A descoberta amplia o conhecimento sobre a arquitetura religiosa, a organização urbana e a história política dos reinos africanos medievais.</description><category>Arqueologia medieval</category><source>HeritageDaily · Polish Centre of Mediterranean Archaeology</source><pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate></item><item><title>Um armário lacrado pelo Vesúvio preservou objetos de uma família romana</title><link>https://omundoesuashistorias.github.io/#pesquisas</link><guid isPermaLink="false">3cc76e90c495e3e7e3bdadbc32661125d0e238f977c5e19ee97247e3dc8acf5a</guid><description>Uma escavação na antiga cidade romana de Pompeia revelou os vestígios de um armário de madeira preservado sob as camadas vulcânicas deixadas pela erupção do Vesúvio, no ano 79.
+
+A equipe arqueológica conseguiu reconstruir digitalmente e fisicamente partes da estrutura, que continha objetos pertencentes à vida cotidiana de uma família.
+
+Entre os materiais recuperados estavam amuletos, moedas, instrumentos de beleza e pequenos objetos pessoais.
+
+O conjunto oferece uma oportunidade rara de observar aspectos da vida doméstica romana. Em vez de apenas monumentos públicos e grandes obras, os objetos permitem investigar hábitos pessoais, crenças, cuidados com a aparência e a organização do cotidiano.
+
+A descoberta também ajuda a compreender como os ambientes domésticos foram preservados pela catástrofe que interrompeu abruptamente a vida da cidade.</description><category>Arqueologia romana</category><source>Archaeological Park of Pompeii · Ancient Herald</source><pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate></item><item><title>Esqueleto de 6 mil anos revela a transição para a agricultura</title><link>https://omundoesuashistorias.github.io/#pesquisas</link><guid isPermaLink="false">b1520e2cb0f1a03211ceef0c57c2d427cad9e201f4b0ba29c7f3a68438f0e6fb</guid><description>Um esqueleto humano com aproximadamente seis mil anos, encontrado na Dinamarca, está ajudando pesquisadores a compreender como as populações de caçadores-coletores reagiram à chegada das primeiras comunidades agrícolas europeias.
+
+O indivíduo conhecido como Rødhals Man viveu em um período de profundas transformações culturais e econômicas na região.
+
+A análise de isótopos em seus dentes e ossos oferece informações sobre sua alimentação ao longo da vida. Os resultados indicam mudanças no consumo de alimentos, com uma transição de recursos predominantemente marinhos para uma dieta com maior participação de alimentos terrestres.
+
+A pesquisa permite observar a transformação do modo de vida de uma população que conviveu com a expansão da agricultura, uma das mudanças mais importantes da pré-história europeia.</description><category>Pré-história</category><source>HeritageDaily · Pesquisa arqueológica</source><pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate></item><item><title>Uma antiga necrópole egípcia revela centenas de caixões de pedra</title><link>https://omundoesuashistorias.github.io/#pesquisas</link><guid isPermaLink="false">23a7398e73267cd1eaadc6249cb2bf8986e4250b5c6ab5ca119a43a8a1ddf2c3</guid><description>Uma missão arqueológica egípcia anunciou a descoberta de uma antiga área funerária na província de Monufia, no delta do Nilo.
+
+O cemitério revelou centenas de caixões de pedra e cerâmica, além de estruturas funerárias e diversos objetos associados aos rituais de sepultamento.
+
+O conjunto amplia o conhecimento sobre as práticas funerárias desenvolvidas na região em diferentes momentos da história egípcia.
+
+Os objetos recuperados ajudam a investigar a organização dos cemitérios, as crenças religiosas, os rituais associados à morte e as transformações culturais que ocorreram entre o final do Período Tardio, a época ptolomaica e o início do período romano.
+
+O estudo do material arqueológico poderá oferecer informações sobre as comunidades que viveram naquela região e suas relações com os centros políticos e religiosos do Egito antigo.</description><category>Egito Antigo</category><source>HeritageDaily · Autoridades arqueológicas egípcias</source><pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate></item><item><title>Um assentamento romano aparece sob um campo de críquete</title><link>https://omundoesuashistorias.github.io/#pesquisas</link><guid isPermaLink="false">eccc0f5d1db9300849ef56128f3ec1019cf0386300a0496928fbb195163c9c63</guid><description>Arqueólogos que investigavam a área destinada à construção de um novo campo de críquete em Wendover, Buckinghamshire, na Inglaterra, encontraram vestígios de um assentamento com longa história de ocupação.
+
+O material recuperado inclui moedas romanas, sepultamentos, fragmentos de cerâmica e objetos cotidianos. Os vestígios indicam uma ocupação que se estendeu por quase quatro séculos.
+
+O local também apresenta evidências de atividade anterior à presença romana, permitindo investigar as transformações ocorridas durante a transição entre a Idade do Ferro e o período romano.
+
+A descoberta é particularmente interessante porque mostra como projetos modernos de infraestrutura e instalações esportivas podem revelar vestígios arqueológicos preservados sob terrenos aparentemente comuns.</description><category>Arqueologia romana</category><source>HeritageDaily · Pesquisa arqueológica em Wendover</source><pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate></item></channel></rss>
